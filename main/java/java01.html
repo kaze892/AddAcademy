@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#333">
-    <title>第1章　Javaとは</title>
+    <title>第1章　Java構文</title>
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
@@ -34,9 +34,9 @@
             <div class="text-center">
                 <br>
                 <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第1章　Javaとは</h1>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第0章　Java構文</h1>
                 <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    Java は「プログラミング言語」であり、また、「プログラム実行のプラットフォーム」でもあります。
+                    この章では Java の構文について説明します。 
                 </p>
                 <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
                 
@@ -44,248 +44,52 @@
         </div>
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **JAVAとは**
-***
-&lt;br&gt;
-## **1.JAVAの紹介**
-### **Javaとはプログラミング言語** 
 
-Javaは、1995年にSun Microsystemsにより初めてリリースされたプログラミング言語およびコンピューティング・プラットフォームです。Javaをインストールしないと機能しないアプリケーションやWebサイトが数多く存在し、さらに毎日作成されています。Javaは高速かつセキュアで、信頼性があります。
-ノートブックからデータセンター、ゲーム・コンソールから科学計算用スーパーコンピュータ、携帯電話からインターネットにいたるまでJavaはあらゆるところにあります。
+<textarea id="text" style="display:none">
 
-&lt;br&gt;
-
-### **Javaを使うメリット**
-
-* 処理速度が速い
-
- Javaは、起動にコンパイルを必要とするコンパイラ言語であるためRubyやPHP, Pythonといった言語よりも処理速度が速いのが特徴です。 
-
-* プラットフォームに依存しない
-
- OSに関係なく、Windows, iOS, Linuxで動作させることができる言語です。 
-
-* オブジェクト指向である
-
- プログラムの管理を細かく行うことができるので、複数人で同じものを開発するときなど作業効率が上がるでしょう。
-
-&lt;br&gt;&lt;br&gt;
-
-### **Java SEとは**
-Java SE とは Java Platform, Standard Edition の略で、 Java で使用される API をまとめたものです。 API とは Application Programming Interface の略で、 この場合は Java の機能やデータなどを利用するための呼び出し方を定義したものと考えてください。
-&lt;br&gt;
-Java で提供されている API は非常に多いのですが、 Java SE はその中でも基本となる API をまとめたものとなり、 例えば java.lang.String クラスなどが含まれます。
-&lt;br&gt;
-Java SE は定期的にバージョンアップされています。 どのバージョンの Java SE なのかが分かるようにバージョンを表す番号を合わせて記述します。例えば Java SE 8 とか Java SE 13 とかです。
-
-### **JVMとは**
-JVM とは Java Virtual Machine の略で Java で作成されたアプリケーションを Windows や Mac OS などで動かすために必要となるアプリケーションです。 Java 仮想マシンなどとも呼ばれます。
-&lt;!--JVM.PNG--&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/2MePEWsHraXd9i1.png&quot; width=&quot;60%&quot;&gt;
-&lt;br&gt;
-Javaで作ったプログラムはOSではなく、JVMとやりとりするので、OSごとに特別な設定などは不要です。JVMがあれば、OSがWindows、Mac、Linuxなど、環境に依存せずに動かせることがわかりますね！
-
-### **JREとは**
-JRE とは Java Runtime Environment の略で Java のプログラムを実行するためのセットとなっています。 Java 実行環境とか Java ランタイムなどと呼ばれます。 JRE にはJVM や対応する API がセットになっています。
-&lt;br&gt;
-Java で作成されたアプリケーションは JVM 上で実行されますが、実際には JRE を各 OS にインストールすることで Java アプリケーションが実行できる環境が構築できます。 JRE は対応する Java SE のバージョンに合わせて、バージョン番号が付けられます。例えば JRE 8 とか JRE 13 とかです。
-&lt;br&gt;
-なお以前は JRE だけを単独でインストールすることが可能でしたが、 2019年12月 現在では JRE は単独で配布されておらずこのあと解説する JDK をインストールする必要があります。
-
-### **JDKとは**
-JDK とは Java Development Kit の略で Java のプログラムの開発や実行を行うためのプログラムのセットとなっています。 Java 開発環境などと呼ばれます。JRE の他に、 Java で記述されたプログラムをコンパイルするためのプログラムやデバッグするためのプログラムなどが含まれ、 JDK をインストールすることで Java を使ったアプリケーションの作成や作成したアプリケーションの実行まで一通り行うことができます。
-JDK は対応する Java SE のバージョンに合わせてバージョン番号が付けられます。例えば JDK 8 とか JDK 13 とかです。
-
-Java 仮想マシンである JVM 、 Java 実行環境の JRE 、 Java 開発環境の JDK 、のそれぞれの関係と違いについてはざっくりと図にすると下記のようになります。
-
-&lt;!--JDK.PNG--&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/lEp2w1RPnYfovi4.png&quot; width=&quot;60%&quot;&gt;
-
-## **2.JAVAの環境構築**
-
-### **Javaをダウンロードする**
-&lt;a href=&quot;https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html&quot; target=&quot;_blank&quot;&gt;
-JAVAの開発環境であるJDK(Java SE Development Kit)をダウンロードします。&lt;/a&gt;
-
-PCが64bitの場合はWindows x64の項目を、32bitの場合はWindows x86の項目をクリックします。
-&lt;!--graph1-1.png --&gt;
-&lt;a href=&quot;https://i.loli.net/2019/09/02/cXOtsNQ3xnUyIPe.png&quot; target=&quot;_blank&quot;&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/cXOtsNQ3xnUyIPe.png&quot; width=&quot;40%&quot;&gt;&lt;/a&gt;
-
-&lt;br&gt;
-
-### **JDKのインストール**
-
-&lt;!--graph1-2.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/SmUcKAokX8nCvhr.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;!--graph1-3.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/T1FEeoCLuQtbJAj.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;!--graph1-4.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/pwb7KkTRnuGSfgh.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;!--graph1-5.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/6JZkitoPYKsj4Qd.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;br&gt;
-
-### **環境変数の設定**
-
-次は、インストールしたJAVAを使うための、環境変数を設定します。
-
-デスクトップにある「パソコン」のマークを右クリックして、プロパティをクリック。
-
-（もし「パソコン」がなかったら、デスクトップの左下のWindowsのマークを右クリックして、
-
-システムをクリック。）
-
-&lt;!--graph1-6.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/8ve6FysVqWRiPTY.png&quot; width=&quot;40%&quot;&gt;
-
-システムの詳細設定をクリック。
-
-&lt;!--graph1-7.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/FjJpNfMxiXd3vOb.png&quot; width=&quot;40%&quot;&gt;
-
-環境変数をクリック。
-
-&lt;!--graph1-8.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/VhjRb7Zf2ux1MXc.png&quot; width=&quot;40%&quot;&gt;
-
-システム環境変数のPathを選択して、編集をクリック
-
-&lt;!--graph1-9.jpg --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/GvjHy9BAz4El2KO.jpg&quot; width=&quot;40%&quot;&gt;
-
-新規をクリックし、インストール時にメモしたパスに「\bin」を付け足して入力し、OKをクリック。
-
-&lt;!--graph1-10.jpg --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/09/02/l2zSdcE4PRI19MO.jpg&quot; width=&quot;40%&quot;&gt;
-
-環境変数の画面に戻るので、OKをクリック。システムのプロパティの画面もOKをクリックして、設定を完了します。
-
-最後に、パスの設定が完了したかjavaのバージョンを表示するコマンドで確認します。
-
-デスクトップの左下のWindowsのマークを右クリックして、ファイル名を指定して実行をクリックし、cmdと入力し、OKをクリック、コマンドプロンプトの画面に、「java -version」を入力し、Enterキーを押してバージョンが表示されれば、JDKのインストール確認完了です。
-
-&lt;!--graph1-11.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/24/3zUS2iG4KsTHP6k.png&quot; width=&quot;50%&quot;&gt;
-
-&lt;br&gt;
-
-## **3.JAVAの実行** 
-テスト用フォルダを作成する
-&lt;br&gt;
-これから Java の学習を行うために、Java のテスト用フォルダを作成しておきましょう。テスト用フォルダを C:\java とした場合の例を示します。
-&lt;!--java.png--&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/T4qyMXcPfY5gCwO.png&quot; width=&quot;40%&quot;&gt;
-
-### **javaアプリケーションのサンプル（HelloWorld）**
-簡単な Java アプリケーションを作成してみましょう。メモ帳などのテキストエディタで、下記の内容のファイルを作成し、ファイル名 HelloWorld.java で保存してください。ファイル名は大文字・小文字も正確に区別して指定してください。
-
-&lt;br&gt;
-[HelloWorld.java]
-&lt;pre&gt;&lt;code&gt;
-public class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println(&quot;Hello World!&quot;);
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-ファイルが作成されていることを dir コマンドで確認してみます。
-&lt;br&gt;
-
-C:\java&gt;dir
-&lt;br&gt;
-&lt;!--java2.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/Rr2DyfCs54iOmEI.png&quot; width=&quot;40%&quot;&gt;
-&lt;br&gt;
-これを、javac コマンドでコンパイルします。
-&lt;br&gt;
-&lt;!--java3.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/dW7xEtAykinhROP.png&quot; width=&quot;40%&quot;&gt;
-&lt;br&gt;
-コンパイルすると、HelloWorld.class ファイルが作成されます。
-&lt;br&gt;
-&lt;!--java4.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/JgNqQCSVHElKrXf.png&quot; width=&quot;40%&quot;&gt;
-
-HelloWorld.class ファイルを java コマンドで実行してみましょう。
-&lt;br&gt;
-&lt;!--java5.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2020/02/17/Nnhbfo9iuKp6HlJ.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;br&gt;
-Hello World! と表示されれば成功です。
-
-## **4.EclipseでJAVAの実行** 
-### **開発ツールEclipse**
-&lt;a href=&quot;https://www.eclipse.org/downloads/&quot; target=&quot;_blank&quot;&gt;Eclipseダウンロード&lt;/a&gt;
-
-環境構築は必ず行ってください。
-
-&lt;br&gt;&lt;br&gt;
-解凍したフォルダの「eclipse」フォルダを選択すると、「eclipse.exe」がありますので、これをダブルクリックします。
-
-&lt;!--graph1-13.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb040bd9fd37.png&quot; width=&quot;40%&quot; &gt;
-&lt;br&gt;
-その後「Eclipseランチャー」ダイアログが表示されますので、ワークスペースのフォルダを選択してください。
-&lt;br&gt;
-
-&lt;!--graph1-14.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb041bfb263e.png&quot; width=&quot;40%&quot; &gt;
-
-**ワークスペース**とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。デフォルトで表示されているフォルダを変更しても問題ありません。
+<h1><b>JAVA構文</b></h1>
+<br>
+<hr>
+<h2><b>1.開発ツールEclipseでJAVAの実行</b></h2>
+<h2><b>開発ツールEclipse</b></h2>
+<br>
+<a href="https://www.eclipse.org/downloads/">Eclipseダウンロード</a>
+<p>環境構築は必ず行ってください。</p>
+<br>
+<p>デスクトップに「eclipse.exe」ショートカット、あるいは「eclipse」フォルダの中に「eclipse.exe」がありますので、これをダブルクリックします。</p>
+<img style="height: 310px"; src="../assets/img/j01/eclipse01.png" alt=" ">
+<br>
+<br>
+<p>その後「Eclipseランチャー」ダイアログが表示されますので、ワークスペースのフォルダを選択してください。</p>
+<br>
+<img style="height: 180px"; src="../assets/img/j01/eclipse02.png" alt=" ">
+<p><b>ワークスペース</b>とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。デフォルトで表示されているフォルダを変更しても問題ありません。
 
 ワークスペースを選択したら、そのまま「起動」ボタンを押します。
 
-起動すると、Eclipseの開発画面が表示されます。
+起動すると、Eclipseの開発画面が表示されます。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse03.png" alt=" ">
+<br>
+<p><b>javaプロジェクトの作成</b>><p>
+<p>ツールバー中にファイルの「新規」を選択し、「javaプロジェクト」を選択します。</p>
+<img style="height: 400px"; src="../assets/img/j01/eclipse04.png" alt=" ">
+<p>「プロジェクト名」に「MyClass」を入力し、「完了」を押します。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse05.png" alt=" ">
+<p>「MyClass」の名前でjavaプロジェクトを作成しました。</p>
+<br>
+<p><b>プログラムの作成</b>><p>
+<p>「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。そのメニューで［新規］→［クラス］を指定します。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse06.png" alt=" ">
+<p>すると、［新規Javaクラス］ダイアログが表示されるので、［名前］にMyClassと入力し、［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］をチェックして、［終了］ボタンをクリックします。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse07.png" alt=" ">
+<p>エディタにソースコードが自動生成されました。</p>
+<br>
+<h1><B>初めてのjavaコード</B></h1>
 
-&lt;!--graph1-15.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb0426585c70.png&quot; width=&quot;40%&quot; &gt;
+<p>下記のコードの編集を終えたら、保存します。</p>
+<br>
+<p>[MyClass.java]</p>
 
-&lt;br&gt;
-
-### **javaプロジェクトの作成**
-
-ツールバー中にファイルの「新規」を選択し、「javaプロジェクト」を選択します。
-
-&lt;!--graph1-16.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb0433a75235.png&quot; width=&quot;40%&quot;&gt;
-
-「プロジェクト名」に「MyClass」を入力し、「完了」を押します。
-
-&lt;!--graph1-17.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb0449c5ed0b.png&quot; width=&quot;40%&quot;&gt;
-
-「MyClass」の名前でjavaプロジェクトを作成しました。
-
-&lt;br&gt;
-
-### **プログラムの作成**
-
-「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。そのメニューで［新規］→［クラス］を指定します。
-
-&lt;!--graph1-18.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb04891219c7.png&quot; width=&quot;40%&quot;&gt;
-
-すると、［新規Javaクラス］ダイアログが表示されるので、［名前］にMyClassと入力し、［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］をチェックして、［終了］ボタンをクリックします。
-
-&lt;!--graph1-19.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb04a80b78af.png&quot; width=&quot;40%&quot;&gt;
-
-エディタにソースコードが自動生成されました。
-
-&lt;br&gt;
-
-### **１つ目のjavaソース**
-
-下記のコードの編集を終えたら、保存します。
-&lt;br&gt;
-[MyClass.java]
 &lt;pre&gt;&lt;code&gt;
 public class MyClass {
   public static void main(String[] args) {
@@ -294,22 +98,18 @@ public class MyClass {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;!--graph1-20.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb04c2aeb31d.png&quot; width=&quot;40%&quot;&gt;
+<img style="height: 160px"; src="../assets/img/j01/eclipse08.png" alt=" ">
+<br>
+<p>右クリックし、［実行］→［Javaアプリケーション］を指定します。</p>
+<img style="height: 85px"; src="../assets/img/j01/eclipse09.png" alt=" ">
+<br>
+<br>
+<h2><b>実行結果</h2></b>
+<img style="height: 130px"; src="../assets/img/j01/eclipse10.png" alt=" ">
+<p>出力にHello World! と表示されれば成功です。</p>
 
-&lt;br&gt;
-
-右クリックし、［実行］→［Javaアプリケーション］を指定します。
-&lt;!--graph1-21.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb052d82021b.png&quot; width=&quot;40%&quot;&gt;
-
-&lt;br&gt;
-
-#### **実行結果**
-
-&lt;!--graph1-22.png --&gt;
-&lt;img src=&quot;https://i.loli.net/2019/04/12/5cb0531a6f5d7.png&quot; width=&quot;40%&quot;&gt;
 </textarea>
+
         <p id="output">content</p>
     </div>
     <div class="text-center">

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第0章　Javaとは</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第1章　Javaとは</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    Java は「プログラミング言語」であり、また、「プログラム実行のプラットフォーム」でもあります。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **JAVAとは**
+***
+&lt;br&gt;
+## **1.JAVAの紹介**
+### **Javaとはプログラミング言語** 
+
+Javaは、1995年にSun Microsystemsにより初めてリリースされたプログラミング言語およびコンピューティング・プラットフォームです。Javaをインストールしないと機能しないアプリケーションやWebサイトが数多く存在し、さらに毎日作成されています。Javaは高速かつセキュアで、信頼性があります。
+ノートブックからデータセンター、ゲーム・コンソールから科学計算用スーパーコンピュータ、携帯電話からインターネットにいたるまでJavaはあらゆるところにあります。
+
+&lt;br&gt;
+
+### **Javaを使うメリット**
+
+* 処理速度が速い
+
+ Javaは、起動にコンパイルを必要とするコンパイラ言語であるためRubyやPHP, Pythonといった言語よりも処理速度が速いのが特徴です。 
+
+* プラットフォームに依存しない
+
+ OSに関係なく、Windows, iOS, Linuxで動作させることができる言語です。 
+
+* オブジェクト指向である
+
+ プログラムの管理を細かく行うことができるので、複数人で同じものを開発するときなど作業効率が上がるでしょう。
+
+&lt;br&gt;&lt;br&gt;
+
+### **Java SEとは**
+Java SE とは Java Platform, Standard Edition の略で、 Java で使用される API をまとめたものです。 API とは Application Programming Interface の略で、 この場合は Java の機能やデータなどを利用するための呼び出し方を定義したものと考えてください。
+&lt;br&gt;
+Java で提供されている API は非常に多いのですが、 Java SE はその中でも基本となる API をまとめたものとなり、 例えば java.lang.String クラスなどが含まれます。
+&lt;br&gt;
+Java SE は定期的にバージョンアップされています。 どのバージョンの Java SE なのかが分かるようにバージョンを表す番号を合わせて記述します。例えば Java SE 8 とか Java SE 13 とかです。
+
+### **JVMとは**
+JVM とは Java Virtual Machine の略で Java で作成されたアプリケーションを Windows や Mac OS などで動かすために必要となるアプリケーションです。 Java 仮想マシンなどとも呼ばれます。
+&lt;!--JVM.PNG--&gt;
+&lt;img src=&quot;../assets/img/j00/intro01.png&quot; width=&quot;60%&quot;&gt;
+&lt;br&gt;
+Javaで作ったプログラムはOSではなく、JVMとやりとりするので、OSごとに特別な設定などは不要です。JVMがあれば、OSがWindows、Mac、Linuxなど、環境に依存せずに動かせることがわかりますね！
+
+### **JREとは**
+JRE とは Java Runtime Environment の略で Java のプログラムを実行するためのセットとなっています。 Java 実行環境とか Java ランタイムなどと呼ばれます。 JRE にはJVM や対応する API がセットになっています。
+&lt;br&gt;
+Java で作成されたアプリケーションは JVM 上で実行されますが、実際には JRE を各 OS にインストールすることで Java アプリケーションが実行できる環境が構築できます。 JRE は対応する Java SE のバージョンに合わせて、バージョン番号が付けられます。例えば JRE 8 とか JRE 13 とかです。
+&lt;br&gt;
+なお以前は JRE だけを単独でインストールすることが可能でしたが、 2019年12月 現在では JRE は単独で配布されておらずこのあと解説する JDK をインストールする必要があります。
+
+### **JDKとは**
+JDK とは Java Development Kit の略で Java のプログラムの開発や実行を行うためのプログラムのセットとなっています。 Java 開発環境などと呼ばれます。JRE の他に、 Java で記述されたプログラムをコンパイルするためのプログラムやデバッグするためのプログラムなどが含まれ、 JDK をインストールすることで Java を使ったアプリケーションの作成や作成したアプリケーションの実行まで一通り行うことができます。
+JDK は対応する Java SE のバージョンに合わせてバージョン番号が付けられます。例えば JDK 8 とか JDK 13 とかです。
+
+Java 仮想マシンである JVM 、 Java 実行環境の JRE 、 Java 開発環境の JDK 、のそれぞれの関係と違いについてはざっくりと図にすると下記のようになります。
+
+&lt;!--JDK.PNG--&gt;
+&lt;img src=&quot;../assets/img/j00/intro02.png&quot; width=&quot;60%&quot;&gt;
+
+
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>
