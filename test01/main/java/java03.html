@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第3章　演算子</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第3章　演算子</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では Java の演算子について説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **演算子**
+***
+
+演算子(オペレータ)は、変数と値(オベランド)に対して操作を実行するために使用されます。
+
+演算（2つのオペランド間で実行されるもの）は演算子によって定義されます。
+
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;オペランド&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;オペレータ&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;オペランド &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;100&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;+&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;  
+&lt;br&gt;
+以下の例では、100と50という数字はオペランドで、 +符号は演算子です。
+
+例：```int x = 100 + 50;```
+
+```+```オペレータは、上記の例のように２つの値を足すためにも使われますが、
+
+変数と値、変数と変数などを繋げるためにも使用することができます。
+
+```
+int sum1 = 100 + 50;        // 150 (100 + 50)
+int sum2 = sum1 + 250;      // 400 (150 + 250)
+int sum3 = sum2 + sum2;     // 800 (400 + 400)
+```
+&lt;br&gt;
+
+#### **例**
+[JSample3_1.java]
+
+```
+package JSample;
+public class JSample3_1 {
+
+	public static void main(String[] args) {
+		int sum1 = 100 + 50;
+		int sum2 = sum1 + 250;
+		int sum3 = sum2 + sum2;
+		System.out.println(sum1);
+		System.out.println(sum2);
+		System.out.println(sum3);
+
+	}
+}
+
+```
+#### **実行結果**&lt;br&gt;
+150&lt;br&gt;
+400&lt;br&gt;
+800
+
+&lt;br&gt;
+
+Javaは演算子を次のグループに分けます。
+
+* 算術演算子
+* 代入演算子
+* 比較演算子
+* 論理演算子
+* ビット演算子
+
+&lt;br&gt;
+
+## **1.算術演算子**
+
+算術演算子は、一般的な数学演算を実行するために使用されます。
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;+&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a + b&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a - b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;*&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a * b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;/&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a / b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;%&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a % b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br&gt;&lt;br&gt;
+ 
+## **2.Java代入演算子**
+
+代入演算子は、変数に値を代入するために使用されます。
+
+以下の例１では、代入演算子（=）を使用して、値10をxという変数に代入します。
+
+例２では、加算代入演算子 &lt;font color=#0099ff&gt;（+=） &lt;/font&gt;変数に値を追加します。
+
+例1：
+```int x = 10;```
+
+例2：
+``` x += 5;    //15(10+5)```
+
+&lt;br&gt;
+
+#### **すべての代入演算子のリスト**
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Same As &lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = 5&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = 5&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;+=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x += 3&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = x + 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;-=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x -= 3&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = x - 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;*=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x *= 3&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = x * 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;/=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x /= 3&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = x / 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;%=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x %= 3&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x = x % 3&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.Java比較演算子**
+比較演算子は、2つの値を比較するために使用されます。
+
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;==&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x == y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;!=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x != y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &gt; y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&lt;&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &lt; y　&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&gt;=&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &gt;= y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&lt;=　&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &lt;= y&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **4.Java論理演算子**
+論理演算子は、変数間または値間の論理を決定するために使用されます。
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&amp;&amp;&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &lt; 5 &amp;&amp;  3 &lt; x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;||&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;x &lt; 5 ||  3 &lt; x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;!&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;!(x &lt; 5 &amp;&amp; 3 &lt; x )&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;  
+&lt;br&gt;&lt;br&gt;
+## **5.Javaビット演算子**
+論理演算子は、変数間または値間の論理を決定するために使用されます。
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
+	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&amp;   論理積（AND）&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b &amp; c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;|   論理和（OR）&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b | c &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;!   論理否定（NOT）&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = ! b&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;^   排他的論理和（EOR）&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b ^ c&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&lt;&lt;   算術左シフト&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b &lt;&lt; 2 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&gt;&gt;  算術右シフト&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b &gt;&gt; 2 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+	&lt;td align=&quot;center&quot;&gt;&gt;&gt;&gt;	論理右シフト&lt;/td&gt;
+	&lt;td align=&quot;center&quot;&gt;a = b &gt;&gt;&gt; 2 &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;  
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題**[JEx3_1.java]
+
+10と5の乗算をしてみましょう。
+
+&lt;!--
+```
+package JSample;
+
+public class JSample3_2 {
+	public static void main(String[] args) throws Exception {
+		int a = 10;
+		int b = 5;
+		int c;
+		c = a * b;
+		System.out.println(&quot;a*b=&quot; + c);
+	}
+
+}
+```
+実行結果:&lt;br&gt;
+![JSample4_2.PNG](https://i.loli.net/2019/08/08/9VjFJmLCRwiGUg1.png)
+
+--&gt;</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

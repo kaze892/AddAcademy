@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第4章　条件分岐</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第4章　条件分岐</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では Java の条件分岐について説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **条件分岐**
+***
+
+&lt;br&gt;
+
+## **1.条件分岐(if文)**
+
+```
+if (条件) {
+    処理2;
+    処理3;
+} else {
+    処理4;
+    処理5;
+}
+```
+
+&lt;br&gt;
+
+#### **例**
+[JSample4_1.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+public class JSample4_1 {
+    public static void main(String[] args) {
+		int number = 10;
+		if (number == 0) {
+			System.out.println(&quot;0です&quot;);
+		} else {
+			if (number&gt; 0) {
+				System.out.println(&quot;正です&quot;);
+			} else {
+				System.out.println(&quot;負です&quot;);
+			}
+		}
+	   }
+      }
+
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+正です
+
+&lt;br&gt;&lt;br&gt;
+
+## **2.条件分岐が多いとき（switch文）**
+
+```
+switch (式) {
+　case 値1:
+　　文1
+　　break;
+　case 値2:
+　　文2
+　　break;
+　default:
+　　文3
+}
+```
+
+&lt;br&gt;
+
+#### **例**
+[JSample4_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.util.Scanner;
+
+public class JSample4_2 {
+
+    public static void main(String[] args) {
+		
+		System.out.println(&quot;キーボードから数値を入力してください。&quot;);
+
+		Scanner scan = new Scanner(System.in);
+		//数値を読み取る;String num = scanner.next();の場合、文字を読み取る;
+		int num = scan.nextInt();
+
+		switch (num) {
+		case 1:
+			System.out.println(&quot;非常に不満&quot;);
+			break;
+		case 2:
+			System.out.println(&quot;少し不満&quot;);
+			break;
+		case 3:
+			System.out.println(&quot;どちらとも言えない&quot;);
+			break;
+		case 4:
+			System.out.println(&quot;少し満足&quot;);
+			break;
+		case 5:
+			System.out.println(&quot;大変満足&quot;);
+			break;
+		}
+	   }
+      }
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+キーボードから数値を入力してください。&lt;br&gt;
+3&lt;br&gt;
+どちらとも言えない&lt;br&gt;
+
+* 変数入力&lt;br&gt;
+	このscan.nextInt()メソッドは数値入力するためによく使用されます。&lt;br&gt;
+	scanner.next()メソッドは文字入力するためによく使用されます。
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題**[JEx4_1.java]
+
+学生のポイントが60以上かどうかを判断してください。
+&lt;br&gt;
+	{&lt;br&gt;
+	キーボードで入力　score&lt;br&gt;
+	score&gt;=60の場合、&quot;60以上です&quot;を出力&lt;br&gt;
+	上記以外、&quot;60未満です&quot;を出力&lt;br&gt;
+	}
+&lt;!--&lt;pre&gt;&lt;code&gt;public class JSample4_3 {
+
+	public static void main(String[] args) {
+		int score = 60;
+        if(score&gt;=60) {
+        System.out.println(&quot;60以上です&quot;);
+        }else {
+        System.out.println(&quot;60以下です&quot;);
+        }
+	   }
+      }
+&lt;/code&gt;&lt;/pre&gt;
+![java4.3.PNG](https://i.loli.net/2019/08/08/IsWi47QRCMu2BK9.png)
+--&gt;</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

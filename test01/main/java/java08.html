@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第8章　型変換の基本ルール</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第8章　型変換の基本ルール</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章ではJavaの型変換の基本ルールについて説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **型変換の基本ルール**
+
+***
+
+Javaの型変換とは、データの型を別の型へ変換することである。例えばint型の値を持つ変数の型を、計算精度を上げるためにdouble型に変換して計算を行うということがある。int型のままで割り算を繰り返し行うと、小数点以下の値が失われていくこと起こる可能性があるからである。
+
+精度を求められる計算をするためには、どのような場合に型変換するべきか、型変換がどのように数値に影響を与えるかをあらかじめ理解しておくことは重要である。
+
+このような型変換には大きく分けて次のようは種類がある。
+
+* サイズが小さい型から大きい型への変換
+→ワイドニング変換（Widening conversion）
+* サイズが大きい型から小さい型への変換
+→ナローイング変換（Narrowing conversion）
+
+では、それらをひとつひとつ見ていこう。
+
+&lt;!--graph8-1.png--&gt;
+&lt;a href=&quot;https://i.loli.net/2019/08/09/wGa2MNWRcQfH9to.png&quot; target=&quot;_blank&quot;&gt;
+&lt;img src=&quot;https://i.loli.net/2019/08/09/wGa2MNWRcQfH9to.png&quot; width=&quot;40%&quot;/&gt;&lt;/a&gt;
+
+&lt;br&gt;
+
+## **1.サイズが小さい型から大きい型への変換**
+
+short型からint型への変換や、int型からlong型への変換などサイズが小さい型から大きい型への変換の場合、より大きな数値が格納できるところへ変換するわけですから特に意識することなく変換することができます。
+
+
+```
+short s = 10;
+int i = s;
+long l = i;
+```
+&lt;br&gt;&lt;br&gt;
+
+## **2.サイズが大きい型から小さい型への変換**
+
+int型からshort型への変換や、long型からint型への変換などサイズが大きい型から小さい型への変換の場合、キャスト演算子を使って明示的に型が変更されることを示す必要があります。
+
+```
+int i = 10;
+short s = (short)i;
+```
+
+&lt;!--graph8-2.png--&gt;
+&lt;a href=&quot;https://i.loli.net/2019/08/09/LfouPO9vaQKzw14.png&quot; target=&quot;_blank&quot;&gt;
+&lt;img src=&quot;https://i.loli.net/2019/08/09/LfouPO9vaQKzw14.png&quot; width=&quot;40%&quot;/&gt;&lt;/a&gt;
+
+では簡単な例で試しておきます。
+
+&lt;br&gt;
+
+#### **例**
+[JSample8_1.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample8_1 {
+	public static void main(String[] args) {
+		System.out.println(&quot;サイズが小さい型から大きい型への変換&quot;);
+		int i = 7;
+		double j = i;
+		System.out.println(&quot;変換前：&quot; + i);
+		System.out.println(&quot;変換後：&quot; + j);
+		System.out.println(&quot;サイズが大きい型から小さい型への変換&quot;);
+		double a = 1.25;
+		int b = (int) a;
+		System.out.println(&quot;変換前：&quot; + a);
+		System.out.println(&quot;変換後：&quot; + b);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+サイズが小さい型から大きい型への変換
+変&lt;br&gt;
+前：7&lt;br&gt;
+変換後：7.0&lt;br&gt;
+サイズが大きい型から小さい型への変換&lt;br&gt;
+変換前：1.25&lt;br&gt;
+変換後：1
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.int ⇄ Stringの型変換**
+
+### **int→ String**
+
+```
+String str = String.valueOf(数値)
+```
+
+### **String→int**
+
+```
+int i = Integer.parseInt(文字列)
+```
+&lt;br&gt;
+
+#### **例**
+[JSample8_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample8_2 {
+	public static void main(String[] args) {
+		int i = 7;
+		String str = String.valueOf(i);
+		System.out.println(&quot;int型&quot; + i);
+		System.out.println(&quot;String型&quot; + str);
+
+		String s = &quot;123&quot;;
+		int j = Integer.parseInt(s);
+		System.out.println(&quot;String型&quot; + s);
+		System.out.println(&quot;int型&quot; + j);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+int型7&lt;br&gt;
+String型7&lt;br&gt;
+String型123&lt;br&gt;
+int型123
+
+&lt;br&gt;&lt;br&gt;
+
+## **4.日付⇄文字列の変換**
+
+### **Date→String**
+
+SimpleDateFormatで出力したい日付のフォーマットを指定する
+
+format(Date date)メソッドで文字列に変換
+
+&lt;br&gt;
+
+#### **例**
+[JSample8_3.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class JSample8_3 {
+	public static void main(String[] args) {
+
+		Date date = new Date(); // 今日の日付
+		SimpleDateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+		String strDate = dateFormat.format(date);
+
+		System.out.println(date); 
+		System.out.println(strDate); 
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+Wed Oct 16 15:31:41 JST 2019&lt;br&gt;
+2019-10-16
+
+`toString()`メソッドを使うと、そのまま文字列になる
+
+
+#### **例**
+[JSample8_4.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.util.Date;
+
+public class JSample8_4 {
+	public static void main(String[] args) {
+		Date date = new Date(); // 今日の日付
+		String strDate = date.toString();
+		System.out.println(date);
+		System.out.println(strDate);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+Wed Oct 16 15:37:34 JST 2019&lt;br&gt;
+Wed Oct 16 15:37:34 JST 2019
+
+&lt;br&gt;&lt;br&gt;
+
+### **String→Date**
+
+**（１）parseメソッドを用いた変換**
+
+あらかじめフォーマットを決める必要がある
+
+parseメソッドを使うクラスでParseExceptionを宣言する必要がある
+
+&lt;br&gt;
+
+#### **例**
+[JSample8_5.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class JSample8_5 {
+	public static void main(String[] args) throws ParseException {
+		String strDate = &quot;2018-12-31&quot;;
+		SimpleDateFormat dateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);
+		Date date = dateFormat.parse(strDate);
+
+		System.out.println(date); // =&gt; Mon Dec 31 00:00:00 JST 2018
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+Mon Dec 31 00:00:00 JST 2018
+
+&lt;br&gt;
+
+**（２）valueOf(String s)メソッドを用いた変換**
+
+valueOfメソッドの戻り値はjava.sql.Dateオブジェクトになる
+
+
+#### **例**
+[JSample8_6.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.text.ParseException;
+import java.util.Date;
+
+public class JSample8_6 {
+	public static void main(String[] args) throws ParseException {
+		String strDate = &quot;2018-12-31&quot;;
+		Date sqlDate = java.sql.Date.valueOf(strDate);
+		System.out.println(sqlDate); // =&gt; 2018-12-31
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+2018-12-31
+
+&lt;br&gt;&lt;br&gt;
+
+## **5.Date⇄Calendarの変換**
+
+### **Date→Calendar**
+
+Calendarクラスの新規インスタンスを作成
+
+setTime(Date date)メソッドを使ってCalendarクラスのオブジェクトに変換
+
+&lt;pre&gt;&lt;code&gt;Date date = new Date(); // 今日の日付
+Calendar calendar = Calendar.getInstance();
+calendar.setTime(date);
+
+System.out.println(calendar);
+// =&gt;java.util.GregorianCalendar[time=1546228443561,areFieldsSet=true, ...]
+ &lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+### **Calendar→Date**
+
+getTime()メソッドでDateクラスのオブジェクトに変換
+
+
+&lt;pre&gt;&lt;code&gt;Calendar calendar = Calendar.getInstance();
+calendar.set(Calendar.YEAR, 2018); //年を設定
+calendar.set(Calendar.MONTH, 11); //月を設定(※MONTHは0始まり 0→Jan、1→Feb、...になる)
+calendar.set(Calendar.DAY_OF_MONTH, 31);//日を設定
+Date date = calendar.getTime();
+
+System.out.println(date); // =&gt; Mon Dec 31 13:01:05 JST 2018
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+***
+&gt; **練習**
+&gt;&gt; **問題**[JEx8_1.java]
+
+以下の変数を作成してください。&lt;br&gt;
+型：char　変数名：hiragana　初期値：&#39;あ&#39;&lt;br&gt;
+型：int　変数名：code　初期値：hiraganaのデータをintへキャスト
+
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

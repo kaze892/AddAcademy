@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第11章　メンバ変数とメンバメソッド</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第11章　メンバ変数とメンバメソッド</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    メンバ変数とメンバメソに関する基本的な考え方について説明します
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **メンバ変数とメンバメソッド**
+***
+
+クラスは次の要素で構成されています。
+
+```
+public class Classname{
+	//メンバ変数定義
+	//メンバメソッド定義
+}
+```
+&lt;br&gt;
+
+## **1.メンバ変数とは**
+メンバ変数とはクラスのメンバとして定義され、クラス内に直接書かれる変数のことで、フィールドまた属性と呼ばれます。
+フィールドはクラス内のメソッドから参照可能な変数になっています。
+
+[Television.java]
+```
+class Television{
+  int channelNo;//メンバ変数
+
+  void setChannel(int newChannelNo){
+    channelNo = newChannelNo;
+  }
+
+  void dispChannel(){
+    System.out.println(&quot;現在のチャンネルは &quot; + channelNo + &quot; です&quot;);
+  }
+}
+```
+&lt;br&gt;
+
+### **1-1.メンバ変数の定義**
+
+```
+[修飾子] データ型 変数名;
+```
+
+* メンバ変数は、int、doubleなどの基本型だけでなく、クラス型、配列型の変数も定義できます。
+
+&lt;br&gt;
+
+### **1-2.メンバ変数に値を格納する**
+* メンバ変数が定義されている同じクラスの中で値を格納する
+* メンバ変数が定義されているクラスのメソッドを使って値を格納する  
+
+[Television.java]
+```
+public class Television{
+  int channelNo;
+
+  void setChannel(int newChannelNo){
+	//同じクラスの中で値を格納
+	channelNo = newChannelNo;
+	//「自分自身のクラス」にあるメンバ変数の正式な記述方法が下記ですが、this省略可です。
+	//this.channelNo = newChannelNo; 
+  }
+
+  void dispChannel(){
+    System.out.println(&quot;現在のチャンネルは &quot; + channelNo + &quot; です&quot;);
+  }
+}
+
+```
+&lt;br&gt;&lt;br&gt;
+[Ctest.java]
+```
+public class Ctest{
+  public static void main(String args[]){
+    Television tv1 = new Television();
+	//違いクラスの中で値を格納
+    tv1.channelNo = 1;
+    tv1.dispChannel();
+  }
+}
+
+```
+&lt;br&gt;
+
+* **メンバ変数とローカル変数の違い**
+ローカル変数とはメソッド内で定義される変数のことです。
+このローカル変数の有効範囲(スコープ)としてはメソッド内だけなので、他のメソッドから別のメソッドのローカル変数にアクセスすることはできませんし、メソッドを抜けるとそのローカル変数は消滅します。
+
+[JmSaple.java]
+```
+public class JmSaple {
+	int memberVar = 10; //メンバ変数memberVarを定義
+
+	void methodA() {
+		int localVarA = 20; //ローカル変数localVarAを定義
+		//メンバ変数なので他のmethodAから参照可能
+		System.out.println(&quot;メンバ変数(memberVar)：&quot; + this.memberVar);
+		//methodA内に定義したローカル変数なのでmethodAから参照可能
+		System.out.println(&quot;ローカル変数(localVarA)：&quot; + localVarA);
+		//methodA内に定義したローカル変数ではないのでmethodAから参照不可
+		//System.out.println(&quot;ローカル変数(localVarB)：&quot; + localVarB);
+	}
+
+	void methodB() {
+		int localVarB = 20; //ローカル変数localVarBを定義
+	}
+}
+```
+&lt;br&gt;&lt;br&gt;
+
+## **2.メンバメソッドとは**
+メンバメソッドとはクラスの中で定義されているメソッドのことで、そのクラスの中で何かの動作をするためのものです。
+
+メソッドを呼び出すときに引数を指定したり、メソッドからの戻り値を設定することもできます。
+
+&lt;br&gt;
+
+### **2-1.メソッドの定義**
+
+```
+[修飾子] 戻り値のデータ型 メソッド名(引数1, 引数2, ....){
+}
+```
+&lt;br&gt;
+
+何も値を返さない場合はvoid型を指定することになっていますので、とりあえず「void」を記述して下さい。
+
+#### **例**
+[JSample11_1.java]
+
+&lt;pre&gt;&lt;code&gt;package JmSaple;
+public class JSample11_1 {
+	public static void main(String[] args) {
+		departure();
+		arrive();
+		annouce();
+	}
+    private static void departure() {
+		System.out.println(&quot;出発します。&quot;);
+	}
+	private static void arrive() {
+		System.out.println(&quot;到着します。&quot;);
+	}
+	private static void annouce() {
+		departure();
+		arrive();
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+&lt;pre&gt;
+	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
+出発します。&lt;br&gt;
+到着します。&lt;br&gt;
+出発します。&lt;br&gt;
+到着します。
+&lt;/html&gt;&#39;&quot;&gt;&lt;/iframe&gt;
+&lt;/pre&gt;
+
+### **2-2.メソッドの呼び出し**
+
+メンバメソッドの呼び出し方は、メンバ変数の場合と同様で、同じクラス内から呼び出す場合には「メンバメソッド名(引数)」か「this.メンバメソッド名(引数)」と記述しますし、メンバメソッドが定義されているクラスの外からオブジェクトを介して呼び出す場合には「オブジェクト名.メンバメソッド名(引数)」の形式で呼び出します。
+
+下記の例に、mainメソッドで、 myMethod()メソッドを呼び出します。
+#### **例**
+[JSample11_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample11_2 {
+	static void myMethod() {
+		System.out.println(&quot;Hello World!&quot;);
+	}
+
+	public static void main(String[] args) {
+		myMethod();
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+&lt;pre&gt;
+
+Hello World!
+
+&lt;/pre&gt;
+
+**・引数を使ってメソッドに値を渡す**
+&lt;br&gt;
+メソッドを呼び出す時に呼び出し元から値をメソッドに渡すことができます。まずどのような場合に使うのかを確認してみます。
+
+#### **例**
+[JSample11_3.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample11_3 {
+	public static void main(String[] args) {
+		int english = 58;
+		check(&quot;英語&quot;, english);
+	}
+
+	private static void check(String language, int score) {
+		System.out.print(&quot;この応募者の&quot; + language + &quot;能力は&quot;);
+		if (score &gt; 70) {
+			System.out.println(&quot;ビジネスレベルです。&quot;);
+		} else {
+			System.out.println(&quot;日常会話レベルです。&quot;);
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+&lt;pre&gt;
+
+この応募者の英語能力は日常会話レベルです。
+
+&lt;/pre&gt;
+&lt;br&gt;
+
+**・return文**
+
+**（１）** メソッドから呼び出し元に値を返す場合。
+#### **例**
+[JSample11_4.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample11_4 {
+	public static void main(String[] args) {
+		int kekka;
+		kekka = bai(5);
+		System.out.println(kekka);
+	}
+	private static int bai(int n) {
+		return n * 2;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+&lt;pre&gt;
+
+10
+
+&lt;/pre&gt;
+
+&lt;br&gt;
+
+**（２）** return文がメソッドの中で実行されると、それ以降の処理を実行せずに呼び出し元へ処理を移すことができます。
+#### **例**
+[JSample11_5.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample11_5 {
+	public static void main(String[] args) {
+		int data[];
+		test(15, 4);
+		test(7, 0);
+	}
+
+	private static void test(int n1, int n2) {
+		if (n2 == 0) {
+			System.out.println(&quot;0で割ることはできません&quot;);
+			return;
+		}
+		System.out.println(n1 + &quot; / &quot; + n2 + &quot; = &quot; + (n1 / n2));
+		return;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+&lt;pre&gt;	
+15 / 4 = 3&lt;br&gt;
+0で割ることはできません
+&lt;/pre&gt;
+&lt;br&gt;
+
+## **3.コンストラクタ**
+コンストラクタとは、クラスのインスタンス生成時に実行されるメソッドで、主にそのクラスのメンバ変数を初期化するときに使用します。
+
+コンストラクタはインスタンス生成時に呼び出される特別なメソッドで、通常のメソッド同様に引数を指定することも可能です。
+
+```
+public class Calculate {
+    private double syohizei;
+    //クラス名と同一のメソッド名であるコンストラクタを定義
+    //コンストラクタの中では、メンバ変数syohizeiの初期値を指定
+    public Calculate (double x) {
+        this.syohizei = x;
+    }
+    ----- その他の処理 -----
+}
+```
+&lt;br&gt;
+
+### **3-1.コンストラクタの定義**
+
+```
+[アクセス修飾子]　コンストラクタ名　(引数型 引数名)
+```
+&lt;br&gt;
+
+### **3-2.複数のコンストラクタ**
+コンストラクタは引数の型や引数の数を変更することで1クラス内に複数宣言することができます。
+
+例えば、コンストラクタ内でいくつかのメンバ変数を初期化する場合、指定する初期値があるときは指定し、ない時はデフォルト値を指定するというように、初期化処理を使い分けたいケースがあります。このような時にコンストラクタを複数宣言します。
+
+どのコンストラクタが呼び出されるかは呼び出し元の引数の型、引数の数により決定されます。
+
+#### **例**
+[SetNumber.java]
+
+```
+package JSample;
+
+public class SetNumber {
+	private int basicNum;
+	private int specialNum;
+
+	//int型の引数を持つコンストラクタ
+	public SetNumber(int spn) {
+		this.basicNum = 100;
+		this.specialNum = spn;
+	}
+
+	//引数を持たないコンストラクタ
+	public SetNumber() {
+		this.basicNum = 100;
+		this.specialNum = 500;
+	}
+
+	public static void main(String[] args) {
+
+        //コンストラクタの呼び出し、引数を指定しない
+		SetNumber insA = new SetNumber();
+		System.out.println(&quot;insAのSetNumber()でbasicNumは&quot; + insA.basicNum+&quot;です&quot;);
+		System.out.println(&quot;insAのSetNumber()でspecialNumは&quot; + insA.specialNum+&quot;です&quot;);
+
+		//コンストラクタの呼び出しにint型の引数1つを指定
+		SetNumber insB = new SetNumber(1000);
+		System.out.println(&quot;insBのSetNumber(1000)でbasicNumは&quot; + insB.basicNum+&quot;です&quot;);
+		System.out.println(&quot;insBのSetNumber(1000)でspecialNumは&quot; + insB.specialNum+&quot;です&quot;);
+
+    }
+}
+```
+#### **実行結果**
+&lt;pre&gt;	
+insAのSetNumber()でbasicNumは100です&lt;br&gt;
+insAのSetNumber()でspecialNumは500です&lt;br&gt;
+insBのSetNumber(1000)でbasicNumは100です&lt;br&gt;
+insBのSetNumber(1000)でspecialNumは1000です
+&lt;/pre&gt;
+
+&lt;br&gt;
+***
+
+&gt; **練習**
+&gt;&gt; **問題**[JEx11_1.java]
+
+Numクラス(Num.java)を使用して、2 整数の比較は最大値を取ります、次のプログラムを完成しなさい。
+```
+package JSample;
+
+public class Num {
+
+	public int test(int n1, int n2) {
+            //ToDo
+	}
+}
+
+```
+
+JEx11_1クラスを使用して、次のプログラムを完成しなさい。 
+
+```
+package JSample;
+
+import java.util.Scanner;
+
+public class JEx11_1 {
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println(&quot;キーボードから数値1を入力してください。&quot;);
+		int n1 = scan.nextInt();
+
+		System.out.println(&quot;キーボードから数値2を入力してください。&quot;);
+		int n2 = scan.nextInt();
+
+        Num num = new Num();
+		int k = num.test(n1, n2);
+		System.out.println(n1 + &quot; と &quot; + n2 + &quot; 比較的な最大値は：&quot; + k);
+	}
+}
+```
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

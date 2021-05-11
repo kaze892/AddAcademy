@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第2章　Java変数</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第2章　Java変数</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では Java の変数、宣言について説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **Java変数**
+***
+
+変数は値を格納するための箱のようなものです。
+
+&lt;br&gt;
+
+## **1.変数の宣言**
+
+Javaには、さまざまな**種類**の変数があります。
+
+&lt;br&gt;
+
+### **1-1.構文**
+
+```データ型　変数名　= 初期値；```
+
+
+初期値は、以下のようにして代入しても構いません。
+
+```データ型　変数名；```
+&lt;br&gt;
+
+```変数名 =  初期値；```
+
+**例：** 
+
+```int bookPrice ;```
+&lt;br&gt;
+```bookPrice = 1500 ; ```
+
+&lt;br&gt;
+
++ **String** - &quot;Hello&quot;などのテキストを保存します。文字列値は二重引用符で囲まれています。
+
+	**例：** ```String str = &quot;Hello&quot;;``` 
+
++ **int** - 123や-123のように、整数（整数）を小数点なしで格納します。
+
+	**例：** ```int i = 123;``` 
+
++ **float** - 浮動小数点数を、19.99や、-19.99などの小数で格納します。
+
+	**例：**  ```float f = 12.1f;``` 
+
+
++ **char** - 「a」や「B」などの単一文字を格納します。Char値は一重引用符で囲まれています。
+
+	**例：** ```char c = &#39;a&#39;;``` 
+
+
++ **boolean** - **2つ**の状態を持つ値を格納します。**true**または**false**
+
+	**例：** ```boolean flag = true;``` 
+
+以上は変数の宣言と初期化が同時に行われます。
+
+&lt;br&gt;
+
+###	**1-2.命名規則**
+**（１）ファイル名**&lt;br&gt;
+public クラスはそのクラス名の1 ファイルにする。&lt;br&gt;
+```例:```public class Point は，Point.java に入れる。&lt;br&gt;
+パッケージ内の非パブリッククラスは，そのクラスが主に使われるパブリッククラスのファイルに含めて良い(この場合，*.java と *.class が対応しないことに注意)。&lt;br&gt;
+パブリックなクラス名は，コンパイラの規則により，ファイル名と同じでなければならな
+い(大文字小文字の区別を含めて)。
+
+&lt;br&gt;
+
+**（２）パッケージ名**&lt;br&gt;
+“.” で区切られた文字．&lt;br&gt;
+例：JP.co.your.domainname.projectname
+junit.framework
+
+&lt;br&gt;
+
+**（３）クラス名**&lt;br&gt;
+先頭大文字．あとは区切りを大文字．&lt;br&gt;
+例：CapitalizedWithInternalWordsAlsoCapitalized
+
+&lt;br&gt;
+
+**（４）メソッド名、変数名**&lt;br&gt;
+
+メソッド名、変数名の先頭は小文字で始めましょう。
+大文字で始めるとコンストラクタやクラス名と区別がつきにくくなってしまいます。
+
+&lt;br&gt;
+
+**（５）定数名**&lt;br&gt;
+定数とはfinalがついた再代入不可の変数です。
+一般的に全て大文字で記述されます。
+
+&lt;br&gt;&lt;br&gt;
+
+## **2.Javaの基本のデータ型**
+データ型とは、数字や文字などのデータをメモリ上に確保する領域やバイト長、確保した領域の扱い方などを指定するものです。
+
+変数を宣言するときに、データ型を指定する必要があります。
+
+データ型について表にまとめました。
+
+&lt;table border=&quot;1&quot;&gt;
+	&lt;tr style=&quot;text-align:center;&quot;&gt;
+		&lt;th&gt;種別&lt;/th&gt;
+		&lt;th&gt;型&lt;/th&gt;
+		&lt;th&gt;大きさ&lt;/th&gt;
+		&lt;th&gt;値の範囲&lt;/th&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td rowspan=&quot;4&quot;&gt;整数&lt;/td&gt;
+		&lt;td&gt;byte&lt;/td&gt;
+		&lt;td&gt;1バイト&lt;/td&gt;
+		&lt;td&gt;-128～127&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;short &lt;/td&gt;
+		&lt;td&gt;2バイト&lt;/td&gt;
+		&lt;td&gt;-32768～32767&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;int&lt;/td&gt;
+		&lt;td&gt;4バイト&lt;/td&gt;
+		&lt;td&gt;-2147483648～2147483647&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;long&lt;/td&gt;
+		&lt;td&gt;8バイト&lt;/td&gt;
+		&lt;td&gt;-9223372036854775808 ～ 9223372036854775807&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td rowspan=&quot;2&quot;&gt;実数&lt;/td&gt;
+		&lt;td&gt;float&lt;/td&gt;
+		&lt;td&gt;4バイト&lt;/td&gt;
+		&lt;td&gt;1.4×10の-45乗，3.4028235×10の38乗&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;double&lt;/td&gt;
+		&lt;td&gt;8バイト&lt;/td&gt;
+		&lt;td&gt;4.9e-324(最小) ～ 1.7976931348623157e308(最大)&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;ブーリアン&lt;/td&gt;
+		&lt;td&gt;boolean&lt;/td&gt;
+		&lt;td&gt;&lt;/td&gt;
+		&lt;td&gt;true またはfalse&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;文字&lt;/td&gt;
+		&lt;td&gt;char&lt;/td&gt;
+		&lt;td&gt;2バイト&lt;/td&gt;
+		&lt;td&gt;文字データ&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+
+#### **例**
+[JSample2_1.java]
+```
+package JSample;
+
+public class JSample2_1 {
+
+	public static void main(String[] args) {
+		int a;
+		int b;
+		a = 10;
+		b = 20;
+		int result = a + b;
+		System.out.println( &quot; 結果は、&quot; + result );
+	}
+}
+```
+
+#### **実行結果**
+ 結果は、30
+&lt;br&gt;
+
++ **表示変数**
+
+	この```println()```メソッドは変数を表示するためによく使用されます。
+
+	テキストと変数の両方を組み合わせるには、```+``` 文字を使用します。
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.変数の有効範囲**
+Javaコードにはたびたび```{ } ```が登場するが・・・
+
+*	{ ・・・} を「ブロック」と呼ぶ
+*	変数の有効範囲（スコープ）は、ブロックによって決まる。&lt;br&gt;
+	–変数のスコープは、ブロックの内側である。&lt;br&gt;
+	–ブロックの内側に定義した変数は、外側では無効。
+
+
+#### **例**
+[JSample2_2.java]
+
+```
+package JSample;
+
+public class JSample2_2 {
+
+	public static void main(String[] args) {
+		int one = 1;
+		int two = 2;
+		{
+			int five = 5;
+			int nine = 9;
+			System.out.println(&quot;one:&quot; + one);
+			System.out.println(&quot;five:&quot; + five);
+		}
+		{
+			int six = 6;
+			int eight = 8;
+			System.out.println(&quot;six:&quot; + six);
+			System.out.println(&quot;nine:&quot; + nine);
+		}
+	System.out.println(&quot;two:&quot; + two);
+	System.out.println(&quot;eight:&quot; + eight);
+	}
+}
+```
+
+#### **実行結果** &lt;br&gt;
+
+Exception in thread &quot;main&quot; java.lang.Error: Unresolved compilation problems: &lt;br&gt;
+	nine を変数に解決できません&lt;br&gt;
+	eight を変数に解決できません&lt;br&gt;
+	&lt;br&gt;
+	at JSample.JSample2_2.main(JSample2_2.java:18)
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題**[JEx2_1.java]
+
+1-1.構文の例の変数を定義、表示してください。
+
+```
+package JSample;
+
+public class JEx2_1 {
+
+	public static void main(String[] args) {
+		//**例：** String str = &quot;Hello&quot;;
+
+
+	   //System.out.println(&quot;変数str は &quot; + str + &quot; です&quot;);
+	}
+
+}
+```
+&gt;&gt;**実行結果**
+
+変数str は Hello です  
+変数i は 123 です  
+変数f は 12.1 です  
+変数c は a です  
+変数flag は true です   
+
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

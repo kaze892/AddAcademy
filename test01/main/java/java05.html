@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第5章　繰り返し</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第5章　繰り返し</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では Javaの繰り返し処理について説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **繰り返し**
+***
+
+&lt;br&gt;
+
+## **1.whileループ**
+指定した条件が満たされている間は何度でもコードのブロックを繰り返します。
+
+
+&lt;pre&gt;&lt;code&gt;while (条件式) {
+  // code block to be executed
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+以下の例では、変数（i）が5未満である限り、ループ内のコードは繰り返し実行されます。
+
+#### **例**
+[JSample5_1.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample5_1 {
+  public static void main(String[] args) {
+    int i = 0;
+    while (i &lt; 5) {
+      System.out.println(i);
+      i++;
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+0&lt;br&gt;
+1&lt;br&gt;
+2&lt;br&gt;
+3&lt;br&gt;
+4
+
+&lt;br&gt;&lt;br&gt;
+
+## **2.do/whileループ**
+このループは、条件が満たされているかどうかをチェックする前にコードブロックを1回実行し、条件が満たされている限りループを繰り返します。
+
+&lt;pre&gt;&lt;code&gt;do {
+  // code block to be executed
+}
+while (条件式);
+&lt;/pre&gt;&lt;/code&gt;
+
+&lt;br&gt;
+
+以下の例では```do/while```ループを使用しています。条件が偽の場合でも、条件がテストされる前にコードブロックが実行されるため、少なくとも1回はループが実行されます。
+
+#### **例**
+[JSample5_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample5_2 {
+    public static void main(String[] args) {
+      int i = 0;
+      do {
+        System.out.println(i);
+        i++;
+      }while (i &lt; 5);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+0&lt;br&gt;
+1&lt;br&gt;
+2&lt;br&gt;
+3&lt;br&gt;
+4&lt;br&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.forループ**
+このループは、同じ処理を指定した回数だけ繰り返し実行する場合に使います。
+
+&lt;pre&gt;&lt;code&gt;for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+statement 1：変数の宣言と初期化
+
+statement 2：条件式(ループ処理を続ける条件)
+
+statement 3：継続式(ループ処理が1回終わるごとに実行される内容)
+
+&lt;br&gt;
+
+#### **例**
+[JSample5_3.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample5_3 {
+	public static void main(String[] args) {
+		for (int i = 0; i &lt;= 10; i = i + 2) {
+			System.out.println(i);
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+0&lt;br&gt;
+2&lt;br&gt;
+4&lt;br&gt;
+6&lt;br&gt;
+8&lt;br&gt;
+10
+
+&lt;br&gt;&lt;br&gt;
+
+## **4.for-eachループ**
+forループの少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。これは配列やコレクションと呼ばれる複数の要素を持っているものから全ての要素に含まれる値を順に取り出して処理するために使われます。
+
+&lt;pre&gt;&lt;code&gt;for (type variable : arrayname) {
+  // code block to be executed
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+#### **例**
+[JSample5_4.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample5_4 {
+  public static void main(String[] args) {
+    String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+    for (String i : cars) {
+      System.out.println(i);
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+Volvo&lt;br&gt;
+BMW&lt;br&gt;
+Ford&lt;br&gt;
+Mazda
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題1**[JEx5_1.java]
+
+whileループで、変数i（0～）が6未満であれば、iを出力してください。
+
+&lt;!--
+&lt;pre&gt;&lt;code&gt;
+public class JEx5_1 {
+    public static void main(String[] args) {
+        int i = 0;
+        while (i&lt;6) {
+        System.out.println(i);
+        i++;
+        }
+     }
+}
+&lt;/code&gt;&lt;/pre&gt;
+![java5.5.PNG](https://i.loli.net/2019/08/08/7jEXKMIHd2W4ghc.png)
+--&gt;
+
+&lt;br&gt;
+
+&gt;&gt; **問題2**[JEx5_2.java]
+
+forループで、実行結果が`1*2*3...*n`になるような文を作ってください。
+
+```
+例（入力変数n=10の時）：
+1!=1
+2!=1*2
+3!=1*2*3
+4!=1*2*3*4
+5!=1*2*3*4*5
+6!=1*2*3*4*5*6
+7!=1*2*3*4*5*6*7
+8!=1*2*3*4*5*6*7*8
+9!=1*2*3*4*5*6*7*8*9
+10!=1*2*3*4*5*6*7*8*9*10
+
+10!=3628800
+```
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

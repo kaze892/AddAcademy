@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第18章　テキストファイルの読み書き（後編）</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第18章　テキストファイルの読み書き（後編）</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    テキストファイルの読み書きに関する基本的な考え方について説明します
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **テキストファイルの入出力**
+
+***
+
+## **4.テキストをファイルに書き込む**
+ここからはテキストをファイルに書き込んでいく方法を見てみましょう。まずは基本となる&quot;FileWriter&quot;クラスを使います。
+&lt;pre&gt;&lt;code&gt;File file = new File(file_name);
+FileWriter　filewriter = new FileWriter(file);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+### **4-1.ファイルへの書き込み**
+ではファイルに書き込みを行います。&quot;write&quot;メソッドを使います。&quot;write&quot;メソッドは書き込む値として文字コードを使ったり、文字列を指定したりといくつか用意されているのですが、ここでは文字列を書き込むメソッドを見てみます。
+
+```public void write(String str) throws IOException```
+
+引数に指定した文字列を書き込みます。
+```
+try{
+  File file = new File(&quot;C:¥¥Test¥¥test.txt&quot;);
+  FileWriter filewriter = new FileWriter(file);
+
+  filewriter.write(&quot;こんにちは&quot;);
+}catch(IOException e){
+  System.out.println(e);
+}
+```
+&lt;br&gt;
+
+### **4-2.ファイルを閉じる**
+
+```public void close() throws IOException```
+
+#### **例**
+[JSample18_4.java]
+(writetest.txtファイルを事前に作成ください。)
+
+```
+package JFile;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class JSample18_4 {
+
+	public static void main(String args[]) {
+		try {
+			File file = new File(&quot;C:\\Test\\writetest.txt&quot;);
+
+			if (fileFile(file)) {
+				System.out.println(&quot;ファイルは存在し、書き込み可能です。&quot;);
+				FileWriter fw = new FileWriter(file);
+				fw.write(&quot;おはようございます！\r\n&quot;);
+				fw.write(&quot;初めまして、\r\n&quot;);
+				fw.close();
+				System.out.println(&quot;ファイルに書き込みました&quot;);
+			} else {
+				System.out.println(&quot;ファイルに書き込めません&quot;);
+			}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	private static Boolean fileFile(File file) {
+		if (file.exists()) {
+			if (file.isFile() &amp;&amp; file.canWrite()) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+
+```
+#### **実行結果**
+ファイルは存在し、読み込み可能です。&lt;br&gt;
+ファイルに書き込みました
+
+&lt;br&gt;
+
+**writetest.txtの内容：**&lt;br&gt;
+**実行前：**&lt;br&gt;
+&lt;空白&gt;&lt;br&gt;
+**実行後：**&lt;br&gt;
+おはようございます！&lt;br&gt;
+初めまして、
+
+&lt;br&gt;
+
+### **4-3.ファイルに追加で書き込む**
+
+既にファイルに書かれているテキストは消さずに、ファイルの最後に追加でテキストを書き込む方法を見ていきます。と言っても変更箇所は1箇所だけでFireWriterクラスのオブジェクトを作成する時に、下記のように2番目の引数として&quot;true&quot;を指定するだけです。
+
+&lt;pre&gt;&lt;code&gt;File file = new File(file_name);
+FileWriter　filewriter = new FileWriter(file, true);
+&lt;/code&gt;&lt;/pre&gt;
+
+既にファイルに書かれているテキストは消さずに、ファイルの最後に追加でテキストを書き込む方法を見ていきます。と言っても変更箇所は1箇所だけでFireWriterクラスのオブジェクトを作成する時に、下記のように2番目の引数として&quot;true&quot;を指定するだけです。
+
+#### **例**
+[JSample18_5.java]
+
+&lt;pre&gt;&lt;code&gt;package JFile;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class JSample18_5 {
+	public static void main(String args[]) {
+		try {
+			File file = new File(&quot;C:\\Test\\writetest.txt&quot;);
+
+			if (fileFile(file)) {
+				FileWriter fw = new FileWriter(file, true);
+
+				fw.write(&quot;私は○○と申します。\r\n&quot;);
+				fw.write(&quot;宜しくお願い致します。\r\n&quot;);
+				fw.close();
+				System.out.println(&quot;ファイルに追加しました&quot;);
+			} else {
+				System.out.println(&quot;ファイルに書き込めません&quot;);
+			}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+
+	private static Boolean fileFile(File file) {
+		if (file.exists()) {
+			if (file.isFile() &amp;&amp; file.canWrite()) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+ファイルに追加しました
+&lt;br&gt;
+
+**writetest.txtの内容：**&lt;br&gt;
+**実行前：**&lt;br&gt;
+おはようございます！&lt;br&gt;
+初めまして、&lt;br&gt;
+**実行後：**
+おはようございます！&lt;br&gt;
+初めまして、&lt;br&gt;
+私は○○と申します。&lt;br&gt;
+宜しくお願い致します。
+
+&lt;br&gt;&lt;br&gt;
+
+## **5.標準入力と標準出力**
+### **5-1.標準入力、標準出力とは**
+**・** 標準入力とはキーボードから文字を入力することです。標準入力を使えばキーボードから入力した文字を表示させたり、文字によってプログラムの動作を分岐させることなどができます。
+
+**・** 標準出力ではSystemクラスのoutフィールドを使います。System.outの型はPrintStream型です。
+
+PrintStreamクラスにはprintlnメソッドやprintメソッド、printfメソッドなどが用意されています。おなじみのprintlnメソッドは出力後に改行します。printメソッドは出力後に改行しません。
+
+&lt;br&gt;
+
+### **5-2.InputStreamReaderでキーボードから入力する方法**
+
+キーボードから入力するには「InputStreamReaderクラス」、「BufferedReaderクラス」、「readLineメソッド」を組み合わせて使います。
+
+#### **例**
+[JSample18_6.java]
+
+```
+package JFile;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class JSample18_6 {
+
+	public static void main(String[] args) {
+
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader br = new BufferedReader(isr);
+
+		System.out.println(&quot;キーボードから入力してください&quot;);
+
+		String str = null;
+		try {
+			str = br.readLine();
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println(&quot;入力された文字は「&quot; + str + &quot;」です&quot;);
+
+	}
+}
+```
+
+#### **実行結果**
+キーボードから入力してください&lt;br&gt;
+Hello&lt;改行&gt;&lt;br&gt;
+入力された文字は「Hello」です
+
+&lt;br&gt;
+
+### **5-3.Scannerでキーボードから入力する方法**
+Scannerで入力を受け付け、nextメソッドで入力された文字を読み取ります。
+
+### **例**
+[JSample18_7.java]
+
+```
+package JFile;
+
+import java.util.Scanner;
+
+public class JSample18_7 {
+	public static void main(String[] args) {
+		System.out.println(&quot;キーボードから入力してください&quot;);
+
+		Scanner scan = new Scanner(System.in);
+		String str = scan.next();
+
+		System.out.println(&quot;入力された文字は「&quot; + str + &quot;」です&quot;);
+	}
+}
+```
+#### **実行結果**
+キーボードから入力してください&lt;br&gt;
+Hello&lt;改行&gt;&lt;br&gt;
+入力された文字は「Hello」です
+
+&lt;br&gt;
+
+### **5-4.nextIntメソッドで数値を入力する方法**
+nextメソッドは入力された文字を文字列として読み込みますが、nextIntメソッドは数値として読み込みます。
+
+### **例**
+[JSample18_8.java]
+
+```
+package JFile;
+
+import java.util.Scanner;
+
+public class JSample18_8 {
+	public static void main(String[] args) {
+		System.out.println(&quot;キーボードから入力してください&quot;);
+
+		Scanner scan = new Scanner(System.in);
+		int num = scan.nextInt();
+
+		System.out.println(&quot;入力された文字は「&quot; + num + &quot;」です&quot;);
+	}
+}
+```
+#### **実行結果**
+キーボードから入力してください&lt;br&gt;
+12345&lt;改行&gt;&lt;br&gt;
+入力された文字は「12345」です
+&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題1**[JEx18_1.java]
+
+1!+2!+3!+…+n! を計算するプログラムをつくれ。ただし、n は キーボードで与えるものとする。
+
+&gt;&gt; **問題2**[JEx18_2.java]
+
+下記の文章に単語&quot;Thanks&quot;をカウントします。
+
+&lt;pre&gt;
+	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
+Thanks a million.&lt;br&gt;
+Thanks a bunch.&lt;br&gt;
+Thank you ever so much.
+&lt;/html&gt;&#39;&quot;&gt;&lt;/iframe&gt;
+&lt;/pre&gt;</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

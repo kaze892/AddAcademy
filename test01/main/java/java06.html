@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第6章　配列</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第6章　配列</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では Javaの配列について説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **配列**
+***
+
+配列は、値ごとに別々の変数を宣言するのではなく、単一の変数に複数の値を格納するために使用されます。
+
+**配列を宣言する**には、変数の型を角括弧で定義します。
+
+&lt;pre&gt;&lt;code&gt;String[] cars;
+
+int number[];
+int[] number;
+&lt;/code&gt;&lt;/pre&gt;
+上記の定義は配列の変数を宣言するだけであり、この状態では実体は存在しません。
+&lt;br&gt;
+
+**配列を初期化する**には、new演算子で初期化します。
+```
+//int型の値を3つ格納することのできる配列を宣言
+int number[] = new int[3]; 
+
+// 変数宣言と初期化を別にすることも可能
+int number[];
+number = new int[3];
+```
+このとき、number[0], number[1], number[2] にはすべて 0 が格納されています。new で配列を初期化した場合は、その型クラスのデフォルト値で初期化されます。
+&lt;br&gt;
+
+宣言と同時に配列を初期化する方法もあります。値を中括弧で囲み、カンマ区切りのリストにします。
+&lt;pre&gt;&lt;code&gt;//一次元配列イニシャライザ
+String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+
+//或いは
+String[] cars;
+cars = new String[]{&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **1.配列の要素にアクセスする**
+インデックス番号を```[]```内に参照して配列要素にアクセスします。
+
+&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+System.out.println(cars[0]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;font color=#0099ff&gt;注：配列インデックスは0から始まります。[0]が最初の要素です。[1]は2番目の要素などです。&lt;/font&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **2.配列の長さ**
+配列の要素数を調べるには、次のlengthプロパティを使用します。
+
+&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+System.out.println(cars.length);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.配列をループする**
+ループを使用して配列要素をforループ処理し、length プロパティを使用してループの実行回数を指定できます。
+
+&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+for (int i = 0; i &lt; cars.length; i++) {
+  System.out.println(cars[i]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+for (String i : cars) {
+  System.out.println(i);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;&lt;br&gt;
+
+## **4.多次元配列**
+多次元配列は、2つ以上の配列を含む配列です。
+
+2次元配列を作成するには、各配列をそれ自身の中括弧のセット内に追加します。
+
+&lt;pre&gt;&lt;code&gt;int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+int x = myNumbers[1][2];
+System.out.println(x); // Outputs 7
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **例**
+[JSample6_1.java]
+
+```
+package JSample;
+
+public class JSample6_1 {
+
+	public static void main(String[] args) {
+
+		int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
+		for (int i = 0; i &lt; myNumbers.length; ++i) {
+			//配列名.length で、縦方向の要素数を取得(今回は2)
+			System.out.println(&quot;行ごとに繰り返し&quot;);
+			for (int j = 0; j &lt; myNumbers[i].length; ++j) {
+				//配列名[0].length で、横方向の要素数を取得(今回は4と3)
+				System.out.println(&quot;列の要素数は&quot; + myNumbers[i].length);
+				System.out.println(myNumbers[i][j]);
+			}
+		}
+	}
+}
+```
+
+#### **実行結果**
+行ごとに繰り返し&lt;br&gt;
+列の要素数は4&lt;br&gt;
+1&lt;br&gt;
+列の要素数は4&lt;br&gt;
+2&lt;br&gt;
+列の要素数は4&lt;br&gt;
+3&lt;br&gt;
+列の要素数は4&lt;br&gt;
+4&lt;br&gt;
+行ごとに繰り返し&lt;br&gt;
+列の要素数は3&lt;br&gt;
+5&lt;br&gt;
+列の要素数は3&lt;br&gt;
+6&lt;br&gt;
+列の要素数は3&lt;br&gt;
+7
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題1**[JEx6_1.java]
+
+&lt;pre&gt;&lt;code&gt;int[] cars = {1,2,3,4,5,6,7,8,9,10};
+&lt;/code&gt;&lt;/pre&gt;
+
+上記の配列から偶数のみを出力してください。
+
+
+&gt;&gt; **問題2**[JEx6_2.java]
+
+配列を作成して、下記の九九表になるように出力してください。
+
+   1&lt;br&gt;
+   2   4&lt;br&gt;
+   3   6   9&lt;br&gt;
+   4   8  12  16&lt;br&gt;
+   5  10  15  20  25&lt;br&gt;
+   6  12  18  24  30  36&lt;br&gt;
+   7  14  21  28  35  42  49&lt;br&gt;
+   8  16  24  32  40  48  56  64&lt;br&gt;
+   9  18  27  36  45  54  63  72  81
+
+
+
+&gt;&gt; **問題3**[JEx6_3.java]
+```
+String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+```
+上記の配列を作って、下記のように出力してください。&lt;br&gt;
+Volvo&lt;br&gt;
+BMW&lt;br&gt;
+Ford&lt;br&gt;
+Mazda
+
+&lt;!--
+```
+package JSample;
+
+public class JSample6_3 {
+	public static void main(String[] args) {
+		String[] cars = { &quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot; };
+		for (String i : cars) {
+			System.out.println(i);
+		}
+
+	}
+}
+```
+実行結果：&lt;br&gt;
+![JSample6_3.PNG](https://i.loli.net/2019/08/09/5a6Ls4evhz1HVui.png)
+
+--&gt;
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第9章　クラスとインスタンス</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第9章　クラスとインスタンス</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章ではJavaのクラスとインスタンスについて説明します。
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **クラス**
+***
+
+`クラス`とは、プログラムを実行するための処理をまとめたオブジェクトで、クラスの処理の中にはメンバ変数や処理を実行するためのメソッドがあります。
+
+ちなみに、メンバ変数とはクラス内で使用する変数のことで、メソッドとはメンバ変数などを使って行う処理をひと塊にまとめたものです。
+
+&lt;br&gt;
+
+## **1.インスタンスとオブジェクト**
+Javaのようなオブジェクト指向のプログラミング言語では、処理をまとめたクラスを実行するためには、そのクラスのオブジェクトを生成する必要があります。
+
+そして、生成したクラスのオブジェクトから、そのクラスのメンバ変数を参照したり、メソッドを呼び出して使用します。クラスの中のメソッドを呼び出すためには、以下のように記述します。
+
+```
+//クラス定義
+class ClassSample {
+   // メソッドの宣言・定義
+   void methodSample(){
+       実行処理...
+   }
+}
+```
+```
+//オブジェクトを生成
+ClassSample cl = new ClassSample();
+ 
+//メソッドの呼出し
+cl.methodSample();
+```
+クラスのオブジェクトを生成する方法は変数を宣言する方法と似ていて、クラス名のあとにオブジェクト名を記述します。オブジェクトには`new演算子`を使って生成する`インスタンス`を格納します。
+
+なお、クラスのオブジェクトは異なるオブジェクト名でいくつでも生成することが可能です。
+
+&lt;br&gt;&lt;br&gt;
+
+## **2.オブジェクト指向とは**
+
+オブジェクト指向では、
+現実世界の **人物** 、または **モノ** をコンピュータ内の仮想世界に再現するために、(以降、上記の人物、またはモノをオブジェクトと呼ぶ)１つのオブジェクトを **複数の部品** に分けて作ります。
+
+その際に、 **オブジェクト(モノ)** が持つ、**プロパティ(属性)** や **メソッド(操作)** をクラス内で定義します。
+
+これによって、`クラス`は
+**「写真を作る元の&lt;font color=red&gt;ネガ&lt;/font&gt;」「鯛焼きを作る元の&lt;font color=red&gt;型&lt;/font&gt;」「車を作る元の&lt;font color=red&gt;設計図&lt;/font&gt;」** のようなものになります。
+
+&lt;br&gt;&lt;br&gt;
+
+## **3.クラスを作り方(クラスの定義)**
+クラス名は、お好きなキーワードで構いません。
+
+以下の例では、Carというキーワード(名前)のクラスにしました。
+
+&lt;font color=#0099ff&gt;注意：&lt;/font&gt;クラスは常に&lt;font color=#0099ff&gt;大文字&lt;/font&gt;で始まり、
+
+&lt;font color=#0099ff&gt;Javaファイルの名前はクラス名と同じにする&lt;/font&gt;必要があります。
+まずは、**オブジェクト(モノ)** が持つ、**プロパティ(属性)** や **メソッド(操作)** をクラス内で定義していきましょう。
+
+例えば、車をオブジェクトとして、考えてみます。
+
+車には、**色などの属性** と、 **アクセルなどの操作** があります。
+
+これをCarクラス内の定義に当てはめていくと、以下のように作成することができます。
+
+&lt;pre&gt;&lt;code&gt;//package パッケージ名;
+
+  public class Car {
+
+    String color;
+    //属性（メンバ変数）として、色という文字列の宣言
+
+	int speed; 
+	//メンバ変数speedの宣言
+
+    void go(){
+    //操作（メソッド）として、アクセルという動作の説明
+    }
+
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+### **クラスの使用**
+クラスをソース上で使用する為には、まず、そのクラスにアクセス可能である必要がある。
+（アクセス可能（参照可能）でないと、importでコンパイルエラーになる）
+
+クラス（インスタンス）を使うには、以下のように変数を宣言する。
+
+```
+void メソッド() {
+		Car car1;
+		～
+	}
+```
+
+ローカル変数を宣言すると、初期値は設定されない。そのまま値を代入せずに使おうとするとコンパイルエラーになる。
+（フィールド（メンバー変数）を定義すると、デフォルトの値はnullになる）
+実体（インスタンス）は、具象クラスに対してnewで生成する。
+```
+Car car1;
+	car1 = new Car();
+あるいは
+Car car1 = new Car();
+```
+&lt;br&gt;&lt;br&gt;
+
+## **4.インスタンスを作成する**
+`インスタンス`とは、クラスから作成される実体です。
+
+クラスは上記の通り、インスタンスを作成するための&lt;font color=red&gt;ひな型&lt;/font&gt;のようなものです。
+
+すでにCarという名前のクラスを作成したので、これを使ってインスタンスを作成してみます。
+
+※バッテリーは100あると宣言した属性も追加しました。
+
+※また、操作として宣言した  **アクセル** という動作の説明に、バッテリーの消費も追加しました。
+
+&lt;br&gt;
+
+#### **例**
+[Car.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class Car{
+
+	String color;
+	//属性として、色の宣言
+	int battery = 100;
+	//属性として、元々のバッテリーは100あると宣言
+
+	void go() {
+		//操作として、アクセルという動作の説明
+		this.battery -= 10;
+		//バッテリーを10使う操作である
+		System.out.println(&quot;バッテリーを10使用しました&quot;);
+		System.out.println(&quot;現在のバッテリーは、&quot; + battery + &quot;です&quot;);
+	}
+    void charge() {
+		//操作として、充電という動作の説明
+		this.battery += 50;
+		System.out.println(&quot;バッテリーを50充電しました&quot;);
+		System.out.println(&quot;現在のバッテリーは、&quot; + battery + &quot;です&quot;);
+	}
+	
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **例**
+[JSample9_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+public class JSample9_2 {
+
+	public static void main(String[] args) {
+
+		Car car1 = new Car();
+		//car1というオブジェクトを作成
+		car1.color = &quot;red&quot;;
+		System.out.println(&quot;元々あるバッテリー量は、&quot; + car1.battery + &quot;です&quot;);
+		car1.go();
+		car1.charge();
+	}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+#### **実行結果**
+元々あるバッテリー量は、100です&lt;br&gt;
+バッテリーを10使用しました&lt;br&gt;
+現在のバッテリーは、90です&lt;br&gt;
+バッテリーを50充電しました&lt;br&gt;
+現在のバッテリーは、140です
+
+&lt;br&gt;&lt;br&gt;
+
+***
+&gt; **練習**
+&gt;&gt; **問題**[JEx9_1.java]
+
+下記クラスのインスタンスを作成し、メソッドを呼出いし、実行してください。
+&lt;pre&gt;&lt;code&gt;package JSample;
+class Computer {
+	int computerNo;
+	String name;
+
+	void setComputerNo (int newComputerNo) {
+		computerNo = newComputerNo;
+	}
+
+	void setName(String newName) {
+		name = newName;
+	}
+
+	void dispComputer() {
+		System.out.println(name + &quot;さんが使っているパソコンは &quot; + computerNo + &quot;号機です&quot;);
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+
+</html>

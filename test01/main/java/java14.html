@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第14章　多態性</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第14章　多態性</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    多態性に関する基本的な考え方について説明します
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **多態性**
+***
+
+多態性とは「多形態」を意味し、継承によって互いに関連するクラスが多数ある場合に発生します。
+
+たとえば、名前はAnimalというスーパークラスがanimalSound()があります。動物のサブクラスには、豚、猫、犬、鳥などがあります。また、動物のサウンドを独自に実装することもできます（豚の鳴き声、猫の鳴き声など）。
+
+&lt;pre&gt;&lt;code&gt;class Animal {
+  public void animalSound() {
+    System.out.println(&quot;The animal makes a sound&quot;);
+  }
+}
+
+class Pig extends Animal {
+  public void animalSound() {
+    System.out.println(&quot;The pig says: wee wee&quot;);
+  }
+}
+
+class Dog extends Animal {
+  public void animalSound() {
+    System.out.println(&quot;The dog says: bow wow&quot;);
+  }
+}
+
+class MyMainClass {
+  public static void main(String[] args) {
+    Animal myAnimal = new Animal();  // Create a Animal object
+    Animal myPig = new Pig();  // Create a Pig object
+    Animal myDog = new Dog();  // Create a Dog object
+
+    myAnimal.animalSound();
+    myPig.animalSound();
+    myDog.animalSound();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+The animal makes a sound&lt;br&gt;
+The pig says: wee wee&lt;br&gt;
+The dog says: bow wow
+
+&lt;br&gt;&lt;br&gt;
+
+**「継承」と「多態性」を使用する理由**
+&gt; コードの再利用性に役立ちます。新しいクラスを作成するときに、既存のクラスの属性とメソッドを再利用します。
+
+#### **例**
+[JSample14_1.java]
+
+```
+package JSample;
+
+public class JSample14_1 {
+    public static void main(String[] args) {
+      show(new Cat());  
+      show(new Dog()); 
+                
+      Animal a = new Cat();    
+      a.eat();              
+      Cat c = (Cat)a;         
+      c.work();       
+    }  
+            
+    public static void show(Animal a)  {
+      a.eat();  
+      if (a instanceof Cat)  { 
+            Cat c = (Cat)a;  
+            c.work();  
+      } else if (a instanceof Dog) { 
+            Dog c = (Dog)a;  
+            c.work();  
+      }  
+    }  
+}
+ 
+abstract class Animal {  
+    abstract void eat();  
+}  
+  
+class Cat extends Animal {  
+    public void eat() {  
+        System.out.println(&quot;Catに食べる?&quot;);  
+    }  
+    public void work() {  
+        System.out.println(&quot;Catにネズミを捕まえる&quot;);  
+    }  
+}  
+  
+class Dog extends Animal {  
+    public void eat() {  
+        System.out.println(&quot;Dogに食べる?&quot;);  
+    }  
+    public void work() {  
+        System.out.println(&quot;Dogに留守番する&quot;);  
+    }  
+}
+```
+#### **実行結果**
+&lt;pre&gt;
+	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
+Catに食べる?&lt;br&gt;
+Catにネズミを捕まえる&lt;br&gt;
+Dogに食べる?&lt;br&gt;
+Dogに留守番する&lt;br&gt;
+Catに食べる?&lt;br&gt;
+Catにネズミを捕まえる
+&lt;/html&gt;&#39;&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;&lt;/iframe&gt;
+&lt;/pre&gt;
+
+&lt;br&gt;
+
+**多態性を実現する方法**
+
++ 継承
++ 抽象クラス
++ インターフェース
+
+&lt;br&gt;
+
++ **インターフェース**
+
+インターフェースとは、クラスに含まれるメソッドの具体的な処理内容を記述せず、変数とメソッドの型のみを定義したものです
+以下のようにインターフェースを宣言および実装を行います。
+```
+//インターフェースを宣言
+interface インターフェース名{}
+```
+
+```
+//インターフェースを実装
+class クラス名 implements インターフェース名{}
+```
+#### **例**
+[JSample14_2.java]
+
+```
+public class JSample14_2 {
+    public static void main(String[] args) {
+    	ControlBikeIf myBike = new BikeGo();
+
+        myBike.start();
+        myBike.speedup();
+        myBike.stop();
+        myBike.start();
+    }
+}
+```
+[ControlBikeIf.java]
+```
+public interface ControlBikeIf {
+    void start();
+    void stop();
+    void speedup();
+    void speeddown();
+}
+```
+[BikeGo.java]
+```
+public class BikeGo implements ControlBikeIf {
+    public void start() {
+        System.out.println(&quot;自電車起動&quot;);
+    }
+
+    public void stop() {
+        System.out.println(&quot;自電車停止&quot;);
+    }
+
+    public void speedup() {
+        System.out.println(&quot;速度アップ&quot;);
+    }
+
+    public void speeddown() {
+        System.out.println(&quot;速度ダウン&quot;);
+    }
+}
+```
+#### **実行結果**
+自電車起動&lt;br&gt;
+速度アップ&lt;br&gt;
+自電車停止&lt;br&gt;
+自電車起動
+
+&lt;br&gt;&lt;br&gt;
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題1**[JEx14_1.java]
+
+下記のプログラムを完成ください。
+
+```
+package JSample;
+
+class SuperC {
+	public void sc() {
+		System.out.println(&quot;This is SuperC!&quot;);
+
+	}
+}
+
+class Subc1 extends SuperC {
+	public void sc() {
+		System.out.println(&quot;This is Subc1!&quot;);
+
+	}
+}
+
+class Subc2 extends SuperC {
+	public void sc() {
+		System.out.println(&quot;This is Subc2!&quot;);
+
+	}
+}
+
+public class Ex14_1 {
+	public static void main(String[] args) {
+
+		SuperC a;
+		______①__________
+		______②__________
+		a = b;
+		a.sc();
+		a = c;
+		a.sc();
+
+	}
+}
+```
+#### **実行結果**
+&lt;pre&gt;
+	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
+This is Subc1!&lt;br&gt;
+This is Subc2!
+&lt;/html&gt;&#39;&quot;&gt;&lt;/iframe&gt;
+&lt;/pre&gt;
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>
