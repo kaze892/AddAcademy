@@ -50,12 +50,20 @@
 <h1><b>JAVA構文</b></h1>
 <br>
 <hr>
-<h2><b>1.開発ツールEclipseでJAVAの実行</b></h2>
-<h2><b>開発ツールEclipse</b></h2>
+<h2><b>第1章　開発環境の準備とプログラム作成</b></h2>
+    <p>この章では開発環境を準備する方法を説明します。最後に実際に簡単なプログラムを実行してみましょう。</p>
+    <br>
+
+<h2><b>開発ツールの準備とプログラム作成</b></h2>
+<h2><b>開発ツール
+    <h2><b>開発ツールEclips</b></h2>
 <br>
+    <p>第０章でもお伝えしてように、Javaの開発を行うためにはJavaの開発環境を準備する必要があります。</p>
+    <p>本講座では開発ツールとしてEclipsを使用します。</p>
+    <br>
+    <p>以下のリンクからEclipsをダウンロードできます。</p>
 <a href="https://www.eclipse.org/downloads/">Eclipseダウンロード</a>
-<p>環境構築は必ず行ってください。</p>
-<br>
+    <br>
 <p>デスクトップに「eclipse.exe」ショートカット、あるいは「eclipse」フォルダの中に「eclipse.exe」がありますので、これをダブルクリックします。</p>
 <img style="height: 310px"; src="../assets/img/j01/eclipse01.png" alt=" ">
 <br>
@@ -63,30 +71,44 @@
 <p>その後「Eclipseランチャー」ダイアログが表示されますので、ワークスペースのフォルダを選択してください。</p>
 <br>
 <img style="height: 180px"; src="../assets/img/j01/eclipse02.png" alt=" ">
-<p><b>ワークスペース</b>とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。デフォルトで表示されているフォルダを変更しても問題ありません。
-
+<p><b>ワークスペース</b>とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。
+<br>
 ワークスペースを選択したら、そのまま「起動」ボタンを押します。
-
+<br>
 起動すると、Eclipseの開発画面が表示されます。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse03.png" alt=" ">
 <br>
-<p><b>javaプロジェクトの作成</b>><p>
+    <p>実際のシステムは、数百個以上のプログラムで構成されています。</p>
+    <p>eclipsでは、その全体を［プロジェクト］と呼んで管理しています。</p>
+    <p>プロジェクトの中には、全てのプログラムと関連するデータファイルが含まれています。</p>
+    <p>さらに、プロジェクトの中は機能ごとに［パッケージ］と呼ばれるサブフォルダに分けられています。</p>
+    <p>その［パッケージ］の元となるプログラムが入っており、機能ごとに呼び出して使っています。</p>
+    <p>では実際に［プロジェクト］と［パッケージ］を作成し、簡単なプログラムを作ってみましょう。</p>
+    <br>
+    <br>
+<p><b>プロジェクトの作成</b>><p>
 <p>ツールバー中にファイルの「新規」を選択し、「javaプロジェクト」を選択します。</p>
 <img style="height: 400px"; src="../assets/img/j01/eclipse04.png" alt=" ">
 <p>「プロジェクト名」に「MyClass」を入力し、「完了」を押します。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse05.png" alt=" ">
 <p>「MyClass」の名前でjavaプロジェクトを作成しました。</p>
 <br>
-<p><b>プログラムの作成</b>><p>
+<p><b>パッケージ・クラスの作成</b>><p>
 <p>「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。そのメニューで［新規］→［クラス］を指定します。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse06.png" alt=" ">
-<p>すると、［新規Javaクラス］ダイアログが表示されるので、［名前］にMyClassと入力し、［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］をチェックして、［終了］ボタンをクリックします。</p>
+<p>すると、［新規Javaクラス］ダイアログが表示されるので、
+    <li>［名前］にMyClassと入力し</li>
+    <li>［パッケージ］に「Sample」と入力</li>
+    <li>［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］を選択し、［終了］ボタンをクリックします。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse07.png" alt=" ">
-<p>エディタにソースコードが自動生成されました。</p>
+<p>エディタ（＊１）にソースコードが自動生成されます。</p>
+    <p>これで開発の準備は完了です。</p>
 <br>
-<h1><B>初めてのjavaコード</B></h1>
+    <p>（＊１）eclips内で実際にコード入力する作業スペースのこと。</p>
+    <br>
+<h1><B>プログラム作成</B></h1>
 
-<p>下記のコードの編集を終えたら、保存します。</p>
+<p>それでは実際に以下のコードを入力してみましょう。</p>
 <br>
 <p>[MyClass.java]</p>
 
@@ -100,13 +122,14 @@ public class MyClass {
 
 <img style="height: 160px"; src="../assets/img/j01/eclipse08.png" alt=" ">
 <br>
-<p>右クリックし、［実行］→［Javaアプリケーション］を指定します。</p>
+    <p>コードの入力が完了したら保存します。</p>
+    <p>ツールバーの下にある［実行］ボタンをクリックします。</p>
 <img style="height: 85px"; src="../assets/img/j01/eclipse09.png" alt=" ">
 <br>
 <br>
 <h2><b>実行結果</h2></b>
 <img style="height: 130px"; src="../assets/img/j01/eclipse10.png" alt=" ">
-<p>出力にHello World! と表示されれば成功です。</p>
+<p>出力に「Hello World! 」と表示されれば成功です。</p>
 
 </textarea>
 
