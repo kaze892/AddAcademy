@@ -43,7 +43,69 @@
         </div>
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **演算子**
+        <textarea id="text" style="display:none">
+<h1>演算子</h1>
+<p>演算子は、変数や値に対して操作を実行するために使用されます。</p>
+<p>数学の加減乗除などの演算には「＋、ー、×、÷」という記号が使われますが、プログラミングにおいてはさらに多くの記号が使われ、その用途も様々です。</p>
+<p>それぞれの演算子とその用途を理解して使えるようにしていきましょう。</p>
+<br>
+<p>まず以下の例を見て見ましょう。</p>
+<b>例：　int × = 100 + 50</b>
+<table border="1" width="200">
+	<tr>
+		<td>値</td>
+		<td>演算子</td>
+		<td>値</td>
+	</tr>
+	<tr>
+		<td>100</td>
+		<td>+</td>
+		<td>50</td>
+	</tr>
+</table><br>
+			<br>
+			<p>この例では100と50という数字が値で、＋符号は演算子です。</p>
+			<p>＋は２つの値を足すためにも使われますが、変数と値、変数と変数などを演算することにも使用できます。</p>
+			<br>
+			<b>例</b>
+			<p>[JSample3_1.java]</p>
+			<pre><code>package JSample;
+			public class Jsample3_1{
+				public static void main(String[] args){
+					int sum1 = 100 + 50;	// 150 (100 + 50)
+					int sum2 = sum1 + 250;	// 400 (150 + 250)
+					int sum3 = sum2 + sum2;	// 800 (400 + 400)
+					System.out.println(sum1);
+					System.out.println(sum2);
+					System.out.println(sum3);
+				}
+			}</code></pre><br>
+<br>
+			<br>
+			<b>実行結果</b>
+			<p>150</p>
+			<p>400</p>
+			<p>800</p><br>
+			<p>演算子は上の例の</p>
+			<p>４行目	値(100)と値(50)の足し算</p>
+			<p>５行目	変数(sum1)と値(250)の足し算</p>
+			<p>６行目	変数(sum2)と変数(sum2)の足し算</p>
+			<p>のように使用することができます。</p><br>
+			<br>
+			<p>次に、Javaで利用される基本的な演算子を説明します。</p>
+			<p>Javaで利用する演算子は次のように分類されます。</p>
+			<ol>
+				<li>算術演算子</li>
+				<li>代入演算子</li>
+				<li>関係演算子</li>
+				<li>論理演算子</li>
+			</ol>
+			<br>
+			<br>
+			<b>1.算術演算子</b>		
+		
+		
+		# **演算子**
 ***
 
 演算子(オペレータ)は、変数と値(オベランド)に対して操作を実行するために使用されます。
