@@ -50,7 +50,7 @@
 <p>それぞれの演算子とその用途を理解して使えるようにしていきましょう。</p>
 <br>
 <p>まず以下の例を見て見ましょう。</p>
-<b>例：　int × = 100 + 50;</b>
+<b>例：　int × = 100 + 50</b>
 <table border="1" width="200">
 	<tr>
 		<td>値</td>
@@ -67,8 +67,8 @@
 			<p>この例では100と50という数字が値で、＋符号は演算子です。</p>
 			<p>＋は２つの値を足すためにも使われますが、変数と値、変数と変数などを演算することにも使用できます。</p>
 			<br>
-			<b>例</b>
-			<p>[JSample3_1.java]</p>
+			<p><b>例</b><br>
+			&#91;JSample3＿1.java&#93;</p>
 			<pre><code>package JSample;
 			public class Jsample3_1{
 				public static void main(String[] args){
@@ -102,7 +102,198 @@
 			</ol>
 			<br>
 			<br>
-			<b>1.算術演算子</b>	
+			<b>1.算術演算子</b>
+			<p>算術演算子は、一般的な数学演算を実行するために使用されます。</p>
+			<br>
+			<table border="1" width="300">
+				<tr>
+					<th>演算子</th>
+					<th>意味</th>
+					<th>例</th>
+				</tr>
+				<tr>
+					<td>+</td>
+					<td>加</td>
+					<td>a+b</td>
+				</tr>
+				<tr>
+					<td>-</td>
+					<td>減</td>
+					<td>a-b</td>
+				</tr>
+				<tr>
+					<td>*</td>
+					<td>乗</td>
+					<td>a*b</td>
+				</tr>
+				<tr>
+					<td>/</td>
+					<td>除</td>
+					<td>a/b</td>
+				</tr>
+				<tr>
+					<td>%</td>
+					<td>剰余（割った余りを計算）</td>
+					<td>a%b</td>
+				</tr>
+			</table>
+			<br>
+			<p>次の例は４、５、６を５で割った余りを計算しています。<br>
+			例１：4%5→4<br>
+			例２：5%5→0<br>
+			例３：6%5→1</p>
+			<br>
+			<br>
+			<p>例１のように、割られる値（4）が割る（5）よりも小さい値では、あまりはその値自身です。<br>例２のように、割られる値（5）がわる値で割り切れるので余りは０です。</p>
+			<br>
+			<br>
+			<h1>2.Java代入演算子</h1>
+			<p>代入演算子は、変数に値を代入するために使用されます。</p>
+			<br>
+			<table border="1" width="400"　aline="center">
+				<tr>
+					<th>演算子</th>
+					<th>意味</th>
+					<th>代入演算子での<br>同等な式</th>
+				</tr>
+				<tr>
+					<td>a=b</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>a++</td>
+					<td></td>
+					<td>a=a+a</td>
+				</tr>
+				<tr>
+					<td>a--</td>
+					<td></td>
+					<td>a=a-a</td>
+				</tr>
+				<tr>
+					<td>a+=b</td>
+					<td></td>
+					<td>a=a+b</td>
+				</tr>
+				<tr>
+					<td>a-=b</td>
+					<td></td>
+					<td>a=a-b</td>
+				</tr>
+				<tr>
+					<td>a*=b</td>
+					<td></td>
+					<td>a=a*b</td>
+				</tr>
+				<tr>
+					<td>a/=b</td>
+					<td></td>
+					<td>a=a/b</td>
+				</tr>
+				<tr>
+					<td>a%=b</td>
+					<td></td>
+					<td>a=a%b</td>
+				</tr>
+				<tr>
+					<td>a&=b</td>
+					<td></td>
+					<td>a=a&b</td>
+				</tr>
+				<tr>
+					<td>a|=b</td>
+					<td></td>
+					<td>a=a|b</td>
+				</tr>
+				<tr>
+					<td>a^=b</td>
+					<td></td>
+					<td>a=a^b</td>
+				</tr>
+				<tr>
+					<td>a&lt;&lt;=b</td>
+					<td></td>
+					<td>a=a<<b</td>
+				</tr>
+				<tr>
+					<td>a>>=b</td>
+					<td></td>
+					<td>a=a>>b</td>
+				</tr>
+				<tr>
+					<td>a>>>=b</td>
+					<td></td>
+					<td>a=a>>>b</td>
+				</tr>
+			</table>
+			<br>
+			<b>例１：</b>
+			<p>１.int x =10;<br>
+				２. x += 5;</P>
+			<br>
+		<p>１行目では、代入演算子（＝）を使用して、変数（x）に値（１０）を代入します。<br>
+		次に２行目で、複合代入演算子（＋＝）により、「xの値を５だけ増やす」という演算になります。<br>
+		そのためxの値は１５となります。</p>
+		<br>
+		<br>
+		<h1>3.Java関係演算子</h1>
+		<p>関係演算子は、２つの値を比較するために使用されます。<br>
+		この関係演算子は、次紹介する論理演算子とともに条件を書くための演算子として用いられる。<br>
+		この演算子を使って条件を書くことは、「第４章条件分岐」、「第５章繰り返し」などの基礎となる考え方なので理解しておきましょう。</p>
+		<br>
+		<table border="1" width="500">
+			<tr>
+				<th>演算子</th>
+				<th>使用例</th>
+				<th>意味</th>
+			</tr>
+			<tr>
+				<td>==</td>
+				<td>a==b</td>
+				<td>aとbは等しい</td>
+			</tr>
+			<tr>
+				<td>!==</td>
+				<td>a !=b</td>
+				<td>aとbは等しくない</td>
+			</tr>
+			<tr>
+				<td>&lt;</td>
+				<td>a &lt; b</td>
+				<td>aはbより大きい（超える）</td>
+			</tr>
+			<tr>
+				<td>></td>
+				<td>a > b</td>
+				<td>aはbより小さい（未満）</td>
+			</tr>
+			<tr>
+				<td>>=</td>
+				<td>a >= b</td>
+				<td>aはbより大きいか等しい（以上）</td>
+			</tr>
+			<tr>
+				<td>&lt;=</td>
+				<td>a&lt;=b</td>
+				<td>aはbよりも小さいか等しい（以下）</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<b>例：</b>
+		<ol>
+			<li>a>0　・・・aは正の数</li>
+			<li>b>=10　・・・bは１０以上</li>
+			<li>c>d+5　・・・cはd+5よりも大きい</li>
+			<li>e+f>=10　・・・e+fは10以上</li>
+		</ol>
+		<br>
+		<p>関係演算子は例の１行目・２行目のように、変数と値を比較するために使われます。<br>
+		それ以外にも例の３行目・４行目のように、変数や式とも比較することができます。<br>
+		この場合、右辺と左辺のどちらにも変数や式を書くことができます。</p>
+		<br>
+		<h1>4.Java　論理演算子</h1>
 		<p>論理演算子は、２つ以上の関係式を組みあせて、複雑な条件を作成するために使います。</p>
 		<br>
 		<table border="1" width="500">
