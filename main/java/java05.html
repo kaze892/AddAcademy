@@ -53,7 +53,7 @@
 
 
 &lt;pre&gt;&lt;code&gt;while (条件式) {
-  // code block to be executed
+  // 実行するコードブロック
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -67,7 +67,7 @@
 
 public class JSample5_1 {
   public static void main(String[] args) {
-    int i = 0;
+    int i = 1;
     while (i &lt; 5) {
       System.out.println(i);
       i++;
@@ -77,7 +77,7 @@ public class JSample5_1 {
 &lt;/code&gt;&lt;/pre&gt;
 
 #### **実行結果**
-0&lt;br&gt;
+
 1&lt;br&gt;
 2&lt;br&gt;
 3&lt;br&gt;
@@ -89,7 +89,7 @@ public class JSample5_1 {
 このループは、条件が満たされているかどうかをチェックする前にコードブロックを1回実行し、条件が満たされている限りループを繰り返します。
 
 &lt;pre&gt;&lt;code&gt;do {
-  // code block to be executed
+  // 実行するコードブロック
 }
 while (条件式);
 &lt;/pre&gt;&lt;/code&gt;
@@ -105,7 +105,7 @@ while (条件式);
 
 public class JSample5_2 {
     public static void main(String[] args) {
-      int i = 0;
+      int i = 1;
       do {
         System.out.println(i);
         i++;
@@ -114,60 +114,50 @@ public class JSample5_2 {
 }
 &lt;/code&gt;&lt;/pre&gt;
 #### **実行結果**
-0&lt;br&gt;
+
 1&lt;br&gt;
 2&lt;br&gt;
 3&lt;br&gt;
 4&lt;br&gt;
-
 &lt;br&gt;&lt;br&gt;
-
-## **3.forループ**
-このループは、同じ処理を指定した回数だけ繰り返し実行する場合に使います。
-
-&lt;pre&gt;&lt;code&gt;for (statement 1; statement 2; statement 3) {
-  // code block to be executed
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-statement 1：変数の宣言と初期化
-
-statement 2：条件式(ループ処理を続ける条件)
-
-statement 3：継続式(ループ処理が1回終わるごとに実行される内容)
-
-&lt;br&gt;
 
 #### **例**
 [JSample5_3.java]
 
 &lt;pre&gt;&lt;code&gt;package JSample;
 
-public class JSample5_3 {
-	public static void main(String[] args) {
-		for (int i = 0; i &lt;= 10; i = i + 2) {
-			System.out.println(i);
-		}
-	}
+public class JSample5_2 {
+    public static void main(String[] args) {
+      int i = 10;
+      do {
+        System.out.println(i);
+        i++;
+      }while (i &lt; 5);
+    }
 }
 &lt;/code&gt;&lt;/pre&gt;
 #### **実行結果**
-0&lt;br&gt;
-2&lt;br&gt;
-4&lt;br&gt;
-6&lt;br&gt;
-8&lt;br&gt;
-10
+
+10&lt;br&gt;
+
+
+
 
 &lt;br&gt;&lt;br&gt;
 
-## **4.for-eachループ**
-forループの少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。これは配列やコレクションと呼ばれる複数の要素を持っているものから全ての要素に含まれる値を順に取り出して処理するために使われます。
+## **3.forループ**
+このループは、同じ処理を指定した回数だけ繰り返し実行する場合に使います。
 
-&lt;pre&gt;&lt;code&gt;for (type variable : arrayname) {
-  // code block to be executed
+&lt;pre&gt;&lt;code&gt;for ([初期化式]; [条件式]; [加算式]) {
+  // 実行するコードブロック
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+初期化式：変数の宣言と初期化
+
+条件式：ループ処理を続ける条件
+
+加算式：ループ処理が1回終わるごとに実行される内容
 
 &lt;br&gt;
 
@@ -176,9 +166,42 @@ forループの少し違った使い方として拡張forループ(for-eachル�
 
 &lt;pre&gt;&lt;code&gt;package JSample;
 
+public class JSample5_3 {
+	public static void main(String[] args) {
+		for (int i = 1; i &lt;= 5; i = i + 1) {
+			System.out.println(i);
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+1&lt;br&gt;
+2&lt;br&gt;
+3&lt;br&gt;
+4&lt;br&gt;
+5&lt;br&gt;
+
+
+&lt;br&gt;&lt;br&gt;
+
+## **4.for-eachループ**
+forループの少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。これは配列やコレクションと呼ばれる複数の要素を持っているものから全ての要素に含まれる値を順に取り出して処理するために使われます。
+
+&lt;pre&gt;&lt;code&gt;for (データ型 変数名: コレクション) {
+  // 実行するコードブロック
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;br&gt;
+
+#### **例**
+[JSample5_5.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
 public class JSample5_4 {
   public static void main(String[] args) {
-    String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+    String[] cars = {&quot;Toyota&quot;, &quot;Honda&quot;, &quot;Subaru&quot;, &quot;Nissan&quot;};
     for (String i : cars) {
       System.out.println(i);
     }
@@ -187,10 +210,10 @@ public class JSample5_4 {
 &lt;/code&gt;&lt;/pre&gt;
 
 #### **実行結果**
-Volvo&lt;br&gt;
-BMW&lt;br&gt;
-Ford&lt;br&gt;
-Mazda
+Toyota&lt;br&gt;
+Honda&lt;br&gt;
+Subaru&lt;br&gt;
+Nissan
 
 &lt;br&gt;&lt;br&gt;
 
@@ -199,22 +222,9 @@ Mazda
 &gt; **練習**
 &gt;&gt; **問題1**[JEx5_1.java]
 
-whileループで、変数i（0～）が6未満であれば、iを出力してください。
+1から30までで3の倍数のみを出力するプログラムを作成せよ。
+ただし、while文を使用すること。
 
-&lt;!--
-&lt;pre&gt;&lt;code&gt;
-public class JEx5_1 {
-    public static void main(String[] args) {
-        int i = 0;
-        while (i&lt;6) {
-        System.out.println(i);
-        i++;
-        }
-     }
-}
-&lt;/code&gt;&lt;/pre&gt;
-![java5.5.PNG](https://i.loli.net/2019/08/08/7jEXKMIHd2W4ghc.png)
---&gt;
 
 &lt;br&gt;
 
