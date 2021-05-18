@@ -102,300 +102,104 @@
 			</ol>
 			<br>
 			<br>
-			<b>1.算術演算子</b>		
-		
-		
-		# **演算子**
-***
+			<b>1.算術演算子</b>	
+		<p>論理演算子は、２つ以上の関係式を組みあせて、複雑な条件を作成するために使います。</p>
+		<br>
+		<table border="1" width="500">
+			<tr>
+				<th>演算子</th>
+				<th>使用例</th>
+				<th>意味</th>
+			</tr>
+			<tr>
+				<td><font color="blue">&amp;&amp;</font></td>
+				<td><font color="blue">A &amp;&amp; B</font></td>
+				<td><font color="blue">かつ（AND演算）</font><br>A,Bの関係式が両方ともTrueの時のみtrueになる</td>
+			</tr>
+			<tr>
+				<td><font color="blue">||</font></td>
+				<td><font color="blue">A || B</font></td>
+				<td><font color="blue">または（OR演算）</font><br>A,Bのどちらか一方または両方がtrueならtrueになる</td>
+			</tr>
+			<tr>
+				<td><font color="blue">^</font></td>
+				<td><font color="blue">A ^ B</font></td>
+				<td><font color="blue">片方だけtrue（XOR演算）</font><br>片方がtrueでもう片方がfalseならtrueになる</td>
+			</tr>
+			<tr>
+				<td><font color="blue">!</font></td>
+				<td><font color="blue">A ! B</font></td>
+				<td><font color="blue">〜でない（NOT演算）</font><br>trueならfalseに、falseならtrueに反転する</td>
+			</tr>
+		</table>
+			<br>
+		<b>例：</b>
+		<br>
+		<ol>
+			<li>int x =30</li>
+			<li>int y =100</li>
+			<li></li>
+			<li>boolean b1=<font color="blue">x>=40 &amp;&amp; y>=90;</font>　・・・x40以上<font color="blue">かつ</font>y90以上</li>
+			<li>boolean b2 =<font color="blue">x>=40 || y>=90;</font>　・・・x40以上<font color="blue">または</font>y90以上</li>
+			<li>boolean b3 =<font color="blue">x>=40 ^ y>=90;</font>　・・・x40以上、y90以上の<font color="blue">一方だけtrue</font></li>
+			<li>boolean b4 =<font color="blue">!(x>=40);</font>　・・・x 40以上<font color="blue">ではない</font></li>
+		</ol>
+		<br>
+		<p>例の４行目から７行目、青字の部分が実際に論理演算子を使った関係式です。<br>
+		このなあい、１・２行目で定義した「x」「y」の値を４〜７行目の関係式で評価し、boolean型の変数b1〜b2に結果を代入します。<br>
+		結果はそれぞれ、b1=false、b2=true、b3=true、b4=trueとなります。</p>
+		<br>
+		<h2>練習</h2>
+			<p></p><b>問題</b>&#91;JEx3&#95;1&#46;java&#93;<br>
+			構文の◯を入れ替えて、コードを完成してください。</p>
+<pre><code>package JSample
+	public class JEx3_1{
+		public static void main(String[]args){
+			int a = 5;
+			int b = 8;
+			◯　+ ◯;
+			System,out,println(a);
+			◯ -= ◯ ;
+			System,out,println(b);
+			System,out,ptintln(a+◯);
+			a = a + ◯;
+			System,out,println(a);
+		}
+	}</code></pre>
+<br>
+	<br>
+	<p><b>実行結果<br>
+		８<br>
+		４<br>
+		１５<br>
+		１２</b></p>
+	<br>
+	<p><b>問題</b>&#91;JEx3 &#95;2&#46;java&#93;<br>
+	次の１〜９に基づいて、プログラムを記述してください。</p>
+	<br>
+	変数aを宣言し、7+6の結果を代入<br>
+	変数bを宣言し、15-4の結果を代入<br>
+	aとbの値を実行結果のように表示<br>
+	++を用いて、aを１加算<br>
+	--を用いて、bを１減算<br>
+	ab<br>
+	%=を用いて、aを3で割った余りをaに代入<br>
+	*=を用いて、bに5をかけた値をbに代入<br>
+	aとbの値を実行結果のように表示<br>
+	<br>
+	<pre><code>package JSample
+		public class JEx3_2{
+			public static void main(string[] args){
+			
+			//ここから処理を書いていきます
+			}
+		}</code></pre>
+<p>実行結果<br>
+	<b>a = 13 , b =11<br>
+	a = 14 , b= 10<br>
+	a = 2 , b = 50</b></p>	
 
-演算子(オペレータ)は、変数と値(オベランド)に対して操作を実行するために使用されます。
-
-演算（2つのオペランド間で実行されるもの）は演算子によって定義されます。
-
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;オペランド&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;オペレータ&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;オペランド &lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;100&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;+&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;50&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;  
-&lt;br&gt;
-以下の例では、100と50という数字はオペランドで、 +符号は演算子です。
-
-例：```int x = 100 + 50;```
-
-```+```オペレータは、上記の例のように２つの値を足すためにも使われますが、
-
-変数と値、変数と変数などを繋げるためにも使用することができます。
-
-```
-int sum1 = 100 + 50;        // 150 (100 + 50)
-int sum2 = sum1 + 250;      // 400 (150 + 250)
-int sum3 = sum2 + sum2;     // 800 (400 + 400)
-```
-&lt;br&gt;
-
-#### **例**
-[JSample3_1.java]
-
-```
-package JSample;
-public class JSample3_1 {
-
-	public static void main(String[] args) {
-		int sum1 = 100 + 50;
-		int sum2 = sum1 + 250;
-		int sum3 = sum2 + sum2;
-		System.out.println(sum1);
-		System.out.println(sum2);
-		System.out.println(sum3);
-
-	}
-}
-
-```
-#### **実行結果**&lt;br&gt;
-150&lt;br&gt;
-400&lt;br&gt;
-800
-
-&lt;br&gt;
-
-Javaは演算子を次のグループに分けます。
-
-* 算術演算子
-* 代入演算子
-* 比較演算子
-* 論理演算子
-* ビット演算子
-
-&lt;br&gt;
-
-## **1.算術演算子**
-
-算術演算子は、一般的な数学演算を実行するために使用されます。
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;+&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a + b&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;-&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a - b&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;*&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a * b&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;/&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a / b&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;%&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a % b&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;br&gt;&lt;br&gt;
- 
-## **2.Java代入演算子**
-
-代入演算子は、変数に値を代入するために使用されます。
-
-以下の例１では、代入演算子（=）を使用して、値10をxという変数に代入します。
-
-例２では、加算代入演算子 &lt;font color=#0099ff&gt;（+=） &lt;/font&gt;変数に値を追加します。
-
-例1：
-```int x = 10;```
-
-例2：
-``` x += 5;    //15(10+5)```
-
-&lt;br&gt;
-
-#### **すべての代入演算子のリスト**
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Same As &lt;/th&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = 5&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = 5&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;+=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x += 3&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = x + 3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;-=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x -= 3&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = x - 3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;*=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x *= 3&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = x * 3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;/=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x /= 3&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = x / 3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;%=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x %= 3&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x = x % 3&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/table&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **3.Java比較演算子**
-比較演算子は、2つの値を比較するために使用されます。
-
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;==&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x == y&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;!=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x != y&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&gt;&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &gt; y&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&lt;&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &lt; y　&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&gt;=&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &gt;= y&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&lt;=　&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &lt;= y&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **4.Java論理演算子**
-論理演算子は、変数間または値間の論理を決定するために使用されます。
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&amp;&amp;&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &lt; 5 &amp;&amp;  3 &lt; x&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;||&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;x &lt; 5 ||  3 &lt; x&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;!&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;!(x &lt; 5 &amp;&amp; 3 &lt; x )&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;  
-&lt;br&gt;&lt;br&gt;
-## **5.Javaビット演算子**
-論理演算子は、変数間または値間の論理を決定するために使用されます。
-&lt;table border=&quot;1&quot;&gt;
-&lt;tr&gt;
-	&lt;th align=&quot;center&quot;&gt;Operator&lt;/th&gt;
-	&lt;th align=&quot;center&quot;&gt;Example&lt;/th&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&amp;   論理積（AND）&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b &amp; c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;|   論理和（OR）&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b | c &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;!   論理否定（NOT）&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = ! b&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;^   排他的論理和（EOR）&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b ^ c&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&lt;&lt;   算術左シフト&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b &lt;&lt; 2 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&gt;&gt;  算術右シフト&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b &gt;&gt; 2 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-	&lt;td align=&quot;center&quot;&gt;&gt;&gt;&gt;	論理右シフト&lt;/td&gt;
-	&lt;td align=&quot;center&quot;&gt;a = b &gt;&gt;&gt; 2 &lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;/table&gt;  
-
-&lt;br&gt;&lt;br&gt;
-
-***
-
-&gt; **練習**
-&gt;&gt; **問題**[JEx3_1.java]
-
-10と5の乗算をしてみましょう。
-
-&lt;!--
-```
-package JSample;
-
-public class JSample3_2 {
-	public static void main(String[] args) throws Exception {
-		int a = 10;
-		int b = 5;
-		int c;
-		c = a * b;
-		System.out.println(&quot;a*b=&quot; + c);
-	}
-
-}
-```
-実行結果:&lt;br&gt;
-![JSample4_2.PNG](https://i.loli.net/2019/08/08/9VjFJmLCRwiGUg1.png)
-
---&gt;</textarea>
+	    </textarea>
         <p id="output">content</p>
     </div>
     <div class="text-center">
