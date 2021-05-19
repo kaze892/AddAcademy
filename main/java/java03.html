@@ -44,7 +44,8 @@
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
         <textarea id="text" style="display:none">
-<h1>演算子</h1>
+<h1><b>1.演算子</b></h1>
+<hr>
 <p>演算子は、変数や値に対して操作を実行するために使用されます。</p>
 <p>数学の加減乗除などの演算には「＋、ー、×、÷」という記号が使われますが、プログラミングにおいてはさらに多くの記号が使われ、その用途も様々です。</p>
 <p>それぞれの演算子とその用途を理解して使えるようにしていきましょう。</p>
@@ -68,9 +69,9 @@
 			<p>＋は２つの値を足すためにも使われますが、変数と値、変数と変数などを演算することにも使用できます。</p>
 			<br>
 			<p><b>例</b><br>
-			&#91;JSample3＿1.java&#93;</p>
+			[JSample3__1.java]</p>
 			<pre><code>package JSample;
-			public class Jsample3_1{
+			public class JSample3_1{
 				public static void main(String[] args){
 					int sum1 = 100 + 50;	// 150 (100 + 50)
 					int sum2 = sum1 + 250;	// 400 (150 + 250)
@@ -105,7 +106,7 @@
 			<b>1.算術演算子</b>
 			<p>算術演算子は、一般的な数学演算を実行するために使用されます。</p>
 			<br>
-			<table border="1" width="300">
+			<table border="1" width="440">
 				<tr>
 					<th>演算子</th>
 					<th>意味</th>
@@ -122,7 +123,7 @@
 					<td>a-b</td>
 				</tr>
 				<tr>
-					<td>*</td>
+					<td>**</td>
 					<td>乗</td>
 					<td>a*b</td>
 				</tr>
@@ -132,9 +133,14 @@
 					<td>a/b</td>
 				</tr>
 				<tr>
-					<td>%</td>
-					<td>剰余（割った余りを計算）</td>
-					<td>a%b</td>
+					<td>++（インクリメント）</td>
+					<td>値が代入されている変数に)値を1だけ増やす</td>
+					<td>a++/++a/td>
+				</tr>
+				<tr>
+					<td>--（デクリメント）</td>
+					<td>(値が代入されている変数に)値を1だけ減らす</td>
+					<td>b--/--b</td>
 				</tr>
 			</table>
 			<br>
@@ -144,13 +150,15 @@
 			例３：6%5→1</p>
 			<br>
 			<br>
-			<p>例１のように、割られる値（4）が割る（5）よりも小さい値では、あまりはその値自身です。<br>例２のように、割られる値（5）がわる値で割り切れるので余りは０です。</p>
+			<p>例１のように、割られる値（4）が割る（5）よりも小さい値では、あまりはその値自身です。<br>例２のように、割られる値（5）がわる値で割り切れるので余りは０です。<br><br>
+			インクリメント・デクリメントは、変数の前に書く「前置」、後ろに書く「後置」がある。<br><br>
+			また、単独で使う場合は、前置でも後置でも機能は同じですが、式の中で使う場合には、前置と後置では機能が異なるため注意が必要です。</p>
 			<br>
 			<br>
 			<h1>2.Java代入演算子</h1>
 			<p>代入演算子は、変数に値を代入するために使用されます。</p>
 			<br>
-			<table border="1" width="400"　aline="center">
+			<table border="1" width="440"　aline="center">
 				<tr>
 					<th>演算子</th>
 					<th>意味</th>
@@ -158,42 +166,32 @@
 				</tr>
 				<tr>
 					<td>a=b</td>
-					<td></td>
+					<td>変数aにbを代入する</td>
 					<td></td>
 				</tr>
 				<tr>
 					<td>a++</td>
-					<td></td>
-					<td>a=a+a</td>
-				</tr>
-				<tr>
-					<td>a--</td>
-					<td></td>
-					<td>a=a-a</td>
-				</tr>
-				<tr>
-					<td>a+=b</td>
-					<td></td>
-					<td>a=a+b</td>
+					<td>変数aの値を、bだけ増やす</td>
+					<td>a = a + b</td>
 				</tr>
 				<tr>
 					<td>a-=b</td>
-					<td></td>
-					<td>a=a-b</td>
+					<td>変数aの値を、bだけ減らす</td>
+					<td>a = a - b</td>
 				</tr>
 				<tr>
 					<td>a*=b</td>
-					<td></td>
-					<td>a=a*b</td>
+					<td>数aの値を、b倍した値にする</td>
+					<td>a = a * b</td>
 				</tr>
 				<tr>
 					<td>a/=b</td>
-					<td></td>
+					<td>変数aの値を、bで割った値にする</td>
 					<td>a=a/b</td>
 				</tr>
 				<tr>
 					<td>a%=b</td>
-					<td></td>
+					<td>変数aの値を、bで割った余りの値にする</td>
 					<td>a=a%b</td>
 				</tr>
 				<tr>
@@ -207,26 +205,27 @@
 					<td>a=a|b</td>
 				</tr>
 				<tr>
-					<td>a^=b</td>
 					<td></td>
-					<td>a=a^b</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
-					<td>a&lt;&lt;=b</td>
 					<td></td>
-					<td>a=a<<b</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
-					<td>a>>=b</td>
 					<td></td>
-					<td>a=a>>b</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
-					<td>a>>>=b</td>
 					<td></td>
-					<td>a=a>>>b</td>
+					<td></td>
+					<td></td>
 				</tr>
 			</table>
+			<p>※表2～6行目の演算子は、複合代入演算子といい、演算を簡略化してわかりやすく書くための演算子です。</p>
 			<br>
 			<b>例１：</b>
 			<p>１.int x =10;<br>
@@ -249,33 +248,33 @@
 				<th>意味</th>
 			</tr>
 			<tr>
-				<td>==</td>
-				<td>a==b</td>
+				<td> == </td>
+				<td> a== b </td>
 				<td>aとbは等しい</td>
 			</tr>
 			<tr>
-				<td>!==</td>
-				<td>a !=b</td>
+				<td> != </td>
+				<td> a != b</td>
 				<td>aとbは等しくない</td>
 			</tr>
 			<tr>
-				<td>&lt;</td>
-				<td>a &lt; b</td>
+				<td> < </td>
+				<td> a < b</td>
 				<td>aはbより大きい（超える）</td>
 			</tr>
 			<tr>
-				<td>></td>
+				<td> > </td>
 				<td>a > b</td>
 				<td>aはbより小さい（未満）</td>
 			</tr>
 			<tr>
-				<td>>=</td>
+				<td> >= </td>
 				<td>a >= b</td>
 				<td>aはbより大きいか等しい（以上）</td>
 			</tr>
 			<tr>
-				<td>&lt;=</td>
-				<td>a&lt;=b</td>
+				<td> <= </td>
+				<td> a <= b</td>
 				<td>aはbよりも小さいか等しい（以下）</td>
 			</tr>
 		</table>
@@ -330,7 +329,7 @@
 			<li>int x =30</li>
 			<li>int y =100</li>
 			<li></li>
-			<li>boolean b1=<font color="blue">x>=40 &amp;&amp; y>=90;</font>　・・・x40以上<font color="blue">かつ</font>y90以上</li>
+			<li>boolean b1=<font color="blue">x>=40 && y>=90;</font>　・・・x40以上<font color="blue">かつ</font>y90以上</li>
 			<li>boolean b2 =<font color="blue">x>=40 || y>=90;</font>　・・・x40以上<font color="blue">または</font>y90以上</li>
 			<li>boolean b3 =<font color="blue">x>=40 ^ y>=90;</font>　・・・x40以上、y90以上の<font color="blue">一方だけtrue</font></li>
 			<li>boolean b4 =<font color="blue">!(x>=40);</font>　・・・x 40以上<font color="blue">ではない</font></li>
@@ -341,7 +340,7 @@
 		結果はそれぞれ、b1=false、b2=true、b3=true、b4=trueとなります。</p>
 		<br>
 		<h2>練習</h2>
-			<p></p><b>問題</b>&#91;JEx3&#95;1&#46;java&#93;<br>
+			<p></p><b>問題</b>[JEx3_1.java]<br>
 			構文の◯を入れ替えて、コードを完成してください。</p>
 <pre><code>package JSample
 	public class JEx3_1{
@@ -359,13 +358,13 @@
 	}</code></pre>
 <br>
 	<br>
-	<p><b>実行結果<br>
+	<p><b>実行結果</b><br>
 		８<br>
 		４<br>
 		１５<br>
-		１２</b></p>
+		１２</p>
 	<br>
-	<p><b>問題</b>&#91;JEx3 &#95;2&#46;java&#93;<br>
+	<p><b>問題</b>[JEx3 _2.java]<br>
 	次の１〜９に基づいて、プログラムを記述してください。</p>
 	<br>
 	変数aを宣言し、7+6の結果を代入<br>
@@ -379,16 +378,16 @@
 	aとbの値を実行結果のように表示<br>
 	<br>
 	<pre><code>package JSample
-		public class JEx3_2{
-			public static void main(string[] args){
-			
-			//ここから処理を書いていきます
-			}
-		}</code></pre>
-<p>実行結果<br>
-	<b>a = 13 , b =11<br>
+public class JEx3_2{
+	public static void main(string[] args){
+	
+	//ここから処理を書いていきます
+	}
+}</code></pre>
+<p><b>実行結果</b><br>
+	a = 13 , b =11<br>
 	a = 14 , b= 10<br>
-	a = 2 , b = 50</b></p>	
+	a = 2 , b = 50</p>	
 
 	    </textarea>
         <p id="output">content</p>

@@ -36,7 +36,7 @@
                 <br>
                 <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第1章　開発環境の準備とプログラム作成</h1>
                 <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では Java の構文について説明します。 
+                    この章では開発環境を準備する方法を説明します。最後に実際に簡単なプログラムを実行してみましょう。 
                 </p>
                 <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
                 
@@ -48,16 +48,12 @@
 <textarea id="text" style="display:none">
 
 <h1><b>JAVA構文</b></h1>
-<br>
 <hr>
-<h2><b>第1章　開発環境の準備とプログラム作成</b></h2>
-<p>この章では開発環境を準備する方法を説明します。最後に実際に簡単なプログラムを実行してみましょう。</p>
-<br>
 <h2><b>開発ツールの準備とプログラム作成</b></h2>
-<h2><b>開発ツールEclips</b></h2>
+<h2><b>開発ツールEclipse</b></h2>
 <br>
     <p>第０章でもお伝えしたように、Javaの開発を行うためにはJavaの開発環境を準備する必要があります。</p>
-    <p>本講座では開発ツールとしてEclipsを使用します。</p>
+    <p>本講座では開発ツールとしてEclipseを使用します。</p>
     <br>
     <p>以下のリンクからEclipsをダウンロードできます。</p>
 <a href="https://www.eclipse.org/downloads/">Eclipseダウンロード</a>
@@ -77,7 +73,7 @@
 <img style="height: 390px"; src="../assets/img/j01/eclipse03.png" alt=" ">
 <br>
     <p>実際のシステムは、数百個以上のプログラムで構成されています。</p>
-    <p>eclipsでは、その全体を［プロジェクト］と呼んで管理しています。</p>
+    <p>Elipseでは、その全体を［プロジェクト］と呼んで管理しています。</p>
     <p>プロジェクトの中には、全てのプログラムと関連するデータファイルが含まれています。</p>
     <p>さらに、プロジェクトの中は機能ごとに［パッケージ］と呼ばれるサブフォルダに分けられています。</p>
     <p>その［パッケージ］の元となるプログラムが入っており、機能ごとに呼び出して使っています。</p>
@@ -89,20 +85,20 @@
 <img style="height: 400px"; src="../assets/img/j01/eclipse04.png" alt=" ">
 <p>「プロジェクト名」に「MyClass」を入力し、「完了」を押します。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse05.png" alt=" ">
-<p>「MyClass」の名前でjavaプロジェクトを作成しました。</p>
+<p>「MyClass」の名前でJavaプロジェクトを作成しました。</p>
 <br>
 <p><b>パッケージ・クラスの作成</b>><p>
-<p>「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。そのメニューで［新規］→［クラス］を指定します。</p>
+<p>「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。</p>
+<p>そのメニューで［新規］→［クラス］を指定します。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse06.png" alt=" ">
 <p>すると、［新規Javaクラス］ダイアログが表示されるので、
     <li>［名前］にMyClassと入力し</li>
     <li>［パッケージ］に「Sample」と入力</li>
     <li>［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］を選択し、［終了］ボタンをクリックします。</p>
 <img style="height: 390px"; src="../assets/img/j01/eclipse07.png" alt=" ">
-<p>エディタ（＊１）にソースコードが自動生成されます。</p>
+<p>エディタ（※１）にソースコードが自動生成されます。</p>
 <p>これで開発の準備は完了です。</p>
-<br>
-<p>（＊１）eclips内で実際にコード入力する作業スペースのこと。</p>
+<p>（※１）eclipse内で実際にコード入力する作業スペースのこと。</p>
 <br>
 <h1><B>プログラム作成</B></h1>
 
@@ -110,13 +106,13 @@
 <br>
 <p>[MyClass.java]</p>
 
-&lt;pre&gt;&lt;code&gt;pakage JSample
+<pre><code>pakage JSample
 public class MyClass {
   public static void main(String[] args) {
-    System.out.println(&quot;Hello World&quot;);
+    System.out.println("Hello World");
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</pre></code>
 
 <img style="height: 160px"; src="../assets/img/j01/eclipse08.png" alt=" ">
 <br>
@@ -127,7 +123,7 @@ public class MyClass {
 <br>
 <h2><b>実行結果</h2></b>
 <img style="height: 130px"; src="../assets/img/j01/eclipse10.png" alt=" ">
-<p>出力に「Hello World! 」と表示されれば成功です。</p>
+<p>出力に「Hello World 」と表示されれば成功です。</p>
 
 </textarea>
 

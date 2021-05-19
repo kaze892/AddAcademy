@@ -35,7 +35,7 @@
                 <br>
                 <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第2章　プログラムの書き方とJava変数</h1>
                 <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では開発環境を準備する方法を説明します。最後に実際に簡単なプログラムを実行してみましょう。
+                    この章では、プログラムの書き方と、Javaの変数、宣言について説明します。
                 </p>
                 <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
                 
@@ -45,6 +45,7 @@
     <div style="margin: 0 auto; max-width: 1024px;">
         <textarea id="text" style="display:none">
 <h1><b>1.プログラムの書き方</b></h1>
+<hr>
 <p>Javaでは、プログラムを「クラス（.class）」という単位で作成します。</p>
 <p>プログラムを書くにあたり、まずクラスを構成する要素、プログラムの書き方など基本的なルールを確認しましょう。</p>
 <br>
@@ -52,13 +53,13 @@
 <br>
 <p>[MyClass.java]</p>
 
-&lt;pre&gt;&lt;code&gt;package Sample;
+<pre><code>package Sample;
 public class MyClass {
   public static void main(String[] args) {
-    System.out.println(&quot;Hello World&quot;);
+    System.out.println("Hello World");
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
 <br>
 <h2>1-1.パッケージ文</h2>
@@ -80,7 +81,7 @@ public class MyClass {
 <h2>1-4.命令文</h2>
 <p>メソッドの中で、具体的な指示（処理を実行する）を書くのが［命令文］です。</p>
 <p>命令文の最後には、セミコロン（；）を付けます。このセミコロンが命令文の終わりを示す記号となります。</p><br>
-<p>ここでは４行目が命令文にあたり、「”Hello　World"と出力しなさい」という指示を出しています。</p><br>
+<p>ここでは４行目が命令文にあたり、「"Hello World"と出力しなさい」という指示を出しています。</p><br>
 <p>このように、クラスの中にメソッドを書き、その中に命令文を書くのがJavaの標準的な書き方です。</p><br>
 <br>
 <br>
@@ -163,19 +164,19 @@ public class MyClass {
 			<p><font color="#808000">データ型　変数名；<br>→末尾にはセミコロンが必須。</font></p>
 			<br>
 			<b>例：</b>
-			<pre><code>String myName&#59;</code></pre>
-<p>この宣言は「int型」の値を格納できる「myName」という名前の箱を準備したということを表します。</p><br>
+			<pre><code>String myName;</code></pre>
+			<p>この宣言は「int型」の値を格納できる「myName」という名前の箱を準備したということを表します。</p><br>
 			<br>
 			<p>・変数を宣言した後に初めて値を代入することができます。</p>
 			<b>例：</b>
-			<pre><code>String myName&#59;
-myName&#61; &quot; yamada&quot;&#59;</code></pre>
+			<pre><code>String myName;
+myName = "yamada";</code></pre>
 			<p>この宣言は「String型」の値を代入できる「myName」という名前の箱を準備し、その箱に「yamada」というString型の値を代入するという指示を出したことを表します。；```
 			<br>
 			<p>初期値は、以下のようにして代入しても構いません。</p>
 			<p><font color="#808000">データ型　変数　＝初期値；</font></p>
 			<b>例：</b>
-			<pre><code>String myName &#61; &quot;yamada&quot;&#59;</code></pre>
+			<pre><code>String myName = "yamada";</code></pre>
 			<br>
 			<p>変数は、宣言したデータ型に対応する値しか代入することは出来ません。</p>
 			<p>それぞれのデータ型の宣言の具体的な方法は以下の通りとなります。</p>
@@ -184,29 +185,29 @@ myName&#61; &quot; yamada&quot;&#59;</code></pre>
 			<br>
 			<li>
 				<p><b>int</b>　・・・123や-123のように、整数（整数）を小数点なしで格納します。<br>
-					<b>例：</b>int myNum &#61; 123&#59;</p>
+					<b>例：</b>int myNum = 123;</p>
 			</li><br>
 			<li>
 				<p><b>float</b>　・・・浮動小数点数を、19.99や、-19.99などの少数で格納します。<br>
-					<b>例：</b>float myFloatNum &#61; 12.34f&#59;
+					<b>例：</b>float myFloatNum = 12.34f;
 				</p>
 			</li><br>
 			<li>
 				<p><b>char</b>　・・・「a」や「A」などの単一文字を格納します。Char値は一重引用符で囲まれています。<br>
-					<b>例：</b>char myLetter &#61;&#39;1&#39;&#59;
+					<b>例：</b>char myLetter ='a';
 				</p>
 			</li><br>
 			<li>
 				<p><b>boolean</b>　・・・<b>２つ</b>の状態を持つ値を格納します。<b>true</b>または<b>false</b><br>
-				<b>例：</b>boolean isTrue &#61;true&#59;	
+				<b>例：</b>boolean isTrue = true;	
 				</p>
 			</li><br>
 			<li>
-				<p><b>String</b>　・・・&quot;Hello&quot;などのテキストを保存します。文字列値は二重引用符で囲まれています。<br>
-					<b>例：</b>String myText &#61; &quot;Hello&quot;&#59;
+				<p><b>String</b>　・・・"Hello"などのテキストを保存します。文字列値は二重引用符で囲まれています。<br>
+					<b>例：</b>String myText = "Hello";
 				</p>
 			</li><br>
-<p>以下は変数の宣言と初期値が同時に行われます。</p>
+<p>以上は変数の宣言と初期値が同時に行われます。</p>
 <br>
 <br>
 <b>例：</b>
@@ -223,32 +224,32 @@ public class JSample2_1{
 		}
 }</code></pre>
 <br>
-<p><b> 実行結果</b></p>
-<p>結果は、３０</p>
+<p><b>実行結果</b></p>
+<p>結果は、30</p>
 <br>
-<li>９行目のprint(~)メソッドは、（）内の変数を表示するために使用します。</li>
+<li>9行目のprint(~)メソッドは、（）内の変数を表示するために使用します。</li>
 			<li>テキストを出力する場合は、&quot;&quot;で囲う必要があります。</li>
-			<li>９行目カッコ内のテキストと変数の両方を組み合わせるには、＋文字を使用します。</li>
+			<li>9行目カッコ内のテキストと変数の両方を組み合わせるには、＋文字を使用します。</li>
 			
 			
 <br>
 			<br>
 			<b>2-2-2.変数の有効範囲</b><br>
-			<p>1−２。クラスの宣言でも取り上げましたが、Javaコードにはたびたび｛｝が登場します。</p>
+			<p>1−2。クラスの宣言でも取り上げましたが、Javaコードにはたびたび｛｝が登場します。</p>
 			<p>｛・・・｝を「ブロック」と呼び、変数の有効範囲はブロックによって決まります。</p>
 			<p>ブロック外側では無効となります。</p>
 			<br>
 			<b>例：</b>
 			<p>［JSample2_2.java］</p>
 			<pre><code>package JSample;
-			public class JSample2-2{
-				public static void main(String[]args){
-					int one = 1;
-					int two = 2;
-				}
-			System out println("one:"+ one);
-			System out println("two" ; two);
-			}</code></pre>
+public class JSample2-2{
+		public static void main(String[]args){
+			int one = 1;
+			int two = 2;
+		}
+	System out println("one:"+ one);
+	System out println("two" ; two);
+}</code></pre>
 			<br>
 			<br>
 			<b>実行結果</b><br><br>
@@ -261,22 +262,21 @@ public class JSample2_1{
 <h1>練習</h1>
 <p><b>問題</b>［JEx2_1.Java］</p>
 <p>1-1.構文の例の変数を定義、表示してください。</p>
-<pre><code>package JSample;
-		
-	public class JEx2_1{
-		
+<pre><code>package JSample;	
+public class JEx2_1{
 	public static void main(String[]args){
-		//**:** int myNum = 123;
+		//**例** int myNum = 123;
 			
 			
 					
 					
-		//System,out,println("変数strは" + str + "です");
+		//System,out,println("変数myNumは" + myNum + "です");
 	}
 				
 }</code></pre>
 <p><b>実行結果</b></p>
 <p>変数myNumは123です</p>
+<p>変数myFloatNumは12.34です</p>
 <p>変数myLetterはaです</p>
 <p>変数isTrueはtrueです</p>
 <p>変数myTextはHelloです</p>
