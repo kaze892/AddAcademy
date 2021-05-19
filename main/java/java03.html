@@ -25,9 +25,6 @@
     </style>
 </head>
 
-
-
-
 <body style="font-size:1.5rem;">
     <script type="text/javascript" src="header.html"></script>
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
@@ -45,11 +42,8 @@
             </div>
         </div>
     </div>
-<!--    <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none">
-
--->
-
+ 	<div style="margin: 0 auto; max-width: 1024px;">
+      <textarea id="text" style="display:none">
 <h1><b>1.演算子</b></h1>
 <hr>
 
@@ -61,12 +55,11 @@
 まず以下の例を見て見ましょう。
 </p>
 
-
 <b>例：</b>
 <pre><code>int × = 100 + 50</code></pre>
 
 
-<table border="1" width="200">
+<table border="1" width="300">
 	<tr>
 		<td>値</td>
 		<td>演算子</td>
@@ -79,7 +72,6 @@
 	</tr>
 </table>
 
-
 <br>
 <p>
 この例では100と50という数字が値で、＋符号は演算子です。<br>
@@ -89,6 +81,7 @@
 
 <b>例：</b><br>
 [JSample3_1.java]</p>
+
 
 <pre><code>package JSample;
 public class JSample3_1{
@@ -102,10 +95,12 @@ public class JSample3_1{
 	}
 }</code></pre>
 
-<p><b>実行結果</b>
-150<br>
-400<br>
-800</p><br>
+<p>
+	<b>実行結果</b><br>
+	150<br>
+	400<br>
+	800
+</p><br>
 
 
 <p>演算子は上の例の<br>
@@ -118,252 +113,294 @@ public class JSample3_1{
 Javaで利用する演算子は次のように分類されます。</p>
 
 
+
 <ul>
 	<li>算術演算子</li>
 	<li>代入演算子</li>
 	<li>関係演算子</li>
 	<li>論理演算子</li>
-</ul>
+</ul><br>
 
-<br>
+
+
+
 <h2>1.算術演算子</h2>
 <p>算術演算子は、一般的な数学演算を実行するために使用されます。</p>
 
-<table border="1" width="440">
-		<tr>
-			<th>演算子</th>
-			<th>意味</th>
-			<th>例</th>
-		</tr>
-		<tr>
-			<td>+</td>
-			<td>加</td>
-			<td>a+b</td>
-		</tr>
-		<tr>
-			<td>-</td>
-			<td>減</td>
-			<td>a-b</td>
-		</tr>
-		<tr>
-			<td>**</td>
-			<td>乗</td>
-			<td>a*b</td>
-		</tr>
-		<tr>
-			<td>/</td>
-			<td>除</td>
-			<td>a/b</td>
-		</tr>
-		<tr>
-			<td>++（インクリメント）</td>
-			<td>値が代入されている変数に)値を1だけ増やす</td>
-			<td>a++/++a/td>
-		</tr>
-		<tr>
-			<td>--（デクリメント）</td>
-			<td>(値が代入されている変数に)値を1だけ減らす</td>
-			<td>b--/--b</td>
-		</tr>
-	</table>
+
+
+
+<table border="1" width="500">
+	<tr>
+		<th>演算子</th>
+		<th>意味</th>
+		<th>例</th>
+	</tr>
+	<tr>
+		<td>+</td>
+		<td>加</td>
+		<td>a+b</td>
+	</tr>
+	<tr>
+		<td>-</td>
+		<td>減</td>
+		<td>a-b</td>
+	</tr>
+	<tr>
+		<td>**</td>
+		<td>乗</td>
+		<td>a*b</td>
+	</tr>
+	<tr>
+		<td>/</td>
+		<td>除</td>
+		<td>a/b</td>
+	</tr>
+	<tr>
+		<td>++（インクリメント）</td>
+		<td>値が代入されている変数に)値を1だけ増やす</td>
+		<td>a++/++a/td>
+	</tr>
+	<tr>
+		<td>--（デクリメント）</td>
+		<td>(値が代入されている変数に)値を1だけ減らす</td>
+		<td>b--/--b</td>
+	</tr>
+</table>
+
 
 <br>
 <p>次の例は４、５、６を５で割った余りを計算しています。</p>
-<pre><code>例１：4%5→4
-例２：5%5→0
-例３：6%5→1</code></pre>
+<pre><code>例１：4 %  → 4
+例２：5 % 5→ 0
+例３：6 % 5→ 1</code></pre>
 
-<br>
-<p>例１のように、割られる値（4）が割る（5）よりも小さい値では、あまりはその値自身です。<br>例２のように、割られる値（5）がわる値で割り切れるので余りは０です。<br><br>
+
+<p>
+例１のように、割られる値（4）が割る（5）よりも小さい値では、あまりはその値自身です。<br>例２のように、割られる値（5）がわる値で割り切れるので余りは０です。<br><br>
+
 インクリメント・デクリメントは、変数の前に書く「前置」、後ろに書く「後置」がある。<br><br>
-また、単独で使う場合は、前置でも後置でも機能は同じですが、式の中で使う場合には、前置と後置では機能が異なるため注意が必要です。</p>
-<br>
+
+また、単独で使う場合は、前置でも後置でも機能は同じですが、式の中で使う場合には、前置と後置では機能が異なるため注意が必要です。
+</p><br>
 
 
-<pre><code>例4：
+
+<pre><code>例 4：
 int sum ;
 int x ;
 x = 5 ;
 sum = ++ x ;</code></pre>
 
-<p>例4のように式の中でインクリメントを前置で使用した場合、xの値は6、sumの値は6となります。
+<p>
+	例4のように式の中でインクリメントを前置で使用した場合、xの値は6、sumの値は6となります。
 	前置の機能（4行目）
 	①xを1増やして6にする。
-	②増やした後の値(6)を返し、sumに代入。</p><br>
+	②増やした後の値(6)を返し、sumに代入。
+</p><br>
 
-<pre><code>例5：
-int wa ;
+<pre><code>例 5：
+int z ;
 int y ;
 y = 5 ;
-sum = x++ ;</code></pre>
+wa = y++ ;</code></pre>
 
-<p>例5のように式の中でインクリメントを後置で使用した場合、yの値は6、waの値は5となります。<br>
-後置の機能(4行目)<br>
-①yを1増やして6にする<br>
-②増やす前の値(5)を返し、waに代入</p>
-<br>
+<p>
+	例5のように式の中でインクリメントを後置で使用した場合、yの値は6、waの値は5となります。<br>
+	後置の機能(4行目)<br>
+	①yを1増やして6にする<br>
+	②増やす前の値(5)を返し、zに代入
+</p><br>
 
 
 
 <h2>2.Java代入演算子</h2>
-<p>代入演算子は、変数に値を代入するために使用されます。</p>
+<p>代入演算子は、変数に値を代入するために使用されます。</p><br>
+
+
+<table border="1" width="500"　aline="center">
+	<tr>
+		<th>演算子</th>
+		<th>意味</th>
+		<th>代入演算子での<br>同等な式</th>
+	</tr>
+	<tr>
+		<td>a=b</td>
+		<td>変数aにbを代入する</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>a++</td>
+		<td>変数aの値を、bだけ増やす</td>
+		<td>a = a + b</td>
+	</tr>
+	<tr>
+		<td>a-=b</td>
+		<td>変数aの値を、bだけ減らす</td>
+		<td>a = a - b</td>
+	</tr>
+	<tr>
+		<td>a*=b</td>
+		<td>数aの値を、b倍した値にする</td>
+		<td>a = a * b</td>
+	</tr>
+	<tr>
+		<td>a/=b</td>
+		<td>変数aの値を、bで割った値にする</td>
+		<td>a=a/b</td>
+	</tr>
+	<tr>
+		<td>a%=b</td>
+		<td>変数aの値を、bで割った余りの値にする</td>
+		<td>a=a%b</td>
+	</tr>
+</table>
+
+
+<p>
+	※表2～6行目の演算子は、複合代入演算子といい、演算を簡略化してわかりやすく書くための演算子です。<br><br>
+	<b>例１：</b>
+</p>
+
+<pre><code>int x =10;
+x += 5;</code></pre>
+
+
+<p>
+１行目では、代入演算子（＝）を使用して、変数（x）に値（１０）を代入します。<br>
+次に２行目で、複合代入演算子（＋＝）により、「xの値を５だけ増やす」という演算になります。<br>
+そのためxの値は１５となります。
+</p>
+
+<br><br>
+
+
+<p>
+<h2>3.Java関係演算子</h2>	
+関係演算子は、２つの値を比較するために使用されます。<br>
+この関係演算子は、次紹介する論理演算子とともに条件を書くための演算子として用いられる。<br>
+この演算子を使って条件を書くことは、「第４章条件分岐」、「第５章繰り返し」などの基礎となる考え方なので理解しておきましょう。
+</p><br>
+
+
+
+<table border="1" width="500">
+	<tr>
+		<th>演算子</th>
+		<th>使用例</th>
+		<th>意味</th>
+	</tr>
+	<tr>
+		<td> == </td>
+		<td> a== b </td>
+		<td>aとbは等しい</td>
+	</tr>
+	<tr>
+		<td> != </td>
+		<td> a != b</td>
+		<td>aとbは等しくない</td>
+	</tr>
+	<tr>
+		<td> < </td>
+		<td> a < b</td>
+		<td>aはbより大きい（超える）</td>
+	</tr>
+	<tr>
+		<td> > </td>
+		<td>a > b</td>
+		<td>aはbより小さい（未満）</td>
+	</tr>
+	<tr>
+		<td> >= </td>
+		<td>a >= b</td>
+		<td>aはbより大きいか等しい（以上）</td>
+	</tr>
+	<tr>
+		<td> <= </td>
+		<td> a <= b</td>
+		<td>aはbよりも小さいか等しい（以下）</td>
+	</tr>
+</table>
+
+
+<br><br>
+
+
+<b>例：</b>
+<pre><code>a>0　   ・・・ aは正の数
+b>=10　 ・・・ bは１０以上
+c>d+5 　・・・ cはd+5よりも大きい
+e+f>=10 ・・・ e+fは10以上	
+</code></pre>>		
+			
+
+
+<p>
+関係演算子は例の１行目・２行目のように、変数と値を比較するために使われます。<br>
+それ以外にも例の３行目・４行目のように、変数や式とも比較することができます。<br>
+この場合、右辺と左辺のどちらにも変数や式を書くことができます。
+</p>
+
 <br>
 
+<h2>4.Java　論理演算子</h2>
+<p>論理演算子は、２つ以上の関係式を組みあせて、複雑な条件を作成するために使います。</p>
+<br>
 
-			<table border="1" width="440"　aline="center">
-				<tr>
-					<th>演算子</th>
-					<th>意味</th>
-					<th>代入演算子での<br>同等な式</th>
-				</tr>
-				<tr>
-					<td>a=b</td>
-					<td>変数aにbを代入する</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>a++</td>
-					<td>変数aの値を、bだけ増やす</td>
-					<td>a = a + b</td>
-				</tr>
-				<tr>
-					<td>a-=b</td>
-					<td>変数aの値を、bだけ減らす</td>
-					<td>a = a - b</td>
-				</tr>
-				<tr>
-					<td>a*=b</td>
-					<td>数aの値を、b倍した値にする</td>
-					<td>a = a * b</td>
-				</tr>
-				<tr>
-					<td>a/=b</td>
-					<td>変数aの値を、bで割った値にする</td>
-					<td>a=a/b</td>
-				</tr>
-				<tr>
-					<td>a%=b</td>
-					<td>変数aの値を、bで割った余りの値にする</td>
-					<td>a=a%b</td>
-				</tr>
-			</table>
-			<p>※表2～6行目の演算子は、複合代入演算子といい、演算を簡略化してわかりやすく書くための演算子です。</p>
-			<br>
-			<b>例１：</b>
-			<p>１.int x =10;<br>
-				２. x += 5;</P>
-			<br>
-		<p>１行目では、代入演算子（＝）を使用して、変数（x）に値（１０）を代入します。<br>
-		次に２行目で、複合代入演算子（＋＝）により、「xの値を５だけ増やす」という演算になります。<br>
-		そのためxの値は１５となります。</p>
-		<br>
-		<br>
-		<h2>3.Java関係演算子</h2>
-		<p>関係演算子は、２つの値を比較するために使用されます。<br>
-		この関係演算子は、次紹介する論理演算子とともに条件を書くための演算子として用いられる。<br>
-		この演算子を使って条件を書くことは、「第４章条件分岐」、「第５章繰り返し」などの基礎となる考え方なので理解しておきましょう。</p>
-		<br>
-		<table border="1" width="500">
-			<tr>
-				<th>演算子</th>
-				<th>使用例</th>
-				<th>意味</th>
-			</tr>
-			<tr>
-				<td> == </td>
-				<td> a== b </td>
-				<td>aとbは等しい</td>
-			</tr>
-			<tr>
-				<td> != </td>
-				<td> a != b</td>
-				<td>aとbは等しくない</td>
-			</tr>
-			<tr>
-				<td> < </td>
-				<td> a < b</td>
-				<td>aはbより大きい（超える）</td>
-			</tr>
-			<tr>
-				<td> > </td>
-				<td>a > b</td>
-				<td>aはbより小さい（未満）</td>
-			</tr>
-			<tr>
-				<td> >= </td>
-				<td>a >= b</td>
-				<td>aはbより大きいか等しい（以上）</td>
-			</tr>
-			<tr>
-				<td> <= </td>
-				<td> a <= b</td>
-				<td>aはbよりも小さいか等しい（以下）</td>
-			</tr>
-		</table>
-		<br>
-		<br>
-		<b>例：</b>
-		<ol>
-			<li>a>0　・・・aは正の数</li>
-			<li>b>=10　・・・bは１０以上</li>
-			<li>c>d+5　・・・cはd+5よりも大きい</li>
-			<li>e+f>=10　・・・e+fは10以上</li>
-		</ol>
-		<br>
-		<p>関係演算子は例の１行目・２行目のように、変数と値を比較するために使われます。<br>
-		それ以外にも例の３行目・４行目のように、変数や式とも比較することができます。<br>
-		この場合、右辺と左辺のどちらにも変数や式を書くことができます。</p>
-		<br>
-		<h2>4.Java　論理演算子</h2>
-		<p>論理演算子は、２つ以上の関係式を組みあせて、複雑な条件を作成するために使います。</p>
-		<br>
-		<table border="1" width="500">
-			<tr>
-				<th>演算子</th>
-				<th>使用例</th>
-				<th>意味</th>
-			</tr>
-			<tr>
-				<td><font color="blue">&amp;&amp;</font></td>
-				<td><font color="blue">A &amp;&amp; B</font></td>
-				<td><font color="blue">かつ（AND演算）</font><br>A,Bの関係式が両方ともTrueの時のみtrueになる</td>
-			</tr>
-			<tr>
-				<td><font color="blue">||</font></td>
-				<td><font color="blue">A || B</font></td>
-				<td><font color="blue">または（OR演算）</font><br>A,Bのどちらか一方または両方がtrueならtrueになる</td>
-			</tr>
-			<tr>
-				<td><font color="blue">^</font></td>
-				<td><font color="blue">A ^ B</font></td>
-				<td><font color="blue">片方だけtrue（XOR演算）</font><br>片方がtrueでもう片方がfalseならtrueになる</td>
-			</tr>
-			<tr>
-				<td><font color="blue">!</font></td>
-				<td><font color="blue">A ! B</font></td>
-				<td><font color="blue">〜でない（NOT演算）</font><br>trueならfalseに、falseならtrueに反転する</td>
-			</tr>
-		</table>
-			<br>
-		<b>例：</b>
-		<br>
-		<ol>
-			<li>int x =30</li>
-			<li>int y =100</li>
-			<li></li>
-			<li>boolean b1=<font color="blue">x>=40 && y>=90;</font>　・・・x40以上<font color="blue">かつ</font>y90以上</li>
-			<li>boolean b2 =<font color="blue">x>=40 || y>=90;</font>　・・・x40以上<font color="blue">または</font>y90以上</li>
-			<li>boolean b3 =<font color="blue">x>=40 ^ y>=90;</font>　・・・x40以上、y90以上の<font color="blue">一方だけtrue</font></li>
-			<li>boolean b4 =<font color="blue">!(x>=40);</font>　・・・x 40以上<font color="blue">ではない</font></li>
-		</ol>
-		<br>
-		<p>例の４行目から７行目、青字の部分が実際に論理演算子を使った関係式です。<br>
-		この場合、１・２行目で定義した「x」「y」の値を４〜７行目の関係式で評価し、boolean型の変数b1〜b2に結果を代入します。<br>
-		結果はそれぞれ、b1=false、b2=true、b3=true、b4=trueとなります。</p>
-		<br>
-		<h2>練習</h2>
-			<p></p><b>問題</b>[JEx3_1.java]<br>
-			構文の◯を入れ替えて、コードを完成してください。</p>
+<table border="1" width="500">
+	<tr>
+		<th>演算子</th>
+		<th>使用例</th>
+		<th>意味</th>
+	</tr>
+	<tr>
+		<td>&&</font></td>
+		<td>A && B</font></td>
+		<td>かつ（AND演算）</font><br>
+		A,Bの関係式が両方ともTrueの時のみtrueになる</td>
+	</tr>
+	<tr>
+		<td>||</font></td>
+		<td>A || B</font></td>
+		<td><または（OR演算）</font><br>
+		A,Bのどちらか一方または両方がtrueならtrueになる</td>
+	</tr>
+	<tr>
+		<td> ^ </font></td>
+		<td> A ^ B </font></td>
+		<td>片方だけtrue（XOR演算）</font><br>
+		片方がtrueでもう片方がfalseならtrueになる</td>
+	</tr>
+	<tr>
+		<td> ! </font></td>
+		<td> A ! B </font></td>
+		<td> 〜でない（NOT演算）</font><br>
+		trueならfalseに、falseならtrueに反転する</td>
+	</tr>
+</table>
+
+
+<b>例：</b>
+<pre><code>int x =30
+int y =100
+			
+boolean b1 = x>=40 && y>=90;・・・x 40以上かつ y 90以上
+boolean b2 = x>=40 || y>=90;	・・・x 40以上または y 90以上
+boolean b3 = x>=40 ^ y>=90;	・・・x 40以上、 y 90以上の一方だけtrue
+boolean b4 = !(x>=40);	・・・x　40以上ではない
+</code></pre>
+		
+<p>
+例の４行目から７行目、青字の部分が実際に論理演算子を使った関係式です。<br>
+この場合、１・２行目で定義した「x」「y」の値を４〜７行目の関係式で評価し、boolean型の変数b1〜b2に結果を代入します。<br>
+結果はそれぞれ、b1=false、b2=true、b3=true、b4=trueとなります。</p>
+
+<br>
+
+<h2>練習</h2>
+<p><b>問題</b>[JEx3_1.java]<br>
+構文の◯を入れ替えて、コードを完成してください。</p>
+
 <pre><code>package JSample
 	public class JEx3_1{
 		public static void main(String[]args){
@@ -378,17 +415,21 @@ sum = x++ ;</code></pre>
 			System,out,println(a);
 		}
 	}</code></pre>
+
+
+
+<p>
+	<b>実行結果</b><br>
+	8<br>
+	4<br>
+	15<br>
+	12
+</p>
+
 <br>
-	<br>
-	<p><b>実行結果</b><br>
-		８<br>
-		４<br>
-		１５<br>
-		１２</p>
-	<br>
-	<p><b>問題</b>[JEx3 _2.java]<br>
-	次の１〜９に基づいて、プログラムを記述してください。</p>
-	<br>
+
+<p>	<b>問題</b>[JEx3 _2.java]<br>
+	次の１〜９に基づいて、プログラムを記述してください。<br>
 	変数aを宣言し、7+6の結果を代入<br>
 	変数bを宣言し、15-4の結果を代入<br>
 	aとbの値を実行結果のように表示<br>
@@ -398,19 +439,23 @@ sum = x++ ;</code></pre>
 	%=を用いて、aを3で割った余りをaに代入<br>
 	*=を用いて、bに5をかけた値をbに代入<br>
 	aとbの値を実行結果のように表示<br>
-	<br>
-	<pre><code>package JSample
+</p>
+
+<pre><code>package JSample
 public class JEx3_2{
 	public static void main(string[] args){
 	
 	//ここから処理を書いていきます
 	}
 }</code></pre>
-<p><b>実行結果</b><br>
+
+
+<p>
+	<b>実行結果</b><br>
 	a = 13 , b =11<br>
 	a = 14 , b= 10<br>
-	a = 2 , b = 50</p>	
-
+	a = 2 , b = 50
+</p>
 	    </textarea>
         <p id="output">content</p>
     </div>
@@ -425,6 +470,7 @@ public class JEx3_2{
     document.getElementById('output').innerHTML = html;
     </script>
 </body>
+
 
 
 </html>
