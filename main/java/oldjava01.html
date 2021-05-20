@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第1章　Java構文</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第1章　開発環境の準備とプログラム作成</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では開発環境を準備する方法を説明します。最後に実際に簡単なプログラムを実行してみましょう。 
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+
+<textarea id="text" style="display:none">
+
+<h1><b>JAVA構文</b></h1>
+<hr>
+<h2><b>開発ツールの準備とプログラム作成</b></h2>
+<h2><b>開発ツールEclipse</b></h2>
+<br>
+    <p>第０章でもお伝えしたように、Javaの開発を行うためにはJavaの開発環境を準備する必要があります。</p>
+    <p>本講座では開発ツールとしてEclipseを使用します。</p>
+    <br>
+    <p>以下のリンクからEclipsをダウンロードできます。</p>
+<a href="https://www.eclipse.org/downloads/">Eclipseダウンロード</a>
+    <br>
+<p>デスクトップに「eclipse.exe」ショートカット、あるいは「eclipse」フォルダの中に「eclipse.exe」がありますので、これをダブルクリックします。</p>
+<img style="height: 310px"; src="../assets/img/j01/eclipse01.png" alt=" ">
+<br>
+<br>
+<p>その後「Eclipseランチャー」ダイアログが表示されますので、ワークスペースのフォルダを選択してください。</p>
+<br>
+<img style="height: 180px"; src="../assets/img/j01/eclipse02.png" alt=" ">
+<p><b>ワークスペース</b>とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。
+<br>
+ワークスペースを選択したら、そのまま「起動」ボタンを押します。
+<br>
+起動すると、Eclipseの開発画面が表示されます。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse03.png" alt=" ">
+<br>
+    <p>実際のシステムは、数百個以上のプログラムで構成されています。</p>
+    <p>Elipseでは、その全体を［プロジェクト］と呼んで管理しています。</p>
+    <p>プロジェクトの中には、全てのプログラムと関連するデータファイルが含まれています。</p>
+    <p>さらに、プロジェクトの中は機能ごとに［パッケージ］と呼ばれるサブフォルダに分けられています。</p>
+    <p>その［パッケージ］の元となるプログラムが入っており、機能ごとに呼び出して使っています。</p>
+    <p>では実際に［プロジェクト］と［パッケージ］を作成し、簡単なプログラムを作ってみましょう。</p>
+    <br>
+    <br>
+<p><b>プロジェクトの作成</b>><p>
+<p>ツールバー中にファイルの「新規」を選択し、「javaプロジェクト」を選択します。</p>
+<img style="height: 400px"; src="../assets/img/j01/eclipse04.png" alt=" ">
+<p>「プロジェクト名」に「MyClass」を入力し、「完了」を押します。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse05.png" alt=" ">
+<p>「MyClass」の名前でJavaプロジェクトを作成しました。</p>
+<br>
+<p><b>パッケージ・クラスの作成</b>><p>
+<p>「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。</p>
+<p>そのメニューで［新規］→［クラス］を指定します。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse06.png" alt=" ">
+<p>すると、［新規Javaクラス］ダイアログが表示されるので、
+    <li>［名前］にMyClassと入力し</li>
+    <li>［パッケージ］に「Sample」と入力</li>
+    <li>［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］を選択し、［終了］ボタンをクリックします。</p>
+<img style="height: 390px"; src="../assets/img/j01/eclipse07.png" alt=" ">
+<p>エディタ（※１）にソースコードが自動生成されます。</p>
+<p>これで開発の準備は完了です。</p>
+<p>（※１）eclipse内で実際にコード入力する作業スペースのこと。</p>
+<br>
+<h1><B>プログラム作成</B></h1>
+
+<p>それでは実際に以下のコードを入力してみましょう。</p>
+<br>
+<p>[MyClass.java]</p>
+
+<pre><code>pakage JSample
+public class MyClass {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+</pre></code>
+
+<img style="height: 160px"; src="../assets/img/j01/eclipse08.png" alt=" ">
+<br>
+<p>コードの入力が完了したら保存します。</p>
+<p>ツールバーの下にある［実行］ボタンをクリックします。</p>
+<img style="height: 85px"; src="../assets/img/j01/eclipse09.png" alt=" ">
+<br>
+<br>
+<h2><b>実行結果</h2></b>
+<img style="height: 130px"; src="../assets/img/j01/eclipse10.png" alt=" ">
+<p>出力に「Hello World 」と表示されれば成功です。</p>
+
+</textarea>
+
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>
