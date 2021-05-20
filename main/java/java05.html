@@ -43,197 +43,186 @@
         </div>
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **繰り返し**
-***
-
-&lt;br&gt;
-
-## **1.whileループ**
-指定した条件が満たされている間は何度でもコードのブロックを繰り返します。
-
-
-&lt;pre&gt;&lt;code&gt;while (条件式) {
-  // 実行するコードブロック
+<textarea id="text" style="display:none">
+<h1>繰り返し</h1>
+<p>繰り返し処理は、指定した回数や条件式に当てはまる間、ブロック内の処理を繰り返し行います。繰り返しには、while文やfor文といった構文が使われます。以下でそれぞれについて説明します。</p>
+<br>
+<h2>1.while文</h2>
+<p>while文は、何かの条件が成立している間、処理を繰り返すという構文です。</p>
+<pre><code>while (条件式) {
+(繰り返し実行したい処理)
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;
-以下の例では、変数（i）が5未満である限り、ループ内のコードは繰り返し実行されます。
-
-#### **例**
-[JSample5_1.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+</code></pre>
+<p>while文では、最初に条件式の確認を行います。結果がtureなら「繰り返し実行したい処理」を実行し、処理が終わると、また、条件式の確認に戻ってきます。
+このようにして繰り返しが行われ、条件がfalseになった時点でwhile文を抜けて、次のステップへ進みます。
+</p>
+<b>例</b><br>
+<p>[JSample5_1.java]</p>
+<pre><code>package JSample;
 
 public class JSample5_1 {
-  public static void main(String[] args) {
-    int i = 1;
-    while (i &lt; 5) {
-      System.out.println(i);
-      i++;
-    }
-  }
+	public static void main(String[] args) {
+		int i = 1;
+		while (i < 5) {
+			System.out.println(i);
+			i++;
+		}
+	}
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **実行結果**
-
-1&lt;br&gt;
-2&lt;br&gt;
-3&lt;br&gt;
+</code></pre>
+<b>実行結果</b>
+<p>1
+2
+3
 4
-
-&lt;br&gt;&lt;br&gt;
-
-## **2.do/whileループ**
-このループは、条件が満たされているかどうかをチェックする前にコードブロックを1回実行し、条件が満たされている限りループを繰り返します。
-
-&lt;pre&gt;&lt;code&gt;do {
-  // 実行するコードブロック
+</p>
+<p>この例では、変数（i）が5未満である限り(条件式)、7行目と8行目の処理が繰り返し実行されます。
+まず、5行目で i には1が代入されています。
+次に6行目の条件式「i が5未満の時」という条件を確認し、当てはまるためブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。
+その後6行目の条件の確認に戻り、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。
+</p>
+<br>
+<br>
+<br>
+<br>
+<h2>2.do/while文</h2>
+<p>while文のもう一つの構文としてdo/while文があります。
+whilw分は、処理を実行する前に条件の確認を行いましたが、
+do/while文は、処理を実行した後に条件の確認を行います。
+まず、「処理」を実行して、それから条件を確認するため、少なくとも1回は「処理」を実行する点がwhile文と異なります。
+</p>
+<pre><code>do {
+(繰り返し実行したい処理)
 }
 while (条件式);
-&lt;/pre&gt;&lt;/code&gt;
-
-&lt;br&gt;
-
-以下の例では```do/while```ループを使用しています。条件が偽の場合でも、条件がテストされる前にコードブロックが実行されるため、少なくとも1回はループが実行されます。
-
-#### **例**
-[JSample5_2.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+</code></pre>
+<br>
+<b>例1</b>
+<p>[JSample5_2.java]</p>
+<pre><code>package JSample;
 
 public class JSample5_2 {
-    public static void main(String[] args) {
-      int i = 1;
-      do {
-        System.out.println(i);
-        i++;
-      }while (i &lt; 5);
-    }
+	public static void main(String[] args) {
+		int i = 1;
+		do {
+			System.out.println(i);
+			i++;
+		}while (i < 5);
+	}
+}</code></pre>
+<b>実行結果</b>
+<p>1
+2
+3
+4
+</p>
+<p>まず、4行目で i には1が代入されています。
+次に6～8行目のブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。
+その後9行目の条件の確認し、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。
+</p>
+<br>
+<b>例2</b>
+<p>[JSample5_3.java]</p>
+<pre><code>package JSample;
+
+public class JSample5_3 {
+		public static void main(String[] args) {
+			int i = 10;
+			do {
+				System.out.println(i);
+				i++;
+			}while (i < 5);
+		}
+	}
+</code></pre>
+<b>実行結果</b>
+<p>10</p>
+<br>
+<br>
+<br>
+<br>
+<h2>3.for文</h2>
+<p>for文は、「回数」を指定することで、「繰り返したい処理」を指定した「回数」だけ実行する構文です。
+for文は次章で学習する配列などでよく用いられるため</p>
+<pre><code>for ([初期化式]; [条件式]; [加算式]) {
+(繰り返し実行したい処理)
 }
-&lt;/code&gt;&lt;/pre&gt;
-#### **実行結果**
-
-1&lt;br&gt;
-2&lt;br&gt;
-3&lt;br&gt;
-4&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-
-#### **例**
-[JSample5_3.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
-
-public class JSample5_2 {
-    public static void main(String[] args) {
-      int i = 10;
-      do {
-        System.out.println(i);
-        i++;
-      }while (i &lt; 5);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-#### **実行結果**
-
-10&lt;br&gt;
-
-
-
-
-&lt;br&gt;&lt;br&gt;
-
-## **3.forループ**
-このループは、同じ処理を指定した回数だけ繰り返し実行する場合に使います。
-
-&lt;pre&gt;&lt;code&gt;for ([初期化式]; [条件式]; [加算式]) {
-  // 実行するコードブロック
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-初期化式：変数の宣言と初期化
-
+</code></pre>
+<p>初期化式：変数の宣言と初期化
 条件式：ループ処理を続ける条件
-
 加算式：ループ処理が1回終わるごとに実行される内容
-
-&lt;br&gt;
-
-#### **例**
-[JSample5_4.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+</p>
+<br>
+<b>例</b>
+<p>[JSample5_4.java]</p>
+<pre><code>package JSample;
 
 public class JSample5_3 {
 	public static void main(String[] args) {
-		for (int i = 1; i &lt;= 5; i = i + 1) {
+		for (int i = 1; i <= 5; i = i + 1) {
 			System.out.println(i);
 		}
 	}
 }
-&lt;/code&gt;&lt;/pre&gt;
-#### **実行結果**
-1&lt;br&gt;
-2&lt;br&gt;
-3&lt;br&gt;
-4&lt;br&gt;
-5&lt;br&gt;
-
-
-&lt;br&gt;&lt;br&gt;
-
-## **4.for-eachループ**
-forループの少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。これは配列やコレクションと呼ばれる複数の要素を持っているものから全ての要素に含まれる値を順に取り出して処理するために使われます。
-
-&lt;pre&gt;&lt;code&gt;for (データ型 変数名: コレクション) {
-  // 実行するコードブロック
+</code></pre>
+<b>実行結果</b>
+<p>1
+2
+3
+4
+5
+</p>
+<p>この例では5行目が繰り返し処理を行う条件を示しています。
+まず、初期化式「int i = 1;」 は、変数 i を宣言し、i に1を代入し初期値を設定しています。
+条件式「 i <= 5」は、変数 i が5になるまでループを続ける、という条件を設定しています。
+加算式「 i = i + 1」は、5行目から7行目のブロックの処理が1回終わるごとに i の値を1増やすという処理が行われます。
+</p>
+<br>
+<br>
+<br>
+<br>
+<h2>4.for-each文</h2>
+<p>for文の少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。
+これはfor文のように、繰り返しを行う条件式がありません。対象となる配列やコレクションと呼ばれる要素の数だけ繰り返しを行います。</p>
+<pre><code>for (データ型 変数名: コレクション) {
+	(繰り返し実行したい処理)
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;
-
-#### **例**
-[JSample5_5.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+</code></pre>
+<b>例</b>
+<p>[JSample5_5.java]</p>
+<pre><code>package JSample;
 
 public class JSample5_4 {
-  public static void main(String[] args) {
-    String[] cars = {&quot;Toyota&quot;, &quot;Honda&quot;, &quot;Subaru&quot;, &quot;Nissan&quot;};
-    for (String i : cars) {
-      System.out.println(i);
-    }
-  }
+	public static void main(String[] args) {
+		String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+		for (String i : cars) {
+			System.out.println(i);
+		}
+	}
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **実行結果**
-Toyota&lt;br&gt;
-Honda&lt;br&gt;
-Subaru&lt;br&gt;
+</code></pre>
+<b>実行結果</b>
+<p>Toyota
+Honda
+Subaru
 Nissan
-
-&lt;br&gt;&lt;br&gt;
-
-***
-
-&gt; **練習**
-&gt;&gt; **問題1**[JEx5_1.java]
-
-1から30までで3の倍数のみを出力するプログラムを作成せよ。
-ただし、while文を使用すること。
-
-
-&lt;br&gt;
-
-&gt;&gt; **問題2**[JEx5_2.java]
-
-forループで、実行結果が`1*2*3...*n`になるような文を作ってください。
-
-```
-例（入力変数n=10の時）：
+</p>
+<br>
+<p>5行目は、配列で [String型] の [car] という配列で、要素は("Toyota", "Honda", "Subaru", "Nissan")の4つです。詳しくいは次章で学習します。
+6行目のfor-each文で、配列 [car]から、String型の要素を順番に取り出し、変数 i に代入します。
+そして7行目の出力処理を配列 [car]の要素の数だけ行います。
+</p>
+<br>
+<br>
+<br>
+<br>
+<h2>練習</h2>
+<p><b>問題1</b>[JEx5_1.java]
+1から30までで3の倍数のみを出力するプログラムを作成せよ。 ただし、while文を使用すること。</p>
+<br>
+<p><b>問題2</b>JEx5_2.java
+forループで、実行結果が 1*2*3...*nになるような文を作ってください</p>
+<pre><code>例（入力変数n=10の時）：
 1!=1
 2!=1*2
 3!=1*2*3
@@ -244,9 +233,11 @@ forループで、実行結果が`1*2*3...*n`になるような文を作って�
 8!=1*2*3*4*5*6*7*8
 9!=1*2*3*4*5*6*7*8*9
 10!=1*2*3*4*5*6*7*8*9*10
-
+	
 10!=3628800
-```
+</code></pre>
+
+
 </textarea>
         <p id="output">content</p>
     </div>
