@@ -43,143 +43,139 @@
         </div>
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **条件分岐**
-***
-
-&lt;br&gt;
-
-## **1.条件分岐(if文)**
-
-```
-if (条件) {
-    処理2;
-    処理3;
-} else {
-    処理4;
-    処理5;
+		<textarea id="text" style="display:none"><h1>条件分岐</h1>
+<h2>1.条件分岐(if文)</h2>
+<p>分岐とはプログラム中で、ある条件が満たされているかどうかによって次に実行するプログラム上の位置を変化させること。です。<br>
+Java言語の中で条件分岐を行う場合には、if文やswitch文を使います。</p>
+			
+<h2>1.関係式による条件分岐(if文)</h2>
+<p>if文は、条件を指定し、「もしも○○ならば◇◇を実行するが、そうでなければ△△を実行する」というように、2つに場合分けする構文です。<br>
+if文は以下のように、関係式で作成した条件が true か false かで処理を分けることができます。<br>
+また、いくつもの関係式を並べて細かく分けることもできます。<br>
+3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。</p>
+<pre><code>if(関係式/条件){
+関係式がtrueの時に実行する処理;
+}else{
+関係式がfalseの時に実行する処理;
 }
-```
-
-&lt;br&gt;
-
-#### **例**
-[JSample4_1.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
-public class JSample4_1 {
-    public static void main(String[] args) {
-		int number = 10;
-		if (number == 0) {
-			System.out.println(&quot;0です&quot;);
-		} else {
-			if (number&gt; 0) {
-				System.out.println(&quot;正です&quot;);
+</code></pre>
+			
+<p><b>例</b><br>
+	[Sample4_1.java]</p>
+<pre><code>	package JSample;
+	public class JSample4_1 {
+		public static void main(String[] args) {
+			int number = 10;
+			if (number == 0) {
+				System.out.println("0です");
+			} else if (number> 0){
+				System.out.println("正です");
 			} else {
-				System.out.println(&quot;負です&quot;);
+				System.out.println("負です");
 			}
 		}
-	   }
-      }
-
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **実行結果**
-正です
-
-&lt;br&gt;&lt;br&gt;
-
-## **2.条件分岐が多いとき（switch文）**
-
-```
-switch (式) {
-　case 値1:
-　　文1
-　　break;
-　case 値2:
-　　文2
-　　break;
-　default:
-　　文3
-}
-```
-
-&lt;br&gt;
-
-#### **例**
-[JSample4_2.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
-
+	}
+</code></pre>
+<br>
+<b>実行結果</b>
+			<p>正です</p>
+			<br>
+			<p>上の例では、場合分けの条件は5行目、7行目、9行目の3つです。<br>
+それぞれ int型の変数 number が、0の場合（5行目）、0より大きい場合(7行目)、0より小さい場合、(9行目)の場合分けによってその後の指示が異なります。<br>
+この例では、 number に10が代入されているため、7行目の場合分けに該当し、「正です」と出力するという指示が実行されます。</p>
+			<br>
+			<br>
+			<h2>2.値による条件分岐（switch文）</h2>
+			<p>switch文は、「10だったら○○、20だったら△△、・・・」のように、値で条件を指定する構文です。<br>
+if文のように関係式で条件を指定することはできません。</p>
+			<pre><code>	switch (式) {
+	　case 値1:
+	　　命令文1
+	　　break;
+	　case 値2:
+	　　命令文2
+	　　break;
+	　default:
+	　　命令文3
+			(break;)	→最後のbreakだけは省略できる。
+	}
+</code></pre>
+<br>
+<b>例</b>
+<p>[JSample4_2.java]</p>
+<pre><code>package JSample;
 import java.util.Scanner;
-
 public class JSample4_2 {
-
-    public static void main(String[] args) {
-		
-		System.out.println(&quot;キーボードから数値を入力してください。&quot;);
-
+	public static void main(String[] args) {
+		System.out.println("キーボードから数値を入力してください。");
 		Scanner scan = new Scanner(System.in);
-		//数値を読み取る;String num = scanner.next();の場合、文字を読み取る;
 		int num = scan.nextInt();
 
 		switch (num) {
-		case 1:
-			System.out.println(&quot;非常に不満&quot;);
-			break;
-		case 2:
-			System.out.println(&quot;少し不満&quot;);
-			break;
-		case 3:
-			System.out.println(&quot;どちらとも言えない&quot;);
-			break;
-		case 4:
-			System.out.println(&quot;少し満足&quot;);
-			break;
-		case 5:
-			System.out.println(&quot;大変満足&quot;);
-			break;
+			case 1:
+				System.out.println("満足");
+				break;
+			case 2:
+				System.out.println("どちらとも言えない");
+				break;
+			case 3:
+				System.out.println("不満");
+				break;
 		}
-	   }
-      }
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **実行結果**
-キーボードから数値を入力してください。&lt;br&gt;
-3&lt;br&gt;
-どちらとも言えない&lt;br&gt;
-
-* 変数入力&lt;br&gt;
-	このscan.nextInt()メソッドは数値入力するためによく使用されます。&lt;br&gt;
-	scanner.next()メソッドは文字入力するためによく使用されます。
-
-&lt;br&gt;&lt;br&gt;
-
-***
-
-&gt; **練習**
-&gt;&gt; **問題**[JEx4_1.java]
-
-学生のポイントが60以上かどうかを判断してください。
-&lt;br&gt;
-	{&lt;br&gt;
-	キーボードで入力　score&lt;br&gt;
-	score&gt;=60の場合、&quot;60以上です&quot;を出力&lt;br&gt;
-	上記以外、&quot;60未満です&quot;を出力&lt;br&gt;
 	}
-&lt;!--&lt;pre&gt;&lt;code&gt;public class JSample4_3 {
+}		
+</code></pre>
+<br>
+<b>実行結果（"2"と入力した場合）</b>
+<P>キーボードから数値を入力してください。<br>
+>2<br>
+どちらとも言えない<br>
+<br>
+上の例では、場合分けの条件は9行目、13行目、16行目の3つです。<br>
+それぞれ int型の変数 num に代入された数字が、1の場合（13行目）、2の場合(13行目)、3の場合、(16行目)の場合分けによってその後の指示が異なります。<br>
+この例では、 num に2が代入されているため、13行目の場合分けに該当し、「どちらとも言えない」と出力するという指示が実行されます。<br>
+<br>
+6行目のscan.nextInt()メソッドは数値を入力するためによく使用されます。<br>
+上の例では、int型の変数 num にキーボードで入力した数字を代入する、という指示になります。<br></P>
+<br>
+<h2>練習</h2>
+<p><b>問題</b>[JEx4_1.java]<br>
+	<b>if文</b>を使って、学生のポイントを入力し60以上かどうかを判断してください。</P>
+<pre><code>
 
-	public static void main(String[] args) {
-		int score = 60;
-        if(score&gt;=60) {
-        System.out.println(&quot;60以上です&quot;);
-        }else {
-        System.out.println(&quot;60以下です&quot;);
-        }
-	   }
-      }
-&lt;/code&gt;&lt;/pre&gt;
-![java4.3.PNG](https://i.loli.net/2019/08/08/IsWi47QRCMu2BK9.png)
---&gt;</textarea>
+｛
+"点数入力してください"を出力
+
+キーボードで入力　score
+score>=60の場合、"点数はscore合格です"を出力
+上記以外、"点数はscore不合格です"を出力
+｝
+</code></pre>
+<p><b>問題</b>[JEx4_1.java]<br>
+<b>switch文</b>を使って、何月かを入力し、表のようにその季節を表示するプログラムを作成してください。</P>
+<table border="1">
+	<tr>
+		<td>月</td>
+		<td>季節</td>
+	</tr>
+	<tr>
+		<td>３、４、５</td>
+		<td>春</td>
+	</tr>
+	<tr>
+		<td>６、７、８</td>
+		<td>夏</td>
+	</tr>
+	<tr>
+		<td>９、１０、１１</td>
+		<td>秋</td>
+	</tr>
+	<tr>
+		<td>１２、１、２</td>
+		<td>冬</td>
+	</tr>
+	</table>
+</textarea>
         <p id="output">content</p>
     </div>
     <div class="text-center">
