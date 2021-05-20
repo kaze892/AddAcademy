@@ -22,6 +22,41 @@
         li.L5, li.L6, li.L7, li.L8 {
           list-style-type: decimal !important;
         }
+
+  .collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: blue;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
     </style>
 </head>
 
@@ -44,8 +79,17 @@
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
         <textarea id="text" style="display:none">
-<h1><b>1.プログラムの書き方</b></h1>
+
+
+
+<button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<h1><b>1.プログラムの書き方</b>
 <hr>
+</h1><details><summary></summary>
 <p>Javaでは、プログラムを「クラス（.class）」という単位で作成します。</p>
 <p>プログラムを書くにあたり、まずクラスを構成する要素、プログラムの書き方など基本的なルールを確認しましょう。</p>
 <br>
@@ -289,12 +333,34 @@ public class JEx2_1{
         <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
     </div>
     <script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+          } else {
+          content.style.display = "block";
+    }
+      });
+}
+    	
     showdown.setOption('omitExtraWLInCodeBlocks', 'true');
     showdown.setOption('ghCodeBlocks', 'true');
     var converter = new showdown.Converter({ extensions: ['prettify'] });
     html = converter.makeHtml(document.getElementById('text').value);
     document.getElementById('output').innerHTML = html;
+
+
+
+
     </script>
+
+
+
 </body>
 
 
