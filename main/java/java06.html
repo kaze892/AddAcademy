@@ -44,192 +44,175 @@
         </div>
     </div>
     <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **配列**
-***
-
-配列は、値ごとに別々の変数を宣言するのではなく、単一の変数に複数の値を格納するために使用されます。
-
-**配列を宣言する**には、変数の型を角括弧で定義します。
-
-&lt;pre&gt;&lt;code&gt;String[] cars;
+<textarea id="text" style="display:none">
+<h1>配列</h1>
+<p>変数には1つの値を格納することができますが、配列は、同じデータ型の複数の値をまとめて格納するために使用されます。<br>
+例えば10個の値を格納する場合、変数を使うと変数が10個必要ですが、配列では10個の値を1つの配列にまとめて格納することができます。<br>
+<br>
+Javaの配列を利用するには<b>1)扱うデータ型を指定して配列を宣言し、(2)必要な要素数を指定して配列を作成する(初期化)する</b>必要があります。
+</p>
+<p><b>配列を宣言する</b>には、変数の型を　[ ] で定義します。</p>
+<pre><code>String[] cars;
 
 int number[];
 int[] number;
-&lt;/code&gt;&lt;/pre&gt;
-上記の定義は配列の変数を宣言するだけであり、この状態では実体は存在しません。
-&lt;br&gt;
+</code></pre>
+<p>上記の定義は配列の変数を宣言するだけであり、この状態では実体は存在しません。
+<br>	
+<b>配列を初期化する</b>には、new演算子で初期化します。</p>
+<pre><code>int number[] = new int[3];
 
-**配列を初期化する**には、new演算子で初期化します。
-```
-//int型の値を3つ格納することのできる配列を宣言
-int number[] = new int[3]; 
+int number[] ;
+number = new int [3];
+</code></pre>
+<p>このとき、number[0], number[1], number[2] にはすべて 0 が格納されています。<b>new で配列を初期化した場合は</b>、その型クラスのデフォルト値で初期化されます。</p>
+<br>
+<p>1行目と3・4行目は、int型の値を3つ格納することのできる配列を宣言しており、どちらの書き方でも意味は同じです。<br>
+1行目は 変数宣言と初期化を同時に行っており、3・4行目は宣言と初期化を別に行っています。
+<br>
+<br>
+new演算子で初期化する以外にも、値を指定して初期化することもできます。<br>
+値を指定する場合は、 { } で囲み、カンマ区切りのリストにします。
+</p>
+<br>
+<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
 
-// 変数宣言と初期化を別にすることも可能
-int number[];
-number = new int[3];
-```
-このとき、number[0], number[1], number[2] にはすべて 0 が格納されています。new で配列を初期化した場合は、その型クラスのデフォルト値で初期化されます。
-&lt;br&gt;
-
-宣言と同時に配列を初期化する方法もあります。値を中括弧で囲み、カンマ区切りのリストにします。
-&lt;pre&gt;&lt;code&gt;//一次元配列イニシャライザ
-String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
-
-//或いは
 String[] cars;
-cars = new String[]{&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **1.配列の要素にアクセスする**
-インデックス番号を```[]```内に参照して配列要素にアクセスします。
-
-&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+</code></pre>
+	
+<h2>1.配列の要素にアクセスする</h2>
+<p>インデックス番号を [　]　内に参照して配列要素にアクセスします。</p>
+<pre><code>	String[] cars = {"Toyota", "Honda", " Subaru ", "Nissan"};
 System.out.println(cars[0]);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;font color=#0099ff&gt;注：配列インデックスは0から始まります。[0]が最初の要素です。[1]は2番目の要素などです。&lt;/font&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **2.配列の長さ**
-配列の要素数を調べるには、次のlengthプロパティを使用します。
-
-&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
+</code></pre>
+<p>注：配列インデックスは0から始まります。[0]が最初の要素です。[1]は2番目の要素などです。</p>
+<b>実行結果</b>
+<p>Toyota</p>
+<br>
+<br>
+<br>
+<Br>
+<h2>2.配列の長さ</h2>	
+<p>配列の要素数を調べるには、次のlengthプロパティを使用します。</p>
+<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
 System.out.println(cars.length);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **3.配列をループする**
-ループを使用して配列要素をforループ処理し、length プロパティを使用してループの実行回数を指定できます。
-
-&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
-for (int i = 0; i &lt; cars.length; i++) {
-  System.out.println(cars[i]);
+</code></pre>
+<b>実行結果</b>
+<p>3<br>
+<br>
+上のインデックス番号について説明したように、配列インデックスは0から始まるため、配列cars は｛ [0], [1], [2], [3] }　と数えるので、出力結果は3となります。</p>
+<br>
+<br>
+<Br>
+<br>
+<h2>3.配列をループする</h2>
+<p>配列を使用して処理を繰り返す場合、length プロパティを使用して繰り返しの実行回数を指定できます。</p>
+<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+for (int i = 0; i< cars.length; i++){
+	System.out.println(cars[i]);
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;
-
-&lt;pre&gt;&lt;code&gt;String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
-for (String i : cars) {
-  System.out.println(i);
+</code></pre>
+<b>実行結果</b>
+<p>Toyota<br>
+Honda<br>
+Subaru <br>
+Nissan
+</p><br>
+<p>この例では2行目のfor文の[条件式](※1)に 「 i　が配列carsの要素数以下」と指定しているため i が3になるまで3行目の出力処理を繰り返します。
+(※1)　5章　3.for文参照。<br>
+<br>
+また、以下のように書いても同じ意味になります。</p>
+<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+for (String i : cras){
+		System.out.println(i);
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;&lt;br&gt;
-
-## **4.多次元配列**
-多次元配列は、2つ以上の配列を含む配列です。
-
-2次元配列を作成するには、各配列をそれ自身の中括弧のセット内に追加します。
-
-&lt;pre&gt;&lt;code&gt;int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+</code></pre>
+<br>
+<br>
+<br>
+<br>
+<h2>4.多次元配列（「配列」の配列）</h2>
+<p>多次元配列は、2つ以上の配列を含む配列です。<br>
+<br>
+2次元配列を作成するには、各配列を { } の内に追加します。
+</p>
+<pre><code>int[][] myNumbers = {{1, 2, 3, 4},{5, 6, 7} };
 int x = myNumbers[1][2];
-System.out.println(x); // Outputs 7
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **例**
-[JSample6_1.java]
-
-```
-package JSample;
-
-public class JSample6_1 {
-
-	public static void main(String[] args) {
-
-		int[][] myNumbers = { { 1, 2, 3, 4 }, { 5, 6, 7 } };
-		for (int i = 0; i &lt; myNumbers.length; ++i) {
-			//配列名.length で、縦方向の要素数を取得(今回は2)
-			System.out.println(&quot;行ごとに繰り返し&quot;);
-			for (int j = 0; j &lt; myNumbers[i].length; ++j) {
-				//配列名[0].length で、横方向の要素数を取得(今回は4と3)
-				System.out.println(&quot;列の要素数は&quot; + myNumbers[i].length);
-				System.out.println(myNumbers[i][j]);
+System.out.println(x);
+</code></pre>
+<b>実行結果</b>
+<p>7
+<br>
+ここでは、myNumbersという配列は｛1, 2, 3, 4,} という配列と { 5, 6, 7 }という2つの配列が要素になった配列です。<br>
+2行目のmyNumbers[1][2]の部分は、[1]は配列myNumbersのインデックスナンバー[1]を表しており、具体的には{5, 6, 7}の配列のことを指しています。[2]は{5, 6, 7}の配列のインデックスナンバー[2]を表しているため7を指しています。<br>
+そのため int x には7が代入され、3行目の出力指示により 7 が出力されます。<br>
+<br>
+<b>例</b>
+[JSample6_1.java]</p>
+<pre><code>package JSample;
+public class JSample6_1{
+	
+	public static void main(Stirng[] atgs){
+		int[][] myNumbers = {{1, 2, 3, 4},{5, 6, 7} };
+		for (int i =0; i < myNumbers.length; ++i){
+		System.out.println("行ごとに繰り返し");
+			for (int j =0; j < myNumbers[i].length; ++j){
+				System.out.println("列の要素数は" + myNumbers[i].length);
 			}
 		}
 	}
 }
-```
+</code></pre>
+<b>実行結果</b>
+<p>行ごとに繰り返し<br>
+列の要素数は4<br>
+1<br>
+列の要素数は4<br>
+2<br>
+列の要素数は4<br>
+3<br>
+列の要素数は4<br>
+4<br>
+行ごとに繰り返し<br>
+列の要素数は3<br>
+5<br>
+列の要素数は3<br>
+6<br>
+列の要素数は3<br>
+7<br>
+</p>
+<br>
+<h2>練習</h2>
+<p><b>問題1</b>[JEx6_1.java]<br>
+int[] cars = {1,2,3,4,5,6,7,8,9,10};<br>
+上記の配列から偶数のみを出力してください。<br>
+</p>
+<br>
+<p><b>問題2</b>[JEx6_2.java]<br>
+配列を作成して、下記の九九表になるように出力してください。<br>
+1<br>
+2 4<br>
+3 6 9<br>
+4 8 12 16<br>
+5 10 15 20 25<br>
+6 12 18 24 30 36<br>
+7 14 21 28 35 42 49<br>
+8 16 24 32 40 48 56 64<br>
+9 18 27 36 45 54 63 72 81<br>
+<br>
+<b>問題3</b>[JEx6_3.java]<br>
+String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};<br>
+上記の配列を作って、下記のように出力してください。<br>
+Toyota <br>
+Honda<br>
+Subaru <br>
+Nissan<br>
+</p>
+	
+	
 
-#### **実行結果**
-行ごとに繰り返し&lt;br&gt;
-列の要素数は4&lt;br&gt;
-1&lt;br&gt;
-列の要素数は4&lt;br&gt;
-2&lt;br&gt;
-列の要素数は4&lt;br&gt;
-3&lt;br&gt;
-列の要素数は4&lt;br&gt;
-4&lt;br&gt;
-行ごとに繰り返し&lt;br&gt;
-列の要素数は3&lt;br&gt;
-5&lt;br&gt;
-列の要素数は3&lt;br&gt;
-6&lt;br&gt;
-列の要素数は3&lt;br&gt;
-7
 
-&lt;br&gt;&lt;br&gt;
-
-***
-
-&gt; **練習**
-&gt;&gt; **問題1**[JEx6_1.java]
-
-&lt;pre&gt;&lt;code&gt;int[] cars = {1,2,3,4,5,6,7,8,9,10};
-&lt;/code&gt;&lt;/pre&gt;
-
-上記の配列から偶数のみを出力してください。
-
-
-&gt;&gt; **問題2**[JEx6_2.java]
-
-配列を作成して、下記の九九表になるように出力してください。
-
-   1&lt;br&gt;
-   2   4&lt;br&gt;
-   3   6   9&lt;br&gt;
-   4   8  12  16&lt;br&gt;
-   5  10  15  20  25&lt;br&gt;
-   6  12  18  24  30  36&lt;br&gt;
-   7  14  21  28  35  42  49&lt;br&gt;
-   8  16  24  32  40  48  56  64&lt;br&gt;
-   9  18  27  36  45  54  63  72  81
-
-
-
-&gt;&gt; **問題3**[JEx6_3.java]
-```
-String[] cars = {&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot;};
-```
-上記の配列を作って、下記のように出力してください。&lt;br&gt;
-Volvo&lt;br&gt;
-BMW&lt;br&gt;
-Ford&lt;br&gt;
-Mazda
-
-&lt;!--
-```
-package JSample;
-
-public class JSample6_3 {
-	public static void main(String[] args) {
-		String[] cars = { &quot;Volvo&quot;, &quot;BMW&quot;, &quot;Ford&quot;, &quot;Mazda&quot; };
-		for (String i : cars) {
-			System.out.println(i);
-		}
-
-	}
-}
-```
-実行結果：&lt;br&gt;
-![JSample6_3.PNG](https://i.loli.net/2019/08/09/5a6Ls4evhz1HVui.png)
-
---&gt;
 </textarea>
         <p id="output">content</p>
     </div>
