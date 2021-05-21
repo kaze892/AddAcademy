@@ -59,7 +59,19 @@
 .ms-hero-bg-dark:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(2,2,2,.85);z-index:0}
 .ms-hero-bg-dark .container{position:relative;z-index:1}
 .ms-hero-bg-primary{position:relative}.ms-hero-bg-primary:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(1,82,118,.85);z-index:0}
-.ms-hero-bg-primary .container{position:relative;z-index:1}.ms-hero-bg-info{position:relative}.ms-hero-bg-info:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,75,85,.85);z-index:0}.ms-hero-bg-info .container{position:relative;z-index:1}.ms-hero-bg-royal{position:relative}.ms-hero-bg-royal:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(63,16,72,.85);z-index:0}.ms-hero-bg-royal .container{position:relative;z-index:1}.ms-hero-bg-warning{position:relative}.ms-hero-bg-warning:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(128,76,0,.85);z-index:0}.ms-hero-bg-warning .container{position:relative;z-index:1}.ms-hero-bg-danger{position:relative}.ms-hero-bg-danger:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(162,19,9,.85);z-index:0}.ms-hero-bg-danger .container{position:relative;z-index:1}.ms-hero-bg-success{position:relative}.ms-hero-bg-success:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(37,86,39,.85);z-index:0}.ms-hero-bg-success .container{position:relative;z-index:1}.ms-hero-bg-dark-light{position:relative;color:#fff}
+.ms-hero-bg-primary .container{position:relative;z-index:1}.ms-hero-bg-info{position:relative}
+
+
+.ms-hero-bg-info:after{
+  display:block;content:"";
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  width:100%;
+  height:100%;
+  background-color:rgba(17,13,16,.80);
+  z-index:0
+}
+
+.ms-hero-bg-info .container{position:relative;z-index:1}.ms-hero-bg-royal{position:relative}.ms-hero-bg-royal:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(63,16,72,.85);z-index:0}.ms-hero-bg-royal .container{position:relative;z-index:1}.ms-hero-bg-warning{position:relative}.ms-hero-bg-warning:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(128,76,0,.85);z-index:0}.ms-hero-bg-warning .container{position:relative;z-index:1}.ms-hero-bg-danger{position:relative}.ms-hero-bg-danger:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(162,19,9,.85);z-index:0}.ms-hero-bg-danger .container{position:relative;z-index:1}.ms-hero-bg-success{position:relative}.ms-hero-bg-success:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(37,86,39,.85);z-index:0}.ms-hero-bg-success .container{position:relative;z-index:1}.ms-hero-bg-dark-light{position:relative;color:#fff}
 .ms-hero-bg-dark-light:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(68,68,68,.95);z-index:0}.ms-hero-bg-dark-light .container{position:relative;z-index:1}
 .ms-hero-bg-dark-transparent{position:relative;color:#fff}.ms-hero-bg-dark-transparent:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);z-index:0}
 .ms-hero-bg-dark-transparent .container{position:relative;z-index:1}.ms-hero-bg-light-light{position:relative;color:#fff}

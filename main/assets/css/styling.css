@@ -1,6 +1,6 @@
 ﻿/* collapse code start */
 .collapsible {
-  background-color: #637a7980;
+  background-color: #110d1080;
   color: white;
   cursor: pointer;
   border-radius: 10px;
@@ -37,8 +37,9 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #cccccc80;
+  background-color: #242121;
   font-size: 15px;
+    color:white;
 }
 /* collapse code end */
 
@@ -86,6 +87,7 @@ img {
 }
 
 body {
+  /* background-color: black!important;*/
   background-image: url("../../assets/img/paper.jpg");
   overflow-x: hidden; /* hide horizontal scroll */
   -webkit-user-select: none; /* Safari prevent selection */
