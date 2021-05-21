@@ -1,136 +1,85 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第2章　プログラムの書き方とJava変数</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-
-  .collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.collapsible {
-  background-color: #777;
-  color: white;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-.active, .collapsible:hover {
-  background-color: blue;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-}
-    </style>
+    <title>第2章　プログラムの書き方とJava変数</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第2章　プログラムの書き方とJava変数</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では、プログラムの書き方と、Javaの変数、宣言について説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第2章　プログラムの書き方とJava変数</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    この章では、プログラムの書き方と、Javaの変数、宣言について説明します。</p>
+                  <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none">
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">プログラムの書き方とJava変数</h1>
+    <hr style="height:0.5px;background-color:#333;">
+    <h2 style="font-weight: 400;">1.プログラムの書き方</h2>
 
-<button type="button" class="collapsible">Open Collapsible</button>
-<div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+<!--プログラムの書き方-->
+<button type="button" class="collapsible">プログラムの書き方</button>
+<div class="collapse-content">
+    <p>Javaでは、プログラムを「クラス（.class）」という単位で作成します。<br>
+	プログラムを書くにあたり、まずクラスを構成する要素、プログラムの書き方など基本的なルールを確認しましょう。<br>
+	ここでは、第１章で作成したプログラムを例に見ていきましょう。<br>
+	[MyClass.java]
+
+    <pre class="prettyprint linenums">package JSample
+    public class MyClass {
+      public static void main(String[] args) {
+        System.out.println("Hello World");
+      }
+    }</pre>
+
+    <br>
+	<h2>1-1.パッケージ文</h2>
+	まず１行目は［パッケージ文］といいます。プログラムが含まれているパッケージの名前を書き、プログラムの先頭行に必ず書く必要があります。<br><br>
+	
+	<h2>1-2.クラス宣言</h2>
+	Javaでは、プログラムを［クラス］という単位で作成します。２行目はクラスが始まる部分で「クラス宣言」といいます。<br>
+	書かれている［public class］はクラス宣言のキーワードで、［MyClass］がクラスの名前です。<br>
+	クラスの名前は自由に決めることができますが、先頭は必ず「英字の大文字」で書きます。<br><br>
+	
+	｛・・・｝で囲まれた範囲をブロックといい、２行目最後から６行目までの中にクラスの具体的な内容が書かれています。<br><br>
+
+	<h2>1-3.メソッド</h2>
+	プログラムの中身にあたる３、４、５行の部分を［メソッド］といいます。クラスの中にはメソッドをいくつでも書くことができます。<br>
+	
+	３行目が［メソッド宣言］です。このメソッドの名前は［main］で、プログラムの開始点を表す特別なメソッドです。プログラムの開始点に［main］以外の名前を使うことはできません。<br><br>
+	
+	<h2>1-4.命令文</h2>
+	メソッドの中で、具体的な指示（処理を実行する）を書くのが［命令文］です。<br>
+	命令文の最後には、セミコロン（；）を付けます。このセミコロンが命令文の終わりを示す記号となります。<br>
+	ここでは４行目が命令文にあたり、「"Hello World"と出力しなさい」という指示を出しています。<br>
+	このように、クラスの中にメソッドを書き、その中に命令文を書くのがJavaの標準的な書き方です。<br>
+    </p>
 </div>
 
-<h1><b>1.プログラムの書き方</b>
-<hr>
-</h1><details><summary></summary>
-<p>Javaでは、プログラムを「クラス（.class）」という単位で作成します。</p>
-<p>プログラムを書くにあたり、まずクラスを構成する要素、プログラムの書き方など基本的なルールを確認しましょう。</p>
-<br>
-<p>ここでは、第１章で作成したプログラムを例に見ていきましょう。</p>
-<br>
-<p>[MyClass.java]</p>
 
-<pre><code>package Sample;
-public class MyClass {
-  public static void main(String[] args) {
-    System.out.println("Hello World");
-  }
-}
-</code></pre>
-
-<br>
-<h2>1-1.パッケージ文</h2>
-<p>まず１行目は［パッケージ文］といいます。プログラムが含まれているパッケージの名前を書き、プログラムの先頭行に必ず書く必要があります。</p>
-<br>
-<h2>1-2.クラス宣言</h2>
-<p>Javaでは、プログラムを［クラス］という単位で作成します。２行目はクラスが始まる部分で「クラス宣言」といいます。</p>
-<p>書かれている［public class］はクラス宣言のキーワードで、［MyClass］がクラスの名前です。</p>
-<p>クラスの名前は自由に決めることができますが、先頭は必ず「英字の大文字」で書きます。</p>
-<br>
-｛・・・｝で囲まれた範囲をブロックといい、２行目最後から６行目までの中にクラスの具体的な内容が書かれています。
-<br>
-<br>
-<h2>1-3.メソッド</h2>
-<p>プログラムの中身にあたる３、４、５行の部分を［メソッド］といいます。クラスの中にはメソッドをいくつでも書くことができます。</p>
-<br>
-<p>３行目が［メソッド宣言］です。このメソッドの名前は［main］で、プログラムの開始点を表す特別なメソッドです。プログラムの開始点に［main］以外の名前を使うことはできません。</p>
-<br>
-<h2>1-4.命令文</h2>
-<p>メソッドの中で、具体的な指示（処理を実行する）を書くのが［命令文］です。</p>
-<p>命令文の最後には、セミコロン（；）を付けます。このセミコロンが命令文の終わりを示す記号となります。</p><br>
-<p>ここでは４行目が命令文にあたり、「"Hello World"と出力しなさい」という指示を出しています。</p><br>
-<p>このように、クラスの中にメソッドを書き、その中に命令文を書くのがJavaの標準的な書き方です。</p><br>
-<br>
-<br>
-<h1>2.Javaの基本的なデータと変数</h1><br>
-<h2>2-1.Javaのデータ型</h2><br>
+<h2 style="font-weight: 400;">2.Javaの基本的なデータと変数</h2>
+<!--Javaの基本的なデータと変数-->
+<button type="button" class="collapsible">2-1.Javaのデータ型</button>
+<div class="collapse-content">
+    <p>
+        
 <p>Java言語ではデータの種類を厳密に区分して使用します。それはデータ処理を行うコンピュータにとって重要な概念であるためです。</p><br>
 <p>Java言語では、データの種類のことを［データ型］といいます。</p>
 <p>「1」や「10」は数値データ、「あ」や「A」は文字データ、「こんにちは」や「Hello」は文字列データというように、データ型にはいくつかの種類があります。</p><br>
@@ -197,6 +146,16 @@ public class MyClass {
 	</tr>
 </table>
 <br>
+
+
+    </p>
+</div>
+
+
+
+
+
+
 			<h2>2-2.Java変数</h2>
 			<p>プログラムでは変数を使って処理を書きます。そのため変数の基本的な使い方を理解することが重要となります。<br>ここでいう［変数］とは値を格納するためのようなもので、数字で「x」や「y」を変数と言って使ったのとほぼ同じモノです。</p>
 			<br>
@@ -326,42 +285,16 @@ public class JEx2_1{
 <p>変数myTextはHelloです</p>
 <br>	
 
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    var coll = document.getElementsByClassName("collapsible");
-var i;
+</div><!--article-container-->
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-          content.style.display = "none";
-          } else {
-          content.style.display = "block";
-    }
-      });
-}
-    	
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
 
-
-
-
-    </script>
-
-
-
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
 </html>
+
