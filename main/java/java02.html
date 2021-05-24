@@ -14,7 +14,7 @@
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">第2章　プログラムの書き方とJava変数</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">
@@ -23,7 +23,6 @@
             </div>
         </div>
     </div><br>
-                
                 
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
@@ -155,68 +154,64 @@
 
 
 
-
-
-			<h2>2-2.Java変数</h2>
-			<p>プログラムでは変数を使って処理を書きます。そのため変数の基本的な使い方を理解することが重要となります。<br>ここでいう［変数］とは値を格納するためのようなもので、数字で「x」や「y」を変数と言って使ったのとほぼ同じモノです。</p>
+<!--Java変数-->
+<button type="button" class="collapsible">2-2.Java変数</button>
+<div class="collapse-content">
+			<p>プログラムでは変数を使って処理を書きます。そのため変数の基本的な使い方を理解することが重要となります。<br>ここでいう［変数］とは値を格納するためのようなもので、数字で「x」や「y」を変数と言って使ったのとほぼ同じモノです。<br>
 			<br>
 			<br>
 			<b>2-2-1.変数の宣言</b>
-			<p>変数を行うためには、使う変数の「型」と［名前］を宣言します。</p>
+			変数を行うためには、使う変数の「型」と［名前］を宣言します。<br>
 			<br>
-			<p>・宣言の方法は以下のようになります。</p>
-			<p><font color="#808000">データ型　変数名；<br>→末尾にはセミコロンが必須。</font></p>
+			・宣言の方法は以下のようになります。<br>
+			<font color="#808000">データ型　変数名；<br>→末尾にはセミコロンが必須。</font><br>
 			<br>
 			<b>例：</b>
-			<pre><code>String myName;</code></pre>
-			<p>この宣言は「int型」の値を格納できる「myName」という名前の箱を準備したということを表します。</p><br>
+			<pre>String myName;</pre>
+			この宣言は「int型」の値を格納できる「myName」という名前の箱を準備したということを表します。<br>
 			<br>
-			<p>・変数を宣言した後に初めて値を代入することができます。</p>
-			<b>例：</b>
-			<pre><code>String myName;
-myName = "yamada";</code></pre>
-			<p>この宣言は「String型」の値を代入できる「myName」という名前の箱を準備し、その箱に「yamada」というString型の値を代入するという指示を出したことを表します。；```
+			・変数を宣言した後に初めて値を代入することができます。<br>
+			<b>例：</b><br>
+<pre class="prettyprint linenums">String myName;
+myName = "yamada";</pre><br>
+			この宣言は「String型」の値を代入できる「myName」という名前の箱を準備し、その箱に「yamada」というString型の値を代入するという指示を出したことを表します。<br>
 			<br>
-			<p>初期値は、以下のようにして代入しても構いません。</p>
-			<p><font color="#808000">データ型　変数　＝初期値；</font></p>
-			<b>例：</b>
-			<pre><code>String myName = "yamada";</code></pre>
+			初期値は、以下のようにして代入しても構いません。<br>
+			<font color="#808000">データ型　変数　＝初期値；</font><br>
+			<b>例：</b><br>
+<pre class="prettyprint linenums">String myName = "yamada";</pre>
 			<br>
-			<p>変数は、宣言したデータ型に対応する値しか代入することは出来ません。</p>
-			<p>それぞれのデータ型の宣言の具体的な方法は以下の通りとなります。</p>
+			変数は、宣言したデータ型に対応する値しか代入することは出来ません。<br>
+			それぞれのデータ型の宣言の具体的な方法は以下の通りとなります。<br>
 			<br>
 			<br>
 			<br>
 			<li>
-				<p><b>int</b>　・・・123や-123のように、整数（整数）を小数点なしで格納します。<br>
-					<b>例：</b>int myNum = 123;</p>
+				<b>int</b>　・・・123や-123のように、整数（整数）を小数点なしで格納します。<br>
+					<b>例：</b>int myNum = 123;
 			</li><br>
 			<li>
-				<p><b>float</b>　・・・浮動小数点数を、19.99や、-19.99などの少数で格納します。<br>
+				<b>float</b>　・・・浮動小数点数を、19.99や、-19.99などの少数で格納します。<br>
 					<b>例：</b>float myFloatNum = 12.34f;
-				</p>
 			</li><br>
 			<li>
-				<p><b>char</b>　・・・「a」や「A」などの単一文字を格納します。Char値は一重引用符で囲まれています。<br>
+				<b>char</b>　・・・「a」や「A」などの単一文字を格納します。Char値は一重引用符で囲まれています。<br>
 					<b>例：</b>char myLetter ='a';
-				</p>
 			</li><br>
 			<li>
-				<p><b>boolean</b>　・・・<b>２つ</b>の状態を持つ値を格納します。<b>true</b>または<b>false</b><br>
+				<b>boolean</b>　・・・<b>２つ</b>の状態を持つ値を格納します。<b>true</b>または<b>false</b><br>
 				<b>例：</b>boolean isTrue = true;	
-				</p>
 			</li><br>
 			<li>
-				<p><b>String</b>　・・・"Hello"などのテキストを保存します。文字列値は二重引用符で囲まれています。<br>
+				<b>String</b>　・・・"Hello"などのテキストを保存します。文字列値は二重引用符で囲まれています。<br>
 					<b>例：</b>String myText = "Hello";
-				</p>
 			</li><br>
-<p>以上は変数の宣言と初期値が同時に行われます。</p>
+以上は変数の宣言と初期値が同時に行われます。
 <br>
 <br>
 <b>例：</b>
-<p>［JSample2_1.java］</p>
-<pre><code>package JSample;
+［JSample2_1.java］
+<pre class="prettyprint linenums">package JSample;
 public class JSample2_1{
 	public static void main(String[] args){
 		int a;
@@ -226,10 +221,10 @@ public class JSample2_1{
 		int result = a + b;
 		System out print("結果は、" + result);
 		}
-}</code></pre>
+}</pre>
 <br>
-<p><b>実行結果</b></p>
-<p>結果は、30</p>
+<b>実行結果</b><br>
+	結果は、30<br>
 <br>
 <li>9行目のprint(~)メソッドは、（）内の変数を表示するために使用します。</li>
 			<li>テキストを出力する場合は、&quot;&quot;で囲う必要があります。</li>
@@ -239,13 +234,13 @@ public class JSample2_1{
 <br>
 			<br>
 			<b>2-2-2.変数の有効範囲</b><br>
-			<p>1−2。クラスの宣言でも取り上げましたが、Javaコードにはたびたび｛｝が登場します。</p>
-			<p>｛・・・｝を「ブロック」と呼び、変数の有効範囲はブロックによって決まります。</p>
-			<p>ブロック外側では無効となります。</p>
+			1−2。クラスの宣言でも取り上げましたが、Javaコードにはたびたび｛｝が登場します。<br>
+			｛・・・｝を「ブロック」と呼び、変数の有効範囲はブロックによって決まります。<br>
+			ブロック外側では無効となります。
 			<br>
 			<b>例：</b>
-			<p>［JSample2_2.java］</p>
-			<pre><code>package JSample;
+			［JSample2_2.java］
+			<pre class="prettyprint linenums">package JSample;
 public class JSample2-2{
 		public static void main(String[]args){
 			int one = 1;
@@ -253,20 +248,22 @@ public class JSample2-2{
 		}
 	System out println("one:"+ one);
 	System out println("two" ; two);
-}</code></pre>
+}</pre>
 			<br>
 			<br>
 			<b>実行結果</b><br><br>
-		<img style="height: 100px"; src="../assets/img/j02.png" alt=" " width="800px">
-		<p>例のようにint型の［one］,[two]という変数は、３行目から６行目までのブロックの中で宣言された変数です。<br>
+		<img style="height: 100px"; src="../assets/img/j02.png" alt=" " width="800px"><br>
+		例のようにint型の［one］,[two]という変数は、３行目から６行目までのブロックの中で宣言された変数です。<br>
 			しかし、println()による出力の命令文は３〜６行目のブロックより外の、７行目と８行目に書かれています。<br>
 			この場合、［one］,［two］という変数の有効範囲外で出力指示を行っているため、実行結果はエラーとなります。</p>
+	</div><br>
 <br>
-<br>
-<h1>練習</h1>
-<p><b>問題</b>［JEx2_1.Java］</p>
-<p>1-1.構文の例の変数を定義、表示してください。</p>
-<pre><code>package JSample;	
+<h2 style="font-weight: 400;">問題</h2>
+<button type="button" class="collapsible">問題</button>
+<div class="collapse-content">
+<p><b>問題</b>［JEx2_1.Java］<br>
+	1-1.構文の例の変数を定義、表示してください。
+<pre class="prettyprint linenums">package JSample;	
 public class JEx2_1{
 	public static void main(String[]args){
 		//**例** int myNum = 123;
@@ -277,13 +274,13 @@ public class JEx2_1{
 		//System,out,println("変数myNumは" + myNum + "です");
 	}
 				
-}</code></pre>
-<p><b>実行結果</b></p>
-<p>変数myNumは123です</p>
-<p>変数myFloatNumは12.34です</p>
-<p>変数myLetterはaです</p>
-<p>変数isTrueはtrueです</p>
-<p>変数myTextはHelloです</p>
+}</pre>
+<b>実行結果</b><br>
+変数myNumは123です<br>
+変数myFloatNumは12.34です<br>
+変数myLetterはaです<br>
+変数isTrueはtrueです<br>
+変数myTextはHelloです</p>
 <br>	
 
 </div><!--article-container-->
@@ -294,7 +291,7 @@ public class JEx2_1{
     </div><br>
 
 <script src="../assets/js/collapse.js"></script>  
-<script src="../assets/cdn/cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
 </html>
-
