@@ -51,10 +51,10 @@ li.L5, li.L6, li.L7, li.L8 {
   list-style-type: decimal !important;
 }
 
-
+/* 
 img {
   border: 1px solid #555!important;
-}
+}*/
 
 .head1{
   padding: 60px 0px 20px 0px;
@@ -84,6 +84,13 @@ img {
   width:90px;
   color:white;
   border-radius: 2.5px;
+}
+
+
+.home_icon{
+/* position:absolute;*/
+top:0px; 
+left:auto;
 }
 
 body {
