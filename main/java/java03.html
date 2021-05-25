@@ -15,7 +15,7 @@
   <div class="container"> <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
     <div class="text-center">
       <h1 class="head1 animated zoomInDown animation-delay-5">第3章　演算子</h1>
-      <p class="head2 animated fadeInUp animation-delay-7"> この章では JAVA の演算子について説明します</p>
+      <p class="head2 animated fadeInUp animation-delay-7"> 演算子</p>
       <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a> </div>
 	</div>
 </div>
@@ -336,6 +336,7 @@ boolean b4 = !(x>=40);	・・・x　40以上ではない
   この場合、１・２行目で定義した「x」「y」の値を４〜７行目の関係式で評価し、boolean型の変数b1〜b2に結果を代入します。<br>
   結果はそれぞれ、b1=false、b2=true、b3=true、b4=trueとなります。<br>
   </p>
+</div>
   <br>
 <!--練習-->
 <button type="button" class="collapsible">練習</button>
@@ -385,16 +386,16 @@ boolean b4 = !(x>=40);	・・・x　40以上ではない
     a = 13 , b =11<br>
     a = 14 , b= 10<br>
     a = 2 , b = 50 </p>
-  </textarea>
-  <p id="output">content</p>
 </div>
-<div class="text-center"> <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a> </div>
-<script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+  <!--article-container-->
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
 </html>
