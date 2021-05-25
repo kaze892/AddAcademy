@@ -58,16 +58,7 @@
 .ms-hero-bg-dark{position:relative}
 .ms-hero-bg-dark:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(2,2,2,.85);z-index:0}
 .ms-hero-bg-dark .container{position:relative;z-index:1}
-
-.ms-hero-bg-primary{
-  position:relative
-}.ms-hero-bg-primary:after{
-    display:block;content:"";
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  width:100%;height:100%;
-  background-color:rgba(17,13,16,.80);z-index:0
-}
-
+.ms-hero-bg-primary{position:relative}.ms-hero-bg-primary:after{display:block;content:"";position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background-color:rgba(1,82,118,.85);z-index:0}
 .ms-hero-bg-primary .container{position:relative;z-index:1}.ms-hero-bg-info{position:relative}
 
 
