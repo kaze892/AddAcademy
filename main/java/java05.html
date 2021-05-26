@@ -1,228 +1,225 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第5章　繰り返し</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第5章　繰り返し</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第5章　繰り返し</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では Javaの繰り返し処理について説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第5章　繰り返し</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    この章では JAVAの繰り返し処理について説明します。</p>
+				<a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-<textarea id="text" style="display:none">
-<h1>繰り返し</h1>
-<p>繰り返し処理は、指定した回数や条件式に当てはまる間、ブロック内の処理を繰り返し行います。繰り返しには、while文やfor文といった構文が使われます。以下でそれぞれについて説明します。</p>
-<br>
-<h2>1.while文</h2>
-<p>while文は、何かの条件が成立している間、処理を繰り返すという構文です。</p>
-<pre><code>while (条件式) {
-(繰り返し実行したい処理)
-}
-</code></pre>
-<p>while文では、最初に条件式の確認を行います。結果がtureなら「繰り返し実行したい処理」を実行し、処理が終わると、また、条件式の確認に戻ってきます。<br>
-このようにして繰り返しが行われ、条件がfalseになった時点でwhile文を抜けて、次のステップへ進みます。
-</p>
-<b>例</b><br>
-<p>[JSample5_1.java]</p>
-<pre><code>package JSample;
+    </div><br>
+	
+	                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
-public class JSample5_1 {
-	public static void main(String[] args) {
-		int i = 1;
-		while (i < 5) {
+
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">繰り返し</h1>
+    <hr style="height:0.5px;background-color:#333;">
+    <h2 style="font-weight: 400;">繰り返し処理は、指定した回数や条件式に当てはまる間、ブロック内の処理を繰り返し行います。繰り返しには、while文やfor文といった構文が使われます。以下でそれぞれについて説明します。</h2>
+
+
+<!--1.while文-->
+<button type="button" class="collapsible">1.while文</button>
+<div class="collapse-content">
+    <p>while文は、何かの条件が成立している間、処理を繰り返すという構文です。<br>
+	<pre class="prettyprint linenums">while(条件式){
+		(繰り返し実行したい処理)
+	}
+	</pre>
+	<br>
+	while文では、最初に条件式の確認を行います。結果がtureなら「繰り返し実行したい処理」を実行し、処理が終わると、また、条件式の確認に戻ってきます。<br>
+このようにして繰り返しが行われ、条件がfalseになった時点でwhile文を抜けて、次のステップへ進みます。<br>
+	<br>
+	<b>例</b>[JSample5_1.java]<br>
+<pre class="prettyprint linenums">package JSample;
+
+public class JSample5_1{
+	public static void main(String[] args){
+		int i =  1;
+		while (i < 5){
 			System.out.println(i);
-			i++;
+			i ++;
 		}
 	}
-}
-</code></pre>
-<b>実行結果</b>
-<p>1
-2
-3
-4
-</p>
-<p>この例では、変数（i）が5未満である限り(条件式)、7行目と8行目の処理が繰り返し実行されます。<br>
-まず、5行目で i には1が代入されています。<br>
-次に6行目の条件式「i が5未満の時」という条件を確認し、当てはまるためブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。<br>
-その後6行目の条件の確認に戻り、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。
-</p>
-<br>
-<br>
-<br>
-<br>
-<h2>2.do/while文</h2>
-<p>while文のもう一つの構文としてdo/while文があります。<br>
-whilw分は、処理を実行する前に条件の確認を行いましたが、<br>
-do/while文は、処理を実行した後に条件の確認を行います。<br>
-まず、「処理」を実行して、それから条件を確認するため、少なくとも1回は「処理」を実行する点がwhile文と異なります。
-</p>
-<pre><code>do {
-(繰り返し実行したい処理)
-}
-while (条件式);
-</code></pre>
-<br>
-<b>例1</b>
-<p>[JSample5_2.java]</p>
-<pre><code>package JSample;
-
-public class JSample5_2 {
-	public static void main(String[] args) {
-		int i = 1;
-		do {
-			System.out.println(i);
-			i++;
-		}while (i < 5);
-	}
-}</code></pre>
-<b>実行結果</b>
-<p>1<br>
+}</pre>
+	<br>
+	<b>実行結果</b>
+	1<br>
 2<br>
 3<Br>
-4
-</p>
-<p>まず、4行目で i には1が代入されています。<br>
-次に6～8行目のブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。<br>
-その後9行目の条件の確認し、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。
-</p>
+4<br>
 <br>
-<b>例2</b>
-<p>[JSample5_3.java]</p>
-<pre><code>package JSample;
-
-public class JSample5_3 {
-		public static void main(String[] args) {
-			int i = 10;
-			do {
+この例では、変数（i）が5未満である限り(条件式)、7行目と8行目の処理が繰り返し実行されます。<br>
+まず、5行目で i には1が代入されています。<br>
+次に6行目の条件式「i が5未満の時」という条件を確認し、当てはまるためブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。<br>
+その後6行目の条件の確認に戻り、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。<br>
+</p>
+	</div>
+	
+	
+	<!--2.do/while文-->
+<button type="button" class="collapsible">2.do/while文</button>
+<div class="collapse-content">
+	<p>while文のもう一つの構文としてdo/while文があります。<br>
+whilw分は、処理を実行する前に条件の確認を行いましたが、<br>
+do/while文は、処理を実行した後に条件の確認を行います。<br>
+まず、「処理」を実行して、それから条件を確認するため、少なくとも1回は「処理」を実行する点がwhile文と異なります<br>
+<pre class="prettyprint linenums">
+do{
+	(繰り返し実行したい処理)
+}
+while(条件式);</pre>
+	<br>
+	<br>
+	<b>例1</b>[JSample5_2.java]<br>
+	<pre class="prettyprint linenums">
+	package JSample;
+	
+	public class JSample5_2{
+		public static void main(String[] args){
+			int i = 1;
+			do{
 				System.out.println(i);
 				i++;
-			}while (i < 5);
+			}while(i < 5);
 		}
 	}
-</code></pre>
-<b>実行結果</b>
-<p>10</p>
-<br>
-<br>
-<br>
-<br>
-<h2>3.for文</h2>
-<p>for文は、「回数」を指定することで、「繰り返したい処理」を指定した「回数」だけ実行する構文です。<br>
-for文は次章で学習する配列などでよく用いられるため</p>
-<pre><code>for ([初期化式]; [条件式]; [加算式]) {
-(繰り返し実行したい処理)
-}
-</code></pre>
-<p>初期化式：変数の宣言と初期化
-条件式：ループ処理を続ける条件
-加算式：ループ処理が1回終わるごとに実行される内容
-</p>
-<br>
-<b>例</b>
-<p>[JSample5_4.java]</p>
-<pre><code>package JSample;
-
-public class JSample5_3 {
-	public static void main(String[] args) {
-		for (int i = 1; i <= 5; i = i + 1) {
-			System.out.println(i);
-		}
-	}
-}
-</code></pre>
-<b>実行結果</b>
-<p>1<br>
+	</pre>
+	<br>
+	<b>実行結果</b><br>
+	1<br>
 2<br>
 3<br>
 4<br>
-5
-</p>
-<p>この例では5行目が繰り返し処理を行う条件を示しています。<br>
-まず、初期化式「int i = 1;」 は、変数 i を宣言し、i に1を代入し初期値を設定しています。<br>
-条件式「 i <= 5」は、変数 i が5になるまでループを続ける、という条件を設定しています。<br>
-加算式「 i = i + 1」は、5行目から7行目のブロックの処理が1回終わるごとに i の値を1増やすという処理が行われます。
-</p>
 <br>
+まず、4行目で i には1が代入されています。<br>
+次に6～8行目のブロック内の 「i を出力する処理(7行目)」、と「i の値を1増やす」という処理を行います。<br>
+その後9行目の条件の確認し、条件に当てはまる場合はブロック内の処理を行うというループを繰り返します。<br>
 <br>
-<br>
-<br>
-<h2>4.for-each文</h2>
-<p>for文の少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。<br>
-これはfor文のように、繰り返しを行う条件式がありません。対象となる配列やコレクションと呼ばれる要素の数だけ繰り返しを行います。</p>
-<pre><code>for (データ型 変数名: コレクション) {
-	(繰り返し実行したい処理)
-}
-</code></pre>
-<b>例</b>
-<p>[JSample5_5.java]</p>
-<pre><code>package JSample;
+<b>例2</b>[JSample5_3.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
 
-public class JSample5_4 {
-	public static void main(String[] args) {
-		String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
-		for (String i : cars) {
+public class JSample5_3{
+	public static void main(String[] args){
+		int i = 10;
+		do{
+			System.out.println(i);
+			i++;
+		}while(i < 5);
+	}
+}</pre>
+<br>
+<b>実行結果</b><br>
+10<br>
+	</p>
+</div>	
+
+<!--3.for文-->
+<button type="button" class="collapsible">3.for文</button>
+<div class="collapse-content">	
+<p>for文は、「回数」を指定することで、「繰り返したい処理」を指定した「回数」だけ実行する構文です。<br>
+for文は次章で学習する配列などでよく用いられるため<br>
+<pre class="prettyprint linenums">
+for([初期化式]; [条件式]; [加算式]){
+	(繰り返し実行したい処理)
+}</pre>
+初期化式：変数の宣言と初期化<br>
+条件式：ループ処理を続ける条件<br>
+加算式：ループ処理が1回終わるごとに実行される内容<br>
+<br>
+<b>例</b>[JSample5_4.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+	
+public class JSample5_4{
+	public static void main(String[] args){
+		for (int i = 1; i <= 5; i = i + 1){
 			System.out.println(i);
 		}
 	}
-}
-</code></pre>
-<b>実行結果</b>
-<p>Toyota<br>
+}</pre>
+<br>
+	<b>実行結果</b>
+	1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+<br>
+この例では5行目が繰り返し処理を行う条件を示しています。<br>
+まず、初期化式「int i = 1;」 は、変数 i を宣言し、i に1を代入し初期値を設定しています。<Br>
+条件式「 i <= 5」は、変数 i が5になるまでループを続ける、という条件を設定しています。<br>
+加算式「 i = i + 1」は、5行目から7行目のブロックの処理が1回終わるごとに i の値を1増やすという処理が行われます。<Br>
+</p>
+	</div>
+	
+	
+	
+<!--4.for-each文-->
+<button type="button" class="collapsible">4.for-each文</button>
+<div class="collapse-content">	
+<p>for文の少し違った使い方として拡張forループ(for-eachループ)という使い方ができるようになりました。<br>
+これはfor文のように、繰り返しを行う条件式がありません。対象となる配列やコレクションと呼ばれる要素の数だけ繰り返しを行います。<br>
+	<br>
+<pre class="prettyprint linenums">
+for(データ型 変数名: コレクション){
+	(繰り返し実行したい処理)
+}</pre>
+<br>
+<b>例</b>[JSample5_5.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+
+public class JSample5_5{
+	public static void main(String[] args){
+		String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+		for (String i : cars){
+			System.out.println(i);
+		}
+	}
+}</pre>	
+<br>
+<b>実行結果</b><br>
+Toyota<br>
 Honda<br>
 Subaru<br>
-Nissan
-</p>
+Nissan<br>
 <br>
-<p>5行目は、配列で [String型] の [car] という配列で、要素は("Toyota", "Honda", "Subaru", "Nissan")の4つです。詳しくいは次章で学習します。<br>
+5行目は、配列で [String型] の [car] という配列で、要素は(<font color="#ffa07a">"Toyota", "Honda", "Subaru", "Nissan"</font>)の4つです。詳しくいは次章で学習します。<br>
 6行目のfor-each文で、配列 [car]から、String型の要素を順番に取り出し、変数 i に代入します。<br>
-そして7行目の出力処理を配列 [car]の要素の数だけ行います。
+そして7行目の出力処理を配列 [car]の要素の数だけ行います。<br>
 </p>
+	</div>
+	<br>
+	
+	
+<!--練習-->
+<button type="button" class="collapsible">練習</button>
+<div class="collapse-content">
+<p><b>問題1</b>[JEx5_1.java]<br>
+1から30までで3の倍数のみを出力するプログラムを作成せよ。 ただし、while文を使用すること。<br>
 <br>
-<br>
-<br>
-<br>
-<h2>練習</h2>
-<p><b>問題1</b>[JEx5_1.java]
-1から30までで3の倍数のみを出力するプログラムを作成せよ。 ただし、while文を使用すること。</p>
-<br>
-<p><b>問題2</b>[JEx5_2.java]
-forループで、実行結果が 1*2*3...*nになるような文を作ってください</p>
-<pre><code>例（入力変数n=10の時）：
+	<b>問題2</b>[JEx5_2.java]<br>
+	forループで、実行結果が 1*2*3...*nになるような文を作ってください。<br>
+<pre class="prettyprint linenums">例（入力変数n=10の時）：
 1!=1
 2!=1*2
 3!=1*2*3
@@ -233,25 +230,20 @@ forループで、実行結果が 1*2*3...*nになるような文を作ってく
 8!=1*2*3*4*5*6*7*8
 9!=1*2*3*4*5*6*7*8*9
 10!=1*2*3*4*5*6*7*8*9*10
+
+10!=3628800</pre>
+	</p>
+	</div>
 	
-10!=3628800
-</code></pre>
+	<!--article-container-->
 
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
 
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
 </html>
