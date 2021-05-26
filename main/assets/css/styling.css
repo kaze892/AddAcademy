@@ -43,6 +43,17 @@
 }
 /* collapse code end */
 
+/* top page row color */
+.list-group-item{position:relative;display:block;padding:.75rem 1.25rem;margin-bottom:-1px;background-color:#110d1080;border:1px solid rgba(0,0,0,.125)}
+.list-group-item:first-child{border-top-left-radius:10px;border-top-right-radius:10px}
+.list-group-item:last-child{margin-bottom:0;border-bottom-right-radius:10px;border-bottom-left-radius:10px}
+
+
+/* top page row hover */
+.list-group-item-action{width:100%;color:#fff;text-align:inherit}
+.list-group-item-action:focus,
+.list-group-item-action:hover{z-index:1;color:#000000;text-decoration:none;background-color:#3d4d4c80}
+.list-group-item-action:active{color:#e7bd42;background-color:#000000}
 
 
 /* code-prettify use */
@@ -57,7 +68,7 @@ img {
 }*/
 
 .head1{
-  padding: 60px 0px 20px 0px;
+  padding: 0px 0px 20px 0px;
   color:white;
   font-size: 40px;
 }
@@ -66,15 +77,6 @@ img {
   padding: 00px 0px 30px 0px;
   color:white;
   font-size: 20px;
-}
-
-.return-btn{
-  padding: 3px 20px 3px 20px;
-  font-size:20px; 
-  height:40px; 
-  width:90px;
-  border-radius: 2.5px;
-  border:1;
 }
 
 .home-btn{
@@ -86,6 +88,28 @@ img {
   border-radius: 2.5px;
 }
 
+/* return button */
+.return-btn{padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;}
+.btn-info{color:#fff;background-color:#110d1080;border-color:#110d10}
+.btn-info:hover{color:#000000;background-color:#3d4d4c80;border-color:#3d4d4c80}
+.btn-info.focus,.btn-info:focus{box-shadow:0 0 0 .2rem rgba(58,176,195,.5)}
+.btn-info.disabled,.btn-info:disabled{color:#fff;background-color:#000000;border-color:#000000}
+.btn-info:not(:disabled):not(.disabled).active,.btn-info:not(:disabled):not(.disabled):active,.show>.btn-info.dropdown-toggle{color:#e7bd42;background-color:#000000;border-color:#000000}
+.btn-info:not(:disabled):not(.disabled).active:focus,.btn-info:not(:disabled):not(.disabled):active:focus,.show>.btn-info.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(58,176,195,.5)}
+/* return button end*/
+
+
+
+
+/* top page bullet*/
+.top-bullet{
+  padding: 3px 10px 4px 10px;
+  font-size:14px; 
+  height:40px; 
+  width:90px;
+  color:white;
+  border-radius: 2.5px;
+}
 
 .home_icon{
 /* position:absolute;*/

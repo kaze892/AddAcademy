@@ -108,3 +108,105 @@ public class JEx5_1 {
         }
     }
 }
+
+
+-----------------------------------------------------------------------
+JEx6_1.java
+
+public class JEx6_1 {
+    public static void main(String[] args) {
+        int[] numbers = {1,2,3,4,5,6,7,8,9,10};
+            for (int number : numbers) {
+                if (number % 2 == 0) {
+                System.out.println(number );
+            }
+    	} 
+    }
+}
+-----------------------------------------------------------------------
+JEx6_2.java
+
+public class JEx6_1 {
+    public static void main(String[] args) {
+        String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+            for(int i = 0; i < cars.length; i++) {
+                System.out.println(cars[i]);
+            }
+    }
+}
+-----------------------------------------------------------------------
+JEx6_3.java
+
+public class JEx6_3 {
+    public static void main( String[] args ) {
+    for ( int i = 1; i <= 9; i++ ) {
+        for ( int j = 1; j <= i; j++ )
+            System.out.print( " "+i * j );
+            System.out.println();
+    	}
+   }
+} 
+-----------------------------------------------------------------------
+JEx7_1.java(.charAt)(新13章)
+public class JEx7_1 {
+    public static void main(String[] args) {
+        String sentence = "abc,123,あいう";
+        String result = "";
+ 
+        for(int i = 0; i < sentence.length(); i++) {
+            if(sentence.charAt(i) != ',') {
+                result += sentence.charAt(i);
+            }
+        }
+        System.out.println(result);
+    }
+}
+-----------------------------------------------------------------------
+JEx7_1.java(.replaceAll)(新13章)
+public class JEx7_1 {
+    public static void main(String[] args) {
+        String sentence = "abc,123,あいう";
+        String result = "";
+ 
+        System.out.println(sentence.replaceAll(",", ""));
+    }
+}
+-----------------------------------------------------------------------
+JEx7_1.java(.split)(新13章)
+public class JEx7_1 {
+    public static void main(String[] args) {
+        String sentence = "abc,123,あいう";
+        String result = "";
+ 
+        for(String str : sentence.split(",")) {
+            System.out.print(str);
+        }
+    }
+}
+-----------------------------------------------------------------------
+JEx7_2.java(新13章)
+public class JEx7_1 {
+    public static void main(String[] args) {
+        String str = "abcabc";
+        char searchChar = 'c';
+        int result = -1;
+        for(int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == searchChar) {
+                result = i;
+                break;
+            }
+        }
+        System.out.println(result);
+    }
+}
+-----------------------------------------------------------------------
+JEx9_1.java(新7章)
+
+public class JEx9_1 {
+	public static void main(String[]args){
+    	Employee employee01 = new Employee();
+    	employee01.setEmployeeNo(1);
+    	employee01.setName("田中");
+    	employee01.dispID();
+    }
+}
