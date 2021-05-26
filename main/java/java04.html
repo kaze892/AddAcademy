@@ -1,133 +1,123 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第4章　条件分岐</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第4章　条件分岐</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第4章　条件分岐</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では Java の条件分岐について説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第4章　条件分岐</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    この章では JAVA の条件分岐について説明します。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-		<textarea id="text" style="display:none"><h1>条件分岐</h1>
-<h2>1.条件分岐(if文)</h2>
-<p>分岐とはプログラム中で、ある条件が満たされているかどうかによって次に実行するプログラム上の位置を変化させること。です。<br>
-Java言語の中で条件分岐を行う場合には、if文やswitch文を使います。</p>
-			
-<h2>1.関係式による条件分岐(if文)</h2>
-<p>if文は、条件を指定し、「もしも○○ならば◇◇を実行するが、そうでなければ△△を実行する」というように、2つに場合分けする構文です。<br>
+    </div><br>
+	
+	
+	
+
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
+
+    <h1 class="article-container animated bounceInRight animation-delay-20">条件分岐</h1>
+    <hr style="height:0.5px;background-color:#333;">
+    <h2 style="font-weight: 400;">条件分岐とはプログラム中で、ある条件が満たされているかどうかによって次に実行するプログラム上の位置を変化させること。です。<br>
+Java言語の中で条件分岐を行う場合には、if文やswitch文を使います。</h2>
+
+
+    <!--1.関係式による条件分岐(if文)-->
+    <button type="button" class="collapsible">1.関係式による条件分岐(if文)</button>
+    <div class="collapse-content">
+        <p>if文は、条件を指定し、「もしも○○ならば◇◇を実行するが、そうでなければ△△を実行する」というように、2つに場合分けする構文です。<br>
 if文は以下のように、関係式で作成した条件が true か false かで処理を分けることができます。<br>
 また、いくつもの関係式を並べて細かく分けることもできます。<br>
-3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。</p>
-<pre><code>if(関係式/条件){
-関係式がtrueの時に実行する処理;
-}else{
-関係式がfalseの時に実行する処理;
-}
-</code></pre>
+3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。<br>
+		<pre class="prettyprint linenums">if (関係式/条件) {
+		関係式がtrueの時に実行する処理;
+		} else {
+		関係式がfalseの時に実行する処理;
+		}</pre>
+		例<br>
+		[JSample4_1.java]<br>
+		<pre class="prettyprint linenums">package JSample;
+		public class JSample4_1 {
+			public static void main(String[] args) {
+				int number = 10;
+				if (number == 0) {
+					System.out.println("0です");
+				} else if (number> 0){
+					System.out.println("正です");
+				} else {
+					System.out.println("負です");
+					
+				}
+			}
+		}</pre>
+		<b>実行結果</b><br>
+		正です<br>
+<Br>
+上の例では、場合分けの条件は5行目、7行目、9行目の3つです。<br>
+それぞれ int型の変数 number が、0の場合（5行目）、0より大きい場合(7行目)、0より小さい場合、(9行目)の場合分けによってその後の指示が異なります。<br>
+	この例では、 number に10が代入されているため、7行目の場合分けに該当し、「正です」と出力するという指示が実行されます。<br></p>
+	</div>
+
+		
+		
+  <!--2.値による条件分岐（switch文)-->
+    <button type="button" class="collapsible">2.値による条件分岐（switch文)</button>
+    <div class="collapse-content">
+		<p>switch文は、「10だったら○○、20だったら△△、・・・」のように、値で条件を指定する構文です。<br>
+if文のように関係式で条件を指定することはできません。<br>
+			<pre class="prettyprint linenums">switch (式) {
+			case 値1:
+			命令文1
+			break;
+			case 値2:
+			命令文2
+			break;
+			default:
+			命令文3
+				(break;)	→最後のbreakだけは省略できる。
+			}</pre>
+		<br>
+		<b>例</b><br>
+		[JSample4_2.java]<br>
+		<pre class="prettyprint linenums">package JSample;
+		import java.util.Scanner;
+		public class JSample4_2{
+		public static void main(String[] args){
+			System.out.println("キーボードから数値を入力してください。");
+			scanner scan = new Scanner(System.in);
+			int num = scan.nextInt();
 			
-<p><b>例</b><br>
-	[Sample4_1.java]</p>
-<pre><code>	package JSample;
-	public class JSample4_1 {
-		public static void main(String[] args) {
-			int number = 10;
-			if (number == 0) {
-				System.out.println("0です");
-			} else if (number> 0){
-				System.out.println("正です");
-			} else {
-				System.out.println("負です");
+			switch (num){
+				case 1:
+					System.out.println("満足");
+					break;
+				case 2:
+					System.out.println("どちらとも言えない");
+					break;
+				case 3:
+					System.out.println("不満");
+					break
 			}
 		}
 	}
-</code></pre>
-<br>
-<b>実行結果</b>
-			<p>正です</p>
-			<br>
-			<p>上の例では、場合分けの条件は5行目、7行目、9行目の3つです。<br>
-それぞれ int型の変数 number が、0の場合（5行目）、0より大きい場合(7行目)、0より小さい場合、(9行目)の場合分けによってその後の指示が異なります。<br>
-この例では、 number に10が代入されているため、7行目の場合分けに該当し、「正です」と出力するという指示が実行されます。</p>
-			<br>
-			<br>
-			<h2>2.値による条件分岐（switch文）</h2>
-			<p>switch文は、「10だったら○○、20だったら△△、・・・」のように、値で条件を指定する構文です。<br>
-if文のように関係式で条件を指定することはできません。</p>
-			<pre><code>	switch (式) {
-	　case 値1:
-	　　命令文1
-	　　break;
-	　case 値2:
-	　　命令文2
-	　　break;
-	　default:
-	　　命令文3
-			(break;)	→最後のbreakだけは省略できる。
-	}
-</code></pre>
-<br>
-<b>例</b>
-<p>[JSample4_2.java]</p>
-<pre><code>package JSample;
-import java.util.Scanner;
-public class JSample4_2 {
-	public static void main(String[] args) {
-		System.out.println("キーボードから数値を入力してください。");
-		Scanner scan = new Scanner(System.in);
-		int num = scan.nextInt();
-
-		switch (num) {
-			case 1:
-				System.out.println("満足");
-				break;
-			case 2:
-				System.out.println("どちらとも言えない");
-				break;
-			case 3:
-				System.out.println("不満");
-				break;
-		}
-	}
-}		
-</code></pre>
-<br>
-<b>実行結果（"2"と入力した場合）</b>
-<P>キーボードから数値を入力してください。<br>
+</pre>
+		<br>
+		<b>実行結果（"2"と入力した場合）</b><br>
+		キーボードから数値を入力してください。<br>
 >2<br>
 どちらとも言えない<br>
 <br>
@@ -136,59 +126,60 @@ public class JSample4_2 {
 この例では、 num に2が代入されているため、13行目の場合分けに該当し、「どちらとも言えない」と出力するという指示が実行されます。<br>
 <br>
 6行目のscan.nextInt()メソッドは数値を入力するためによく使用されます。<br>
-上の例では、int型の変数 num にキーボードで入力した数字を代入する、という指示になります。<br></P>
+上の例では、int型の変数 num にキーボードで入力した数字を代入する、という指示になります。<br>
+		<br></p>
+	</div>
+	<br>
+	 <!--練習-->
+    <button type="button" class="collapsible">練習</button>
+    <div class="collapse-content">
+	<p><b>問題</b>[JEx4_1.java]<br>
+		if文を使って、学生のポイントを入力し60以上かどうかを判断してください。<br>
+		｛<br>
+"点数入力してください"を出力<br>
 <br>
-<h2>練習</h2>
-<p><b>問題</b>[JEx4_1.java]<br>
-	<b>if文</b>を使って、学生のポイントを入力し60以上かどうかを判断してください。</P>
-<pre><code>
+キーボードで入力　score<br>
+score>=60の場合、"点数はscore合格です"を出力<br>
+上記以外、"点数はscore不合格です"を出力<br>
+｝<br>
+		<br>
+		<br>
+		<b>問題</b>[JEx4_2.java]<br>
+switch文を使って、何月かを入力し、表のようにその季節を表示するプログラムを作成してください。<br>
+		<table border="1" >
+			<tr align="center">
+				<td>月</td>
+				<td>季節</td>
+			</tr>
+			<tr align="center">
+				<td>３、４、５</td>
+				<td>春</td>
+			</tr>
+			<tr align="center">
+				<td>６、７、８</td>
+				<td>夏</td>
+			</tr>
+			<tr align="center">
+				<td>９、１０、１１</td>
+				<td>秋</td>
+			</tr>
+			<tr align="center">
+				<td>１２、１、２</td>
+				<td>冬</td>
+			</tr>
+		</table>
+		</p>
+	</div>
+	<!--article-container-->
 
-｛
-"点数入力してください"を出力
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
 
-キーボードで入力　score
-score>=60の場合、"点数はscore合格です"を出力
-上記以外、"点数はscore不合格です"を出力
-｝
-</code></pre>
-<p><b>問題</b>[JEx4_1.java]<br>
-<b>switch文</b>を使って、何月かを入力し、表のようにその季節を表示するプログラムを作成してください。</P>
-<table border="1">
-	<tr>
-		<td>月</td>
-		<td>季節</td>
-	</tr>
-	<tr>
-		<td>３、４、５</td>
-		<td>春</td>
-	</tr>
-	<tr>
-		<td>６、７、８</td>
-		<td>夏</td>
-	</tr>
-	<tr>
-		<td>９、１０、１１</td>
-		<td>秋</td>
-	</tr>
-	<tr>
-		<td>１２、１、２</td>
-		<td>冬</td>
-	</tr>
-	</table>
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
 </html>
+
