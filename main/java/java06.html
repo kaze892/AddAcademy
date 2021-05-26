@@ -1,171 +1,176 @@
 <!DOCTYPE html>
 <html>
-
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第6章　配列</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第6章　配列</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第6章　配列</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章では Javaの配列について説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第6章　配列</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    この章では JAVAの配列について説明します。</p>
+                  <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-<textarea id="text" style="display:none">
-<h1>配列</h1>
-<p>変数には1つの値を格納することができますが、配列は、同じデータ型の複数の値をまとめて格納するために使用されます。<br>
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
+
+
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">第6章　配列</h1>
+    <hr style="height:0.5px;background-color:#333;">
+    <h2 style="font-weight: 400;">この章では JAVAの配列について説明します。</h2>
+
+
+<!--配列-->
+<button type="button" class="collapsible">配列</button>
+<div class="collapse-content">
+	<p>変数には1つの値を格納することができますが、配列は、同じデータ型の複数の値をまとめて格納するために使用されます。<br>
 例えば10個の値を格納する場合、変数を使うと変数が10個必要ですが、配列では10個の値を1つの配列にまとめて格納することができます。<br>
 <br>
-Javaの配列を利用するには<b>1)扱うデータ型を指定して配列を宣言し、(2)必要な要素数を指定して配列を作成する(初期化)する</b>必要があります。
-</p>
-<p><b>配列を宣言する</b>には、変数の型を　[ ] で定義します。</p>
-<pre><code>String[] cars;
+		Javaの配列を利用するには<b>(1)扱うデータ型を指定して配列を宣言</b>し、<b>(2)必要な要素数を指定して配列を作成する(初期化)する</b>必要があります。
+<br>
+		<b>配列を宣言する</b>には、変数の型を<font color="blue">[ ] </font>で定義します。<br>
+		<pre class="prettyprint linenums">
+String[] cars;
 
 int number[];
-int[] number;
-</code></pre>
-<p>上記の定義は配列の変数を宣言するだけであり、この状態では実体は存在しません。
-<br>	
-<b>配列を初期化する</b>には、new演算子で初期化します。</p>
-<pre><code>int number[] = new int[3];
+int[] number;</pre>
+	上記の定義は配列の変数を宣言するだけであり、この状態では実体は存在しません。<br>
+	<br>
+	<b>配列を初期化する</b>には、new演算子で初期化します。
+<pre class="prettyprint linenums">
+int number[] = new int[3];
 
-int number[] ;
-number = new int [3];
-</code></pre>
-<p>このとき、number[0], number[1], number[2] にはすべて 0 が格納されています。<b>new で配列を初期化した場合は</b>、その型クラスのデフォルト値で初期化されます。</p>
+int number[];
+number = new int[3];</pre>
+	このとき、<b>number[0], number[1], number[2] </b>にはすべて 0 が格納されています。<br>
+	<b>new で配列を初期化した場合は、</b>その型クラスのデフォルト値で初期化されます。<br>
+	<br>
+1行目と3・4行目は、int型の値を3つ格納することのできる配列を宣言しており、どちらの書き方でも意味は同じです。<br>
+1行目は 変数宣言と初期化を同時に行っており、3・4行目は宣言と初期化を別に行っています。<br>
 <br>
-<p>1行目と3・4行目は、int型の値を3つ格納することのできる配列を宣言しており、どちらの書き方でも意味は同じです。<br>
-1行目は 変数宣言と初期化を同時に行っており、3・4行目は宣言と初期化を別に行っています。
-<br>
-<br>
-new演算子で初期化する以外にも、値を指定して初期化することもできます。<br>
-値を指定する場合は、 { } で囲み、カンマ区切りのリストにします。
-</p>
-<br>
-<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+	new演算子で初期化する以外にも、値を指定して初期化することもできます。<br>
+値を指定する場合は、 { } で囲み、カンマ区切りのリストにします。<br>
+<pre class="prettyprint linenums">
+String[] cras = {"Toyota", "Honda", "Subaru", "Nissan"};
 
 String[] cars;
-cars = {"Toyota", "Honda", "Subaru", "Nissan"};
-</code></pre>
+cars = {"Toyota", "Honda", "Subaru", "Nissan"};</pre>	
+	</p>
+</div>
+<br>
+
 	
-<h2>1.配列の要素にアクセスする</h2>
-<p>インデックス番号を [　]　内に参照して配列要素にアクセスします。</p>
-<pre><code>	String[] cars = {"Toyota", "Honda", " Subaru ", "Nissan"};
-System.out.println(cars[0]);
-</code></pre>
-<p>注：配列インデックスは0から始まります。[0]が最初の要素です。[1]は2番目の要素などです。</p>
-<b>実行結果</b>
-<p>Toyota</p>
+<!--1.配列の要素にアクセスする-->
+<button type="button" class="collapsible">1.配列の要素にアクセスする</button>
+<div class="collapse-content">
+<p>インデックス番号を<font color="blue">[　]</font>内に参照して配列要素にアクセスします。<br>
+<pre class="prettyprint linenums">
+String[] cars = {"Toyota", "Honda", " Subaru ", "Nissan"};
+System.out.println(cars[0]);</pre>
+	注：配列インデックスは0から始まります。[0]が最初の要素です。[1]は2番目の要素などです。<br>
+	<br>
+	<b>実行結果</b><br>
+	Toyota<br>
+</p>
+	</div>
+
+
+	
+<!--2.配列の長さ-->
+<button type="button" class="collapsible">2.配列の長さ</button>
+<div class="collapse-content">
+<p>配列の要素数を調べるには、次のlengthプロパティを使用します。<br>
+<pre class="prettyprint linenums">
+String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+System.out.println(cars.length);</pre>
 <br>
-<br>
-<br>
-<Br>
-<h2>2.配列の長さ</h2>	
-<p>配列の要素数を調べるには、次のlengthプロパティを使用します。</p>
-<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
-System.out.println(cars.length);
-</code></pre>
-<b>実行結果</b>
-<p>3<br>
-<br>
-上のインデックス番号について説明したように、配列インデックスは0から始まるため、配列cars は｛ [0], [1], [2], [3] }　と数えるので、出力結果は3となります。</p>
-<br>
-<br>
-<Br>
-<br>
-<h2>3.配列をループする</h2>
-<p>配列を使用して処理を繰り返す場合、length プロパティを使用して繰り返しの実行回数を指定できます。</p>
-<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
-for (int i = 0; i< cars.length; i++){
+	<b>実行結果</b><br>
+	3<br>
+	<br>
+	上のインデックス番号について説明したように、配列インデックスは0から始まるため、配列cars は｛ <b>[0], [1], [2], [3]</b> }　と数えるので、出力結果は3となります。<br>	
+</p>	
+	</div>
+
+	
+<!--3.配列をループする-->
+<button type="button" class="collapsible">3.配列をループする</button>
+<div class="collapse-content">
+<p>配列を使用して処理を繰り返す場合、length プロパティを使用して繰り返しの実行回数を指定できます。<br>
+<pre class="prettyprint linenums">
+String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+for (int i = 0;  i< cars.length; i++){
 	System.out.println(cars[i]);
-}
-</code></pre>
-<b>実行結果</b>
-<p>Toyota<br>
+}</pre>
+<br>
+<b>実行結果</b><br>
+Toyota<br>
 Honda<br>
 Subaru <br>
-Nissan
-</p><br>
-<p>この例では2行目のfor文の[条件式](※1)に 「 i　が配列carsの要素数以下」と指定しているため i が3になるまで3行目の出力処理を繰り返します。
+Nissan<br>
+<br>
+この例では2行目のfor文の[条件式](※1)に 「 i　が配列carsの要素数以下」と指定しているため i が3になるまで3行目の出力処理を繰り返します。<br>
 (※1)　5章　3.for文参照。<br>
 <br>
-また、以下のように書いても同じ意味になります。</p>
-<pre><code>String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
-for (String i : cras){
-		System.out.println(i);
-}
-</code></pre>
-<br>
-<br>
-<br>
-<br>
-<h2>4.多次元配列（「配列」の配列）</h2>
-<p>多次元配列は、2つ以上の配列を含む配列です。<br>
-<br>
-2次元配列を作成するには、各配列を { } の内に追加します。
+また、以下のように書いても同じ意味になります。<br>
+<pre class="prettyprint linenums">
+String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};
+for (String i : cars){
+	System.out.println(i);
+}</pre><br>
 </p>
-<pre><code>int[][] myNumbers = {{1, 2, 3, 4},{5, 6, 7} };
+</div>
+
+
+
+<!--4.多次元配列（「配列」の配列）-->
+<button type="button" class="collapsible">4.多次元配列（「配列」の配列）</button>
+<div class="collapse-content">
+<p>多次元配列は、2つ以上の配列を含む配列です。<br>
+	<br>
+2次元配列を作成するには、各配列を<font color="blue">{ }</font> の内に追加します。<br>
+<pre class="prettyprint linenums">
+int[][] myNumbers = {{1, 2, 3, 4},{5, 6, 7} };
 int x = myNumbers[1][2];
-System.out.println(x);
-</code></pre>
-<b>実行結果</b>
-<p>7
+System.out.println(x);</pre>
+	<br>
+	<b>実行結果</b><br>
+	7<br>
 <br>
 ここでは、myNumbersという配列は｛1, 2, 3, 4,} という配列と { 5, 6, 7 }という2つの配列が要素になった配列です。<br>
 2行目のmyNumbers[1][2]の部分は、[1]は配列myNumbersのインデックスナンバー[1]を表しており、具体的には{5, 6, 7}の配列のことを指しています。[2]は{5, 6, 7}の配列のインデックスナンバー[2]を表しているため7を指しています。<br>
 そのため int x には7が代入され、3行目の出力指示により 7 が出力されます。<br>
 <br>
-<b>例</b>
-[JSample6_1.java]</p>
-<pre><code>package JSample;
+<b>例</b>JSample6_1.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
 public class JSample6_1{
-	
-	public static void main(Stirng[] atgs){
+
+	public static void  main(String[] args){
 		int[][] myNumbers = {{1, 2, 3, 4},{5, 6, 7} };
 		for (int i =0; i < myNumbers.length; ++i){
-		System.out.println("行ごとに繰り返し");
+			System.out.println("行ごとに繰り返し");
 			for (int j =0; j < myNumbers[i].length; ++j){
 				System.out.println("列の要素数は" + myNumbers[i].length);
-			}
 		}
 	}
-}
-</code></pre>
-<b>実行結果</b>
-<p>行ごとに繰り返し<br>
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	行ごとに繰り返し<br>
 列の要素数は4<br>
 1<br>
 列の要素数は4<br>
@@ -182,51 +187,40 @@ public class JSample6_1{
 列の要素数は3<br>
 7<br>
 </p>
-<br>
-<h2>練習</h2>
+</div>
+	
+	<br>
+<!--練習-->
+<button type="button" class="collapsible">練習</button>
+<div class="collapse-content">
 <p><b>問題1</b>[JEx6_1.java]<br>
-int[] cars = {1,2,3,4,5,6,7,8,9,10};<br>
+<pre class="prettyprint linenums">
+int[] numbers= {1,2,3,4,5,6,7,8,9,10};</pre>
 上記の配列から偶数のみを出力してください。<br>
-</p>
-<br>
-<p><b>問題2</b>[JEx6_2.java]<br>
-配列を作成して、下記の九九表になるように出力してください。<br>
-1<br>
-2 4<br>
-3 6 9<br>
-4 8 12 16<br>
-5 10 15 20 25<br>
-6 12 18 24 30 36<br>
-7 14 21 28 35 42 49<br>
-8 16 24 32 40 48 56 64<br>
-9 18 27 36 45 54 63 72 81<br>
-<br>
-<b>問題3</b>[JEx6_3.java]<br>
-String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};<br>
+	<br>
+	<br>
+<b>問題2</b>[JEx6_2.java]<br>
+<pre class="prettyprint linenums">
+String[] cars = {"Toyota", "Honda", "Subaru", "Nissan"};</pre>
 上記の配列を作って、下記のように出力してください。<br>
 Toyota <br>
 Honda<br>
 Subaru <br>
 Nissan<br>
-</p>
-	
-	
+
+</p><br>
+</div>	
 
 
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+<!--article-container-->
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
 </html>
