@@ -1,265 +1,277 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第9章　クラスとインスタンス</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第9章　クラスとインスタンス</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第9章　クラスとインスタンス</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    この章ではJavaのクラスとインスタンスについて説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第9章　クラスとインスタンス</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    この章ではJAVAのクラスとインスタンスについて説明します。</p>
+                  <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **クラス**
-***
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
-`クラス`とは、プログラムを実行するための処理をまとめたオブジェクトで、クラスの処理の中にはメンバ変数や処理を実行するためのメソッドがあります。
 
-ちなみに、メンバ変数とはクラス内で使用する変数のことで、メソッドとはメンバ変数などを使って行う処理をひと塊にまとめたものです。
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">クラスとインスタンス</h1>
+    <hr style="height:0.5px;background-color:#333;">
+    <h2 style="font-weight: 400;">これまで、説明の中で何度か出てきましたが、Javaは「オブジェクト指向」のプログラミング言語です。
+この章で学習するクラスは、継承(第11章)、多態性(第12章)と合わせて、オブジェクト指向の3大特徴と言われており重要です。
+クラスについて、概念や作成方法をしっかり学習しましょう。</h2>
 
-&lt;br&gt;
 
-## **1.インスタンスとオブジェクト**
-Javaのようなオブジェクト指向のプログラミング言語では、処理をまとめたクラスを実行するためには、そのクラスのオブジェクトを生成する必要があります。
+<!--クラス-->
+<button type="button" class="collapsible">クラス</button>
+<div class="collapse-content">
+    <p>クラスとは、プログラムを実行するための処理をまとめたオブジェクトで、クラスの処理の中にはメンバ変数や処理を実行するためのメソッドがあります。<br>
+メンバ変数とはクラス内で使用する変数のことで、メソッドとはメンバ変数などを使って行う処理をまとめたものです。<br>
+<br>
+プログラミングでは、1つのシステムを作るにあたり、何千から何万文字のコードを書きシステムを動かしています。これが一塊で管理されていた場合、修正が必要になったとき修正箇所を見つけるだけでも膨大な手間がかかります。<br>
+そこでプログラミングでは、1つのシステムを役割ごとに分けることで、管理をしやすくしています。Javaで使われているオブジェクト指向もシステムを役割ごとに分ける、分け方の1つです。<br>
+<br>
+	</p>
+</div>
+	<br>
+	
+	
 
-そして、生成したクラスのオブジェクトから、そのクラスのメンバ変数を参照したり、メソッドを呼び出して使用します。クラスの中のメソッドを呼び出すためには、以下のように記述します。
 
-```
+<!--1.オブジェクト指向とは-->
+<button type="button" class="collapsible">1.オブジェクト指向とは</button>
+<div class="collapse-content">
+	<p>オブジェクト指向とは、1つ1つのクラスを役割を持った<b>モノ（object)</b>として扱い、「モノ、またはモノとモノの関係性」と、「モノの操作」を分けて作り、組み立てて完成させるという考え方です。<br>
+１つの<b>モノ</b>を<b>複数の部品</b>に分けて作る際、<b>モノ</b>が持つ<b>プロパティ(属性)</b>や<b>メソッド(操作)</b>をクラス内で定義します。<br>
+<br>
+クラスは 「<b>車を作る<font color="red">設計図</font></b>」 のようなものになります。<br>
+	</p>
+	</div>
+	<br>
+	
+<!--2.インスタンスとオブジェクト-->
+<button type="button" class="collapsible">2.インスタンスとオブジェクト</button>
+<div class="collapse-content">
+<p>Javaのようなオブジェクト指向のプログラミング言語では、処理をまとめたクラスを実行するために、そのクラスのオブジェクトを生成する必要があります。<br>
+<br>
+そして、生成したクラスのオブジェクトから、そのクラスのメンバ変数を参照したり、メソッドを呼び出して使用します。<br>
+クラスの中のメソッドを呼び出すためには、以下のように記述します。<br>
+	<br>
+<pre class="prettyprint linenums">
 //クラス定義
-class ClassSample {
-   // メソッドの宣言・定義
-   void methodSample(){
-       実行処理...
-   }
-}
-```
-```
-//オブジェクトを生成
-ClassSample cl = new ClassSample();
- 
-//メソッドの呼出し
-cl.methodSample();
-```
-クラスのオブジェクトを生成する方法は変数を宣言する方法と似ていて、クラス名のあとにオブジェクト名を記述します。オブジェクトには`new演算子`を使って生成する`インスタンス`を格納します。
-
-なお、クラスのオブジェクトは異なるオブジェクト名でいくつでも生成することが可能です。
-
-&lt;br&gt;&lt;br&gt;
-
-## **2.オブジェクト指向とは**
-
-オブジェクト指向では、
-現実世界の **人物** 、または **モノ** をコンピュータ内の仮想世界に再現するために、(以降、上記の人物、またはモノをオブジェクトと呼ぶ)１つのオブジェクトを **複数の部品** に分けて作ります。
-
-その際に、 **オブジェクト(モノ)** が持つ、**プロパティ(属性)** や **メソッド(操作)** をクラス内で定義します。
-
-これによって、`クラス`は
-**「写真を作る元の&lt;font color=red&gt;ネガ&lt;/font&gt;」「鯛焼きを作る元の&lt;font color=red&gt;型&lt;/font&gt;」「車を作る元の&lt;font color=red&gt;設計図&lt;/font&gt;」** のようなものになります。
-
-&lt;br&gt;&lt;br&gt;
-
-## **3.クラスを作り方(クラスの定義)**
-クラス名は、お好きなキーワードで構いません。
-
-以下の例では、Carというキーワード(名前)のクラスにしました。
-
-&lt;font color=#0099ff&gt;注意：&lt;/font&gt;クラスは常に&lt;font color=#0099ff&gt;大文字&lt;/font&gt;で始まり、
-
-&lt;font color=#0099ff&gt;Javaファイルの名前はクラス名と同じにする&lt;/font&gt;必要があります。
-まずは、**オブジェクト(モノ)** が持つ、**プロパティ(属性)** や **メソッド(操作)** をクラス内で定義していきましょう。
-
-例えば、車をオブジェクトとして、考えてみます。
-
-車には、**色などの属性** と、 **アクセルなどの操作** があります。
-
-これをCarクラス内の定義に当てはめていくと、以下のように作成することができます。
-
-&lt;pre&gt;&lt;code&gt;//package パッケージ名;
-
-  public class Car {
-
-    String color;
-    //属性（メンバ変数）として、色という文字列の宣言
-
-	int speed; 
-	//メンバ変数speedの宣言
-
-    void go(){
-    //操作（メソッド）として、アクセルという動作の説明
-    }
-
-  }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;br&gt;
-
-### **クラスの使用**
-クラスをソース上で使用する為には、まず、そのクラスにアクセス可能である必要がある。
-（アクセス可能（参照可能）でないと、importでコンパイルエラーになる）
-
-クラス（インスタンス）を使うには、以下のように変数を宣言する。
-
-```
-void メソッド() {
-		Car car1;
-		～
+class Classroom{
+	// メソッドの宣言・定義
+	void methodSample(){
+		実行処理...
 	}
-```
+	
+	public static void main(String[] args){
+	
+	//オブジェクトを生成
+	Classroom c = new Classroom();
+	
+	//メソッドの呼出し
+	c.methodSample();
+	}
+}</pre>
 
-ローカル変数を宣言すると、初期値は設定されない。そのまま値を代入せずに使おうとするとコンパイルエラーになる。
-（フィールド（メンバー変数）を定義すると、デフォルトの値はnullになる）
-実体（インスタンス）は、具象クラスに対してnewで生成する。
-```
+クラスのオブジェクトを生成する方法は、クラス名のあとにオブジェクト名を書きます。<br>
+オブジェクトには new演算子を使って生成する インスタンスを格納します。<br>
+<br>
+なお、クラスのオブジェクトは異なるオブジェクト名でいくつでも生成することができます。<br>
+
+</p>	
+	</div>
+
+	
+	
+	
+<!--2-1.クラスを作り方(クラスの定義)-->
+<button type="button" class="collapsible">2-1.クラスを作り方(クラスの定義)</button>
+<div class="collapse-content">
+<p>クラス名は、好きなキーワードで構いません。<br>
+	注：クラスは常に<b>大文字</b>で始まり、<b>Javaファイルの名前はクラス名と同じにする</b>必要があります。 <br>
+以下の例では、Carというキーワード(名前)のクラスにしました。<br>
+<br>
+次に、<b>オブジェクト(モノ)</b>が持つ、<b>プロパティ(属性)</b>や<b>メソッド(操作)</b>をクラス内で定義します。<br>
+<br>
+例えば、車をオブジェクトとして、考えてみます。<br>
+車には、<b>色などの属性</b>と、<b>アクセルなどの操作</b>があります。<br>
+これをCarクラス内の定義に当てはめていくと、以下のように作成することができます。<br>
+<pre class="prettyprint linenums">
+public class Car {
+
+	String color;
+	
+	int speed;
+	
+	void go(){
+		...
+	}
+}</pre>
+3行目で属性（メンバ変数）として色という文字列の宣言、5行目でメンバ変数speedを宣言しています。<br>
+7行目で操作（メソッド）として、「go」メソッドが宣言されています。{ ... }内に「go」メソッドがどのような動作をするのかを書きます。<br>	
+	
+</p>
+	</div>
+	
+	
+	
+<!--2-2.クラスの使用-->
+<button type="button" class="collapsible">2-2.クラスの使用</button>
+<div class="collapse-content">
+<p>クラスを使用する為には、まず、そのクラスにアクセス可能である必要があります。<br>
+クラスを使うには、以下のように変数を宣言する必要があります。<br>
+<pre class="prettyprint linenums">
+voidメソッド() {
+	Car car1;
+	～
+}</pre>
+	ローカル変数を宣言すると、初期値は設定されず、そのまま値を代入せずに使おうとするとコンパイルエラーになります。 <br>
+フィールド（メンバー変数）を定義すると、デフォルトの値はnullになる実体（インスタンス）は、具象クラスに対してnewで生成します。<br>
+<pre class="prettyprint linenums">
 Car car1;
 	car1 = new Car();
 あるいは
-Car car1 = new Car();
-```
-&lt;br&gt;&lt;br&gt;
+Car car1 = new Car();</pre>
+	
+</p>
+	</div>
 
-## **4.インスタンスを作成する**
-`インスタンス`とは、クラスから作成される実体です。
 
-クラスは上記の通り、インスタンスを作成するための&lt;font color=red&gt;ひな型&lt;/font&gt;のようなものです。
+<!--2-3.インスタンスを作成する-->
+<button type="button" class="collapsible">2-3.インスタンスを作成する</button>
+<div class="collapse-content">
+	<p><font color="yellow">インスタンス</font>とは、クラスから作成される実体です。<br>
+	クラスは上記の通り、インスタンスを作成するための<font color="red">設計図</font>のようなものです。<br>
+<br>
+すでにCarという名前のクラスを作成したので、これを使ってインスタンスを作成してみます。<br>
+※バッテリーは100あると宣言した属性も追加しました。<br>
+	※また、操作として宣言した<b>go</b>という動作の説明に、バッテリーの消費も追加しました。<br>
+<br>
+<br>
+<b>例</b>[Car.java]<br>
 
-すでにCarという名前のクラスを作成したので、これを使ってインスタンスを作成してみます。
-
-※バッテリーは100あると宣言した属性も追加しました。
-
-※また、操作として宣言した  **アクセル** という動作の説明に、バッテリーの消費も追加しました。
-
-&lt;br&gt;
-
-#### **例**
-[Car.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+<pre class="prettyprint linenums">
+package JSample;
 
 public class Car{
 
 	String color;
-	//属性として、色の宣言
-	int battery = 100;
-	//属性として、元々のバッテリーは100あると宣言
-
-	void go() {
-		//操作として、アクセルという動作の説明
-		this.battery -= 10;
-		//バッテリーを10使う操作である
-		System.out.println(&quot;バッテリーを10使用しました&quot;);
-		System.out.println(&quot;現在のバッテリーは、&quot; + battery + &quot;です&quot;);
-	}
-    void charge() {
-		//操作として、充電という動作の説明
-		this.battery += 50;
-		System.out.println(&quot;バッテリーを50充電しました&quot;);
-		System.out.println(&quot;現在のバッテリーは、&quot; + battery + &quot;です&quot;);
-	}
 	
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-#### **例**
-[JSample9_2.java]
-
-&lt;pre&gt;&lt;code&gt;package JSample;
+	int bettery = 100;
+	
+	void go() {
+		this.battery -= 10;
+		System.out.println("バッテリーを10%使用しました");
+		System.out.println("現在のバッテリーは、" + battery + "%です");
+	}
+	void charge() {
+		this.battery += 5;
+		System.out.println("バッテリーは5％を充電しました");
+		System.out.println("バッテリ残量は、" + battery + "%です");
+		}
+		
+}</pre>
+	
+7行目で属性として、元々のバッテリーは100あると宣言されています。<br>
+9行目で「go」メソッドが宣言され、{ }内に操作の内容が説明されています。<br>
+10～12行目で、「go」メソッドを使用すると、バッテリーの値が10減り（10行目）、11・12行目でバッテリーを10使用したことと、現在のバッテリー残量をそれぞれ出力する、という処理が行われます。<br>
+14行目では「charge」メソッドが宣言されており、{ }内に操作の内容が説明されています。<br>
+	<br>
+	<b>例</b>[JSample9_2.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
 
 public class JSample9_2 {
 
 	public static void main(String[] args) {
-
+	
 		Car car1 = new Car();
-		//car1というオブジェクトを作成
-		car1.color = &quot;red&quot;;
-		System.out.println(&quot;元々あるバッテリー量は、&quot; + car1.battery + &quot;です&quot;);
+		car1.color = "red";
+		System.out.println("バッテリ残量は、" + car1.battery + "％です");
 		car1.go();
 		car1.charge();
 	}
+	
+}</pre>
+<br>
+<b>実行結果</b><br>
+	元々あるバッテリー量は、100です<br>
+バッテリーを10％使用しました<br>
+バッテリー残量は、90％です<br>
+バッテリーは5％を充電しました<br>
+バッテリー残量は、95％です<br>
+</p>
+</div>
+<br>
 
-}
-&lt;/code&gt;&lt;/pre&gt;
 
-#### **実行結果**
-元々あるバッテリー量は、100です&lt;br&gt;
-バッテリーを10使用しました&lt;br&gt;
-現在のバッテリーは、90です&lt;br&gt;
-バッテリーを50充電しました&lt;br&gt;
-現在のバッテリーは、140です
 
-&lt;br&gt;&lt;br&gt;
-
-***
-&gt; **練習**
-&gt;&gt; **問題**[JEx9_1.java]
-
-下記クラスのインスタンスを作成し、メソッドを呼出いし、実行してください。
-&lt;pre&gt;&lt;code&gt;package JSample;
-class Computer {
-	int computerNo;
+<!--練習-->
+<button type="button" class="collapsible">練習</button>
+<div class="collapse-content">
+<p><b>問題</b>[JEx9_1.java]<br>
+	下記クラスのインスタンスを作成し、メソッドを呼出いし、実行してください。<br>
+<pre class="prettyprint linenums">
+package JSample;
+class Employee{
+	int employeeNo;
 	String name;
-
-	void setComputerNo (int newComputerNo) {
-		computerNo = newComputerNo;
+	
+	viod setEmployeeNo (int newEmployeeNo) {
+		employeeNo = newEmployeeNo;
 	}
 
 	void setName(String newName) {
-		name = newName;
+	name = newEmployeeNo;
 	}
 
-	void dispComputer() {
-		System.out.println(name + &quot;さんが使っているパソコンは &quot; + computerNo + &quot;号機です&quot;);
+	void setName(String newName) {
+		new = newName;
 	}
-}
-&lt;/code&gt;&lt;/pre&gt;
+	
+	void dispID(){
+		System..out.println(name + "さんの社員番号は " + employeeNo + "です");
+	}
+}</pre>
+	
+	</p>
+</div>
+	
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--article-container-->
 
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
-
 </html>
