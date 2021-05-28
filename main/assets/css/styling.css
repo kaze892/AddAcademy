@@ -14,7 +14,7 @@
 }
 
 .active, .collapsible:hover {
-
+  color:#000000;
   background-color: #3d4d4c80;
 }
 
@@ -28,6 +28,7 @@
 
 .active:after {
   content: "\2212";
+  color:#e7bd42;
 }
 
 .collapse-content {
@@ -84,9 +85,11 @@ img {
   font-size:14px; 
   height:40px; 
   width:90px;
-  color:white;
+  color:#ffffff!important;
   border-radius: 2.5px;
 }
+
+.home-btn:hover{color:#000000!important}
 
 /* return button */
 .return-btn{padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;}

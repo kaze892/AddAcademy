@@ -17,9 +17,8 @@
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">第4章　条件分岐</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">
-                    この章では JAVA の条件分岐について説明します。</p>
-                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../java-index.html" >HOMEPAGE</a>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では JAVA の条件分岐について説明します。</p>
+               <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
     </div><br>
@@ -32,17 +31,23 @@
 
     <h1 class="article-container animated bounceInRight animation-delay-20">条件分岐</h1>
     <hr style="height:0.5px;background-color:#333;">
-    <h2 style="font-weight: 400;">条件分岐とはプログラム中で、ある条件が満たされているかどうかによって次に実行するプログラム上の位置を変化させること。です。<br>
-Java言語の中で条件分岐を行う場合には、if文やswitch文を使います。</h2>
+    <h2 style="font-weight: 400;">changeme</h2>
+
+
+    <button type="button" class="collapsible">条件分岐</button>
+    <div class="collapse-content">
+    	<p>条件分岐とはプログラム中で、ある条件が満たされているかどうかによって次に実行するプログラム上の位置を変化させること。です。<br>
+Java言語の中で条件分岐を行う場合には、if文やswitch文を使います。</p>
+	</div>
 
 
     <!--1.関係式による条件分岐(if文)-->
     <button type="button" class="collapsible">1.関係式による条件分岐(if文)</button>
     <div class="collapse-content">
         <p>if文は、条件を指定し、「もしも○○ならば◇◇を実行するが、そうでなければ△△を実行する」というように、2つに場合分けする構文です。<br>
-if文は以下のように、関係式で作成した条件が true か false かで処理を分けることができます。<br>
-また、いくつもの関係式を並べて細かく分けることもできます。<br>
-3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。<br>
+			if文は以下のように、関係式で作成した条件が true か false かで処理を分けることができます。<br>
+			また、いくつもの関係式を並べて細かく分けることもできます。<br>
+			3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。<br>
 		<pre class="prettyprint linenums">if (関係式/条件) {
 		関係式がtrueの時に実行する処理;
 		} else {
@@ -66,10 +71,10 @@ if文は以下のように、関係式で作成した条件が true か false �
 		}</pre>
 		<b>実行結果</b><br>
 		正です<br>
-<Br>
-上の例では、場合分けの条件は5行目、7行目、9行目の3つです。<br>
-それぞれ int型の変数 number が、0の場合（5行目）、0より大きい場合(7行目)、0より小さい場合、(9行目)の場合分けによってその後の指示が異なります。<br>
-	この例では、 number に10が代入されているため、7行目の場合分けに該当し、「正です」と出力するという指示が実行されます。<br></p>
+		<Br>
+		上の例では、場合分けの条件は5行目、7行目、9行目の3つです。<br>
+		それぞれ int型の変数 number が、0の場合（5行目）、0より大きい場合(7行目)、0より小さい場合、(9行目)の場合分けによってその後の指示が異なります。<br>
+		この例では、 number に10が代入されているため、7行目の場合分けに該当し、「正です」と出力するという指示が実行されます。<br></p>
 	</div>
 
 		
@@ -78,7 +83,7 @@ if文は以下のように、関係式で作成した条件が true か false �
     <button type="button" class="collapsible">2.値による条件分岐（switch文)</button>
     <div class="collapse-content">
 		<p>switch文は、「10だったら○○、20だったら△△、・・・」のように、値で条件を指定する構文です。<br>
-if文のように関係式で条件を指定することはできません。<br>
+		if文のように関係式で条件を指定することはできません。<br>
 			<pre class="prettyprint linenums">switch (式) {
 			case 値1:
 			命令文1
@@ -131,21 +136,25 @@ if文のように関係式で条件を指定することはできません。<br
 	</div>
 	<br>
 	 <!--練習-->
-    <button type="button" class="collapsible">練習</button>
+	 <h2 style="font-weight: 400;">練習</h2>
+    <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
 	<p><b>問題</b>[JEx4_1.java]<br>
 		if文を使って、学生のポイントを入力し60以上かどうかを判断してください。<br>
 		｛<br>
-"点数入力してください"を出力<br>
-<br>
-キーボードで入力　score<br>
-score>=60の場合、"点数はscore合格です"を出力<br>
-上記以外、"点数はscore不合格です"を出力<br>
+		"点数入力してください"を出力<br>
+		<br>
+		キーボードで入力　score<br>
+		score>=60の場合、"点数はscore合格です"を出力<br>
+		上記以外、"点数はscore不合格です"を出力<br>
 ｝<br>
 		<br>
+	</div>	
+	<button type="button" class="collapsible">問題２</button>
+    <div class="collapse-content">
 		<br>
 		<b>問題</b>[JEx4_2.java]<br>
-switch文を使って、何月かを入力し、表のようにその季節を表示するプログラムを作成してください。<br>
+		switch文を使って、何月かを入力し、表のようにその季節を表示するプログラムを作成してください。<br>
 		<table border="1" >
 			<tr align="center">
 				<td>月</td>

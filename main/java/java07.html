@@ -17,9 +17,8 @@
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">第7章　Stringクラスの文字列処理</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">
-                    Javaでは、文字列は基本データ型ではなくStringクラスのインスタンスとなります。この章では文字列を作成する方法や、文字列の操作を行う方法について解説します。</p>
-                  <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
+                <p class="head2 animated fadeInUp animation-delay-7">Javaでは、文字列は基本データ型ではなくStringクラスのインスタンスとなります。この章では文字列を作成する方法や、文字列の操作を行う方法について解説します。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
     </div><br>
@@ -29,44 +28,44 @@
 
 
     <!--第7章　Stringクラスの文字列処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">第7章　Stringクラスの文字列処理</h1>
+    <h1 class="article-container animated bounceInRight animation-delay-20">Stringクラスの文字列処理</h1>
     <hr style="height:0.5px;background-color:#333;">
-    <h2 style="font-weight: 400;">Javaでは、文字列は基本データ型ではなくStringクラスのインスタンスとなります。この章では文字列を作成する方法や、文字列の操作を行う方法について解説します。</h2>
+
 
 
 <!--Stringクラスの文字列処理-->
+<h2 style="font-weight: 400;">changeme</h2>
 <button type="button" class="collapsible">Stringクラスの文字列処理</button>
-<div class="collapse-content">
-<p>Stringクラスとは、文字列を扱うために使用されているクラスです。文字列は、他の値(※1)とは違いオブジェクトと呼ばれます。オブジェクトの特徴は、データだけでなく文字列を操作するためのメソッド(機能)が含まれています。(※2)<br>
-Stringクラスでは、具体的な値(文字列)を<font color="blue"> " " </font>(ダブルクォーテーション)で囲むことで、new演算子を使わなくてもオブジェクトを作ることができます。<br>
+	<div class="collapse-content">
+		<p>Stringクラスとは、文字列を扱うために使用されているクラスです。文字列は、他の値(※1)とは違いオブジェクトと呼ばれます。オブジェクトの特徴は、データだけでなく文字列を操作するためのメソッド(機能)が含まれています。(※2)<br>
+		Stringクラスでは、具体的な値(文字列)を<font color="blue"> " " </font>(ダブルクォーテーション)で囲むことで、new演算子を使わなくてもオブジェクトを作ることができます。<br>
+		<br>
+		(※1) 基本データ型(boolean,byte,char,short,int,long,float,double)<br>
+		(※2)クラスやメソッドについては第9章で詳しく扱います。<br>
+		<br>
+			<pre class="prettyprint linenums">
+			String str;
+			str = "文字列";
+			</pre>
+		<br>
+		<b>例1:</b>
+			<pre class="prettyprint linenums">
+			String str;
+			str = "";</pre>
+		<br>
+		strには空文字(何もない文字列)が入る。<br>
+		<br>
+		<b>例2:</b>
+			<pre class="prettyprint linenums">
+			String str;
+			str = "abc";</pre>
+		<br>
+		変数strには「abc」という文字列が入る。<br>
+		</p>	
+	</div>
 <br>
-(※1) 基本データ型(boolean,byte,char,short,int,long,float,double)<br>
-(※2)クラスやメソッドについては第9章で詳しく扱います。<br>
-<br>
-<pre class="prettyprint linenums">
-String str;
-str = "文字列";
-</pre>
-<br>
-<b>例1:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "";</pre>
-	<br>
-	strには空文字(何もない文字列)が入る。<br>
-	<br>
-<b>例2:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "abc";</pre>
-	<br>
-	変数strには「abc」という文字列が入る。<br>
-</p>	
-		</div>
 	
-<br>
-	
-	
+<h2 style="font-weight: 400;">changeme</h2>	
 <!--1.文字列の処理-->
 <button type="button" class="collapsible">1.文字列の処理</button>
 <div class="collapse-content">	
@@ -75,7 +74,7 @@ str = "abc";</pre>
 String str;
 str = "abc";
 str = str + "def";(※1)</pre>
-(※1)3行目は、str += "def"　と書いても同じ意味になる。<br>
+(※1) 3行目は、str += "def"　と書いても同じ意味になる。<br>
 strには「abcdef」という文字列が入る。<br>
 	<br>
 	<b>例</b>[JSample7_1.java]<br>
@@ -94,11 +93,10 @@ public class JSample7_1{
 	おはようございます。田中さん。<br>
 </p>	
 	</div>
-	
-	
-	<br>
+<br>
 	
 <!--2.Stringクラスのメソッド-->
+<h2 style="font-weight: 400;">changeme</h2>	
 <button type="button" class="collapsible">2.Stringクラスのメソッド</button>
 <div class="collapse-content">
 <p>文字列が持つインスタンスメソッドは、Stringクラスで定義されています。<br>
@@ -189,7 +187,6 @@ public class JSample7_3{
 日<br>
 本<br>
 語<br>
-<br>
 </p>
 </div>
 	
@@ -217,7 +214,6 @@ public class JSample7_4{
 <b>実行結果</b><br>
 文字列：日本語<br>
 文字列の長さは3<br>
-<br>
 </p>
 </div>
 
@@ -277,7 +273,6 @@ public class JSample7_6 {
 元の文字列 : Thank You<br>
 大文字へ変換 : THANK YOU<br>
 小文字へ変換 : thank you<br>
-<br>
 </p>
 </div>
 
@@ -313,7 +308,6 @@ public class JSample7_7{
 文字数は7です<br>
 空白を取り除いた文字列「Japan」<br>
 文字数は5です<br>
-<br>
 </p>
 </div>
 
@@ -325,9 +319,10 @@ public class JSample7_7{
 <p>splitメソッドは、「指定した文字で、指定文字列を分割し、分断した結果を文字列として返す」メソッドです。<br>
 <pre class="prettyprint linenums">
 配列 = String型変数.split(分割文字列)
-
 String str = "東京,大阪,京都,名古屋";
-String[] city = str.split(",");</pre>
+String[] city = str.split(",");
+</pre>
+
 この例では「東京,大阪,京都,名古屋」という文字列が指定した文字列（ｓｔｒ）にあたり、<br>
 「,」（コンマ）ごとに分割しそれぞれを一つの文字列として返します。<br>
 <br>
@@ -340,12 +335,11 @@ public class JSample7_8{
 		String str = "東京,大阪,京都,名古屋";
 		String[]city = str.split(",");
 		
-		for (int i = 0; i<city.length; i++){
+		for (int i = 0; i &lt;city.length; i++){
 			System.out.println(i + "番目の要素 = :" + city[i]);
 		}
 	}
 }</pre>
-<br>
 <b>実行結果</b><br>
 0番目の要素 = :東京<br>
 1番目の要素 = :大阪<br>
@@ -466,6 +460,7 @@ public class JSample7_11 {
 
 
 <!--3.toStringメソッドとは-->
+<h2 style="font-weight: 400;">changeme</h2>	
 <button type="button" class="collapsible">3.toStringメソッドとは</button>
 <div class="collapse-content">
 <p>toStringメソッドは、引数にString型の文字列に変換したい変数を指定します。戻り値として、String型の文字列を返します。<br>
@@ -498,23 +493,26 @@ public class JSample7_12 {
 
 
 <!--練習-->
-<button type="button" class="collapsible">練習</button>
+<h2 style="font-weight: 400;">練習</h2>
+<button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
-<p><b>問題1</b>[JEx7_1.java]<br>
+<p><b>問題</b>[JEx7_1.java]<br>
 String型で定義された文章中を以下の3つのメソッドをそれぞれ使い、カンマを取り除いた文章を表示するプログラムを作成せよ <br>
 <pre class="prettyprint linenums">
 String sentence = "abc,123,あいう";
 charAtメソッド
 replaceAllメソッド
 splitメソッド</pre>
+</div>
+
+<button type="button" class="collapsible">問題２</button>
+<div class="collapse-content">
 <br>
-<br>
-<b>問題2</b>[JEx7_2.java]<br>
+<b>問題</b>[JEx7_2.java]<br>
 文字列の中から1文字を検索するプログラムを作成せよ。<br>
 ヒットすればその文字のインデックスを、ヒットしなければ-1を出力すること。 <br>
 検索文字が複数ある場合は、最も小さいインデックスを出力すること。 <br>
 例) abcabcからcを検索すると2と出力される。<br>
-	<br>
 	
 </p>
 </div>
