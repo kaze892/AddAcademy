@@ -30,39 +30,35 @@
     <!--JAVA構文-->
     <h1 class="article-container animated bounceInRight animation-delay-20">クラスとインスタンス</h1>
     <hr style="height:0.5px;background-color:#333;">
-    <h2 style="font-weight: 400;">changeme</h2>
 
 
 <button type="button" class="collapsible">説明</button>
 <div class="collapse-content">
-	<p>これまで、説明の中で何度か出てきましたが、Javaは「オブジェクト指向」のプログラミング言語です。
+	<p>これまで、説明の中で何度か出てきましたが、Javaは「オブジェクト指向」のプログラミング言語です。<br>
 この章で学習するクラスは、継承（第11章）、多態性（第12章）と合わせて、オブジェクト指向の3大特徴と言われており重要です。
 クラスについて、概念や作成方法をしっかり学習しましょう。</p>
 </div>
 
 <!--クラス-->
-<button type="button" class="collapsible">クラス</button>
+<button type="button" class="collapsible">1-1クラスとは</button>
 <div class="collapse-content">
     <p>クラスとは、プログラムを実行するための処理をまとめたオブジェクトで、クラスの処理の中にはメンバ変数や処理を実行するためのメソッドがあります。<br>
 メンバ変数とはクラス内で使用する変数のことで、メソッドとはメンバ変数などを使って行う処理をまとめたものです。<br>
 <br>
 プログラミングでは、1つのシステムを作るにあたり、何千から何万文字のコードを書きシステムを動かしています。これが一塊で管理されていた場合、修正が必要になったとき修正箇所を見つけるだけでも膨大な手間がかかります。<br>
-そこでプログラミングでは、1つのシステムを役割ごとに分けることで、管理をしやすくしています。Javaで使われているオブジェクト指向もシステムを役割ごとに分ける、分け方の1つです。<br>
-
-	</p>
+そこでプログラミングでは、1つのシステムを役割ごとに分けることで、管理をしやすくしています。Javaで使われているオブジェクト指向もシステムを役割ごとに分ける、分け方の1つです。<br></p>
 </div>
-	<br>
+
 	
 	
 
-<h2 style="font-weight: 400;">changeme</h2>
 <!--1.オブジェクト指向とは-->
-<button type="button" class="collapsible">1.オブジェクト指向とは</button>
+<button type="button" class="collapsible">1-2インスタンス(オブジェクト)指向とは</button>
 <div class="collapse-content">
-	<p>オブジェクト指向とは、1つ1つのクラスを役割を持った<b>モノ（object)</b>として扱い、「モノ、またはモノとモノの関係性」と、「モノの操作」を分けて作り、組み立てて完成させるという考え方です。<br>
-１つの<b>モノ</b>を<b>複数の部品</b>に分けて作る際、<b>モノ</b>が持つ<b>プロパティ(属性)</b>や<b>メソッド(操作)</b>をクラス内で定義します。<br>
+	<p>オブジェクト指向とは、1つ1つのクラスを役割を持った<b style="color:#e7bd42">モノ（object)</b>として扱い、「モノ、またはモノとモノの関係性」と、「モノの操作」を分けて作り、組み立てて完成させるという考え方です。<br>
+１つの<b style="color:#e7bd42">モノ</b>を<b style="color:#e7bd42">複数の部品</b>に分けて作る際、<b style="color:#e7bd42">モノ</b>が持つ<b style="color:#e7bd42">プロパティ(属性)</b>や<b style="color:#e7bd42">メソッド(操作)</b>をクラス内で定義します。<br>
 <br>
-クラスは 「<b>車を作る<font color="red">設計図</font></b>」 のようなものになります。<br>
+クラスは 「<b style="color:#e7bd42">車を作る<font color="red">設計図</font></b>」 のようなものになります。<br>
 	</p>
 	</div>
 	<br>
@@ -70,7 +66,7 @@
 
 
 <!--2.インスタンスとオブジェクト-->
-<h2 style="font-weight: 400;">changeme</h2>
+<h2 style="font-weight: 400;">インスタンスとインスタンスメソッドの使い方</h2>
 <button type="button" class="collapsible">2.インスタンスとオブジェクト</button>
 <div class="collapse-content">
 <p>Javaのようなオブジェクト指向のプログラミング言語では、処理をまとめたクラスを実行するために、そのクラスのオブジェクトを生成する必要があります。<br>
@@ -80,7 +76,7 @@
 	<br>
 <pre class="prettyprint linenums">
 //クラス定義
-class Classroom{
+class ClassSample{
 	// メソッドの宣言・定義
 	void methodSample(){
 		実行処理...
@@ -89,7 +85,7 @@ class Classroom{
 	public static void main(String[] args){
 	
 	//オブジェクトを生成
-	Classroom c = new Classroom();
+	ClassSample c = new ClassSample();
 	
 	//メソッドの呼出し
 	c.methodSample();
@@ -111,13 +107,13 @@ class Classroom{
 <button type="button" class="collapsible">2-1.クラスを作り方(クラスの定義)</button>
 <div class="collapse-content">
 <p>クラス名は、好きなキーワードで構いません。<br>
-	注：クラスは常に<b>大文字</b>で始まり、<b>Javaファイルの名前はクラス名と同じにする</b>必要があります。 <br>
+	注：クラスは常に<b style="color:#e7bd42">大文字</b>で始まり、<b style="color:#e7bd42">Javaファイルの名前はクラス名と同じにする</b>必要があります。 <br>
 以下の例では、Carというキーワード(名前)のクラスにしました。<br>
 <br>
-次に、<b>オブジェクト(モノ)</b>が持つ、<b>プロパティ(属性)</b>や<b>メソッド(操作)</b>をクラス内で定義します。<br>
+次に、<b style="color:#e7bd42">オブジェクト(モノ)</b>が持つ、<b style="color:#e7bd42">プロパティ(属性)</b>や<b style="color:#e7bd42">メソッド(操作)</b>をクラス内で定義します。<br>
 <br>
 例えば、車をオブジェクトとして、考えてみます。<br>
-車には、<b>色などの属性</b>と、<b>アクセルなどの操作</b>があります。<br>
+車には、<b style="color:#e7bd42">色などの属性</b>と、<b style="color:#e7bd42">アクセルなどの操作</b>があります。<br>
 これをCarクラス内の定義に当てはめていくと、以下のように作成することができます。<br>
 <pre class="prettyprint linenums">
 public class Car {
@@ -163,12 +159,12 @@ Car car1 = new Car();</pre>
 <!--2-3.インスタンスを作成する-->
 <button type="button" class="collapsible">2-3.インスタンスを作成する</button>
 <div class="collapse-content">
-	<p><font color="yellow">インスタンス</font>とは、クラスから作成される実体です。<br>
+	<p><font color:#e7bd42>インスタンス</font>とは、クラスから作成される実体です。<br>
 	クラスは上記の通り、インスタンスを作成するための<font color="red">設計図</font>のようなものです。<br>
 <br>
 すでにCarという名前のクラスを作成したので、これを使ってインスタンスを作成してみます。<br>
 ※バッテリーは100あると宣言した属性も追加しました。<br>
-	※また、操作として宣言した<b>go</b>という動作の説明に、バッテリーの消費も追加しました。<br>
+	※また、操作として宣言した「go」という動作の説明に、バッテリーの消費も追加しました。<br>
 <br>
 <br>
 <b>例</b>[Car.java]<br>
