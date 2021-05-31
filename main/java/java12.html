@@ -1,439 +1,426 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第12章　java修飾子</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第12章　java修飾子</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
             <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第12章　java修飾子</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    修飾子の種類やその挙動について説明します
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第12章　java修飾子</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">
+                    修飾子の種類やその挙動について説明します。</p>
+                  <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **java修飾子**
-
-***
-
-&lt;br&gt;
-
-## **1.メンバ変数定義時に付与できる修飾子**
-※ 修飾子は上から定義する順に並んでいます。
-
-&lt;table border=&quot;1&quot;&gt;
-	&lt;tr style=&quot;width:600px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
-		&lt;th&gt;修飾子&lt;/th&gt;
-		&lt;th&gt;説明&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;アクセス修飾子&lt;/td&gt;
-		&lt;td&gt;アクセス修飾子を指定することにより、メンバ変数を他のクラスから参照できないなどを指定できるようになります。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;static&lt;/td&gt;
-		&lt;td&gt;メンバ変数がインスタンス変数ではなく、&lt;b&gt;クラス変数&lt;/b&gt;であることを表します。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;final&lt;/td&gt;
-		&lt;td&gt;finalをつけると変数に一度値が生成されるとその値を変更できず定数として扱われます。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;transient&lt;/td&gt;
-		&lt;td&gt;シリアライズすべきでないメンバ変数を表します。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;volatile&lt;/td&gt;
-		&lt;td&gt;メンバ変数に対して、コンパイラが何らかの最適化を施すことを防止します。&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;br&gt;
-
-## **2.メソッド定義時に付与できる修飾子**
-※ 修飾子は上から定義する順に並んでいます。
-
-&lt;table border=&quot;1&quot;&gt;
-	&lt;tr style=&quot;width:600px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
-		&lt;th&gt;修飾子&lt;/th&gt;
-		&lt;th&gt;説明&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;アクセス修飾子&lt;/td&gt;
-		&lt;td&gt;アクセス修飾子を指定することにより、メソッドを他のクラスから参照できないなどを指定できるようになります。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;static&lt;/td&gt;
-		&lt;td&gt;メソッドがインスタンスメソッドではなく、&lt;b&gt;クラスメソッド&lt;/b&gt;であることを表します。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;abstract&lt;/td&gt;
-		&lt;td&gt;処理を実装しないメソッド（抽象メソッド）を生成したい時に使用します。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;final&lt;/td&gt;
-		&lt;td&gt;finalを使用した場合、そのメソッドはサブクラスでオーバーライドすることができません。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;native&lt;/td&gt;
-		&lt;td&gt;C言語など他の言語で記述されたプログラムをJavaプログラム内で使用したい時に使います。使用したいプログラムにnativeを付け定義します。&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;synchronized&lt;/td&gt;
-		&lt;td&gt;スレッドを複数同時に走らせる際に同じデータに対し複数のメソッドが呼び出される場合があります。そのような場合、安全にメソッドが実行されるためにsynchronizedを使用します。&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;br&gt;
-
-## **3.アクセス修飾子**
-### **3-1.アクセス修飾子の種類**
-指定できるアクセス修飾子を以下に記載します。クラス定義時に指定できるアクセス修飾子は「public」と「指定無し（デフォルト）」のみです。
-&lt;table border=&quot;1&quot;&gt;
-	&lt;tr style=&quot;width:600px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
-		&lt;th&gt;アクセス修飾子&lt;/th&gt;
-		&lt;th&gt;クラス&lt;/th&gt;
-		&lt;th&gt;メンバ変数&lt;/th&gt;
-		&lt;th&gt;メソッド&lt;/th&gt;
-		&lt;th&gt;コンストラクタ&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;public&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;protected&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;指定無し（デフォルト）&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;private&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;br&gt;
-
-### **3-2.アクセス修飾子の使用方法**
-アクセス修飾子の使用方法についての説明します。  
-•	**public**と指定すると、どこからでも参照できます。  
-•	**protected**と指定すると、そのクラスを継承したサブクラスからしか参照できません。  
-•	**修飾子を省略する**と、同じパッケージのクラスからしか参照できません。  
-•	**private**と指定すると、そのクラスの中からしか参照できません。  
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
-&lt;table border=&quot;1&quot;&gt;
-	&lt;tr style=&quot;width:600px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
-		&lt;th rowspan=&quot;2&quot;&gt;アクセス修飾子&lt;/th&gt;
-		&lt;th colspan=&quot;3&quot;&gt;自パッケージ&lt;/th&gt;
-		&lt;th colspan=&quot;2&quot;&gt;他パッケージ&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;tr style=&quot;width:600px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
-		&lt;th&gt;自クラス&lt;/th&gt;
-		&lt;th&gt;サブクラス&lt;/th&gt;
-		&lt;th&gt;他クラス&lt;/th&gt;
-		&lt;th&gt;サブクラス&lt;/th&gt;
-		&lt;th&gt;他クラス&lt;/th&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;public&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;protected&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;指定無し（デフォルト）&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-	&lt;/tr&gt;
-	&lt;tr&gt;
-		&lt;td&gt;private&lt;/td&gt;
-		&lt;td&gt;○&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-		&lt;td&gt;×&lt;/td&gt;
-	&lt;/tr&gt;
-&lt;/table&gt;
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">java修飾子</h1>
+    <hr style="height:0.5px;background-color:#333;">
 
-&lt;br&gt;
 
-#### **例**
-[Television.java]
-```
+<!--メンバ変数に対して、コンパイラが何らかの最適化を施すことを防止します。-->
+<button type="button" class="collapsible">1.メンバ変数定義時に付与できる修飾子</button>
+<div class="collapse-content">
+	<p>※ 修飾子は上から定義する順に並んでいます。<br>
+	<table border="1" width="500">
+		<tr>
+			<th align="center" width="120">修飾子</th>
+			<th align="center">説明</th>
+		</tr>
+		<tr>
+			<td>アクセス修飾子</td>
+			<td>アクセス修飾子を指定することにより、メンバ変数を他のクラスから参照できないなどを指定できるようになります。</td>
+		</tr>
+		<tr>
+			<td>static</td>
+			<td>メンバ変数がインスタンス変数ではなく、<b>クラス変数</b>であることを表します。</td>
+		</tr>
+		<tr>
+			<td>final</td>
+			<td>finalをつけると変数に一度値が生成されるとその値を変更できず定数として扱われます。</td>
+		</tr>
+		<tr>
+			<td>transient</td>
+			<td>シリアライズすべきでないメンバ変数を表します。</td>
+		</tr>
+		<tr>
+			<td>volatile</td>
+			<td>メンバ変数に対して、コンパイラが何らかの最適化を施すことを防止します。</td>
+		</tr>
+	</table>
+	</p>	
+</div>
+
+	
+
+	
+	
+	
+	
+<!--2.メソッド定義時に付与できる修飾子-->
+<button type="button" class="collapsible">2.メソッド定義時に付与できる修飾子</button>
+<div class="collapse-content">
+<p>※ 修飾子は上から定義する順に並んでいます。<br>
+	<table border="1" width="500">
+		<tr>
+			<th align="center" width="120">修飾子</th>
+			<th align="center">説明</th>
+		</tr>
+		<tr>
+			<td>アクセス修飾子</td>
+			<td>アクセス修飾子を指定することにより、メソッドを他のクラスから参照できないなどを指定できるようになります。</td>
+		</tr>
+		<tr>
+			<td>static</td>
+			<td>メソッドがインスタンスメソッドではなく、<b>クラスメソッド</b>であることを表します。</td>
+		</tr>
+		<tr>
+			<td>abstract</td>
+			<td>処理を実装しないメソッド（抽象メソッド）を生成したい時に使用します。</td>
+		</tr>
+		<tr>
+			<td>final</td>
+			<td>finalを使用した場合、そのメソッドはサブクラスでオーバーライドすることができません。</td>
+		</tr>
+		<tr>
+			<td>native</td>
+			<td>C言語など他の言語で記述されたプログラムをJavaプログラム内で使用したい時に使います。使用したいプログラムにnativeを付け定義します。</td>
+		</tr>
+		<tr>
+			<td>synchronized</td>
+			<td>スレッドを複数同時に走らせる際に同じデータに対し複数のメソッドが呼び出される場合があります。そのような場合、安全にメソッドが実行されるためにsynchronizedを使用します。</td>
+		</tr>
+	</table>
+</p>
+	</div>
+<br>	
+	
+	
+	
+	
+<h2 style="font-weight: 400;">3.アクセス修飾子</h2>
+<!--3-1.アクセス修飾子の種類-->
+<button type="button" class="collapsible">3-1.アクセス修飾子の種類</button>
+<div class="collapse-content">
+	<p>指定できるアクセス修飾子を以下に記載します。<br>
+クラス定義時に指定できるアクセス修飾子は「public」と「指定無し（デフォルト）」のみです。<br>
+<table border="1" width="600">
+	<tr align="center">
+		<th align="center" width="120">アクセス修飾子</th>
+		<th align="center" width="120">クラス</th>
+		<th align="center" width="120">メンバ変数</th>
+		<th align="center" width="120">メソッド</th>
+		<th align="center" width="120">コンストラクタ</th>
+	</tr>
+	<tr>
+		<td>public</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+	</tr>
+	<tr>
+		<td>protected</td>
+		<td>×</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+	</tr>
+	<tr>
+		<td>指定無し（デフォルト）</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+	</tr>
+	<tr>
+		<td>private</td>
+		<td>×</td>
+		<td>○</td>
+		<td>○</td>
+		<td>○</td>
+	</tr>
+</table>
+	
+	
+	</p>
+	</div>
+	
+	
+	
+	
+<!--3-2.アクセス修飾子の使用方法-->
+<button type="button" class="collapsible">3-2.アクセス修飾子の使用方法</button>
+<div class="collapse-content">
+	<p></p><ul>
+		<li><b>oublic</b> と指定すると、どこからでも参照できます。</li>
+		<li><b>protected</b> と指定すると、そのクラスを継承したサブクラスからしか参照できません。</li>
+		<li><b>修飾子を省略する</b>と、同じパッケージのクラスからしか参照できません。</li>
+		<li><b> private</b>と指定すると、そのクラスの中からしか参照できません。</li>
+	</ul>
+	<table border="1" width="800">
+		<tr align="center">
+			<th rowspan="2" width="180">アクセス修飾子</th>
+			<th colspan="3" width="372">自パッケージ</th>
+			<th colspan="2" width="248">他パッケージ</th>
+		</tr>
+		<tr>
+			<td width="124">自クラス</td>
+			<td width="124">サブクラス</td>
+			<td width="124">他クラス</td>
+			<td width="124">サブクラス</td>
+			<td width="124">他クラス</td>
+		</tr>
+		<tr>
+			<td>public</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+		</tr>
+		<tr>
+			<td>protected</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+			<td>×</td>
+		</tr>
+		<tr>
+			<td>指定無し（デフォルト）</td>
+			<td>○</td>
+			<td>○</td>
+			<td>○</td>
+			<td>×</td>
+			<td>×</td>
+		</tr>
+		<tr>
+			<td>private</td>
+			<td>○</td>
+			<td>×</td>
+			<td>×</td>
+			<td>×</td>
+			<td>×</td>
+		</tr>
+	</table>
+	<br>
+	<b>例</b>[Television.java]<br>
+	<pre class="prettyprint linenums">
 package JSample;
 public class Television{
-  private int channelNo;
-
-  private void setChannel(int newChannelNo){
-    channelNo = newChannelNo;
-    System.out.println(&quot;新しいChannelNo=&quot; + channelNo);
-  }
-}
-
-```
-
-[JSample12_1.java]
-
-```
+	private int channelNo;
+	
+	private void setChannel(int newChannelNo){
+		channelNo = newChannelNo;
+		System.out.println("新しいChannelNo=" + channelNo);
+	}
+}</pre>
+	<br>
+[JSample12_1.java]<br>
+<pre class="prettyprint linenums">
 package JSample;
 
 public class JSample12_1{
-  public static void main(String args[]){
-    Television tv1 = new Television();
-    tv1.setChannel(1);
-  }
-}
+	public static void main(String args[]){
+		Television tv1 = new Television();
+		tv1.setChannel(1);
+	}
+}</pre>
+<br>
+<b>実行結果</b>(コンパイルの段階でエラーとなります。)<br>
+	Exception in thread "main" java.lang.Error: Unresolved compilation problem:<br>
+メソッド setChannel(int) は型 Television で不可視です<br>
+<br>
+at JSample.JSample116.main(JSample116.java:7)<br>
+<br>
+この例では、TelevisionクラスのprivateメソッドのためJSampleクラスからはアクセスできません。<br>
+そのためコンパイルエラーとなります。<Br>
+	</p>
+</div>
+<br>
 
-```
-####　**実行結果**(コンパイルの段階でエラーとなります。)
-Exception in thread &quot;main&quot; java.lang.Error: Unresolved compilation problem: &lt;br&gt;
-	メソッド setChannel(int) は型 Television で不可視です&lt;br&gt;
-	&lt;br&gt;
-	at JSample.JSample11_6.main(JSample11_6.java:7)
 
-&lt;br&gt;
 
-## **4.static**
-メンバ変数、メソッドを定義する際、static修飾子が付与されたものを**クラス変数**、**クラスメソッド**、static修飾子が付与されていないものを**インスタンス変数**、**インスタンスメソッド**といいます。
 
-**mainメソッド**はインスタンスを生成する前に実行する必要があるため、static修飾子を付けて定義しています。
-&lt;br&gt;
-
-**static変数**とはクラス対応に1つだけ存在する変数です。オブジェクトごとに存在するインスタンス変数とは異なりオブジェクトを生成しなくてもアクセスは可能です。
-&lt;br&gt;
-**static変数**はクラス単位で管理したいときに便利な変数です。
-
-#### **例**
-クラス変数の参照方法を例示します。
-&lt;br&gt;
-[ExClass.java]
-
-```
+<!--4.static-->
+<button type="button" class="collapsible">4.static</button>
+<div class="collapse-content">
+	<p>メンバ変数、メソッドを定義する際、static修飾子が付与されたものを<b>クラス変数</b>、<b>クラスメソッド</b>、static修飾子が付与されていないものを<b>インスタンス変数</b>、<b>インスタンスメソッド</b>といいます。<br>
+	<b>mainメソッド</b>はインスタンスを生成する前に実行する必要があるため、static修飾子を付けて定義しています。<br>
+<br>
+		<b>static変数</b>とはクラスに1つだけ存在する変数です。<br>
+オブジェクトごとに存在するインスタンス変数とは異なり、オブジェクトを生成しなくてもアクセスできます。<br>
+static変数はクラス単位で管理したいときに便利な変数です。<br>
+<br>
+		<b>例</b><br>
+クラス変数の参照方法を例示します。<br>
+[ExClass.java]<br>
+<pre class="prettyprint linenums">
 package JSample;
 class ExClass{
-    //クラス変数の宣言
-    static int standardSize;
-    //クラス変数に値を設定
-    void setSize(int num) {
-      standardSize = num;
-    }
-}
-
-```  
-
-[JSample12_2.java]  
-
-```
+	static int standardSize;
+	void setSize(int num) {
+		standardSize = num;
+	}
+}</pre>
+	<br>
+	[JSample12_2.java]<br>
+<pre class="prettyprint linenums">
 class JSample12_2 {
-    public static void main(String[] args) {
-        ExClass ins1 = new ExClass();
-        //クラス変数に100を設定
-        ins1.setSize(100);
-
-        ExClass ins2 = new ExClass();
-        //クラス変数に300を設定
-        ins2.setSize(300);
-
-        //クラス変数は、インスタンス間で値を共有するため、
-        //一番最後に設定された300が表示される
-        System.out.println(ins1.standardSize);
-        System.out.println(ins2.standardSize);
-        System.out.println(ExClass.standardSize);
-    }
-}
-```
-#### **実行結果**
-&lt;pre&gt;
-	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
-300&lt;br&gt;
-300&lt;br&gt;
-300
-&lt;/html&gt;&#39;&quot; height=&quot;100&quot;&gt;&lt;/iframe&gt;
-&lt;/pre&gt;
-
-静的メンバーを利用する場合の注意点を、以下にまとめておきます。  
-（1）静的メソッドからthisにはアクセスできない  
-静的メソッドでは、いわゆるインスタンスはありませんので、当然、インスタンスを示すthisにもアクセスできません。  
-（2）静的フィールドの利用は限定的に  
-静的フィールドは、インスタンスフィールドとは違って、内容を変更した場合にもすべてのインスタンスに影響してしまいます（いわゆるグローバルな変数です）。静的フィールドの濫用はそのままクラス間の依存が強くなり、結果、コードの可読性が困難になる場合もあります。  
-一般的には、静的フィールドは読み取り専用の用途で利用することをお勧めいたします。
-
-
-#### **例**
-クラス変数、クラスメソッドの参照方法を例示します。
-&lt;br&gt;
-[JSample12_3.java]
-
-```
+	public static void main(String[] args) {
+		ExClass ins1 = new ExClass();
+		ins1.setSize(100);
+		
+		ExClass ins2 = new ExClass();
+		ins2.setSize(300);
+		
+		System.out.println(ins1.standardSize);
+		System.out.println(ins2.standardSize);
+		System.out.println(ExClass.standardSize);
+	}
+}</pre>
+	<br>
+	<b>実行結果</b>
+300<br>
+300<br>
+300<br>
+<br>
+クラス変数は、インスタンス間で値を共有するため、一番最後に設定された300が表示されます。<br>
+<br>
+<br>
+staticメンバーを利用する場合の注意点を、以下にまとめておきます。<br>
+（1）staticメソッドからthisにはアクセスできない。<br>
+staticメソッドでは、いわゆるインスタンスはありませんので、当然、インスタンスを示すthisにもアクセスできません。<br>
+（2）staticフィールドの利用は限定的。<br>
+staticフィールドは、インスタンスフィールドとは違い、内容を変更した場合にもすべてのインスタンスに影響します。<br>
+	<br>
+	<b>例</b><br>
+クラス変数、クラスメソッドの参照方法を例示します。<br>
+	[JSample12_3.java]<br>
+<pre class="prettyprint linenums">
 package JSample;
 class JSample12_3 {
-	//クラスメンバ変数の宣言・生成
-	static String classV = &quot;クラス変数classV&quot;;
-
-	//クラスメソッドの宣言
+	static String classV = "クラス変数classV";
+	
 	static void classM() {
-		System.out.println(&quot;クラスメソッドclassM&quot;);
+		System.out.println("クラスメソッドclassM");
 	}
-
+	
 	public static void main(String[] args) {
-		//クラス名を通してクラス変数を参照
 		System.out.println(JSample12_3.classV);
-		//クラス名を通してクラスメソッドを参照
 		JSample12_3.classM();
 	}
-}
-```
-#### **実行結果**
-&lt;pre&gt;
-	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
-クラス変数classV&lt;br&gt;
-クラスメソッドclassM
-&lt;/html&gt;&#39;&quot; height=&quot;80&quot;&gt;&lt;/iframe&gt;
-&lt;/pre&gt;
+}</pre>
+<br>
+	<b>実行結果</b><br>
+	クラス変数classV<br>
+クラスメソッドclassM <br>
+	</p>
+</div>
+<br>
 
-&lt;br&gt;&lt;br&gt;
-***
 
-&gt; **練習**
-&gt;&gt; **問題**
-[AccessTest.java]
-```
+
+<h2 style="font-weight: 400;">練習</h2>
+<!--問題1-->
+<button type="button" class="collapsible">問題1</button>
+<div class="collapse-content">
+<p><b>問題</b> [AccessTest.java]<br>
+<pre class="prettyprint linenums">
 package test;
- 
-public class AccessTest{
-   public void a(){
-      System.out.println(&quot;public&quot;);
-   }
-   protected void b(){
-      System.out.println(&quot;protected&quot;);
-   }
-   void c(){
-      System.out.println(&quot;修飾子なし&quot;);
-   }
-   private void d(){
-      System.out.println(&quot;private&quot;);
-   }
-}
-```
-[JEx12_1.java]をコンパイルしてみましょう。
-&lt;br&gt;
 
-```
+public class AccessTest {
+	public void a(){
+		System.out.println("public");
+	}
+	protected void b(){
+		System.out.println("protected");
+	}
+	void c(){
+		System.out.println("修飾子なし");
+	}
+	private void d(){
+		System.out.println("private");
+	}
+}</pre>
+	[JEx12_1.java]をコンパイルしてみましょう。<br>
+<pre class="prettyprint linenums">
 package JSample;
 import test.AccessTest;
- 
+
 public class JEx12_1{
-   public static void main(String[] args){
-      AccessTest at = new AccessTest();
-      at.a();
-      at.b();
-      at.c();
-      at.d();
-   }
-}
-```
-&lt;br&gt;
-&lt;br&gt;
-&gt;&gt; **問題**
-[JEx12_2.java]
+	public static void main(String[] args){
+		AccessTest at = new AccessTest();
+		at.a();
+		at.b();
+		at.c();
+		at.d();
+	}
+}</pre>
+	</p>
+</div>
 
-``` 
+
+<!--問題2-->
+<button type="button" class="collapsible">問題2</button>
+<div class="collapse-content">
+<p><b>問題</b> [JEx12_2.java]<br>
+<pre class="prettyprint linenums">
 public class JEx12_2 {
-    public static void main(String[] args) {
-       Dog dog1 = new Dog(3);
-       Dog dog2 = new Dog(5);
-       System.out.println(dog1.age);
-    }
+	public static void main(String[] args) {
+		Dog dog1 = new Dog(3);
+		Dog dog2 = new Dog(5);
+		System.out.println(dog1.age);
+	}
 }
- 
+
 class Dog {
-    static int age;
- 
-    public Dog(int age) {
-        this.age = age;
-    }
-}
-```
-#### **実行結果を選択してください**
-1. 「3」と表示  
-2. 「5」と表示  
-3. 何も表示されない   
-4. コンパイルエラー  
-5. 実行時エラー
-</textarea>
-        <p id="output">content</p>
-    </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+	static int age;
+	
+	public Dog(int age) {
+		this.age = age;
+	}
+}</pre>
+	<b>実行結果を選択してください</b><br>
+	<ol>
+	<li>「3」と表示</li>
+	<li>「5」と表示</li>
+	<li>何も表示されない</li>
+	<li>コンパイルエラー</li>
+	<li>実行時エラー</li>
+	</ol>
+	</p>
+</div>
+
+	
+	
+	
+	
+	<!--article-container-->
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+  
 </body>
-
-
 </html>
