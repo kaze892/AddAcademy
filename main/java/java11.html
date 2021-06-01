@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
-<link rel="stylesheet" href="../assets/css/styling.css">
-<link rel="stylesheet" href="../assets/css/header.css">
-<link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-<link rel="stylesheet" href="../assets/css/plugins.min.css">
-<title>第11章　メンバ変数とメンバメソッド</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <title>第9章　クラスとインスタンス</title>
 </head>
 <body>
-<div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
-  <div class="container"> <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
-    <div class="text-center">
-      <h1 class="head1 animated zoomInDown animation-delay-5">第11章　メンバ変数とメンバメソッド</h1>
-      <p class="head2 animated fadeInUp animation-delay-7">メンバ変数とメンバメソッドに関する基本的な考え方について説明します。</p>
-      <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20"style=" color:white !important;"href="../main-index.html" >HOMEPAGE</a> </div>
-  </div>
-</div>
-<br>
+
+
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+      					<h1 class="head1 animated zoomInDown animation-delay-5">第11章　メンバ変数とメンバメソッド</h1>
+     						<p class="head2 animated fadeInUp animation-delay-7">メンバ変数とメンバメソッドに関する基本的な考え方について説明します。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
+           	</div>
+			  </div>
+		</div><br>
 
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
@@ -26,14 +29,16 @@
 <!--メンバ変数とメンバメソッド-->
 <h1 class="article-container animated bounceInRight animation-delay-20">メンバ変数とメンバメソッド</h1>
 <hr style="height:0.5px;background-color:#333;">
-<h2 style="font-weight: 400;">クラスは「メンバ変数」と「メンバメソッド」の要素で構成されています。</h2>
 
+<h2 style="font-weight: 400;">メンバ変数</h2>
 <!--1.メンバ変数とは-->
 <button type="button" class="collapsible">1.メンバ変数とは</button>
 <div class="collapse-content">
-	<p>メンバ変数とは、クラス内に直接書かれる変数のことで、クラス内のメソッドから参照可能な変数で、フィールド変数またはフィールドと呼ばれます。 <br>
-<br>
-以下の例では、2行目の「int channelNo;」がメンバ変数です。<br>
+	<p>クラスは「メンバ変数」と「メンバメソッド」の要素で構成されています。<br>
+		メンバ変数とは、クラス内に直接書かれる変数のことで、クラス内のメソッドから参照可能な変数で、フィールド変数またはフィールドと呼ばれます。<br>
+		<br><br>
+
+		以下の例では、2行目の「int channelNo;」がメンバ変数です。<br>
 		<br>
 	[Television.java]<br>
 <pre class="prettyprint linenums">
@@ -70,9 +75,9 @@ pribate Stirng name;
 private int price;
 private boolean stock;</pre>
 	メンバ変数は、int、doubleなどの基本型だけでなく、クラス型、配列型の変数も定義できます。<br>
-また、メンバ変数はオブジェクトの内部情報のため、[<font color="blue">private</font>](※1)をつけて非公開にします。<br>
+また、メンバ変数はオブジェクトの内部情報のため、[private]<font color="red">(※1)</font>をつけて非公開にします。<br>
 <br>
-(※1)[private]は「宣言したクラスの中でだけしようできる」という意味の<b>アクセス修飾子</b>です。アクセス修飾子については次の第9章で学習します。<br>
+<font color="red">(※1)</font>[private]は「宣言したクラスの中でだけしようできる」という意味の<b style="color:#e7bd42">アクセス修飾子</b>です。アクセス修飾子については次の第9章で学習します。<br>
 	</p>
 	</div>
 	
@@ -118,16 +123,16 @@ public class Channeltest{
 }</pre>
 <br>
 	この[Channeltest]クラスでは、3行目で[Television]クラスをもとに[tv1]というオブジェクトを作り、そのオブジェクトを使ってメンバ変数に値を格納しています。<br>
-4行目のように「<b>オブジェクト名.メンバ変数名 = 値;</b>」と記述して、値を格納します。<br>
+4行目のように<b style="color:#e7bd42">「オブジェクト名.メンバ変数名 = 値;」</b>と記述して、値を格納します。<br>
 	</p>
 </div>
 	
-	<br>
 	
 	
 	
-<!--メンバ変数とローカル変数の違い-->
-<button type="button" class="collapsible">メンバ変数とローカル変数の違い</button>
+	
+<!--1-3.メンバ変数とローカル変数の違い-->
+<button type="button" class="collapsible">1-3.メンバ変数とローカル変数の違い</button>
 <div class="collapse-content">
 <p>ローカル変数とは、メソッド内で定義される変数のことです。<br>
 このローカル変数の<b>有効範囲(スコープ)</b>はメソッド内だけになるため、別のメソッドからアクセスすることはできません。<br>
@@ -165,9 +170,10 @@ System.out.println("ローカル変数(localVarB)：" + localVarB);<br>
 
 
 <!--2.メンバメソッドとは-->
+<h2 style="font-weight: 400;">メンバメソッド</h2>
 <button type="button" class="collapsible">2.メンバメソッドとは</button>
 <div class="collapse-content">
-<p>メンバメソッドとはクラスの中で定義されているメソッドのことで、そのクラスの中で何かの動作をするためのものです。<br>
+<p>メンバメソッドとは、クラスの中で定義されているメソッドのことで、そのクラスの中で何かの動作をするためのものです。<br>
 メソッドを呼び出すときに引数を指定したり、メソッドからの戻り値を設定することもできます。<br>
 </p>
 </div>
@@ -253,8 +259,9 @@ public class JSample11_2 {
 
 
 
-<!--引数を使ってメソッドに値を渡す-->
-<button type="button" class="collapsible">引数を使ってメソッドに値を渡す</button>
+<!--3-1.引数を使ってメソッドに値を渡す-->
+<h2 style="font-weight: 400;">引数とreturn文</h2>
+<button type="button" class="collapsible">3-1.引数を使ってメソッドに値を渡す</button>
 <div class="collapse-content">
 	<p>メソッドを呼び出す時に呼び出し元から値をメソッドに渡すことができます。<br>
 		<br>
@@ -266,7 +273,7 @@ package JSample;
 public class JSample11_3 {
 	public static void main(String[] args) {
 		int english = 58;
-		cheack ("英語", english);
+		check ("英語", english);
 	}
 	
 	private static void check(String language, int score) {
@@ -285,7 +292,7 @@ public class JSample11_3 {
 	この例では、6行目で「check」メソッドを呼び出しています。<br>
 「check」メソッドは9～16行目で、「string型」の「"英語"」という値を[String language]に、
 「int型」の「english」という値を[int score]にそれぞれ渡し、処理が行われます。<br>
-この場合、[score]に渡された[english]という変数には「58」という値が代入されていたため、if文関係式のfalseとなり、戻り値は「<font color="#8AE9AF">"日常会話レベルです。"</font>」になります。<br>
+この場合、[score]に渡された[english]という変数には「58」という値が代入されていたため、if文関係式のfalseとなり、戻り値は「日常会話レベルです。」になります。<br>
 	</p>
 </div>
 
@@ -293,15 +300,15 @@ public class JSample11_3 {
 
 
 	
-<!--return文-->
-<button type="button" class="collapsible">return文</button>
+<!--3-2.return文-->
+<button type="button" class="collapsible">3-2.return文</button>
 <div class="collapse-content">
 <p>
 return文は、メソッドを終了するとともに、戻り値を指定する働きがあります。<br>
-下の(1)の例では、10行目でreturn文が使用されています。ここで「multiply」メソッドを終了し、[n * 2]を戻り値として返しています。<br>
+下の例１では、10行目でreturn文が使用されています。ここで「multiply」メソッドを終了し、[n * 2]を戻り値として返しています。<br>
 <br>
-<b>（１）</b> メソッドから呼び出し元に値を返す場合。<br>
-<b>例</b><br>
+ソッドから呼び出し元に値を返す場合。<br>
+<b>例1</b><br>
 [JSample11_4.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
@@ -323,11 +330,11 @@ public class JSample11_4 {
 	この例では、6行目で[result]という変数に、「multiply」メソッドに「5」という値を渡した結果の戻り値を返すという指示を与えています。<br>
 <br>
 6行目で指定したint型の「5」という値は、multiplyメソッドの「int n」に代入されます。multiplyメソッドでは、そのnの値を2倍し(10行目)、その値を返し、6行目の[result]という変数に代入します。<br>
+
+<hr style="height: 0.5px;background-color: grey; ">
+return文がメソッドの中で実行されると、それ以降の処理を実行せずに呼び出し元へ処理を移すことができます。<br>
 <br>
-<br>
-<b>（２）</b> return文がメソッドの中で実行されると、それ以降の処理を実行せずに呼び出し元へ処理を移すことができます。<br>
-<br>
-<b>例</b><br>
+<b>例２</b><br>
 [JSample11_5.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
@@ -368,8 +375,9 @@ public class JSample11_5 {
 
 
 
-<!--3.コンストラクタ-->
-<button type="button" class="collapsible">3.コンストラクタ</button>
+<!--4.コンストラクタ-->
+<h2 style="font-weight: 400;">コンストラクタ</h2>
+<button type="button" class="collapsible">4.コンストラクタとは</button>
 <div class="collapse-content">
 <p>
 コンストラクタとは、クラスのインスタンス生成時に実行されるメソッドで、主にそのクラスの<b>メンバ変数を初期化する</b>ときに使用し、インスタンス生成時、必ず最初に呼び出されます。<br>
@@ -389,8 +397,8 @@ public class Calculate {
 
 
 
-<!--3-1.コンストラクタの定義-->
-<button type="button" class="collapsible">3-1.コンストラクタの定義</button>
+<!--4-1.コンストラクタの定義-->
+<button type="button" class="collapsible">4-1.コンストラクタの定義</button>
 <div class="collapse-content">
 <p>コンストラクタの定義は下記のように宣言します。<br>
 コンストラクタ名はクラス名と同じにします。<br>
@@ -403,8 +411,8 @@ public class Calculate {
 
 
 
-<!--3-2.複数のコンストラクタ-->
-<button type="button" class="collapsible">3-2.複数のコンストラクタ</button>
+<!--4-2.複数のコンストラクタ-->
+<button type="button" class="collapsible">4-2.複数のコンストラクタ</button>
 <div class="collapse-content">
 <p>コンストラクタは、引数の型や引数の数を変更することで1つのクラス内に複数宣言することができます。<br>
 具体的には、コンストラクタ内でいくつかのメンバ変数を初期化する際、<br>
@@ -463,21 +471,19 @@ productBのSetNumber(100)で値上げ金額は1000円です<br>
 <h2 style="font-weight: 400;">練習</h2>
 <button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
-<p><b>問題</b>[JEx11_1.java]<br>
+<p>
+	<b>問題</b>[JEx11_1.java]<br>
 	Numberクラス(Number.java)を使用して、２つの整数を比較し最大値を取り出すプログラムを完成させなさい。<br>
+</p>
 <pre class="prettyprint linenums">
 package JSample;
 
-public class Number {
+public class Num {
 
 	public int compare(int num1, int num2) {
 		//コード
 	}
 }</pre>
-</div>
-<button type="button" class="collapsible">問題2</button>
-<div class="collapse-content">
-		JEx11_1クラスを使用して、次のプログラムを完成しなさい。<br>
 <pre class="prettyprint linenums">
 package JSample;
 
@@ -498,7 +504,7 @@ public class JEx11_1 {
 		System.out.println(num1 + "と" + num2 + " 比較的な最大値は：" + result);
 	}
 }</pre>
-</p>
+
 </div>
 	
 	
