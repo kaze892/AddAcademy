@@ -98,12 +98,33 @@ public class MyClass {
 <br>
 
 <h2 style="font-weight: 400;">練習</h2>
-<!--問題2-->
+<!--問題1-->
 <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
     <p><b>問題</b> [JEx10_1.java]<br>
-        姓名、年齢と性別の属性があるクラスをカプセル化してください。</p>
-    </div>
+        以下のプログラムは、二つの整数の足し算と引き算を行うクラス、Calculationクラスを用いて、二つの数の足し算と引き算の結果を出力したものである。<br>
+        private修飾子で隠して、クラスCalculationを構成するCalculator.javaを完成させ、プログラムを完成させなさい。</p>
+
+<pre class="prettyprint linenums">
+package Jsample;
+public class JEx10_1{
+ 
+    public static void main(String args[]){
+        Calculator cal = new Calculator();
+        cal.setNumber1(8);    //  一つ目の数をセット
+        cal.setNumber2(9);    //  二つ目の数をセット
+        //  二つの数の和を表示
+        System.out.println(cal.getNumber1() + " + " + cal.getNumber2() + " = " + cal.add());
+        //  二つの数の差を表示
+        System.out.println( cal.getNumber1() + " - " + cal.getNumber2() + " = " + cal.sub());
+    }
+ 
+}</pre>
+
+<b>実行結果</b><br>
+8 + 9 = 17<br>
+8 - 9 = -1<br>
+</div>
 
 
 
