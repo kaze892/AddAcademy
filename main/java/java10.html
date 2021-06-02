@@ -1,130 +1,120 @@
 <!DOCTYPE html>
 <html>
-
-
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#333">
-    <title>第10章　カプセル化</title>
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../assets/css/preload.min.css">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
-    <script src="../assets/js/showdown-prettify.min.js"></script>
-    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-    <style>
-        li.L0, li.L1, li.L2, li.L3,
-        li.L5, li.L6, li.L7, li.L8 {
-          list-style-type: decimal !important;
-        }
-    </style>
+    <title>第10章　カプセル化</title>
 </head>
+<body>
 
-<body style="font-size:1.5rem;">
-    <script type="text/javascript" src="header.html"></script>
+
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <br>
-                <br>
-                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第10章　カプセル化</h1>
-                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
-                    カプセル化に関する基本的な考え方について説明します。
-                </p>
-                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
-                
+                <h1 class="head1 animated zoomInDown animation-delay-5">第10章　カプセル化</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では、カプセル化に関する基本的な考え方について説明します。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
-    </div>
-    <div style="margin: 0 auto; max-width: 1024px;">
-        <textarea id="text" style="display:none"># **カプセル化**
-***
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
-**カプセル化**とは、できるだけ他のプログラムから干渉されないようにする仕組みです。
 
-例えば、「機密」データをユーザーから見えないようにするために、以下のことをします。
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">カプセル化</h1>
+    <hr style="height:0.5px;background-color:#333;">
 
-* クラス変数/属性に &lt;font color=#0099ff&gt;private&lt;/font&gt;を指定する（同じクラス内でのみアクセス可能）
-* &lt;font color=#0099ff&gt;setter&lt;/font&gt;メソッド と&lt;font color=#0099ff&gt;getter&lt;/font&gt;メソッドをつくり、操作できるようにする
 
-publicのgetterメソッドとsetterメソッドを経由すれば、それらにアクセスすることは可能です。
-&lt;pre&gt;&lt;code&gt;class Person {
-  private String name; // private = restricted access
 
+<!--カプセル化とは-->
+<button type="button" class="collapsible">カプセル化とは</button>
+<div class="collapse-content">
+    <p>
+       カプセル化とは、従来別々に扱われていたデータとメソッドを、1つのクラスにまとめてしまうことです。また、公開する情報を制限することができ、詳細を隠して必要なメソッドだけを公開することができます。<br>
+       このカプセル化を行うことで、変更に強いクラスとなります。
+    </p>
+</div>
+
+    
+
+
+
+
+
+<!--プログラム作成-->
+<button type="button" class="collapsible">getterとsetterの使い方</button>
+<div class="collapse-content">
+    <p>
+        <font color=#e7bd42>「機密」</font>データをユーザーから見えないようにするために、以下のことをします。
+    <ul>
+        <li>クラス変数/属性に<font color=#0099ff>private</font>を指定する（同じクラス内でのみアクセス可能）</li>
+        <li><font color=#0099ff>setter</font>メソッド と<font color=#0099ff>getter</font>メソッドをつくり、操作できるようにする</li>
+    </ul>publicの<font color=#0099ff>getter</font>メソッドと<font color=#0099ff>setter</font>メソッドを経由すれば、それらにアクセスすることは可能です。
+<pre class="prettyprint linenums">
+class Human {
+  private String name; // private = 制限アクセス
   // Getter
   public String getName() {
     return name;
   }
-
   // Setter
   public void setName(String newName) {
     this.name = newName;
   }
-}
-&lt;/code&gt;&lt;/pre&gt;
+}</pre>
+4～6行目がゲッター、8～10行目がセッター。
+説明:
+<ul>
+    <li><font color=#0099ff>get</font>は、name変数の値を返します。</li>
+    <li><font color=#0099ff>set</font>は、パラメータ（newName）を受け取り、name変数に設定します。thisキーワードは、現在のオブジェクトを参照するために使用されます。</li>
+</ul>
 
-**説明:**
-* getは、name変数の値を返します。
+上のname変数はprivateとして宣言されているので、このクラスの外側からアクセスすることはできません。
+代わりに、変数にアクセスして更新するために<font color=#0099ff>getName()</font>and <font color=#0099ff>setName()</font>メソッドを使用します。<br><br>
 
-* setは、パラメータ（newName）を受け取り、name変数に設定します。thisキーワードは、現在のオブジェクトを参照するために使用されます。
 
-しかし、name変数はprivateとして宣言されているので、このクラスの外側からアクセスすることはできません。
 
-&lt;pre&gt;&lt;code&gt;public class MyClass {
+<b>例：</b><br>
+<pre class="prettyprint linenums">
+public class MyClass {
   public static void main(String[] args) {
-    Person myObj = new Person();
-    myObj.name = &quot;John&quot;;  // error
-    System.out.println(myObj.name); // error  
+    Human myObj = new Human();
+    myObj.name = "山田";
+    System.out.println(myObj.name); 
   }
-}
-&lt;/code&gt;&lt;/pre&gt;
+}</pre>
 
-代わりに、変数にアクセスして更新するために&lt;font color=#0099ff&gt;getName()&lt;/font&gt;and &lt;font color=#0099ff&gt;setName()&lt;/font&gt;メソッドを使用します。
+<b>実行結果</b><br>
+   山田<br>
+</p>
+</div>
+<br>
 
-&lt;br&gt;
-
-#### **例**
-[JSample10_1.java]
-
-&lt;pre&gt;&lt;code&gt;
-public class JSample10_1 {
-  public static void main(String[] args) {
-    Person myObj = new Person();
-    myObj.setName(&quot;John&quot;); // Set the value of the name variable to &quot;John&quot;
-    System.out.println(myObj.getName());
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-#### **実行結果**
-John
-
-&lt;br&gt;&lt;br&gt;
-
-***
-&gt; **練習**
-&gt;&gt; **問題**[JEx10_1.java]
-
-姓名、年齢と性別の属性があるクラスをカプセル化してください。
-</textarea>
-        <p id="output">content</p>
+<h2 style="font-weight: 400;">練習</h2>
+<!--問題2-->
+<button type="button" class="collapsible">問題１</button>
+    <div class="collapse-content">
+    <p><b>問題</b> [JEx10_1.java]<br>
+        姓名、年齢と性別の属性があるクラスをカプセル化してください。</p>
     </div>
-    <div class="text-center">
-        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
-    </div>
-    <script>
-    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
-    showdown.setOption('ghCodeBlocks', 'true');
-    var converter = new showdown.Converter({ extensions: ['prettify'] });
-    html = converter.makeHtml(document.getElementById('text').value);
-    document.getElementById('output').innerHTML = html;
-    </script>
+
+
+
+</div><!--article-container-->
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../assets/cdn/cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
 </body>
-
-
 </html>
