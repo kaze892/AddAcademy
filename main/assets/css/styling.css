@@ -1,7 +1,6 @@
-﻿/* collapse code start */
+/* collapse code start */
 .collapsible {
   background-color: #110d1080;
-  /*color: white;*/
   cursor: pointer;
   border-radius: 10px;
   padding: 15px 15px 15px 15px;
@@ -11,24 +10,33 @@
   text-align: left;
   outline: none;
   font-size: 20px;
+
 }
 
 .active, .collapsible:hover {
-  /*color:#000000;*/
   background-color: #3d4d4c80;
+  border: solid;
+  border-width: 2px;
+  outline: none;
+
+}
+.active, .collapsible:focus {
+  background-color: #3d4d4c80;
+  border: solid;
+  border-width: 2px;
+  outline: none;
 }
 
 .collapsible:after {
   content: '\002B';
-  color: white;
   font-weight: bold;
   float: right;
   margin-left: 5px;
+  outline: none;
 }
 
 .active:after {
   content: "\2212";
-  color:#e7bd42;
 }
 
 .collapse-content {
@@ -38,11 +46,12 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
- /*  background-color: #242121;*/
+ /* background-color: grey;*/
   font-size: 15px;
  /* color:white;*/
 }
 /* collapse code end */
+
 
 /* top page row color */
 .list-group-item{position:relative;display:block;padding:.75rem 1.25rem;margin-bottom:-1px;background-color:#110d1080;border:1px solid rgba(0,0,0,.125)}
@@ -51,9 +60,9 @@
 
 
 /* top page row hover */
-.list-group-item-action{width:100%;color:#fff;text-align:inherit}
+.list-group-item-action{width:100%;color:#000000;text-align:inherit}
 .list-group-item-action:focus,
-.list-group-item-action:hover{z-index:1;color:#000000;text-decoration:none;background-color:#3d4d4c80}
+.list-group-item-action:hover{z-index:1;color:#000000;text-decoration:none;background-color:#3d4d4c80;border:solid;border-width: 2px;outline: none;}
 .list-group-item-action:active{color:#e7bd42;background-color:#000000}
 
 
@@ -69,14 +78,14 @@ img {
 }*/
 
 .head1{
-  padding: 0px 0px 20px 0px;
-  color:white;
+  padding: 0px 50px 20px 0px;
+  color:#ebeef2;
   font-size: 40px;
 }
 
 .head2{
   padding: 00px 0px 30px 0px;
-  color:white;
+  color:#ebeef2;
   font-size: 20px;
 }
 
@@ -86,19 +95,20 @@ img {
   height:40px; 
   width:90px;
   color:#ffffff!important;
-  border-radius: 2.5px;
+  border-radius: 4px;
+  text-decoration:none!important;
 }
 
-.home-btn:hover{color:#000000!important}
+.home-btn:hover{
+  color:#000000!important;
+  box-shadow:0 0 0 .15rem rgba(230, 220, 195)}
 
 /* return button */
-.return-btn{padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;}
-.btn-info{color:#fff;background-color:#110d1080;border-color:#110d10}
-.btn-info:hover{color:#000000;background-color:#3d4d4c80;border-color:#3d4d4c80}
-.btn-info.focus,.btn-info:focus{box-shadow:0 0 0 .2rem rgba(58,176,195,.5)}
+.return-btn{padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;text-decoration:none!important;}
+.btn-info{color:black;background-color:#110d1080;border-color:#110d10;box-shadow:0 0 0 .15rem rgba(148, 154, 161)}
+.btn-info:hover{color:black;background-color:#3d4d4c80;outline: none;box-shadow:0 0 0 .15rem rgba(0,0,0)}
 .btn-info.disabled,.btn-info:disabled{color:#fff;background-color:#000000;border-color:#000000}
-.btn-info:not(:disabled):not(.disabled).active,.btn-info:not(:disabled):not(.disabled):active,.show>.btn-info.dropdown-toggle{color:#e7bd42;background-color:#000000;border-color:#000000}
-.btn-info:not(:disabled):not(.disabled).active:focus,.btn-info:not(:disabled):not(.disabled):active:focus,.show>.btn-info.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(58,176,195,.5)}
+.btn-info:not(:disabled):not(.disabled).active,.btn-info:not(:disabled):not(.disabled):active,.show>.btn-info.dropdown-toggle{/*color:#e7bd42;background-color:#000000;border-color:#000000*/}
 /* return button end*/
 
 
@@ -110,7 +120,7 @@ img {
   font-size:14px; 
   height:40px; 
   width:90px;
-  color:white;
+  color:#ebeef2;
   border-radius: 2.5px;
 }
 
@@ -129,3 +139,115 @@ body {
   user-select: none; /* Standard syntax prevent selection*/
 }
 
+
+
+/* dark mode*/
+.dark{
+  background-color: #292c35;
+  color: #ebeef2;
+}
+.dark .collapsible {
+  background-color: #39414d;
+  color: #ebeef2;
+}
+.dark .active, .collapsible:hover {
+  background-color: #3d4d4c80;
+  border: solid;
+  border-width: 2px;
+  outline: none;
+}
+.dark .active,.collapsible:focus {
+  background-color: #3d4d4c80;
+  border: solid;
+  border-width: 2px;
+  outline: none;
+}
+.dark .btn-info{color:#ebeef2;background-color:#39414d;border-color:#110d10;box-shadow:0 0 0 .15rem rgba(71, 80, 94)}
+.dark .btn-info:hover{color:#ebeef2;background-color:#3d4d4c80;box-shadow:0 0 0 .15rem rgba(235, 238, 242)}
+.dark .list-group-item{color:#ebeef2;position:relative;display:block;padding:.75rem 1.25rem;margin-bottom:-1px;background-color:#39414d;border:1px solid rgba(0,0,0,.125)}
+.dark .list-group-item-action:hover{z-index:1;color:#ebeef2;text-decoration:none;background-color:#3d4d4c80; border:solid;border-width: 2px;outline: none;}
+/* dark mode end*/
+
+
+
+
+
+
+
+
+
+/* darkmode switch */
+.switch {
+  margin: 19px 8px 0px 0px;
+  position: relative;
+  z-index: 99;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  float: right;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196f3;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 36px;
+  width: 36px;
+  left: 20px;
+  bottom: 4px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0 0px 15px pink;/*pink or #2020203d*/
+  background: white url('../../assets/img/themeslider/sunny.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(-24px);
+  -ms-transform: translateX(-24px);
+  transform: translateX(-24px);
+  background: white url('../../assets/img/themeslider/night.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* darkmode switch end*/

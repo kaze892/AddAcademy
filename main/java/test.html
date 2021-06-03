@@ -8,33 +8,6 @@
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
     <title>JAVA</title>
-
-<style>
-body {
-
-  background-color: white;
-  color: black;
-  font-size: 25px;
-}
-
-.dark-mode .collapsible {
-  background-color: #110d1080;
-  color: white;
-}
-
-.dark-mode {
-  background-color: #292c35;
-  color: white;
-}
-.toggle{
-  border-radius: 10%;
-  position: relative;
-  z-index: 99;
-  float: right;
-
-}
-</style>
-</style>
 </head>
 <body>
 
@@ -44,7 +17,7 @@ body {
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">JAVA入門</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">プログラミング言語であるJavaを使ってこれからプログラミングを学習しようとする方を対象としたJava入門です。Javaを使った開発を行うために必要となるJDKのインストール方法や、プログラムの作成と保存、そしてコンパイルと実行までJavaを使った開発手順について解説しています。</p>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では、プログラムの書き方と、Javaの変数、宣言について説明します。</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
@@ -53,42 +26,31 @@ body {
                     
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
-<button onclick="myFunction()" class="toggle">123</button>
+
+    <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
+    <label id="switch" class="switch animated fadeInUpBig">
+         <input id="mode" type="checkbox" onchange="toggleTheme()" id="slider">
+         <span class="slider round"></span>
+     </label>
+
+<button id="mode" class="btn">Toggle dark mode</button>
+<div id="app">hello</div>
 
     <!--JAVA構文-->
     <h1 class="article-container animated bounceInRight animation-delay-20">JAVA構文</h1>
-    <hr style="height:0.5px;background-color:#333;">
+    <hr style="height:0.5px;background-color:#878c91;">
     <h2 style="font-weight: 400;">1.開発ツールの準備とプログラム作成</h2>
 
 
 <!--開発ツールEclipse-->
 <button type="button" class="collapsible">開発ツールEclipse</button>
 <div class="collapse-content">
-    <p>第０章でもお伝えしたように、Javaの開発を行うためにはJavaの開発環境を準備する必要があります。<br>
-    本講座では開発ツールとしてEclipseを使用します。<br>
-    以下のリンクからEclipsをダウンロードできます。</p>
-    <a href="https://www.eclipse.org/downloads/">Eclipseダウンロード</a>
+    <p>第０章でもお伝えしたように
     
-    <p>デスクトップに「eclipse.exe」ショートカット、あるいは「eclipse」フォルダの中に「eclipse.exe」がありますので、これをダブルクリックします。</p>
-    <img style="height: 310px"; src="../assets/img/j01/eclipse01.png" alt=" ">
-    <br>
+    
 
-    <p>その後「Eclipseランチャー」ダイアログが表示されますので、ワークスペースのフォルダを選択してください。</p>
 
-    <img style="height: 180px"; src="../assets/img/j01/eclipse02.png" alt=" ">
-    <br>
-    <p><b style="color:#e7bd42">ワークスペース</b>とは、アプリケーションのソースファイルや設定ファイルなどを保存するフォルダです。<br>
-    ワークスペースを選択したら、そのまま「起動」ボタンを押します。<br>
-    起動すると、Eclipseの開発画面が表示されます。</p>
-    <img style="height: 390px"; src="../assets/img/j01/eclipse03.png" alt=" ">
-    <br>
-    <p>実際のシステムは、数百個以上のプログラムで構成されています。<br>
-    Elipseでは、その全体を［プロジェクト］と呼んで管理しています。<br>
-    プロジェクトの中には、全てのプログラムと関連するデータファイルが含まれています。<br><br>
-
-    さらに、プロジェクトの中は機能ごとに［パッケージ］と呼ばれるサブフォルダに分けられています。<br>
-    その［パッケージ］の元となるプログラムが入っており、機能ごとに呼び出して使っています。<br>
-    では実際に［プロジェクト］と［パッケージ］を作成し、簡単なプログラムを作ってみましょう。</p>
+    </p><br>
 </div>
 
 
@@ -97,26 +59,10 @@ body {
 <!--開発ツールEclipse-->
 <button type="button" class="collapsible">プロジェクトの作成</button>
 <div class="collapse-content">
-    <p>ツールバー中にファイルの「新規」を選択し、「javaプロジェクト」を選択します。</p>
-    <img style="height: 400px"; src="../assets/img/j01/eclipse04.png" alt=" ">
-    <p>「プロジェクト名」に「MyClass」を入力し、「完了」を押します。</p>
-    <img style="height: 390px"; src="../assets/img/j01/eclipse05.png" alt=" ">
-    <p>「MyClass」の名前でJavaプロジェクトを作成しました。</p><br>
-    <p><b>パッケージ・クラスの作成</b><br>
-    「MyClass」フォルダ中の「src」を右クリックしてポップアップメニューを表示します。
-    そのメニューで［新規］→［クラス］を指定します。</p>
-    <img style="height: 390px"; src="../assets/img/j01/eclipse06.png" alt=" ">
-    <p>すると、［新規Javaクラス］ダイアログが表示されるので、
-        <ul>
-            <li>［名前］にMyClassと入力し</li>
-            <li>［パッケージ］に「Sample」と入力</li>
-            <li>［どのメソッド・スタブを作成しますか？］のところにある［public static void main(String[] args)］を選択し、［終了］ボタンをクリックします。
-        </ul>
-    </p>
-    <img style="height: 390px"; src="../assets/img/j01/eclipse07.png" alt=" ">
-    <p>エディタ（※１）にソースコードが自動生成されます。<br>
-    これで開発の準備は完了です。<br>
-    （※１）eclipse内で実際にコード入力する作業スペースのこと。</p><br>
+    <p>
+        
+
+    </p><br>
 </div>
 
 
@@ -124,31 +70,26 @@ body {
 <!--プログラム作成-->
 <button type="button" class="collapsible">プログラム作成</button>
 <div class="collapse-content">
+    <p>
+        
 
-    <p>それでは実際に以下のコードを入力してみましょう。<br>
-    [MyClass.java]</p>
-
-    <pre class="prettyprint linenums">package JSample
-    public class MyClass {
-      public static void main(String[] args) {
-        System.out.println("Hello World");
-      }
-    }</pre>
-
-    <img style="height: 160px"; src="../assets/img/j01/eclipse08.png" alt=" ">
-    <br>
-    <p>コードの入力が完了したら保存します。<br>
-    ツールバーの下にある［実行］ボタンをクリックします。</p>
-    <img style="height: 85px"; src="../assets/img/j01/eclipse09.png" alt=" ">
-    <br><br>
-    
-    <h3>実行結果</h3>
-    <img style="height: 130px"; src="../assets/img/j01/eclipse10.png" alt=" ">
-    <p>出力に「Hello World 」と表示されれば成功です。</p>
+    </p><br>
 </div>
 
 
+<pre class="prettyprint linenums">package JSample
+package JSample;
 
+public class JSample7_8{
+    public static void main(String[] args){
+        String str = "東京,大阪,京都,名古屋";
+        String[]city = str.split(",");
+
+        for (int i = 0; i &lt;city.length; i++){
+            System.out.println(i + "番目の要素 = :" + city[i]);
+        }
+    }
+}</pre>
 
     <!--article-container-->
 
@@ -159,12 +100,7 @@ body {
 
 <script src="../assets/js/collapse.js"></script>  
 <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
-<script>
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
+<script src="../assets/js/darkmode.js"></script>
 
   
 </body>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>第2章　プログラムの書き方とJava変数</title>
+    <title>JAVA</title>
 </head>
 <body>
 
@@ -16,35 +16,53 @@
         <div class="container">
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第2章　プログラムの書き方とJava変数</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">この章では、プログラムの書き方と、Javaの変数、宣言について説明します。</p>
+                <h1 class="head1 animated zoomInDown animation-delay-5">JAVA入門</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では、プログラムの書き方と、Javaの変数、宣言について説明します。/p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java-index.html" >HOMEPAGE</a>
             </div>
         </div>
     </div><br>
-                
+    
+                    
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
+    <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
+    <label id="switch" class="switch animated fadeInUpBig">
+         <input type="checkbox" onchange="toggleTheme()" id="slider">
+         <span class="slider round"></span>
+     </label>
+
+
 
     <!--JAVA構文-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">プログラムの書き方とJava変数</h1>
-    <hr style="height:0.5px;background-color:#333;">
-    <h2 style="font-weight: 400;">1.プログラムの書き方</h2>
+    <h1 class="article-container animated bounceInRight animation-delay-20">JAVA構文</h1>
+    <hr style="height:0.5px;background-color:#878c91;">
+    <h2 style="font-weight: 400;">1.開発ツールの準備とプログラム作成</h2>
 
 
 <!--開発ツールEclipse-->
 <button type="button" class="collapsible">開発ツールEclipse</button>
 <div class="collapse-content">
-    <p>
-        eflihqifhi
-
-    </p>
-</div>
-
+    <p>第０章でもお伝えしたように
+    
     
 
 
+    </p><br>
+</div>
+
+
+    
+
+<!--開発ツールEclipse-->
+<button type="button" class="collapsible">プロジェクトの作成</button>
+<div class="collapse-content">
+    <p>
+        
+
+    </p><br>
+</div>
 
 
 <h2 style="font-weight: 400;">2.プログラム作成</h2>
@@ -52,13 +70,13 @@
 <button type="button" class="collapsible">プログラム作成</button>
 <div class="collapse-content">
     <p>
-        wra
+        
 
-    </p>
+    </p><br>
 </div>
 
 
-    <pre class="prettyprint linenums">package JSample
+<pre class="prettyprint linenums">package JSample
 package JSample;
 
 public class JSample7_8{
@@ -70,13 +88,9 @@ public class JSample7_8{
             System.out.println(i + "番目の要素 = :" + city[i]);
         }
     }
-}
+}</pre>
 
-</p>
-    }</pre>
-
-
-</div><!--article-container-->
+    <!--article-container-->
 
     <!--back button-->
     <div class="text-center"><br>
@@ -84,6 +98,8 @@ public class JSample7_8{
     </div><br>
 
 <script src="../assets/js/collapse.js"></script>  
-<script src="../assets/cdn/cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<script src="../assets/js/darkmode.js"></script>
+  
 </body>
 </html>

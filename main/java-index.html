@@ -19,12 +19,19 @@
                 <h1 class="head1 animated zoomInDown animation-delay-5">JAVA入門</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">JAVA入門では、プログラムの作成と保存、そしてコンパイルと実行までの開発手順について解説しています</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
+                    <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
+                    <label id="switch" class="switch animated fadeInUpBig" style="margin: 0px 0px 0px 0px;left: 40;">
+                        <input type="checkbox" onchange="toggleTheme()" id="slider">
+                        <span class="slider round"></span>
+                    </label>  
             </div>
         </div>
     </div><br>
                 
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
+
+
 
     <div class="row">
         <a href="../main/java/java00.html" class="list-group-item list-group-item-action withripple">第0章　Javaとは</a>
@@ -57,6 +64,8 @@
     </div><br>
 
 <script src="assets/js/collapse.js"></script>  
-<script src="assets/cdn/cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<script src="assets/cdn/cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>
+<script src="assets/js/darkmode.js"></script>
+
 </body>
 </html>

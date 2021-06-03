@@ -26,9 +26,16 @@
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
+    <!-- <button id="switch" onclick="toggleTheme()">Switch</button> -->
+    <label id="switch" class="switch animated fadeInUpBig">
+         <input type="checkbox" onchange="toggleTheme()" id="slider">
+         <span class="slider round"></span>
+     </label>
+
+     
 <!--メンバ変数とメンバメソッド-->
 <h1 class="article-container animated bounceInRight animation-delay-20">メンバ変数とメンバメソッド</h1>
-<hr style="height:0.5px;background-color:#333;">
+<hr style="height:0.5px;background-color:#878c91;">
 
 <h2 style="font-weight: 400;">メンバ変数</h2>
 <!--1.メンバ変数とは-->
@@ -518,5 +525,7 @@ public class JEx11_1 {
 <br>
 <script src="../assets/js/collapse.js"></script> 
 <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>
+<script src="../assets/js/darkmode.js"></script>
+
 </body>
 </html>
