@@ -63,7 +63,7 @@
 .list-group-item-action{width:100%;color:#000000;text-align:inherit}
 .list-group-item-action:focus,
 .list-group-item-action:hover{z-index:1;color:#000000;text-decoration:none;background-color:#3d4d4c80;border:solid;border-width: 2px;outline: none;}
-.list-group-item-action:active{color:#e7bd42;background-color:#000000}
+/*.list-group-item-action:active{color:#e7bd42;background-color:#000000}*/
 
 
 /* code-prettify use */
@@ -178,7 +178,7 @@ body {
 
 /* darkmode switch */
 .switch {
-  margin: 19px 8px 0px 0px;
+  margin: 0px 0px 0px 0px;
   position: relative;
   z-index: 99;
   display: inline-block;
