@@ -210,3 +210,97 @@ public class JEx9_1 {
     	employee01.dispID();
     }
 }
+
+-----------------------------------------------------------------------
+JEx13_1.java(新11章)
+
+(Employee.java)
+
+public class Employee {
+    String name;
+
+    public void operation() {
+        System.out.println( this.name + "は通常業務を行ないます。");
+    }
+}
+
+
+
+(Manager.java)
+
+public class Manager extends Employee{
+    public void management() {
+        System.out.println( this.name + "は管理業務を行ないます。" );
+    }
+}
+
+
+
+(JEx13_1.java)
+
+public class JEx13_1 {
+    public static void main(String[] args) {
+        Employee taro = new Employee();
+        sato.name = "佐藤";
+	suzuki.name = "鈴木";
+
+        Manager yamada = new Manager();
+        yamada.name = "山田";
+
+        sato.operation();      
+	suzuki.operation();  
+        yamada.operation();     
+        yamada.management();    
+    }
+}
+-----------------------------------------------------------------------
+JEx13_2.java(新11章)
+
+
+(Fighter.java)
+
+public class Fighter {
+    public String name;
+    public int atk;
+
+    public Fighter() {
+        this.name = "戦士";
+        this.atk = 10;
+    }
+
+    public void attack() {
+        System.out.println(this.name + "の攻撃!");
+        System.out.println("敵に" + this.atk + "のダメージ!!" );
+    }
+}
+
+
+
+(MagicFighter.java)
+
+public class MagicFighter extends Fighter {
+    public int mp;
+
+    public MagicFighter() {
+        this.name = "魔法戦士";
+        this.mp = 20;
+    }
+
+    public void attack() {
+        System.out.println(this.name + "の魔法攻撃!");
+        System.out.println( "敵に" + (this.atk + this.mp) + "のダメージ!");
+    }
+}
+
+
+(JEx13_1.java)
+public class JEx13_2 {
+    public static void main(String[] args) {
+        Fighter fighter = new Fighter();
+        fighter.attack();
+
+        MagicFighter magicFighter = new MagicFighter();
+        magicFighter.attack();
+    }
+}
+-----------------------------------------------------------------------

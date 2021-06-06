@@ -27,7 +27,8 @@
         </div>
     </div><br>
                 
-
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
     <!--クラスの継承-->
@@ -42,101 +43,83 @@
 
 継承元のクラスのことを「スーパークラス」「親クラス」などと呼び、継承したクラスのことを「サブクラス」「子クラス」などと呼びます。親クラスを継承するためにはextendsを指定します。
 <pre class="prettyprint linenums">
-package JSample
 class 親クラス名 {
-    処理...
+    親クラスのメンバ変数;
+    親クラスのメソッド;
 }
+</pre>
+<pre class="prettyprint linenums">
 class 子クラス名 extends 親クラス名 {
-    処理...
+    super.親クラスのメンバ変数;
+    super.親クラスのメソッド;
 }
 </pre>
-    <ul>
-        <li><b>Javaにおける継承</b>
-            <ul>
-                <li>あるクラスの定義内容を受け継ぐこと
-                <li>メソッド・フィールドを定義し直さなくてもそのまま使える    
-            </ul>
-    </ul>    
-    insert pic here<br><br>
-    <ul>
-        <li><b>Javaにおける継承</b>
-            <ul>
-                <li>継承したクラスで独自のメソッドやフィールドを追加することもできる（＝拡張）
-                <li>継承したクラスで元のメソッド・フィールドの定義を変更することもできる （＝再定義・オーバーライド）
-            </ul>
-    </ul>
-insert pic here<br><br>
-    </p><br>
-</div>
-
-
-    
-
-<!--1.継承の作成-->
-<h2 style="font-weight: 400;">changeme</h2>
-<button type="button" class="collapsible">1.継承の作成</button>
-<div class="collapse-content">
-    <p>クラスの継承の例を以下に記載します。<br><br>
-<b>例：</b>[JSample13_0.java]<br> 
-<pre class="prettyprint linenums">
-package JSample;
-class superclass {
-    int i,j;
-    void printij(){
-        System.out.println("i and j:" + i + " " + j);
-    }
-}
-</pre><br> 
-<b>例：</b>[JSample13_1.java]<br> 
-<pre class="prettyprint linenums">
-package JSample;
-class subclass extends superclass {
-    int k;
-    void printk() {
-        System.out.println("k:" + k);
-    }
-    void printsum() {
-        System.out.println("i + j + k:" + (i + j + k));
-    }
-}
-class JSample13_1 {
-    public static void main(String[] args) {
-        superclass superOb = new superclass();
-        subclass subOb = new subclass();
-            superOb.i = 10;
-            superOb.j = 20;
-        System.out.println("Contents of superOb: ");
-            superOb.printij();
-        System.out.println();
-            subOb.i = 7;
-            subOb.j = 8;
-            subOb.k = 9;
-        System.out.println("Contents of subOb: ");
-            subOb.printij();
-            subOb.printk();
-        System.out.println();
-        System.out.println("Sum of i,j and k in subOb:");
-            subOb.printsum();
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-Contents of superOb:<br>
-i and j:10 20<br><br>
-
-Contents of subOb:<br>
-i and j:7 8<br>
-k:9<br><br>
-
-Sum of i,j and k in subOb:<br>
-i + j + k:24<br>
+<b>※「super.」</b>は省略可。
+但し、子クラスに親クラスと同じ名前のメンバ変数やメソッドがある場合は、明示的に「super.」を付加しないと自クラス（子クラス）のものが使用されます。
     </p><br>
 </div><br>
 
 
+    
 
-<!--2.コンストラクタの呼び出し規則-->
-<button type="button" class="collapsible">2.コンストラクタの呼び出し規則</button>
+<!--1.継承とコンポジション-->
+<h2 style="font-weight: 400;">継承クラスの種類</h2>
+<button type="button" class="collapsible">1.継承とコンポジション</button>
+<div class="collapse-content">
+    <p>他のクラスの要素を利用できる方法として、「継承」の他に「コンポジション」（集約）があります。
+    <ul>
+        <li><b>継承</b>
+            <ul>
+                <li>「継承」は「A is a B」のとき、つまり「AはBである」といえる場合に使用します。
+                <li>「人間クラス」と「プログラマークラス」があった場合、「プログラマーは人間である」といえるので「継承」関係にすることが出来ます。これを「Is-a」関係と呼びます。  
+            </ul>
+    </ul> 
+
+    <ul>
+        <li><b>コンポジション</b>
+            <ul>
+                <li>「コンポジション」は「A has a B」のとき、つまり「AはBをもっている」といえる場合に使用します。
+                <li>「プログラマークラス」と「パソコンクラス」があった場合、「プログラマーはパソコンをもっている」といえるので「コンポジション」関係にすることが出来ます。これを「has-a」関係と呼びます。
+            </ul>
+    </ul> 
+
+<b>例：</b>[JSample13_1.java]<br> 
+<pre class="prettyprint linenums">
+package JSample;
+class Animal {
+      public void meow(){
+        System.out.println("ニャー");
+      }
+    }
+
+    class Name {
+      public void printName(){
+        System.out.println("タマネギ");
+      }
+    }
+
+    class Cat extends Animal {
+      public Name catName = new Name();
+    }
+
+    public class JSample13_1 {
+      public static void main(String[] args) {
+        Cat neko = new Cat();
+        neko.meow();
+        neko.catName.printName();
+      }
+    }
+</pre>
+    <b>実行結果</b><br>
+ニャー<br>
+タマネギ<br>
+    </p><br>
+</div>
+
+
+
+<!--2.コンストラクタ-->
+<button type="button" class="collapsible">2.コンストラクタ</button>
 <div class="collapse-content">
     <p>「親クラス」と「子クラス」のコンストラクタは次の規則で呼び出されます。
         <ul>
@@ -147,40 +130,40 @@ i + j + k:24<br>
 <b>例：</b>[JSample13_2.java]<br>    
 <pre class="prettyprint linenums">
 package JSample;
-class Parent132 {
-    public String ps1 = "親クラスのメンバ変数が参照されました。";
-    public Parent132() {
+class Oya {
+    public String parentStr = "親クラスのメンバ変数が参照されました。";
+    public Oya() {
         System.out.println("親クラスのコンストラクタ（引数なし）が呼ばれました。");
     }
-    public void pm() {
+    public void oyaMethod() {
         System.out.println("親クラスのメソッドが呼ばれました。");
     }
 }
-class Child132 extends Parent132 { // Parentクラス（親クラス）を継承。
-    public String cs1 = "子クラスのメンバ変数が参照されました。";
-    public Child132() {
+class Kodomo extends Oya { // 親クラスを継承。
+    public String childStr = "子クラスのメンバ変数が参照されました。";
+    public Kodomo() {
         System.out.println("自クラスのコンストラクタ（引数なし）が呼ばれました。");
     }
-    public void cm() {
+    public void childMethod() {
         System.out.println("子クラスのメソッドが呼ばれました。");
     }
 }
 public class JSample13_2 {
     public static void main(String[] args) {
-        Child132 child = new Child132(); // 子クラスのインスタンスを生成。
-        System.out.println(child.ps1); // 親クラスのメンバ変数を参照。
-        System.out.println(child.cs1); // 子クラスのメンバ変数を参照。
-        child.pm(); // 親クラスのメソッドの呼び出し。
-        child.cm(); // 子クラスのメソッドの呼び出し。
+        Kodomo child = new Kodomo(); // 子クラスのインスタンスを生成。
+        System.out.println(child.parentStr); // 親クラスのメンバ変数を参照。
+        System.out.println(child.childStr); // 子クラスのメンバ変数を参照。
+        child.oyaMethod(); // 親クラスのメソッドの呼び出し。
+        child.childMethod(); // 子クラスのメソッドの呼び出し。
     }
 }
 </pre>
      <b>実行結果</b><br>
-親クラスのコンストラクタ（引数なし）が呼ばれました。<br>
+親クラスのコンストラクタ（引数なし）が呼ばれました。<font color="color:red">← 子クラスのインスタンス生成時に親クラスのコンストラクタが先に呼ばれる。</font><br>
 自クラスのコンストラクタ（引数なし）が呼ばれました。<br>
-親クラスのメンバ変数が参照されました。<br>
+親クラスのメンバ変数が参照されました。<font color="color:red">← 子クラスから親クラスのメンバ変数を参照できている。</font><br>
 子クラスのメンバ変数が参照されました。<br>
-親クラスのメソッドが呼ばれました。<br>
+親クラスのメソッドが呼ばれました。<font color="color:red">← 子クラスから親クラスのメソッドを呼び出せている。</font><br>
 子クラスのメソッドが呼ばれました。<br>
 
 
@@ -189,65 +172,80 @@ public class JSample13_2 {
 
 
 
-<!--3.this変数-->
-<button type="button" class="collapsible">3.this変数</button>
+<!--3.this-->
+<button type="button" class="collapsible">3.this</button>
 <div class="collapse-content">
-    <p>this変数は、呼び出されたコンストラクタやメソッドのオブジェクトを参照するために使われる予約語（keyword）である。
+    <p>thisとは、呼び出されたコンストラクタやメソッドのオブジェクトを参照するために使われる予約語である。<br>
+    thisを使ってメソッドの引数になっているローカル変数と、メンバ変数を区別することができます。<br><br>
+<b>例：</b>[JSample13_3.java]<br>     
 <pre class="prettyprint linenums">
-class Person {
-    String name;
-    void printName() {
-        System.out.println(this.name);
+class Animal {
+    private String name = "タマネギ";
+
+    public void printName(String name){
+        System.out.println("ローカル変数 = " + name);
+        System.out.println("メンバ変数 = " + this.name); 
     }
-    void whatIsYourName() {
-        this.printName();
+    
+}
+ 
+public class JSample13_3 {
+    public static void main(String[] args) {
+        String name = "ナス";
+        Animal neko = new Animal();
+        
+        neko.printName(name);
+
     }
 }
 </pre>
+     <b>実行結果</b><br>
+     ローカル変数 = ナス<br>
+     メンバ変数 = タマネギ<br>
     </p><br>
 </div>
 
 
 
-<!--4.super変数-->
-<button type="button" class="collapsible">4.super変数</button>
+<!--4.super-->
+<button type="button" class="collapsible">4.super</button>
 <div class="collapse-content">
     <p>superとは、Javaにおけるサブクラスでオーバーライド（親クラスのメソッドを子クラスで継承）された変数やインスタンスを参照する場合に使用されます。<br><br>
 
-つまり、子クラスのインスタンス（new [クラス名()]で作られたクラスの実体のこと）から、親クラスのインスタンスのメンバにアクセスして、値を参照する必要があるときにsuperが使用されます。
-<b>例：</b>[JSample13_3.java]<br> 
+つまり、子クラスのインスタンス（new [クラス名()]で作られたクラスの実体のこと）から、親クラスのインスタンスのメンバにアクセスして、値を参照する必要があるときにsuperが使用されます。<br><br>
+<b>例：</b>[JSample13_4.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-class SuperClassSample {
+class SuperClass {
     String str = "SuperClass";
-    public String getSrt() {
+    public String getStr() {
         return str;
     }
 }
-class SubClassSample extends SuperClassSample {
+class SubClass extends SuperClass {
     String str = "SubClass";
-    public String getSrt() {
+    public String getStr() {
         return str;
     }
     public void print() {
         System.out.println("super.str = " + super.str);
         System.out.println("str = " + str);
-        System.out.println("super.getSrt() = " + super.getSrt());
-        System.out.println("getSrt() = " + getSrt());
+        System.out.println("super.getStr() = " + super.getStr());
+        System.out.println("getStr() = " + getStr());
     }
 }
-public class JSample13_3 {
+public class JSample13_4 {
     public static void main(String[] args) {
-        SubClassSample scs = new SubClassSample();
-        scs.print();
+        SubClass sc = new SubClass();
+        sc.print();
     }
 }
 </pre>
      <b>実行結果</b><br>
 super.str = SuperClass<br>
 str = SubClass<br>
-super.getSrt() = SuperClass<br>
-getSrt() = SubClass<br>   
+super.getStr() = SuperClass<br>
+getStr() = SubClass<br>   
     </p><br>
 </div>
 
@@ -258,34 +256,34 @@ getSrt() = SubClass<br>
 <div class="collapse-content">
     <p>クラスを継承した時に元になっているスーパークラスで定義されているメソッドを継承したサブクラスにて同じメソッド名(と同じ引数)で書き換えることが出来ます。つまり上書きするということです。これをメソッドのオーバーライドと言います。<br> <br> 
 
-具体的な例で考えてみます。スーパークラスとしてクラスAを用意し、クラスAを継承したクラスB1、クラスB2があったとします。スーパークラスであるクラスAには「show」というメソッドが定義されています。ここでクラスB1で「show」というメソッドをオーバーライドしてみます。
-<b>例：</b>[JSample13_4.java]<br> 
+具体的な例で考えてみます。スーパークラスとしてクラスSuperClassを用意し、クラスSuperClassを継承したクラスSubClass1、クラスSubClass2があったとします。スーパークラスであるクラスAには「show」というメソッドが定義されています。ここでクラスB1で「show」というメソッドをオーバーライドしてみます。<br><br>
+<b>例：</b>[JSample13_5.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-class A {
+class SuperClass {
     public void show() {
-        System.out.println("super classのprint メソッド!");
+        System.out.println("SuperClassのprint メソッド!");
     }
 }
-class B1 extends A {
+class SubClass1 extends SuperClass {
     public void show() {
-        System.out.println("sub classのprint メソッド!");
+        System.out.println("SubClassのprint メソッド!");
     }
 }
-class B2 extends A {
+class SubClass2 extends SuperClass {
 }
-class JSample13_4 {
+class JSample13_5 {
     public static void main(String args[]) {
-        B1 b1 = new B1();
-        b1.show();
-        B2 b2 = new B2();
-        b2.show();
+        B1 subc1 = new SubClass1();
+        subc1.show();
+        B2 subc2 = new SubClass2();
+        subc1.show();
     }
 }
 </pre>
      <b>実行結果</b><br>
-sub classのprint メソッド!<br>
-super classのprint メソッド!<br>   
+SubClassのprint メソッド!<br>
+SuperClassのprint メソッド!<br>   
     </p><br>
 </div>
 
@@ -294,13 +292,13 @@ super classのprint メソッド!<br>
 <!--6.メソッドのオーバーロード-->
 <button type="button" class="collapsible">6.メソッドのオーバーロード</button>
 <div class="collapse-content">
-    <p>メソッドを引数を付けて呼び出す時、引数に記述する値のデータ型はメソッドで決められたものしか指定できません。その為、同じような機能を持つメソッドであっても引数のデータ型が異なれば別々のメソッドを用意する必要があります。<br> <br> 
+    <p>メソッドを引数を付けて呼び出す時、引数に記述する値のデータ型はメソッドで決められたものしか指定できません。その為、同じような機能を持つメソッドであっても引数のデータ型が異なれば別々のメソッドを用意する必要があります。<br><br> 
 
-Javaでは引数のデータ型や引数の数が完全に一致していなければ異なるメソッドに同じメソッド名を付けることが出来ます。
-<b>例：</b>[JSample13_5.java]<br> 
+Javaでは引数のデータ型や引数の数が完全に一致していなければ異なるメソッドに同じメソッド名を付けることが出来ます。<br><br>
+<b>例：</b>[JSample13_6.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-class JSample13_5 {
+class JSample13_6 {
     public static void main(String args[]) {
         System.out.println(plus(10, 7));
         System.out.println(plus(3.2, 4));
@@ -344,48 +342,69 @@ double + double<br>
 <!--7.final修飾子-->
 <button type="button" class="collapsible">7.final修飾子</button>
 <div class="collapse-content">
-    <p>javaのfinal修飾子はクラス、メソッド、変数全てにつけることができます。 <br> 
+    <p>final修飾子はクラス、メソッド、変数の不変性を示して、対象の予期せぬ変更を防ぐために用います。<br>
+    一度しか値を代入することができない変数を定数になったため、再代入が禁止になります。<br><br>
         <ul>
             <li><b>final変数</b>
         </ul>
-            一度しか値を代入することができない変数をfinalを使うと宣言することができる。
-<b>例：</b>[JSample13_5.java]<br> 
 <pre class="prettyprint linenums">
-final float finalVariable = 3.14159f; 
+class MyClass {
+  void myMethod() {
+    final int a = 0;
+    a = 1;
+  }
+}
 </pre>
-※ finalVariable変数が定数になったため、再代入が禁止です。
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j13/j13-01.png" alt=" "><br><br>
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
     <ul>
         <li><b>finalクラス</b>
     </ul>
-    クラスにfinalを付ける宣言することができる。そうすると、クラスを継承することができなくなる。
-<pre class="prettyprint linenums">
-final class FinalClass { }
-</pre>
+    クラスにfinalを付ける宣言することができる。そうすると、クラスを継承することができなくなる。<br>
+
     extendsに続く部分にfinalクラスが書いてあると、コンパイルエラーになる。
 <pre class="prettyprint linenums">
-class SubclassOfFinalClass extends FinalClass { }
-</pre> 
-※ コンパイル結果：final FinalClassからは継承できません
+final class MyClass {
+}
 
+class MySubClass extends MyClass {
+}
+</pre> 
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j13/j13-02.png" alt=" "><br><br>
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
     <ul>
         <li><b>finalメソッド</b>
     </ul>
-    メソッドにfinalを付けて宣言することができる。メソッドにfinalを付けると、サブクラスでメソッドをオーバーライドできなくなる。
+    メソッドにfinalを付けて宣言することができますが、メソッドにfinalを付けると、サブクラスでメソッドをオーバーライドできなくなります。
 <pre class="prettyprint linenums">
-class SuperMethod {
-    final void superMethod() { }
+class MyClass {
+  final public void myMethod() {
+  }
+}
+
+class MySubClass extends MyClass {
+  public void myMethod() {
+  }
 }
 </pre> 
-サブクラスでメソッドをオーバーライドすると，コンパイルエラーになる。
-<pre class="prettyprint linenums">
-class SubclassOfSuperMethod extends SuperMethod {
-    final void superMethod() { }
-}
-</pre> 
-※ コンパイル結果：SubclassOfSuperMethodのSuperMethod()はSuperMethodのsuperMethod()をオーバーライドできません
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j13/j13-03.png" alt=" "><br><br>
 
 
-<b>例：</b>[JSample13_6.java]<br> 
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+
+
+
+円周率は既に「Math.PI」として定義されているが，finalのサンプルとしてあえて定義を独自に行っています。<br>
+円周率や面積を求めるメソッドは，定理に従ったものなのでこれ以上の追加はないものとしてfinalを付けます。<br>
+
+<b>例：</b>[JSample13_7.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
 class Circle {
@@ -394,7 +413,7 @@ class Circle {
         return PI * radius * radius;//円の面積
     }
 }
-public class JSample13_6 {
+public class JSample13_7 {
     public static void main(String[] args) {
         Circle circle = new Circle();//Circleクラスのオブジェクト作成
         double area = circle.getAreaOfCircle(2.0);//半径2.0の面積
@@ -402,6 +421,8 @@ public class JSample13_6 {
     }
 }
 </pre>
+     <b>実行結果</b><br>
+area = 12.56636<br>
 </div><br>
 
 
@@ -410,18 +431,108 @@ public class JSample13_6 {
 
 
 <h2 style="font-weight: 400;">練習</h2>
-<!--プログラム作成-->
+<!--練習-->
 <button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
-    <p><b>問題</b>[JEx13_1.java]<br>
-        test<br>
+    <p><b>問題</b>[JEx13_1]<br>
+    従業員の管理者を表すManagerクラスを、Employeeクラスを継承してプログラムを完成しなさい<br>
+
+[Employee.java]
 <pre class="prettyprint linenums">
-test
+public class Employee {
+    //処理
+}
+</pre>
+
+
+[Manager.java]
+<pre class="prettyprint linenums">
+public class Manager {
+    //処理
+}
+</pre>
+
+
+[JEx13_1.java]
+<pre class="prettyprint linenums">
+public class JEx13_1 {
+    public static void main(String[] args) {
+        Employee taro = new Employee();
+        sato.name = "佐藤";
+        suzuki.name = "鈴木";
+
+        Manager yamada = new Manager();
+        yamada.name = "山田";
+
+        //satoの持つoperationメソッドを呼び出します。
+        //suzukiの持つoperationメソッドを呼び出します。
+        //yamadaの持つoperationメソッドを呼び出します。
+        //yamadaの持つmanagementメソッドを呼び出します。
+    }
+}
 </pre>
     <b>実行結果</b><br>
-    変数hiraganaには「あ」が保存されています。<br>
-    「あ」の文字コードは12354<br>
-    codeの文字コードをインクリメントすると「ぃ」となります。
+佐藤は通常業務を行ないます。<br>
+鈴木は通常業務を行ないます。<br>
+山田は通常業務を行ないます。<br>
+山田は管理業務を行ないます。<br>
+    </p><br>
+</div>
+
+
+
+<button type="button" class="collapsible">問題２</button>
+<div class="collapse-content">
+    <p><b>問題</b>[JEx13_2]<br>
+    RPGに登場する魔法戦士を表すMagicFighterクラスを、Fighterクラスを継承して作成してプログラムを完成しなさい<br>
+[Fighter.java]
+<pre class="prettyprint linenums">
+public class Fighter {
+    //処理
+
+    public Fighter() {
+        //処理
+    }
+
+    public void attack() {
+        //処理
+    }
+}
+</pre>
+
+
+[MagicFighter.java]
+<pre class="prettyprint linenums">
+public class MagicFighter extends Fighter {
+    //処理
+
+    public MagicFighter() {
+        //処理
+    }
+
+    public void attack() {
+        //処理
+    }
+}
+</pre>
+
+[JEx13_2.java]
+<pre class="prettyprint linenums">
+public class JEx13_2 {
+    public static void main(String[] args) {
+        Fighter fighter = new Fighter();
+        fighter.attack();
+
+        MagicFighter magicFighter = new MagicFighter();
+        magicFighter.attack();
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+戦士の攻撃!<br>
+敵に10のダメージ!!<br>
+魔法戦士の魔法攻撃!<br>
+敵に30のダメージ!<br>
     </p><br>
 </div>
 
