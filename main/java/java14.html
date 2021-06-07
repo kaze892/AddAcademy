@@ -42,40 +42,40 @@
 <div class="collapse-content">
     <p>多態性とは「多形態」を意味し、継承によって互いに関連するクラスが多数ある場合に発生します。<br>
 
-たとえば、名前はAnimalというスーパークラスがanimalSound()があります。動物のサブクラスには、豚、猫、犬、鳥などがあります。また、動物のサウンドを独自に実装することもできます（豚の鳴き声、猫の鳴き声など）。<br><br> 
+たとえば、名前はAnimalというスーパークラスがanimalSound()があります。動物のサブクラスには、猫、犬、鳥などがあります。また、動物のサウンドを独自に実装することもできます（猫の鳴き声、犬の鳴き声など）。<br><br> 
 <b>例：</b>[JSample14_1.java]<br>         
 <pre class="prettyprint linenums">
 package JSample;
 class Animal {
   public void animalSound() {
-    System.out.println("The animal makes a sound");
+    System.out.println("動物が鳴いた");
   }
 }
-class Pig extends Animal {
+class Cat extends Animal {
   public void animalSound() {
-    System.out.println("The pig says: wee wee");
+    System.out.println("猫が鳴いた");
   }
 }
 class Dog extends Animal {
   public void animalSound() {
-    System.out.println("The dog says: bow wow");
+    System.out.println("犬が鳴いた");
   }
 }
 class JSample14_1 {
   public static void main(String[] args) {
-    Animal myAnimal = new Animal();  // Create a Animal object
-    Animal myPig = new Pig();  // Create a Pig object
-    Animal myDog = new Dog();  // Create a Dog object
+    Animal myAnimal = new Animal();
+    Animal myCat = new Cat();
+    Animal myDog = new Dog();
     myAnimal.animalSound();
-    myPig.animalSound();
+    myCat.animalSound();
     myDog.animalSound();
   }
 }
 </pre>
     <b>実行結果</b><br>
-The animal makes a sound<br>
-The pig says: wee wee<br>
-The dog says: bow wow<br>
+動物が鳴いた<br>
+猫が鳴いた<br>
+犬が鳴いた<br>
     </p><br>
 </div>
 
@@ -89,23 +89,24 @@ The dog says: bow wow<br>
     <p>コードの再利用性に役立ちます。新しいクラスを作成するときに、既存のクラスの属性とメソッドを再利用します。<br><br> 
 <b>例：</b>[JSample14_2.java]<br>         
 <pre class="prettyprint linenums">
+package JSample;
 public class JSample14_1 {
     public static void main(String[] args) {
       show(new Cat());  
       show(new Dog()); 
-      Animal a = new Cat();    
-      a.eat();              
-      Cat c = (Cat)a;         
-      c.work();       
+      Animal doubutsu = new Cat();    
+      doubutsu.eat();              
+      Cat neko = (Cat)doubutsu;         
+      neko.work();       
     }  
-    public static void show(Animal a)  {
-      a.eat();  
-      if (a instanceof Cat)  { 
-            Cat c = (Cat)a;  
-            c.work();  
-      } else if (a instanceof Dog) { 
-            Dog c = (Dog)a;  
-            c.work();  
+    public static void show(Animal doubutsu)  {
+      doubutsu.eat();  
+      if (doubutsu instanceof Cat)  { 
+            Cat neko = (Cat)doubutsu;  
+            neko.work();  
+      } else if (doubutsu instanceof Dog) { 
+            Dog inu = (Dog)doubutsu;  
+            inu.work();  
       }  
     }  
 }
@@ -114,28 +115,28 @@ abstract class Animal {
 }  
 class Cat extends Animal {  
     public void eat() {  
-        System.out.println("Catに食べる?");  
+        System.out.println("Catが食べた");  
     }  
     public void work() {  
-        System.out.println("Catにネズミを捕まえる");  
+        System.out.println("Catはネズミを捕まえた");  
     }  
 }  
 class Dog extends Animal {  
     public void eat() {  
-        System.out.println("Dogに食べる?");  
+        System.out.println("Dogが食べた");  
     }  
     public void work() {  
-        System.out.println("Dogに留守番する");  
+        System.out.println("Dogが留守番する");  
     }  
 }
 </pre>
     <b>実行結果</b><br>
-Catに食べる?<br>
-Catにネズミを捕まえる<br>
-Dogに食べる?<br>
-Dogに留守番する<br>
-Catに食べる?<br>
-Catにネズミを捕まえる<br>     
+Catが食べた?<br>
+Catはネズミを捕まえた<br>
+Dogが食べた?<br>
+Dogが留守番する<br>
+Catが食べた?<br>
+Catはネズミを捕まえた<br>     
 
     </p><br>
 </div>
@@ -168,6 +169,7 @@ public class JSample14_3 {
         ControlBikeIf myBike = new BikeGo();
         myBike.start();
         myBike.speedup();
+        myBike.speeddown();
         myBike.stop();
         myBike.start();
     }
@@ -195,10 +197,10 @@ public interface ControlBikeIf {
 <pre class="prettyprint linenums">
 public class BikeGo implements ControlBikeIf {
     public void start() {
-        System.out.println("自電車起動");
+        System.out.println("エンジン起動");
     }
     public void stop() {
-        System.out.println("自電車停止");
+        System.out.println("エンジン停止");
     }
     public void speedup() {
         System.out.println("速度アップ");
@@ -209,10 +211,11 @@ public class BikeGo implements ControlBikeIf {
 }
 </pre>
     <b>実行結果</b><br>
-自電車起動<br>
+エンジン起動<br>
 速度アップ<br>
-自電車停止<br>
-自電車起動<br>
+速度ダウン<br>
+エンジン停止<br>
+エンジン起動<br>
 
     </p><br>
 </div>

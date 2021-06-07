@@ -186,7 +186,6 @@ class Animal {
         System.out.println("ローカル変数 = " + name);
         System.out.println("メンバ変数 = " + this.name); 
     }
-    
 }
  
 public class JSample13_3 {
@@ -195,7 +194,6 @@ public class JSample13_3 {
         Animal neko = new Animal();
         
         neko.printName(name);
-
     }
 }
 </pre>
@@ -228,10 +226,11 @@ class SubClass extends SuperClass {
         return str;
     }
     public void print() {
-        System.out.println("super.str = " + super.str);
         System.out.println("str = " + str);
-        System.out.println("super.getStr() = " + super.getStr());
         System.out.println("getStr() = " + getStr());
+        System.out.println("super.str = " + super.str);
+        System.out.println("super.getStr() = " + super.getStr());
+
     }
 }
 public class JSample13_4 {
@@ -242,10 +241,11 @@ public class JSample13_4 {
 }
 </pre>
      <b>実行結果</b><br>
-super.str = SuperClass<br>
 str = SubClass<br>
+getStr() = SubClass<br>  
+super.str = SuperClass<br>
 super.getStr() = SuperClass<br>
-getStr() = SubClass<br>   
+ 
     </p><br>
 </div>
 
