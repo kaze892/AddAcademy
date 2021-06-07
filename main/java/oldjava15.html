@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <title>第15章　ArrayListとHashMap</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.light-blue-500.min.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../assets/css/preload.min.css">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <script src="../../cdn.jsdelivr.net/npm/showdown%401.9.0/dist/showdown.min.js"></script>
+    <script src="../assets/js/showdown-prettify.min.js"></script>
+    <script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <style>
+        li.L0, li.L1, li.L2, li.L3,
+        li.L5, li.L6, li.L7, li.L8 {
+          list-style-type: decimal !important;
+        }
+    </style>
+</head>
+
+<body style="font-size:1.5rem;">
+    <script type="text/javascript" src="header.html"></script>
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a style="position:absolute; top:0px; left:auto;" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <br>
+                <br>
+                <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5" style="margin-top:2rem!important;">第15章　ArrayListとHashMap</h1>
+                <p class="lead lead-lg color-white text-center center-block mt-2 mb-4 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7" style="margin-top:2rem!important; margin-bottom:4rem!important;">
+                    この章では、JavaのArrayListとHashMapについて説明します
+                </p>
+                <a style="margin-top:2rem; font-size:1.3rem;" href="../main-index.html" class="btn btn-raised btn-warning animated fadeInUp animation-delay-10">homepage</a>
+                
+            </div>
+        </div>
+    </div>
+    <div style="margin: 0 auto; max-width: 1024px;">
+        <textarea id="text" style="display:none"># **ArrayListとHashMap**
+
+***
+
+## **1.ArrayListクラス**
+
+ArrayListクラスはサイズの変更が可能な配列を実装したクラスです。ArrayListは「java.util.ArrayList」のようにjava.utilクラス内で定義されています。
+
+### **・定義：**
+
+```
+ArrayList&lt;型&gt; 変数名 = new ArrayList&lt;型&gt;();
+```
+
+型の部分にはクラス名を指定します。
+ここで指定したクラスのオブジェクトを要素として格納できるようになります。
+
+注意して頂きたいのはStringは大丈夫ですがintやfloatは指定できません。これはStringはStringクラスなのですけどintやfloatはクラスでは無く基本型と呼ばれるものだからです。
+
+そこでint型やfloat型などの基本型を扱いたい場合には、各基本型に対応したクラス(**ラッパークラス**といいます)が用意されていますので、それを利用します。
+
+※各基本型に対応したクラス
+&lt;table border=&quot;1&quot; &gt;
+	&lt;tr style=&quot;width:100px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
+		&lt;td&gt;ラッパークラス&lt;/td&gt;
+		&lt;td&gt;基本データ型&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Boolean&lt;/td&gt;
+		&lt;td&gt;boolean&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Character&lt;/td&gt;
+		&lt;td&gt;char&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Byte&lt;/td&gt;
+		&lt;td&gt;byte&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Short&lt;/td&gt;
+		&lt;td&gt;short&lt;/td&gt;
+	&lt;/tr&gt;    
+	&lt;tr&gt;
+		&lt;td&gt;Integer&lt;/td&gt;
+		&lt;td&gt;int&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Long&lt;/td&gt;
+		&lt;td&gt;long&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Float&lt;/td&gt;
+		&lt;td&gt;float&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Doubule&lt;/td&gt;
+		&lt;td&gt;double&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br&gt;
+
+#### **例**
+
+```
+ArrayList&lt;Integer&gt; array1 = new ArrayList&lt;Integer&gt;();
+ArrayList&lt;String&gt; array2 = new ArrayList&lt;String&gt;();
+```
+&lt;br&gt;
+
+### **・値の格納**
+ArrayListクラスのオブジェクトを作成したら、実際に要素を追加します。ArrayListクラスで用意されている&quot;add&quot;メソッドを使います。
+
+&gt;public boolean add(E o)
+
+リストの最後に、指定された要素を追加します。   
+
+**パラメータ:**  
+  o - リストに追加される要素   
+**戻り値:**  
+  true   
+&lt;br&gt;
+
+#### **例**
+```
+ArrayList&lt;String&gt; array1 = new ArrayList&lt;String&gt;();
+
+array1.add(&quot;日本&quot;);
+array1.add(&quot;中国&quot;);
+array1.add(&quot;韓国&quot;);
+```
+
+```
+ArrayList&lt;Integer&gt; array2 = new ArrayList&lt;Integer&gt;();
+
+array2.add(1);
+array2.add(2);
+array2.add(3);
+```
+&lt;br&gt;
+
+#### **・ArrayListクラスで利用できる主なメソッド**
+
+&lt;table border=&quot;1&quot; &gt;
+	&lt;tr style=&quot;width:100px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
+		&lt;td&gt;メソッド&lt;/td&gt;
+		&lt;td&gt;概要&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;add([int index,] E e)&lt;/td&gt;
+		&lt;td&gt;指定位置indexに要素eを挿入（index省略で末尾に挿入）&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;clear()&lt;/td&gt;
+		&lt;td&gt;リストからすべての要素を削除&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;contains(Object e)&lt;/td&gt;
+		&lt;td&gt;リストに要素eが含まれているかを判定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;get(int index)&lt;/td&gt;
+		&lt;td&gt;index番目の要素を取得&lt;/td&gt;
+	&lt;/tr&gt;    
+	&lt;tr&gt;
+		&lt;td&gt;indexOf(Object e)&lt;/td&gt;
+		&lt;td&gt;要素eが登場する最初のインデックス値を取得&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;isEmpty()&lt;/td&gt;
+		&lt;td&gt;リストが空か判定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;remove(int index｜Object o)&lt;/td&gt;
+		&lt;td&gt;指定の要素を削除&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;set(int index, E e)&lt;/td&gt;
+		&lt;td&gt;index番目の要素を設定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;int size()&lt;/td&gt;
+		&lt;td&gt;リストに含まれる要素の数を取得&lt;/td&gt;
+	&lt;/tr&gt;	
+&lt;/table&gt;
+&lt;br&gt;
+
+#### **例**
+[JSample15_1.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.util.ArrayList;
+
+public class JSample15_2{
+public static void main(String args[]) {
+		ArrayList&lt;String&gt; al = new ArrayList&lt;String&gt;();
+		al.add(&quot;バナナ&quot;);
+		al.add(&quot;葡萄&quot;);
+		al.add(&quot;梨&quot;);
+		al.add(&quot;イチゴ&quot;);
+		al.add(&quot;リンゴ&quot;);
+		System.out.println(&quot;登録したデータの数：&quot; + al.size() + &quot;個&quot;);
+		for (int i = 0; i &lt; al.size(); i++) {
+			String out = al.get(i);
+			System.out.println(out);
+		}
+		System.out.println(&quot;一番名の果物をイチゴへ置き換えます&quot;);
+		al.set(0, &quot;イチゴ&quot;);
+		al.set(3, &quot;バナナ&quot;);
+		for (int i = 0; i &lt; al.size(); i++) {
+			String out = al.get(i);
+			System.out.println(out);
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+登録したデータの数：5個&lt;br&gt;
+バナナ&lt;br&gt;
+葡萄&lt;br&gt;
+梨&lt;br&gt;
+イチゴ&lt;br&gt;
+リンゴ&lt;br&gt;
+一番名の果物をイチゴへ置き換えます&lt;br&gt;
+イチゴ&lt;br&gt;
+葡萄&lt;br&gt;
+梨&lt;br&gt;
+バナナ&lt;br&gt;
+リンゴ
+
+&lt;br&gt;
+
+## **2.HashMapクラス**
+キー／値のペアを表すマップ – HashMapクラスマップは、リストやセット、キューと異なり、キーと値の組み合わせで要素を管理します。HashMapは、マップの実装クラスの中でも最も基本的なクラスです。キーは重複できず、また順番を持ちません。
+
+&lt;br&gt;
+
+### **・定義：**
+
+&gt;HashMap&lt;型1,型2&gt; 変数名 = new HashMap&lt;型1,型2&gt;();
+
+HashMapの場合は型を2つ指定します。1つ目はキーの型、2つ目は格納する要素の型となります。例えばキーをInteger型、要素をString型とした場合は下記のような感じとなります。  
+
+&gt;HashMap&lt;Integer,String&gt; map = new HashMap&lt;Integer,String&gt;();
+
+&lt;br&gt;
+
+### **・キー要素**
+
+-------------------  
+1000      テレビ&lt;br&gt;
+1001      ビデオ&lt;br&gt;
+2000      エアコン&lt;br&gt;
+
+### **・HashMapクラスの主なメソッド**
+&lt;table border=&quot;1&quot; &gt;
+	&lt;tr style=&quot;width:100px ;background-color:#C6E0B4 ;text-align:center;&quot;&gt;
+		&lt;td&gt;メソッド&lt;/td&gt;
+		&lt;td&gt;概要&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;clear()&lt;/td&gt;
+		&lt;td&gt;すべての要素を削除&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;containsKey(Object key)&lt;/td&gt;
+		&lt;td&gt;キーkeyがマップに含まれているかを判定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;containsValue(Object value)&lt;/td&gt;
+		&lt;td&gt;値valueがマップに含まれているかを判定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;get(Object key)&lt;/td&gt;
+		&lt;td&gt;キーkeyに対応する値を取得&lt;/td&gt;
+	&lt;/tr&gt;    
+	&lt;tr&gt;
+		&lt;td&gt;isEmpty()&lt;/td&gt;
+		&lt;td&gt;マップが空かを判定&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;keySet()&lt;/td&gt;
+		&lt;td&gt;すべてのキーを取得&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;put(K key, V value)&lt;/td&gt;
+		&lt;td&gt;指定されたキー／値の組み合わせを追加&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;remove(Object key)&lt;/td&gt;
+		&lt;td&gt;指定のキーを削除&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;int size()&lt;/td&gt;
+		&lt;td&gt;マップの要素数を取得&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;Collection&lt;V&gt; values()&lt;/td&gt;
+		&lt;td&gt;すべての値を取得&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;br&gt;
+
+#### **例**
+[JSample15_2.java]
+
+&lt;pre&gt;&lt;code&gt;package JSample;
+
+import java.util.HashMap;
+
+public class JSample15_2{
+public static void main(String args[]) {
+		HashMap&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();
+		map.put(&quot;バナナ&quot;, &quot;香蕉&quot;);
+		map.put(&quot;リンゴ&quot;, &quot;苹果&quot;);
+		map.put(&quot;イチゴ&quot;, &quot;草莓&quot;);
+
+		if (map.containsKey(&quot;バナナ&quot;)) {
+			System.out.println(&quot;バナナを中国語にすると：&quot;);
+			System.out.println(map.get(&quot;バナナ&quot;));
+		} else {
+			System.out.println(&quot;検索したい果物は存在しません。&quot;);
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+#### **実行結果**
+バナナを中国語にすると：&lt;br&gt;
+香蕉
+
+***
+
+&gt; **練習**
+&gt;&gt; **問題**[JEx15_1.java]
+
+ArrayListで提供されたStudentクラスを利用して、下記の結果を作成ください。
+&lt;pre&gt;
+	&lt;iframe src=&quot;javascript:&#39;&lt;html&gt;
+番号:1 名前: 佐藤　純一&lt;br&gt;
+番号:2 名前: 田中　太郎
+&lt;/html&gt;&#39;&quot;&gt;&lt;/iframe&gt;
+&lt;/pre&gt;
+
+```
+class Student {
+	//  名前
+	private String name;
+	//  番号
+	private int number;
+
+	//コンストラクタ
+    public Student(String name,int number){
+        this.name = name;
+        this.number = number;
+    }
+
+	//  名前の取得
+	public String getName() {
+		return name;
+	}
+
+	//  名前のセット
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	//  番号の取得
+	public int getNumber() {
+		return number;
+	}
+
+	//  番号のセット
+	public void setNumber(int number) {
+		this.number = number;
+	}
+}
+```
+
+
+
+</textarea>
+        <p id="output">content</p>
+    </div>
+    <div class="text-center">
+        <a style="margin-top:2rem; margin-bottom:3rem; font-size:2rem; width:90px;" href="#" onClick="javascript:history.back(-1);" class="btn btn-raised btn-info animated fadeInUp animation-delay-10">戻る</a>
+    </div>
+    <script>
+    showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+    showdown.setOption('ghCodeBlocks', 'true');
+    var converter = new showdown.Converter({ extensions: ['prettify'] });
+    html = converter.makeHtml(document.getElementById('text').value);
+    document.getElementById('output').innerHTML = html;
+    </script>
+</body>
+
+
+</html>
