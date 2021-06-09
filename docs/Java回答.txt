@@ -304,3 +304,90 @@ public class JEx13_2 {
     }
 }
 -----------------------------------------------------------------------
+JEx15_1.java
+
+(MenuManager.java)
+import java.util.*;
+
+public class MenuManager{
+    Map<String, ArrayList<String>> map = new HashMap<>();
+    MenuManager(){
+        //サンドイッチメニューの登録
+        ArrayList<String> list = new ArrayList<>();
+        list.add("ハンバーガー");
+        list.add("チーズバーガー");
+        list.add("ダブルチーズバーガー");
+        map.put("sandwitch",list);
+        //ドリンクメニューの登録
+        list = new ArrayList<>();
+        list.add("コーラ");
+        list.add("オレンジジュース");
+        list.add("ミネラルウォーター");
+        map.put("drink",list);
+        //サイドメニューの登録
+        list = new ArrayList<>();
+        list.add("フライドポテト");
+        list.add("チキンナゲット");
+        list.add("フレッシュサラダ");
+        map.put("sidemenu",list);
+    }
+
+    //ここにsearchMenuを作成する。
+    void searchMenu(String menu){
+        for( String key: map.keySet() ){
+            if( map.get(key).contains(menu) ){
+                System.out.println(menu+"は"+key+"に含まれています。");
+                return;
+            }
+        }
+        System.out.println("該当するメニューはありません。");
+    }
+    //ここにsetMenuを作成する。
+    void setMenu(String category, String menu){
+        map.get(category).add(menu);
+    }
+    //ここにshowMenuを作成する。
+    void showMenu(String category){
+        System.out.println( map.get(category) );
+    }
+}
+
+
+(JEx15_1.java)
+ public class Ex14_1{
+    public static void main(String[] args) {
+        MenuManager manager = new MenuManager();
+        //サンドイッチメニューの表示
+        manager.showMenu("sandwitch");
+        //サンドイッチメニューにビッグバーガーを追加
+        manager.setMenu("sandwitch","ビッグバーガー");
+        //サンドイッチメニューの表示
+        manager.showMenu("sandwitch");
+        //「ホットミルク」をメニューから検索
+        manager.searchMenu("ホットミルク");
+        //「オレンジジュース」をメニューから検索
+        manager.searchMenu("オレンジジュース");
+    }
+}
+-----------------------------------------------------------------------
+JEx16_1.java
+public class JEx16_1 {
+    public static void main(String[] args){
+        try{
+            double weight = Double.parseDouble(args[0]);
+            double height = Double.parseDouble(args[1]);
+            System.out.println( "BMI = " + getBMI(weight,height) );
+        } catch( IllegalArgumentException e ){
+            System.out.println( e.getMessage() );
+        } catch( Exception e ){
+            System.out.println("2つの数値を指定してください");
+        }
+    }
+    public static double getBMI(double weight, double height) throws IllegalArgumentException{
+        if( weight <= 0 || height <= 0 ){
+            throw new IllegalArgumentException("負の数を用いることはできません");
+        }
+        return weight / ( height * height );
+    }
+}
+-----------------------------------------------------------------------

@@ -53,27 +53,27 @@ Java言語の中で条件分岐を行う場合には、if文やswitch文を使�
 			if文は以下のように、関係式で作成した条件が true か false かで処理を分けることができます。<br>
 			また、いくつもの関係式を並べて細かく分けることもできます。<br>
 			3つ以上に分けたいときは、else と書かずに、下の例:7行目のように if else と書いて、場合分けを追加します。<br>
-		<pre class="prettyprint linenums">if (関係式/条件) {
-		関係式がtrueの時に実行する処理;
+<pre class="prettyprint linenums">
+if (関係式/条件) {
+関係式がtrueの時に実行する処理;
+} else {
+関係式がfalseの時に実行する処理;
+}</pre>
+<b>例：</b>[JSample4_1.java]<br>
+<pre class="prettyprint linenums">package JSample;
+public class JSample4_1 {
+	public static void main(String[] args) {
+		int number = 10;
+		if (number == 0) {
+			System.out.println("0です");
+		} else if (number> 0){
+			System.out.println("正です");
 		} else {
-		関係式がfalseの時に実行する処理;
-		}</pre>
-		例<br>
-		[JSample4_1.java]<br>
-		<pre class="prettyprint linenums">package JSample;
-		public class JSample4_1 {
-			public static void main(String[] args) {
-				int number = 10;
-				if (number == 0) {
-					System.out.println("0です");
-				} else if (number> 0){
-					System.out.println("正です");
-				} else {
-					System.out.println("負です");
-					
-				}
-			}
-		}</pre>
+			System.out.println("負です");
+			
+		}
+	}
+}</pre>
 		<b>実行結果</b><br>
 		正です<br>
 		<Br>
@@ -89,41 +89,43 @@ Java言語の中で条件分岐を行う場合には、if文やswitch文を使�
     <div class="collapse-content">
 		<p>switch文は、「10だったら○○、20だったら△△、・・・」のように、値で条件を指定する構文です。<br>
 		if文のように関係式で条件を指定することはできません。<br>
-			<pre class="prettyprint linenums">switch (式) {
-			case 値1:
-			命令文1
-			break;
-			case 値2:
-			命令文2
-			break;
-			default:
-			命令文3
-				(break;)	→最後のbreakだけは省略できる。
-			}</pre>
-		<br>
-		<b>例</b><br>
-		[JSample4_2.java]<br>
-		<pre class="prettyprint linenums">package JSample;
-		import java.util.Scanner;
-		public class JSample4_2{
-		public static void main(String[] args){
-			System.out.println("キーボードから数値を入力してください。");
-			scanner scan = new Scanner(System.in);
-			int num = scan.nextInt();
-			
-			switch (num){
-				case 1:
-					System.out.println("満足");
-					break;
-				case 2:
-					System.out.println("どちらとも言えない");
-					break;
-				case 3:
-					System.out.println("不満");
-					break
-			}
+<pre class="prettyprint linenums">
+switch (式) {
+	case 値1:
+	命令文1
+	break;
+
+	case 値2:
+	命令文2
+	break;
+
+	default:
+	命令文3
+	(break;)→最後のbreakだけは省略できる。
+}</pre><br>
+<b>例：</b>[JSample4_2.java]<br>
+	<pre class="prettyprint linenums">
+package JSample;
+import java.util.Scanner;
+public class JSample4_2{
+	public static void main(String[] args){
+		System.out.println("キーボードから数値を入力してください。");
+		scanner scan = new Scanner(System.in);
+		int num = scan.nextInt();
+		
+		switch (num){
+			case 1:
+				System.out.println("満足");
+				break;
+			case 2:
+				System.out.println("どちらとも言えない");
+				break;
+			case 3:
+				System.out.println("不満");
+				break
 		}
 	}
+}
 </pre>
 		<br>
 		<b>実行結果（"2"と入力した場合）</b><br>

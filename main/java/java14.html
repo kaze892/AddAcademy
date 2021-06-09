@@ -87,7 +87,7 @@ class JSample14_1 {
 <button type="button" class="collapsible">「継承」と「多態性」を使用する理由</button>
 <div class="collapse-content">
     <p>コードの再利用性に役立ちます。新しいクラスを作成するときに、既存のクラスの属性とメソッドを再利用します。<br><br> 
-<b>例：</b>[JSample14_2.java]<br>         
+<b>例：</b>[JSample14_1.java]<br>         
 <pre class="prettyprint linenums">
 package JSample;
 public class JSample14_1 {
@@ -218,7 +218,7 @@ public class BikeGo implements ControlBikeIf {
 エンジン起動<br>
 
     </p><br>
-</div>
+</div><br>
 
 
     <h2 style="font-weight: 400;">練習</h2>
@@ -230,36 +230,37 @@ public class BikeGo implements ControlBikeIf {
 
 <pre class="prettyprint linenums">        
 package JSample;
-class SuperC {
-    public void sc() {
-        System.out.println("This is SuperC!");
+class SuperClass {
+    public void superclass() {
+        System.out.println("This is SuperClass!");
     }
 }
-class Subc1 extends SuperC {
-    public void sc() {
-        System.out.println("This is Subc1!");
+class SubC1ass extends SuperC {
+    public void superclass() {
+        System.out.println("This is SubClass1!");
     }
 }
-class Subc2 extends SuperC {
-    public void sc() {
-        System.out.println("This is Subc2!");
+class SubClass2 extends SuperC {
+    public void superclass() {
+        System.out.println("This is SubClass2!");
     }
 }
 public class Ex14_1 {
     public static void main(String[] args) {
-        SuperC a;
-        ______①__________
-        ______②__________
+        SuperClass a;
+        
+        //処理
+
         a = b;
-        a.sc();
+        a.superclass();
         a = c;
-        a.sc();
+        a.superclass();
     }
 }
 </pre>
     <b>実行結果</b><br>
-    This is Subc1!<br>
-    This is Subc2!<br>
+    This is SubClass1!<br>
+    This is SubClass2!<br>
         </p><br>
     </div>
 

@@ -31,16 +31,144 @@
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
-    <!--JAVA構文-->
+    <!--ArrayListとHashMap-->
     <h1 class="article-container animated bounceInRight animation-delay-20">ArrayListとHashMap</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
 
-<!--多態性とは-->
+<!--1.ArrayListクラス-->
 <button type="button" class="collapsible">1.ArrayListクラス</button>
 <div class="collapse-content">
     <p>
+ArrayListとは、内部的には配列を利用したリスト構造です。標準的な配列と異なる点は、サイズを後からでも変更できる点です。その性質上、インデックス値による値の読み書きは高速ですが、要素の挿入／削除は、配列サイズが大きくなるほど、また、操作位置が先頭に近くなるほど遅くなります。<br><br>
+
+ArrayList クラスのインスタンスを作成は以下になります。
+<pre class="prettyprint linenums">
+ArrayList&lt;型&gt; 変数名 = new ArrayList&lt;型&gt;();
+</pre>
+型の部分にはクラス名を指定します。 ここで指定したクラスのオブジェクトを要素として格納できるようになります。<br><br>
+
+注：intやdoubleなどは指定できません。これらの数値を格納したい場合には、各基本型に対応したラッパークラスを使用してください。<br><br>
+
+※各基本型に対応したクラス
+<table border="1">
+<tr><th>基本データ型</th><th>ラッパークラス</th></tr>
+<tr><td>boolean</td><td>Boolean</td></tr>
+<tr><td>char</td><td>Character</td></tr>
+<tr><td>byte</td><td>Byte</td></tr>
+<tr><td>short</td><td>Short</td></tr>
+<tr><td>int</td><td>Integer</td></tr>
+<tr><td>long</td><td>Long</td></tr>
+<tr><td>float</td><td>Float</td></tr>
+<tr><td>double</td><td>Double</td></tr>
+</table><br>
+
+文字列を格納する場合は次のように記述します。 
+<pre class="prettyprint linenums">
+ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+</pre>
+
+int 型を格納する場合は次のように記述します。 
+<pre class="prettyprint linenums">
+ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+</pre>
+
+    <table border="1">
+        <tr style="width:100px;text-align:center;">
+            <th colspan="2">ArrayListクラスで利用できる主なメソッド</th>
+        </tr>
+        <tr>
+            <td>メソッド</td>
+            <td>概要</td>
+        </tr>
+        <tr>
+            <td>add([int index,] E e)</td>
+            <td>指定位置indexに要素eを挿入（index省略で末尾に挿入）</td>
+        </tr>
+        <tr>
+            <td>clear()</td>
+            <td>リストからすべての要素を削除</td>
+        </tr>
+        <tr>
+            <td>contains(Object e)</td>
+            <td>リストに要素eが含まれているかを判定</td>
+        </tr>
+        <tr>
+            <td>get(int index)</td>
+            <td>index番目の要素を取得</td>
+        </tr>
+        <tr>
+            <td>indexOf(Object e)</td>
+            <td>要素eが登場する最初のインデックス値を取得</td>
+        </tr>
+        <tr>
+            <td>isEmpty()</td> <td>リストが空か判定</td>
+        </tr>
+        <tr>
+            <td>remove(int index｜Object o)</td>
+            <td>指定の要素を削除</td>
+        </tr>
+        <tr> 
+            <td>set(int index, E e)</td>
+            <td>index番目の要素を設定</td>
+        </tr>
+        <tr>
+            <td>int size()</td>
+            <td>リストに含まれる要素の数を取得</td>
+        </tr>
+    </table><br>
+
+<b>例：</b>[JSample15_1.java]<br>
+<pre class="prettyprint linenums">
+package JSample;  
+import java.util.ArrayList;
+import java.util.List;
+ 
+public class JSample15_1 {
+  public static void main(String[] args) {
+    List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+        list.add("Windows");
+        list.add("Linux");
+        list.add("macOS");
+        
+    System.out.println("登録したデータの数：" + list.size() + "個");    
+    for (String str : list) {
+      System.out.println(str);  // 結果：Windows、Linux、macOS
+    }
+ 
+    System.out.println("2番目の要素は" + list.get(1));
+    // 結果：2番目の要素はLinux
+    
+    System.out.println("list.contains Linux = " + list.contains("Linux")); 
+    // 結果：list.contains Linux = true
+    
+    list.remove(0);
+    System.out.println(list);   // 結果：[Linux, macOS]
+    
+    list.set(0, "イチゴ");
+    list.set(1, "バナナ");    
+    
+    for (String str : list) {
+        System.out.println(str); // 結果：[イチゴ, バナナ]
+    }
+    
+    list.clear();
+    System.out.println(list);   // 結果：[]
+  }
+}
+</pre>
+    <b>実行結果</b><br>
+    登録したデータの数：3個<br>
+Windows<br>
+Linux<br>
+macOS<br>
+2番目の要素はLinux<br>
+list.contains Linux = true<br>
+[Linux, macOS]<br>
+イチゴ<br>
+バナナ<br>
+[]<br>
 
     </p><br>
 </div>
@@ -49,10 +177,135 @@
 
     
 
-<!--「継承」と「多態性」を使用する理由-->
+<!--2.HashMapクラス-->
 <button type="button" class="collapsible">2.HashMapクラス</button>
 <div class="collapse-content">
-    <p>
+    <p> HashMapとは、リストやセット、キューと異なり、キーと値の組み合わせで要素を管理します。HashMapは、マップの実装クラスの中でも最も基本的なクラスです。キーは重複できず、また順番を持ちません。<br><br>
+
+HashMapクラスのインスタンスを作成は以下になります。
+<pre class="prettyprint linenums">
+HashMap&lt;キーのデータ型,値のデータ型&gt; 変数名 = new HashMap&lt;&gt;();
+</pre>
+HashMap クラスでは要素にキーと値をペアで格納します。そのため、キーのデータ型と値のデータ型をそれぞれ指定します。例えばキーに文字列、値に整数を格納する場合は次のように記述します。 <br><br>
+<pre class="prettyprint linenums">
+HashMap&lt;String,Integer&gt; map  = new HashMap&lt;&gt;();
+</pre>
+<table border="1">
+<tr style="width:100px;text-align:center;">
+<th colspan="2">HashMapクラスの主なメソッド</th>
+</tr>
+
+<tr>
+<th>メソッド</th>
+<th>概要</th>
+</tr>
+
+<tr>
+<td>clear()</td>
+<td>すべての要素を削除</td>
+</tr>
+
+<tr>
+<td>containsKey(Object key)</td>
+<td>キーkeyがマップに含まれているかを判定</td>
+</tr>
+
+<tr>
+<td>containsValue(Object value)</td>
+<td>値valueがマップに含まれているかを判定</td>
+</tr>
+
+<tr>
+<td>get(Object key)</td>
+<td>キーkeyに対応する値を取得</td>
+</tr>
+
+<tr>
+<td>isEmpty()</td>
+<td>マップが空かを判定</td>
+</tr>
+
+<tr>
+<td>keySet()</td>
+<td>すべてのキーを取得</td>
+</tr>
+
+<tr>
+<td>put(K key, V value)</td>
+<td>指定されたキー／値の組み合わせを追加</td>
+</tr>
+
+<tr>
+<td>remove(Object key)</td>
+<td>指定のキーを削除</td>
+</tr>
+
+<tr>
+<td>int size()</td>
+<td>マップの要素数を取得</td>
+</tr>
+
+<tr>
+<td>Collection&lt;V&gt; values()</td>
+<td>すべての値を取得</td>
+</tr>
+</table><br>
+
+<b>例：</b>[JSample15_2.java]<br>
+<pre class="prettyprint linenums">
+package JSample;  
+import java.util.HashMap;
+import java.util.Map;
+ 
+public class JSample15_2 {
+  public static void main(String[] args) {
+    Map<String, String> map = new HashMap<String, String>() {
+      {
+        put("パソコン", "personal computer");
+        put("エアコン", "air conditioner");
+        put("リモコン", "remote control");
+      }
+    };
+ 
+    for (String str : map.keySet()) {
+      System.out.println(str + ":" + map.get(str));
+    // 結果：エアコン:air conditioner、パソコン:personal computer、リモコン:remote control
+    }
+ 
+    for (String val : map.values()) {
+      System.out.println(val + ":" + map.get(val));
+    // 結果：air conditioner、personal computer、remote control
+    }
+ 
+    System.out.println(map.containsKey("エアコン"));    // 結果：true
+    System.out.println(map.containsValue("tourconductor")); // 結果：false
+ 
+    if (!map.isEmpty()) {
+      System.out.println("要素数は" + map.size() + "個です。");
+    // 結果：要素数は3個です。
+    }
+ 
+    map.remove("パソコン");
+    System.out.println(map);
+    // 結果：{エアコン=air conditioner, リモコン=remote control}
+ 
+    map.clear();
+    System.out.println(map);    // 結果：{}
+  }
+}
+</pre>
+    <b>実行結果</b><br>
+エアコン:air conditioner<br>
+パソコン:personal computer<br>
+リモコン:remote control<br>
+air conditioner:null<br>
+personal computer:null<br>
+remote control:null<br>
+true<br>
+false<br>
+要素数は3個です。<br>
+{エアコン=air conditioner, リモコン=remote control}<br>
+{}<br>
 
     </p><br>
 </div><br>
@@ -66,40 +319,70 @@
     <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
         <p><b>問題</b>[JEx15_1]<br>
-        ArrayListで提供されたStudentクラスを利用して、下記の結果を作成ください。<br>
+        HashMapとArrayList両方使って提供されたMenuManagerクラスを利用して、下記の結果を作成ください。<br><br>
 
-<pre class="prettyprint linenums">        
-class Student {
-    //  名前
-    private String name;
-    //  番号
-    private int number;
+[MenuManager.java]
+<pre class="prettyprint linenums">
+import java.util.*;
+
+public class MenuManager{
+    //ここにフィールドを追加します。
+
     //コンストラクタ
-    public Student(String name,int number){
-        this.name = name;
-        this.number = number;
+    MenuManager(){
+        //サンドイッチメニューの登録
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("ハンバーガー");
+        list.add("チーズバーガー");
+        list.add("ダブルチーズバーガー");
+        map.put("sandwitch",list);
+        //ドリンクメニューの登録
+        list = new ArrayList&lt;&gt;();
+        list.add("コーラ");
+        list.add("オレンジジュース");
+        list.add("ミネラルウォーター");
+        map.put("drink",list);
+        //サイドメニューの登録
+        list = new ArrayList&lt;&gt;();
+        list.add("フライドポテト");
+        list.add("チキンナゲット");
+        list.add("フレッシュサラダ");
+        map.put("sidemenu",list);
     }
-    //  名前の取得
-    public String getName() {
-        return name;
-    }
-    //  名前のセット
-    public void setName(String name) {
-        this.name = name;
-    }
-    //  番号の取得
-    public int getNumber() {
-        return number;
-    }
-    //  番号のセット
-    public void setNumber(int number) {
-        this.number = number;
+
+    //ここにsearchMenuを作成します。
+
+    //ここにsetMenuを作成します。
+
+    //ここにshowMenuを作成します。
+
+}
+</pre>
+
+
+[JEx15_1.java]
+<pre class="prettyprint linenums">
+ public class Ex14_1{
+    public static void main(String[] args) {
+        MenuManager manager = new MenuManager();
+        //サンドイッチメニューの表示
+        manager.showMenu("sandwitch");
+        //サンドイッチメニューにビッグバーガーを追加
+        manager.setMenu("sandwitch","ビッグバーガー");
+        //サンドイッチメニューの表示
+        manager.showMenu("sandwitch");
+        //「ホットミルク」をメニューから検索
+        manager.searchMenu("ホットミルク");
+        //「オレンジジュース」をメニューから検索
+        manager.searchMenu("オレンジジュース");
     }
 }
 </pre>
     <b>実行結果</b><br>
-番号:1 名前: 佐藤　純一<br>
-番号:2 名前: 田中　太郎<br>
+[ハンバーガー, チーズバーガー, ダブルチーズバーガー]<br>
+[ハンバーガー, チーズバーガー, ダブルチーズバーガー, ビッグバーガー]<br>
+該当するメニューはありません。<br>
+オレンジジュースはdrinkに含まれています。<br>
         </p><br>
     </div>
 
