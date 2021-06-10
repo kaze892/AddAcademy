@@ -16,7 +16,7 @@
         <div class="container">
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第17章　テキストファイルの入力</h1>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第18章　テキストファイルの出力</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">この章ではテキストファイルの読みこみについて説明します。 </p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
@@ -32,14 +32,14 @@
 
 
     <!--例外処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">テキストファイルの入力</h1>
+    <h1 class="article-container animated bounceInRight animation-delay-20">テキストファイルの出力</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
 
 <!--1.テキストの読み込み（FileReader偏）-->
 <h2 style="font-weight: 400;">1.テキストの読み込み（FileReader偏）</h2>
-<button type="button" class="collapsible">1-1.テキストファイルの入力</button>
+<button type="button" class="collapsible">1-1.テキストファイルの出力</button>
 <div class="collapse-content">
     <p>ファイルからテキストを読み込むためには様々なクラスが用意されています。まずは基本となる"FileReader"クラスを使ってみます。<br>
     読み込みたいファイルを対象としてFileクラスのオブジェクトを作成して、そのオブジェクトを引数としてFileReaderクラスのオブジェクトを作成します。<br>  
@@ -48,7 +48,7 @@ File file = new File(file_name);
 FileReader　filereader = new FileReader(file);
 </pre>
 FileReaderクラスは、何らかの理由で読み書きに失敗した場合は <font style="color: red;">"FileNotFoundException"</font>という例外が発生する可能性があるため、例外の処理<font style="color: red;">"throws IOException"</font>をしておかなければいけません。<br>
-※例外の処理については19章に説明します。<br>
+※例外の処理については18章に説明します。<br>
 </p><br>
 </div>
 
@@ -72,7 +72,7 @@ FileReader　filereader = new FileReader(file);
 package JSample;
 import java.io.FileReader;
 import java.io.IOException;
-public class JSample17_1 {
+public class JSample18_1 {
     public static void main(String args[]) throws IOException {
 
         FileReader filereader = new FileReader("C:\\test.txt");
@@ -212,7 +212,7 @@ public class JSample17_4 {
 
 <!--2.テキストの読み込み（BufferedReader偏）-->
 <h2 style="font-weight: 400;">2-テキストの読み込み（BufferedReader偏）</h2>
-<button type="button" class="collapsible">3-1.テキストファイルの入力</button>
+<button type="button" class="collapsible">3-1.テキストファイルの出力</button>
 <div class="collapse-content">
     <p>FileReaderを使ってファイルを読み込む場合には、1文字読み込んでは1文字処理して、と言うのを繰り返すため、非常に効率が悪いです。その為、ある程度まとめて読み込んでから、まとめて処理するためのはBufferedReaderクラスです。 
   
@@ -249,6 +249,7 @@ public class JSample17_5 {
       String str = br.readLine();
       while(str != null){
         System.out.println(str);
+
         str = br.readLine();
       }
       br.close();
@@ -260,6 +261,16 @@ public class JSample17_5 {
     </p><br>
 </div>
 
+
+    <h2 style="font-weight: 400;">練習</h2>
+    <!--練習-->
+    <button type="button" class="collapsible">問題１</button>
+    <div class="collapse-content">
+        <p><b>問題</b>[JEx17_1]<br>
+           ディレクトリとファイルの存在を確認して、存在しない場合、作成を実行する。
+           存在する場合ファイルを削除するプログラムを完成してください。 
+        </p><br>
+    </div>
 
 
 </div><!--article-container-->

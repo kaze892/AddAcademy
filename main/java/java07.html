@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>第7章　Stringクラスの文字列処理</title>
+    <title>第7章　クラスとインスタンス</title>
 </head>
 <body>
 
@@ -16,8 +16,8 @@
         <div class="container">
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第7章　Stringクラスの文字列処理</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">Javaでは、文字列は基本データ型ではなくStringクラスのインスタンスとなります。この章では文字列を作成する方法や、文字列の操作を行う方法について解説します。</p>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第7章　クラスとインスタンス</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章ではJAVAのクラスとインスタンスについて説明します。</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java/java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
                          <input type="checkbox" onchange="toggleTheme()" id="slider">
@@ -31,469 +31,200 @@
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
-
-    <!--Stringクラスの文字列処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">Stringクラスの文字列処理</h1>
+    <!--JAVA構文-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">クラスとインスタンス</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
+<button type="button" class="collapsible">説明</button>
+<div class="collapse-content">
+	<p>これまで、説明の中で何度か出てきましたが、Javaは「オブジェクト指向」のプログラミング言語です。<br>
+この章で学習するクラスは、継承（第11章）、多態性（第12章）と合わせて、オブジェクト指向の3大特徴と言われており重要です。
+クラスについて、概念や作成方法をしっかり学習しましょう。</p>
+</div>
 
-<!--Stringクラスの文字列処理-->
-<button type="button" class="collapsible">Stringクラスとは</button>
-	<div class="collapse-content">
-		<p>Stringクラスとは、文字列を扱うために使用されているクラスです。文字列は、他の値(※1)とは違いオブジェクトと呼ばれます。オブジェクトの特徴は、データだけでなく文字列を操作するためのメソッド(機能)が含まれています。(※2)<br>
-		Stringクラスでは、具体的な値(文字列)を<font color="blue"> " " </font>(ダブルクォーテーション)で囲むことで、new演算子を使わなくてもオブジェクトを作ることができます。<br>
-		<br>
-		(※1) 基本データ型(boolean,byte,char,short,int,long,float,double)<br>
-		(※2)クラスやメソッドについては第9章で詳しく扱います。<br>
-		<br>
-<pre class="prettyprint linenums">
-String str;
-str = "文字列";
-</pre>
-		<br>
-		<b>例1:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "";</pre>
-		<br>
-		strには空文字(何もない文字列)が入る。<br>
-		<br>
-		<b>例2:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "abc";</pre>
-		<br>
-		変数strには「abc」という文字列が入る。<br>
-		</p>	
-	</div>
+<!--クラス-->
+<button type="button" class="collapsible">1-1クラスとは</button>
+<div class="collapse-content">
+    <p>クラスとは、プログラムを実行するための処理をまとめたオブジェクトで、クラスの処理の中にはメンバ変数や処理を実行するためのメソッドがあります。<br>
+メンバ変数とはクラス内で使用する変数のことで、メソッドとはメンバ変数などを使って行う処理をまとめたものです。<br>
 <br>
+プログラミングでは、1つのシステムを作るにあたり、何千から何万文字のコードを書きシステムを動かしています。これが一塊で管理されていた場合、修正が必要になったとき修正箇所を見つけるだけでも膨大な手間がかかります。<br>
+そこでプログラミングでは、1つのシステムを役割ごとに分けることで、管理をしやすくしています。Javaで使われているオブジェクト指向もシステムを役割ごとに分ける、分け方の1つです。<br></p>
+</div>
+
 	
-<h2 style="font-weight: 400;">文字列の処理</h2>	
-<!--1.文字列の処理-->
-<button type="button" class="collapsible">1.文字列の連結</button>
-<div class="collapse-content">	
-<p>
-<pre class="prettyprint linenums">
-String str;
-str = "abc";
-str = str + "def";(※1)</pre>
-(※1) 3行目は、str += "def"　と書いても同じ意味になる。<br>
-strには「abcdef」という文字列が入る。<br>
-	<br>
-	<b>例</b>[JSample7_1.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
+	
 
-public class JSample7_1{
-	public static void main(String[] args){
-		String str = "おはようございます。";
-		str +="田中さん。";
-		System.out.println(str);
-	}
-}</pre>
+<!--1.オブジェクト指向とは-->
+<button type="button" class="collapsible">1-2インスタンス(オブジェクト)指向とは</button>
+<div class="collapse-content">
+	<p>オブジェクト指向とは、1つ1つのクラスを役割を持った<b style="color:#e7bd42">モノ（object)</b>として扱い、「モノ、またはモノとモノの関係性」と、「モノの操作」を分けて作り、組み立てて完成させるという考え方です。<br>
+１つの<b style="color:#e7bd42">モノ</b>を<b style="color:#e7bd42">複数の部品</b>に分けて作る際、<b style="color:#e7bd42">モノ</b>が持つ<b style="color:#e7bd42">プロパティ(属性)</b>や<b style="color:#e7bd42">メソッド(操作)</b>をクラス内で定義します。<br>
 <br>
-	<b>実行結果</b><br>
-	おはようございます。田中さん。<br>
+クラスは 「<b style="color:#e7bd42">車を作る<font color="red">設計図</font></b>」 のようなものになります。<br>
+	</p>
+	</div>
+	<br>
+	
+
+
+<!--2.インスタンスとオブジェクト-->
+<h2 style="font-weight: 400;">インスタンスとインスタンスメソッドの使い方</h2>
+<button type="button" class="collapsible">2.インスタンスとオブジェクト</button>
+<div class="collapse-content">
+<p>Javaのようなオブジェクト指向のプログラミング言語では、処理をまとめたクラスを実行するために、そのクラスのオブジェクトを生成する必要があります。<br>
+<br>
+そして、生成したクラスのオブジェクトから、そのクラスのメンバ変数を参照したり、メソッドを呼び出して使用します。<br>
+クラスの中のメソッドを呼び出すためには、以下のように記述します。<br>
+	<br>
+<pre class="prettyprint linenums">
+//クラス定義
+class ClassSample{
+   // メソッドの宣言・定義
+   void methodSample(){
+      処理...
+   }
+   
+   public static void main(String[] args){
+   //オブジェクトを生成
+   ClassSample c = new ClassSample();
+   //メソッドの呼出し
+   c.methodSample();
+   }
+}</pre>
+
+クラスのオブジェクトを生成する方法は、クラス名のあとにオブジェクト名を書きます。<br>
+オブジェクトには new演算子を使って生成する インスタンスを格納します。<br>
+<br>
+なお、クラスのオブジェクトは異なるオブジェクト名でいくつでも生成することができます。<br>
+
 </p>	
 	</div>
-<br>
+
 	
-<!--2.Stringクラスのメソッド-->
-<h2 style="font-weight: 400;">文字列の操作</h2>	
-<button type="button" class="collapsible">2.Stringクラスのメソッド</button>
+	
+	
+<!--2-1.クラスを作り方(クラスの定義)-->
+<button type="button" class="collapsible">2-1.クラスを作り方(クラスの定義)</button>
 <div class="collapse-content">
-<p>文字列が持つインスタンスメソッドは、Stringクラスで定義されています。<br>
-	Stringクラスにはたくさんのメソッドがありますが、基本的なインスタンスメソッドには次のようなものがあります。</p>
-</div>
-
-<!--2-1.equalsメソッド-->
-<button type="button" class="collapsible">2-1.equalsメソッド</button>
-<div class="collapse-content">
-<p>equalsメソッドは、「文字列が別の文字列strと等しい時trueを返す」メソッドです。<br>
-実際には次の25～29行目のように記述します。<br>
+<p>クラス名は、好きなキーワードで構いません。<br>
+	注：クラスは常に<b style="color:#e7bd42">大文字</b>で始まり、<b style="color:#e7bd42">Javaファイルの名前はクラス名と同じにする</b>必要があります。 <br>
+以下の例では、Carというキーワード(名前)のクラスにしました。<br>
 <br>
-<b>例</b>[JSample7_2.java]<br>
+次に、<b style="color:#e7bd42">オブジェクト(モノ)</b>が持つ、<b style="color:#e7bd42">プロパティ(属性)</b>や<b style="color:#e7bd42">メソッド(操作)</b>をクラス内で定義します。<br>
+<br>
+例えば、車をオブジェクトとして、考えてみます。<br>
+車には、<b style="color:#e7bd42">色などの属性</b>と、<b style="color:#e7bd42">アクセルなどの操作</b>があります。<br>
+これをCarクラス内の定義に当てはめていくと、以下のように作成することができます。<br>
 <pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_2{
-	public static void main(String[] args){
-		String str1 = new String("abc");
-		String str2 = new String("abc");
-		
-		String str3 = "ab";
-		System.out.println("str1 = " + str1);
-		System.out.println("str2 = " + str2);
-		
-		if (str1 == str2) {
-			System.out.println("等しい");
-		}else{
-			 System.out.println("等しくない");
-		}
-		str3 = str3 + "c";
-		System.out.println("str1 = " + str1);
-		System.out.println("str3 = " + str3);
-		if (str1 == str3){
-			System.out.println("等しい");
-		}else{
-			System.out.println("等しくない");
-		}
-		System.out.println("equalsメソッドで比較");
-		if (str1.equals(str3)) {
-			System.out.println("等しい");
-		}else{
-			System.out.println("等しくない");
-		}
-	}
+public class Car {
+   String color;
+   int speed;
+   void go(){
+      処理....
+   }
 }</pre>
-	<br>
-	<b>実行結果</b><br>
-	str1 = abc<br>
-str2 = abc<br>
-等しくない<br>
-str1 = abc<br>
-等しくない<br>
-equalsメソッドで比較<br>
-等しい<br>
-	<br>
-文字列と文字列を比較する場合、「==」演算子を使うと同じ文字列でも等しいと判定されたり、等しくないと判定されたりします。（8～15行目と17～23行目）<br>
-	どういった時にどう判定されるのかはJavaの実装にも依存しているので、ここでは<b><u>同じ文字列が格納さ えているかどうか調べる時には「==」演算子は使わない</u></b>と覚えておいてください。<br>
+3行目で属性（メンバ変数）として色という文字列の宣言、5行目でメンバ変数speedを宣言しています。<br>
+7行目で操作（メソッド）として、「go」メソッドが宣言されています。{ ... }内に「go」メソッドがどのような動作をするのかを書きます。<br>	
+	
+</p>
+	</div>
+	
+	
+	
+<!--2-2.クラスの使用-->
+<button type="button" class="collapsible">2-2.クラスの使用</button>
+<div class="collapse-content">
+<p>クラスを使用する為には、まず、そのクラスにアクセス可能である必要があります。<br>
+クラスを使うには、以下のように変数を宣言する必要があります。<br>
+<pre class="prettyprint linenums">
+voidメソッド() {
+   Car car1;
+     処理....
+}</pre>
+	ローカル変数を宣言すると、初期値は設定されず、そのまま値を代入せずに使おうとするとコンパイルエラーになります。 <br>
+フィールド（メンバー変数）を定義すると、デフォルトの値はnullになる実体（インスタンス）は、具象クラスに対してnewで生成します。<br>
+<pre class="prettyprint linenums">
+Car car1;
+car1 = new Car();
+</pre>
+あるいは
+<pre class="prettyprint linenums">
+Car car1 = new Car();
+</pre>
+	
 </p>
 	</div>
 
 
-
-<!--2-2.指定の位置の文字を取得-->
-<button type="button" class="collapsible">2-2.指定の位置の文字を取得</button>
+<!--2-3.インスタンスを作成する-->
+<button type="button" class="collapsible">2-3.インスタンスを作成する</button>
 <div class="collapse-content">
-<p>charAtメソッドは「先頭から（<font color="#BACC59">インデックス</font>）番目の文字を返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-String型変数.charAt(インデックス)</pre>
-	<br>
-<b>例</b>[JSample7_3.java]<br>
+	<p><font color:#e7bd42>インスタンス</font>とは、クラスから作成される実体です。<br>
+	クラスは上記の通り、インスタンスを作成するための<font color="red">設計図</font>のようなものです。<br>
+<br>
+すでにCarという名前のクラスを作成したので、これを使ってインスタンスを作成してみます。<br>
+※バッテリーは100あると宣言した属性も追加しました。<br>
+	※また、操作として宣言した「go」という動作の説明に、バッテリーの消費も追加しました。<br>
+<br>
+<br>
+<b>例</b>[Car.java]<br>
+
 <pre class="prettyprint linenums">
 package JSample;
 
-public class JSample7_3{
-	public static void main(String[] args){
-		String str = "日本語";
-		char c1 = str.charAt(0);
-		char c2 = str.charAt(1);
-		char c3 = str.charAt(2);
-		System.out.println(c1);
-		System.out.println(c2);
-		System.out.println(c3);
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-日<br>
-本<br>
-語<br>
-</p>
-</div>
+public class Car{
+
+	String color;
 	
-
-<!--2-3.文字列の長さを取得-->
-<button type="button" class="collapsible">2-3.文字列の長さを取得</button>
-<div class="collapse-content">
-<p>lengthメソッドは「文字列の長さ（文字数）を返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-String型変数.length()</pre>
-	<br>
-	<b>例</b>[JSample7_4.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_4{
-	public static void main(String[] args){
-		String str = "日本語";
-		System.out.println("文字列："+str);
-		System.out.println("文字列の長さは" + str.length());
-		
-	}
-}</pre>
-	<br>
-<b>実行結果</b><br>
-文字列：日本語<br>
-文字列の長さは3<br>
-</p>
-</div>
-
-
-
-
-<!--2-4.文字列の一部を取得-->
-<button type="button" class="collapsible">2-4.文字列の一部を取得</button>
-<div class="collapse-content">
-<p><b>例</b>[JSample7_5.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_5{
-	public static void main(String[] args){
-		String str1 = new String("Hello World");
-		String new_str1 = str1.substring(2, 5);
-		System.out.println(str1 + "のsubstring(2,5)は" + new_str1 + "です");
-		String str2 = new String("こんにちは");
-		String new_str2 = str2.substring(2, 4);
-		System.out.println(str2 + "のsubstring(2,4)は" + new_str2 + "です");
-	}
-}</pre>
-<br>
-<b>実行結果</b><br>
-	Hello Worldのsubstring(2,5)はlloです<br>
-こんにちはのsubstring(2,4)はにちです<br>
-</p>
-</div>
+	int bettery = 100;
 	
-
-<!--2-5.大文字と小文字の変換-->
-<button type="button" class="collapsible">2-5.大文字と小文字の変換</button>
-<div class="collapse-content">
-<p>toUpperCaseメソッドは「英字を大文字にした文字列を返す」メソッドで、<br>
-toLowerCaseメソッドは「英字を小文字にした文字列を返す」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.toUpperCase()
-String型変数.toLowerCase()</pre>
-<br>
-<b>例</b>[JSample7_6.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_6 {
-	public static void main(String[] args){
-		String str1 = new String("Thank You");
-		String upper_str1 = str1.toUpperCase();
-		String lower_str1 = str1.toLowerCase();
-		System.out.println("元の文字列 : " + str1);
-		System.out.println("大文字へ変換 : " + upper_str1);
-		System.out.println("小文字へ変換 : " + lower_str1);
+	void go() {
+		this.battery -= 10;
+		System.out.println("バッテリーを10%使用しました");
+		System.out.println("現在のバッテリーは、" + battery + "%です");
 	}
-}</pre><br>
-<b>実行結果</b><br>
-元の文字列 : Thank You<br>
-大文字へ変換 : THANK YOU<br>
-小文字へ変換 : thank you<br>
-</p>
-</div>
-
-
-
-
-<!--2-6.空白を削除する-->
-<button type="button" class="collapsible">2-6.空白を削除する</button>
-<div class="collapse-content">
-<p>trimメソッドは「先頭と末尾の空白を削除した文字列を返す」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.trim()</pre>
-<br>
-<b>例</b>[JSample7_7.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_7{
-	public static void main(String[] args){
-		String str1 = new String(" Japan　");
-		System.out.println("元の文字列「" + str1 + "」");
-		System.out.println("文字数は" + str1.length() + "です");
-		String new_str1 = str1.trim();
-		System.out.println("空白を取り除いた文字列「" + new_str1 + "」");
-		System.out.println("文字数は" + new_str1.length() + "です");
-	}
-
-}</pre>
-<br>
-<b>実行結果</b><br>
-元の文字列「 Japan 」<br>
-文字数は7です<br>
-空白を取り除いた文字列「Japan」<br>
-文字数は5です<br>
-</p>
-</div>
-
-
-
-<!--2-7.文字列を分割する-->
-<button type="button" class="collapsible">2-7.文字列を分割する</button>
-<div class="collapse-content">
-<p>splitメソッドは、「指定した文字で、指定文字列を分割し、分断した結果を文字列として返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-配列 = String型変数.split(分割文字列)
-String str = "東京,大阪,京都,名古屋";
-String[] city = str.split(",");
-</pre>
-
-この例では「東京,大阪,京都,名古屋」という文字列が指定した文字列（ｓｔｒ）にあたり、<br>
-「,」（コンマ）ごとに分割しそれぞれを一つの文字列として返します。<br>
-<br>
-<b>例</b>[JSample7_8.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_8{
-	public static void main(String[] args){
-		String str = "東京,大阪,京都,名古屋";
-		String[]city = str.split(",");
-		
-		for (int i = 0; i &lt;city.length; i++){
-			System.out.println(i + "番目の要素 = :" + city[i]);
+	void charge() {
+		this.battery += 5;
+		System.out.println("バッテリーは5％を充電しました");
+		System.out.println("バッテリ残量は、" + battery + "%です");
 		}
-	}
+		
 }</pre>
-<b>実行結果</b><br>
-0番目の要素 = :東京<br>
-1番目の要素 = :大阪<br>
-2番目の要素 = :京都<br>
-3番目の要素 = :名古屋<br>
-</p>
-</div>
-
-
-
-<!--2-8.文字列を置換する-->
-<button type="button" class="collapsible">2-8.文字列を置換する</button>
-<div class="collapse-content">
-<p><b>（１）最初に該当した文字列を置換する</b><br>
-replaceFirstメソッドは「文字列の中から、最初に該当した部分文字列を別の文字列に置換する」メソッドです<br>
-<pre class="prettyprint linenums">
-String型変数.replaceFirst(置換される文字列, 置換文字列)</pre>
-下の例では8行目がメソッドの仕様部分にあたります。<br>
-<br>
-<b>例</b>[JSample7_9.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_9{
-	public static void main(String[] args) {
-		String str = "大阪出身の私は大阪の雰囲気が好きです。";
-		System.out.println("変換前:");
-		System.out.println(str);
-		str = str.replaceFirst("大阪", "東京");
-		System.out.println("変換後:");
-		System.out.println(str);
-	}
-}</pre>
-<br>
-<b>実行結果</b><br>
-変換前:<br>
-大阪出身の私は大阪の雰囲気が好きです。<br>
-変換後:<br>
-東京出身の私は大阪の雰囲気が好きです。<br>
-<br>
-ここでは、8行目でメソッドを使い、最初の「大阪」という部分文字列を「東京」という文字列に置換する指示を出しています。<br>
-5行目の文字列を見ると、文字列の中に「大阪」という言葉は2つ含まれています。<br>
-replaceFirstメソッドでは、最初に該当した「大阪」のみを「東京」に置換するため、実行結果の4行目のように出力されます。<br>
-<br>
-<b>（２）該当する全ての文字列を置換する</b><br>
-replaceAllメソッドは「文字列の中から、該当した部分文字列を別の文字列に置換する」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.replaceAll("置換される文字列", 置換文字列)</pre>
-下の例では8行目がメソッドの仕様部分にあたります。<br>
-<br>
-<b>例</b>[JSample7_10.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_10{
-	public static void main(String[] args){
-		String str = "大阪出身の私は大阪の雰囲気が好きです。";
-		System.out.println("変換前:");
-		System.out.println(str);
-		str = str.replaceAll("大阪", "東京");
-		System.out.println("変換後:");
-		System.out.println(str);
-	}
-}</pre>
-<br>
-<b>実行結果</b><br>
-変換前:<br>
-大阪出身の私は沖縄の雰囲気が好きです。<br>
-変換後:<br>
-東京出身の私は東京の雰囲気が好きです。<br>
-<br>
-この例では(1)とは異なり、5行目の文字列内の「大阪」と部分文字列をすべて「東京」という文字列に置換するため、実行結果の4行目のように出力されます。<br>
 	
-</p>
-</div>
-
-
-
-<!--2-9.文字列の大小を比較する-->
-<button type="button" class="collapsible">2-9.文字列の大小を比較する</button>
-<div class="collapse-content">
-<p>compareToメソッドは「辞書順にみて、引数の文字列sより前なら負の数、同じなら0、後なら正の数を返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-String型変数1.compareTo(String型引数s) 
-String型変数1.compareToIgnoreCase(String型引き数s)</pre>
+7行目で属性として、元々のバッテリーは100あると宣言されています。<br>
+9行目で「go」メソッドが宣言され、{ }内に操作の内容が説明されています。<br>
+10～12行目で、「go」メソッドを使用すると、バッテリーの値が10減り（10行目）、11・12行目でバッテリーを10使用したことと、現在のバッテリー残量をそれぞれ出力する、という処理が行われます。<br>
+14行目では「charge」メソッドが宣言されており、{ }内に操作の内容が説明されています。<br>
 	<br>
-compareToIgnoreCaseメソッドは、文字列の大文字と小文字を区別せずに比較する事ができます。<br>
-また、辞書順で引数より前のことを「値が小さい」、引数よりも後のことを「値が大きい」と表現することもあります。<br>
-	<br>
-	<b>例</b>[JSample7_11.java]<br>
+	<b>例</b>[JSample7_2.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
 
-public class JSample7_11 {
+public class JSample7_2 {
+
 	public static void main(String[] args) {
-		String str = "DEF";
-		System.out.println(str.compareTo("ABC"));   // 結果：12
-		System.out.println(str.compareTo("DEF"));   // 結果：0
-		System.out.println(str.compareTo("XYZ"));   // 結果：-11
-		System.out.println(str.compareToIgnoreCase("def")); // 結果：0
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-12<br>
-0<br>
--11<br>
-0<br>
-<br>
-この例では、メソッドのString型変数1の部分は5行目の「MNO」にあたります。<br>
-6～8行目でcompareToメソッドを使い、文字列の値を比較しています。<br>
-9行目では比較する引数が「mno」と小文字で指定されていますが、compareToIgnoreCaseメソッドを使っているため、大文字と小文字を区別せず比較することができています。<br>
 	
-</p>
-</div>
-<br>
-
-
-<!--3.toStringメソッドとは-->
-<h2 style="font-weight: 400;">数値を文字列へ変換</h2>	
-<button type="button" class="collapsible">3.toStringメソッドとは</button>
-<div class="collapse-content">
-<p>toStringメソッドは、引数にString型の文字列に変換したい変数を指定します。戻り値として、String型の文字列を返します。<br>
-toString()メソッドとは、<br>
-java.lang.Objectクラスで定義されている文字列表現を返すメソッドです。全てのクラスはこのjava.lang.Objectクラスを継承しているため、必然的に<br>
-どのクラスでもtoString()メソッドが定義されていることになります。<br>
-<br>
-<b>例</b>[JSample7_12.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample7_12 {
-	public static void main(String[] args) {
-		int num1 = 111;
-		int num2 = 222;
-		System.out.println(num1 + num2);
-		String str1 = Integer.toString(num1);
-		String str2 = Integer.toString(num2);
-		System.out.println(str1 + str2);
+		Car car1 = new Car();
+		car1.color = "red";
+		System.out.println("バッテリ残量は、" + car1.battery + "％です");
+		car1.go();
+		car1.charge();
 	}
-}</pre><br>
-	<b>実行結果</b><br>
-333<br>
-111222<br>
+	
+}</pre>
 <br>
-このプログラムでは、+演算子で数値を足した結果と、文字列を結合した結果をそれぞれ表示しています。Integerはint型のラッパークラスで、toString メソッドを呼び出すために使用しています。<br>
+<b>実行結果</b><br>
+	元々あるバッテリー量は、100です<br>
+バッテリーを10％使用しました<br>
+バッテリー残量は、90％です<br>
+バッテリーは5％を充電しました<br>
+バッテリー残量は、95％です<br>
 </p>
 </div>
 <br>
+
 
 
 <!--練習-->
@@ -501,30 +232,35 @@ public class JSample7_12 {
 <button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
 <p><b>問題</b>[JEx7_1.java]<br>
-String型で定義された文章中を以下の3つのメソッドをそれぞれ使い、カンマを取り除いた文章を表示するプログラムを作成せよ <br>
+	下記クラスのインスタンスを作成し、メソッドを呼出いし、実行してください。<br>
 <pre class="prettyprint linenums">
-String sentence = "abc,123,あいう";
-charAtメソッド
-replaceAllメソッド
-splitメソッド</pre>
-</div>
+package JSample;
+class Employee{
+   int employeeNo;
+   String name;
 
-<button type="button" class="collapsible">問題２</button>
-<div class="collapse-content">
-<br>
-<b>問題</b>[JEx7_2.java]<br>
-文字列の中から1文字を検索するプログラムを作成せよ。<br>
-ヒットすればその文字のインデックスを、ヒットしなければ-1を出力すること。 <br>
-検索文字が複数ある場合は、最も小さいインデックスを出力すること。 <br>
-例) abcabcからcを検索すると2と出力される。<br>
+   void setEmployeeNo (int newEmployeeNo) {
+      employeeNo = newEmployeeNo;
+   }
+
+   void setName(String newName) {
+   name = newEmployeeNo;
+   }
+
+   void setName(String newName) {
+      new = newName;
+   }
+
+   void dispID(){
+      System..out.println(name + "さんの社員番号は " + employeeNo + "です");
+   }
+}
+</pre>
+	</p>
+</div>
 	
-</p>
-</div>
-
-
-
-
-<!--article-container-->
+	
+	<!--article-container-->
 
     <!--back button-->
     <div class="text-center"><br>

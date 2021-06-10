@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/styling.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="stylesheet" href="../assets/css/plugins.min.css">
+    <title>例外処理</title>
+</head>
+<body>
+
+
+    <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
+        <div class="container">
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <div class="text-center">
+                <h1 class="head1 animated zoomInDown animation-delay-5">第19章　例外処理</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では例外処理に関する基本的な考え方について説明します 。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
+                    <label id="switch" class="switch animated fadeInDownBig">
+                        <input type="checkbox" onchange="toggleTheme()" id="slider">
+                        <span class="slider round"></span>
+                    </label>  
+            </div>
+        </div>
+    </div><br>
+                
+<!--article-container-->
+<div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
+
+
+    <!--例外処理-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">例外処理</h1>
+    <hr style="height:0.5px;background-color:#878c91;">
+
+
+
+<!--例外処理とは-->
+<button type="button" class="collapsible">1.例外とは</button>
+<div class="collapse-content">
+    <p>Exception(例外)とはプログラムは予めどういった処理をするのか、という手順を書いたものですが、状況によっては予期しない事象で正しく処理が行えないことがあります。<br><br>
+
+そのような予期しない状況をJavaでは例外と呼んでいます。<br>
+
+</p><br>
+</div>
+
+
+
+    
+
+<!--2.例外の種類-->
+<button type="button" class="collapsible">2.例外の種類</button>
+<div class="collapse-content">
+    <p>Javaで発生する例外は以下のようになります。
+
+
+<ul>
+     <li><b>コンパイルエラー</b>
+        <ul>
+            <li>文法にミスがあったりタイプミスがあるときに出てくるエラーです。
+            <li>またコンパイルエラーは代入ミスや型違いでの指定などでも起こります。
+            <li>要はコンパイル(コンピューター言語への変換)が出来ない状態を表
+        </ul> 
+</ul> 
+
+    
+
+
+
+<ul>
+     <li><b>実行時エラー</b>
+        <ul>
+            <li>問題なく実行は出来ているけど何らかの異常で処理落ちするなどの現象全般を指します。
+            <li>無限ループによるスタックオーバーフローやプロセスクラッシュもこれに該当します。
+        </ul> 
+</ul> 
+
+
+
+
+<ul>
+     <li><b>論理エラー</b>
+        <ul>
+            <li>実行時エラーも引き起こさずコンパイルも無事完了しきちんと動作しているかのように見えて、実際には想定外の動作を引き起こしてしまうなどの状態を表します。
+        </ul> 
+</ul> 
+
+
+
+
+<ul>
+     <li><b>Error</b>
+        <ul>
+            <li>無限ループによるスタックオーバーフローやプロセスクラッシュに代表される、重大かつ回復不能な事象を指します。
+            <li>JRE自体が強制終了することもあり、そういった場合にはエラーの原因を特定できないことも少なくありません。
+            <li>強制終了にはこれらの他に、どこにもエラーが無い場合でもメモリ不足が引き起こす場合もあります。
+        </ul> 
+</ul> 
+
+
+
+<ul>
+    <li><b>RuntimeException</b>
+        <ul>
+            <li>実行自体は出来ているため、プログラムの仕様や状況によっては特に気にしなくてもいい場合もあります。
+            <li>プログラムのバグの可能性も多いので、プログラムを修正することが正しい対応となる場合もあります。
+                <ul>
+                    <li><b>NumberFormatException</b> – parseIntやtoStringメソッドを使用する際に文字列や数値になっていなかった場合
+                    <li><b>NullPointerException</b> – インスタンスを呼び出す際に存在しないインスタンスを呼び出してしまった場合   
+                </ul> 
+        </ul> 
+</ul> 
+
+
+
+
+ <ul>
+     <li><b>Exception</b>
+        <ul>
+            <li>Exceptionは、例外処理を書かなければ、コンパイルに通らないので例外処理の記述を強制されます。これにより、想定外の状況をなるべく無くすことが可能となります。
+            <li>Exceptionの代表的な例としては、ファイルを開こうとしたが対象のファイルが存在しなかった(FileNotFoundException)、などです。
+        </ul> 
+</ul> 
+
+    </p><br>
+</div><br>
+
+
+
+
+
+<h2 style="font-weight: 400;">3.例外の処理方法</h2>
+
+<!--3-1.try文-->
+<button type="button" class="collapsible">3-1.try-catch文</button>
+<div class="collapse-content">
+    <p>try-catch文は自分で例外を処理する
+
+
+<pre class="prettyprint linenums">
+try{
+例外が発生しているかどうか調べる文;
+  ...
+}
+catch (例外クラス 変数名){
+例外クラス1の例外が発生した時に行う文;
+  ...
+}
+</pre><br>
+<b>例：</b>[JSample19_1.java]<br> 
+<pre class="prettyprint linenums">
+package JSample;
+public class JSample19_1 {
+    public static void main(String[] args) {
+        int[] myNumbers = {1, 2, 3};
+        System.out.println(myNumbers[10]);
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+<img style="max-width:100%;max-height:100%;"src="../assets/img/j19/j19-01.png" alt="error pic"></a>
+        </p><br>
+
+
+<b>例：</b>[JSample19_2.java]<br> 
+<pre class="prettyprint linenums">
+package JSample;
+public class JSample19_2 {
+    public static void main(String[ ] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+        } catch (Exception e) {
+            System.out.println("例外が発生しました。");
+        }
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+    例外が発生しました。<br>
+        </p><br>
+    </div>
+
+<!--3-2.finally-->
+<button type="button" class="collapsible">3-2.finally文</button>
+<div class="collapse-content">
+    <p>Finallyは自分で例外を処理して、かつ例外の有無に関わらず必ず処理させたい場合に使います。
+
+
+
+<pre class="prettyprint linenums">
+try{
+例外が発生しているかどうか調べる文;
+  ...
+}
+catch (例外クラス 変数名){
+例外クラス1の例外が発生した時に行う文;
+  ...
+}
+finally {
+例外が発生するしないに関わらず実行する文;
+  ...
+}
+</pre>
+<b>例：</b>[JSample19_3.java]<br> 
+<pre class="prettyprint linenums">
+package JSample;
+public class JSample19_3 {
+    public static void main(String[] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+        }catch (Exception e) {
+            System.out.println("Something went wrong.");
+        }finally {
+            System.out.println("The 'try catch' is finished.");
+        }
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+    例外が発生しました。<br>
+    絶対に実行させる処理を記述できます。<br>
+        </p><br>
+    </div>
+
+
+<!--3-3.throws文-->
+<button type="button" class="collapsible">3-3.throws文</button>
+<div class="collapse-content">
+    <p>自分では処理せず、例外処理を呼び出し元のクラスにスルーする
+  
+<pre class="prettyprint linenums">
+public void read() throws FileNotFoundException, IOException {
+    //メソッド内容
+}
+</pre>
+   
+<b>例：</b>[JSample19_4.java]<br>  
+<pre class="prettyprint linenums">
+package JSample;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+public class JSample19_4 {
+ 
+    public static void main(String[] args) {
+        String fileName = "sample.txt";
+        
+        try{
+            read(fileName);
+        }catch (FileNotFoundException e) {
+            System.out.println("ファイルが存在しませんでした。");
+        }
+    }
+    
+    public static void read(String fileName) throws FileNotFoundException {
+        FileReader r = new FileReader("sample.txt");
+        System.out.println("ファイルを読み込みました"); 
+    }
+}    
+</pre>
+    <b>実行結果</b><br>
+    ファイルが存在しませんでした。<br>
+    </p><br>
+</div><br>
+
+
+    <h2 style="font-weight: 400;">練習</h2>
+    <!--練習-->
+    <button type="button" class="collapsible">問題１</button>
+    <div class="collapse-content">
+        <p><b>問題</b>[JEx19_1]<br>
+        例外インスタンスのgetMessageメソッドを呼び出して取得した値を表示してください。
+        それ以外の例外が発生した場合、「2つの数値を指定してください」と表示してください。<br>
+
+<pre class="prettyprint linenums">
+public class JEx19_1{
+    public static void main(String[] args){
+        double weight = Double.parseDouble(args[0]);
+        double height = Double.parseDouble(args[1]);
+        System.out.println( "BMI = " + getBMI(weight,height) );
+    }
+    public static double getBMI(double weight, double height){
+        return weight / ( height * height );
+    }
+}
+</pre>
+    <b>実行結果１</b><br>
+    2つの数値を指定してください<br><br>
+
+        <b>実行結果２（ｗeight:-65 height:170</b><br>
+    負の数を用いることはできません<br><br>
+
+        <b>実行結果３（ｗeight:65 height:170）</b><br>
+    BMI = 22.49134948096886<br><br>
+        </p><br>
+    </div>
+
+
+
+</div><!--article-container-->
+   
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<script src="../assets/js/darkmode.js"></script>
+  
+</body>
+</html>

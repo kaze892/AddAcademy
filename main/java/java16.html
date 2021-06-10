@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>例外処理</title>
+    <title>ファイル操作の基本</title>
 </head>
 <body>
 
@@ -16,8 +16,8 @@
         <div class="container">
             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第16章　例外処理</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">この章では例外処理に関する基本的な考え方について説明します 。</p>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第16章　ファイル操作の基本</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章ではファイルを管理するに関する基本的な考え方について説明します。</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
                         <input type="checkbox" onchange="toggleTheme()" id="slider">
@@ -32,18 +32,24 @@
 
 
     <!--例外処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">例外処理</h1>
+    <h1 class="article-container animated bounceInRight animation-delay-20">ファイル操作の基本</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
 
-<!--例外処理とは-->
-<button type="button" class="collapsible">1.例外とは</button>
+<!--1.Fileクラス-->
+<button type="button" class="collapsible">1.Fileクラス</button>
 <div class="collapse-content">
-    <p>Exception(例外)とはプログラムは予めどういった処理をするのか、という手順を書いたものですが、状況によっては予期しない事象で正しく処理が行えないことがあります。<br><br>
+    <p>Fileクラスは、ファイルやディレクトリを作成したり、ファイルのチェック処理、読み込み・書き込み処理など、ファイルに関するさまざまな操作を行います。<br><br>
 
-そのような予期しない状況をJavaでは例外と呼んでいます。<br>
-
+    コンストラクタの引数にパスやディレクトリ・ファイル名を指定することで、オブジェクトを生成できます<br>
+<pre class="prettyprint linenums">
+File オブジェクト名 = new File(ファイル名);
+</pre>
+対象とするファイル名をディレクトリの位置＋ファイル名の形で指定します。例えば下記のようになります。
+<pre class="prettyprint linenums">
+File file = new File("C:\\Test\\test.txt");
+</pre>
 </p><br>
 </div>
 
@@ -51,220 +57,272 @@
 
     
 
-<!--2.例外の種類-->
-<button type="button" class="collapsible">2.例外の種類</button>
+<!--2.パッケージ宣言-->
+<button type="button" class="collapsible">2.パッケージ宣言</button>
 <div class="collapse-content">
-    <p>Javaで発生する例外は以下のようになります。
-
-
-<ul>
-     <li><b>コンパイルエラー</b>
-        <ul>
-            <li>文法にミスがあったりタイプミスがあるときに出てくるエラーです。
-            <li>またコンパイルエラーは代入ミスや型違いでの指定などでも起こります。
-            <li>要はコンパイル(コンピューター言語への変換)が出来ない状態を表
-        </ul> 
-</ul> 
-
-    
-
-
-
-<ul>
-     <li><b>実行時エラー</b>
-        <ul>
-            <li>問題なく実行は出来ているけど何らかの異常で処理落ちするなどの現象全般を指します。
-            <li>無限ループによるスタックオーバーフローやプロセスクラッシュもこれに該当します。
-        </ul> 
-</ul> 
-
-
-
-
-<ul>
-     <li><b>論理エラー</b>
-        <ul>
-            <li>実行時エラーも引き起こさずコンパイルも無事完了しきちんと動作しているかのように見えて、実際には想定外の動作を引き起こしてしまうなどの状態を表します。
-        </ul> 
-</ul> 
-
-
-
-
-<ul>
-     <li><b>Error</b>
-        <ul>
-            <li>無限ループによるスタックオーバーフローやプロセスクラッシュに代表される、重大かつ回復不能な事象を指します。
-            <li>JRE自体が強制終了することもあり、そういった場合にはエラーの原因を特定できないことも少なくありません。
-            <li>強制終了にはこれらの他に、どこにもエラーが無い場合でもメモリ不足が引き起こす場合もあります。
-        </ul> 
-</ul> 
-
-
-
-<ul>
-    <li><b>RuntimeException</b>
-        <ul>
-            <li>実行自体は出来ているため、プログラムの仕様や状況によっては特に気にしなくてもいい場合もあります。
-            <li>プログラムのバグの可能性も多いので、プログラムを修正することが正しい対応となる場合もあります。
-                <ul>
-                    <li><b>NumberFormatException</b> – parseIntやtoStringメソッドを使用する際に文字列や数値になっていなかった場合
-                    <li><b>NullPointerException</b> – インスタンスを呼び出す際に存在しないインスタンスを呼び出してしまった場合   
-                </ul> 
-        </ul> 
-</ul> 
-
-
-
-
- <ul>
-     <li><b>Exception</b>
-        <ul>
-            <li>Exceptionは、例外処理を書かなければ、コンパイルに通らないので例外処理の記述を強制されます。これにより、想定外の状況をなるべく無くすことが可能となります。
-            <li>Exceptionの代表的な例としては、ファイルを開こうとしたが対象のファイルが存在しなかった(FileNotFoundException)、などです。
-        </ul> 
-</ul> 
-
-    </p><br>
-</div><br>
-
-
-
-
-
-<h2 style="font-weight: 400;">3.例外の処理方法</h2>
-
-<!--3-1.try文-->
-<button type="button" class="collapsible">3-1.try-catch文</button>
-<div class="collapse-content">
-    <p>try-catch文は自分で例外を処理する
-
+    <p>パッケージ宣言は､他のパッケージ内のクラスやインターフェイスを参照するために利用する｡ 
 
 <pre class="prettyprint linenums">
-try{
-例外が発生しているかどうか調べる文;
-  ...
-}
-catch (例外クラス 変数名){
-例外クラス1の例外が発生した時に行う文;
-  ...
-}
-</pre><br>
-<b>例：</b>[JSample16_1.java]<br> 
-<pre class="prettyprint linenums">
-package JSample;
-public class JSample16_1 {
-    public static void main(String[] args) {
-        int[] myNumbers = {1, 2, 3};
-        System.out.println(myNumbers[10]);
-    }
-}
+import パッケージ名.クラス名;
+import java.util.Calendar;
+import java.util.*
 </pre>
-    <b>実行結果</b><br>
-<img style="max-width:100%;max-height:100%;"src="../assets/img/j16/j16-01.png" alt="error pic"></a>
-        </p><br>
-
-
-<b>例：</b>[JSample16_2.java]<br> 
+※パッケージ宣言はファイル先頭で宣言するようにしてください。<br>
+※同じようなパッケージクラス名は重複させない。<br><br>
+<b>例：</b>[JSample16_1.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
-public class JSample16_2 {
-    public static void main(String[ ] args) {
-        try {
-            int[] myNumbers = {1, 2, 3};
-            System.out.println(myNumbers[10]);
-        } catch (Exception e) {
-            System.out.println("例外が発生しました。");
+import java.io.File;
+public class JSample16_1 {
+    public static void main(String args[]) {
+        File cdirectory = new File("C:\\");
+        String filelist[] = cdirectory.list();
+        for (int i = 0; i < filelist.length; i++) {
+            System.out.println(filelist[i]);
         }
     }
 }
 </pre>
-    <b>実行結果</b><br>
-    例外が発生しました。<br>
-        </p><br>
+<b>実行結果</b>(ローカルの環境によって、結果が違います。)<br>
+Intel<br>
+Program Files<br>
+Program Files (x86)<br>
+ProgramData<br>
+Users<br>
+Windows<br>
+    </p><br>
+</div>
+
+
+
+
+
+
+
+<!--3.ディレクトリの判別-->
+<button type="button" class="collapsible">3.ディレクトリの判別</button>
+<div class="collapse-content">
+    <p>ファイルのディレクトリは次の例のようにの判別することができます。<br><br>
+
+<b>例：</b>[JSample16_2.java]<br>
+<pre class="prettyprint linenums">
+    package JSample;
+    import java.io.File;
+    public class JSample16_2 {
+        public static void main(String args[]) {
+            File cdirectory = new File("C:\\");
+            File filelist[] = cdirectory.listFiles();
+            for (int i = 0; i < filelist.length; i++) {
+                if (filelist[i].isFile()) {
+                    System.out.println("[F]" + filelist[i].getName());
+                } else if (filelist[i].isDirectory()) {
+                    System.out.println("[D]" + filelist[i].getName());
+                } else {
+                    System.out.println("[?]" + filelist[i].getName());
+                }
+            }
+        }
+    }
+</pre><br>
+<b>実行結果</b>(ローカルの環境によって、結果が違います。)<br>
+[D]Drivers<br>
+[D]inetpub<br>
+[C]Intel<br>
+[C]Program Files<br>
+[C]Program Files (x86)<br>
+[C]ProgramData<br>
+[C]Users<br>
+[C]Windows<br>
+</pre>
+</p><br>
     </div>
 
-<!--3-2.finally-->
-<button type="button" class="collapsible">3-2.finally文</button>
+<!--4.ファイルのパスの取得-->
+<button type="button" class="collapsible">4.ファイルのパスの取得</button>
 <div class="collapse-content">
-    <p>Finallyは自分で例外を処理して、かつ例外の有無に関わらず必ず処理させたい場合に使います。
-
-
+    <p>Fileクラスで用意されている"getAbsolutePath"メソッドは絶対パスによるファイルの位置と名前を取得できます。
 
 <pre class="prettyprint linenums">
-try{
-例外が発生しているかどうか調べる文;
-  ...
-}
-catch (例外クラス 変数名){
-例外クラス1の例外が発生した時に行う文;
-  ...
-}
-finally {
-例外が発生するしないに関わらず実行する文;
-  ...
-}
+public String getAbsolutePath()
 </pre>
 <b>例：</b>[JSample16_3.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-public class JSample16_3 {
-    public static void main(String[] args) {
-        try {
-            int[] myNumbers = {1, 2, 3};
-            System.out.println(myNumbers[10]);
-        }catch (Exception e) {
-            System.out.println("Something went wrong.");
-        }finally {
-            System.out.println("The 'try catch' is finished.");
-        }
+import java.io.File;
+public class JSample16_3{
+    public static void main(String args[]){
+        File file = new File("test.txt");
+        String path = file.getAbsolutePath();
+    System.out.println("File：" + path);
     }
 }
 </pre>
-    <b>実行結果</b><br>
-    例外が発生しました。<br>
-    絶対に実行させる処理を記述できます。<br>
+    <b>実行結果</b>(ローカルの環境によって、結果が違います。)<br>
+File：C:\Users\MyUserName\documents\test.txt<br>
         </p><br>
     </div>
 
 
-<!--3-3.throws文-->
-<button type="button" class="collapsible">3-3.throws文</button>
+<!--5.ファイルの作成-->
+<button type="button" class="collapsible">5.ファイルの作成</button>
 <div class="collapse-content">
-    <p>自分では処理せず、例外処理を呼び出し元のクラスにスルーする
+    <p>FileクラスのcreateNewFileメソッドを使用することでファイルを作成することができます。
   
 <pre class="prettyprint linenums">
-public void read() throws FileNotFoundException, IOException {
-    //メソッド内容
-}
+public boolean createNewFile() throws IOException
 </pre>
    
 <b>例：</b>[JSample16_4.java]<br>  
 <pre class="prettyprint linenums">
 package JSample;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.File;
+import java.io.IOException;
 public class JSample16_4 {
- 
-    public static void main(String[] args) {
-        String fileName = "sample.txt";
+    public static void main(String args[]) throws IOException {
+        File newfile = new File("C:\\test.txt");
         
-        try{
-            read(fileName);
-        }catch (FileNotFoundException e) {
-            System.out.println("ファイルが存在しませんでした。");
+            if (newfile.exists()) {
+                System.out.println("ファイルの作成に失敗しました");
+            } else {
+                newfile.createNewFile();
+                System.out.println("ファイルの作成に成功しました");
+            }
+        
+    }
+}
+</pre>
+    <b>実行結果</b>(ファイルが存在しない場合)<br>
+    ファイルの作成に成功しました<br><br>
+
+        <b>実行結果</b>(ファイルが存在した場合)<br>
+    ファイルの作成に失敗しました<br>
+    </p><br>
+</div>
+
+
+
+
+<!--6.ディレクトリの作成-->
+<button type="button" class="collapsible">6.ディレクトリの作成</button>
+<div class="collapse-content">
+    <p>Fileクラスのmkdirメソッドを使用することでディレクトリを作成することができます。
+  
+<pre class="prettyprint linenums">
+File newdir = new File("c:\\test");
+newdir.mkdir();
+</pre>
+※mkdirメソッドは、boolean型（true/false）の値を返します。<br><br>
+<b>例：</b>[JSample16_5.java]<br>  
+<pre class="prettyprint linenums">
+package JSample;
+import java.io.File;
+public class JSample16_5 {
+    public static void main(String args[]) {
+        File newfile = new File("C:\\Test");
+        if (newfile.mkdir()) {
+            System.out.println("ディレクトリの作成に成功しました");
+        } else {
+            System.out.println("ディレクトリの作成に失敗しました");
         }
     }
-    
-    public static void read(String fileName) throws FileNotFoundException {
-        FileReader r = new FileReader("sample.txt");
-        System.out.println("ファイルを読み込みました"); 
-    }
-}    
+}
 </pre>
-    <b>実行結果</b><br>
-    ファイルが存在しませんでした。<br>
+    <b>実行結果</b>(ディレクトリが存在しない場合)<br>
+    ディレクトリの作成に成功しました<br><br>
+
+        <b>実行結果</b>(ディレクトリが存在した場合)<br>
+    ディレクトリの作成に失敗しました<br>
     </p><br>
+</div>
+
+
+<!--7.ファイルの確認と削除-->
+<button type="button" class="collapsible">7.ファイルの確認と削除</button>
+<div class="collapse-content">
+    <p>Fileクラスのfile.existsメソッドを使用することでファイルの存在を確認することができます。<br>
+       Fileクラスのfile.deleteメソッドを使用することでファイルを削除することができます。<br><br>
+<b>例：</b>[JSample16_6.java]<br>  
+<pre class="prettyprint linenums">
+package JSample;
+import java.io.File;
+public class JSample16_6 {
+    public static void main(String args[]) {
+        File file = new File("C:\\test.txt");
+        if (file.exists()) {
+            if (file.delete()) {
+                System.out.println("ファイルを削除しました");
+            } else {
+                System.out.println("ファイルの削除に失敗しました");
+            }
+        } else {
+            System.out.println("ファイルが見つかりません");
+        }
+    }
+}
+</pre>
+    <b>実行結果</b>(ファイルが存在した場合)<br>
+    ファイルを削除しました<br><br>
+    <b>実行結果</b>(ファイルが存在して、削除できなかった場合)<br>
+    ファイルの削除に失敗しました<br><br>
+    <b>実行結果</b>(ファイルが存在しない場合)<br>
+    ファイルが見つかりません<br>
+    </p><br>
+</div>
+
+
+
+
+<!--8.読み込み · 書き込み許可-->
+<button type="button" class="collapsible">8.読み込み · 書き込み許可</button>
+<div class="collapse-content">
+
+<p><b>canReadメソッド:</b> 該当のファイルが読み取れるかどうかの確認<br>
+<pre class="prettyprint linenums">
+public boolean canRead()
+</pre>
+
+<b>canWriteメソッド: </b> 該当のファイルに書き込みが出来るかどうかの確認<br>
+<pre class="prettyprint linenums">
+public boolean canWrite()
+</pre>
+
+<b>setReadOnlyメソッド:</b> 該当のファイルに書き込み不可(読み取り専用)の制限を与える<br>
+<pre class="prettyprint linenums">
+public boolean setReadOnly()
+</pre><br>
+
+
+<b>例：</b>[JSample16_7.java]<br>  
+<pre class="prettyprint linenums">
+package JSample;
+import java.io.File;
+import java.io.IOException;
+public class JSample16_4 {
+    public static void main(String args[]) {
+        File file = new File("C:\\test.txt");
+        // test.txtファイルの読み込みと書き込みの可・否を確認
+        canReadWrite(file);
+        if (file.setReadOnly()) {
+            System.out.println("ファイルを読み取り専用にしました");
+        } else {
+            System.out.println("読み取り専用に変更が失敗しました");
+        }
+    }
+    private static void canReadWrite(File file) {
+        if (file.canRead()) {
+            System.out.println("ファイルは読み込み可能です");
+        }
+        if (file.canWrite()) {
+            System.out.println("ファイルは書き込み可能です");
+        }
+    }
+}
+</pre>
+    <b>実行結果</b>(ファイルが存在した場合)<br>
+    ファイルは読み込み可能です<br>
+    ファイルは書き込み可能です<br>
+    ファイルを読み取り専用にしました<br><br>
+    </p>
 </div><br>
 
 
@@ -273,29 +331,8 @@ public class JSample16_4 {
     <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
         <p><b>問題</b>[JEx16_1]<br>
-        例外インスタンスのgetMessageメソッドを呼び出して取得した値を表示してください。
-        それ以外の例外が発生した場合、「2つの数値を指定してください」と表示してください。<br>
-
-<pre class="prettyprint linenums">
-public class JEx16_1{
-    public static void main(String[] args){
-        double weight = Double.parseDouble(args[0]);
-        double height = Double.parseDouble(args[1]);
-        System.out.println( "BMI = " + getBMI(weight,height) );
-    }
-    public static double getBMI(double weight, double height){
-        return weight / ( height * height );
-    }
-}
-</pre>
-    <b>実行結果１</b><br>
-    2つの数値を指定してください<br><br>
-
-        <b>実行結果２（ｗeight:-65 height:170</b><br>
-    負の数を用いることはできません<br><br>
-
-        <b>実行結果３（ｗeight:65 height:170）</b><br>
-    BMI = 22.49134948096886<br><br>
+           ディレクトリとファイルの存在を確認して、存在しない場合、作成を実行する。
+           存在する場合ファイルを削除するプログラムを完成してください。 
         </p><br>
     </div>
 
