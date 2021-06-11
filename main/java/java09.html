@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>第9章　Stringクラスの文字列処理</title>
+    <title>第9章　java修飾子</title>
 </head>
 <body>
 
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+             <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第9章　Stringクラスの文字列処理</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">Javaでは、文字列は基本データ型ではなくStringクラスのインスタンスとなります。この章では文字列を作成する方法や、文字列の操作を行う方法について解説します。</p>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第9章　java修飾子</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">修飾子の種類やその挙動について説明します。</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java/java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
                          <input type="checkbox" onchange="toggleTheme()" id="slider">
@@ -32,491 +32,391 @@
 
 
 
-    <!--Stringクラスの文字列処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">Stringクラスの文字列処理</h1>
+    <!--java修飾子-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">java修飾子</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
+<!--メンバ変数に対して、コンパイラが何らかの最適化を施すことを防止します。-->
+<button type="button" class="collapsible">1.メンバ変数定義時に付与できる修飾子</button>
+<div class="collapse-content">
+	<p>※ 修飾子は上から定義する順に並んでいます。<br>
+	<table border="1" width="650">
+		<tr>
+			<th  align="center" width="120">修飾子</th>
+			<th  align="center">説明</th>
+		</tr>
+		<tr>
+			<td >アクセス修飾子</td>
+			<td >アクセス修飾子を指定することにより、メンバ変数を他のクラスから参照できないなどを指定できるようになります。</td>
+		</tr>
+		<tr>
+			<td >static</td>
+			<td >メンバ変数がインスタンス変数ではなく、クラス変数であることを表します。</td>
+		</tr>
+		<tr>
+			<td >final</td>
+			<td >finalをつけると変数に一度値が生成されるとその値を変更できず定数として扱われます。</td>
+		</tr>
+		<tr>
+			<td >transient</td>
+			<td >シリアライズすべきでないメンバ変数を表します。</td>
+		</tr>
+		<tr>
+			<td >volatile</td>
+			<td >メンバ変数に対して、コンパイラが何らかの最適化を施すことを防止します。</td>
+		</tr>
+	</table>
+	</p>	
+</div>
 
-<!--Stringクラスの文字列処理-->
-<button type="button" class="collapsible">Stringクラスとは</button>
-	<div class="collapse-content">
-		<p>Stringクラスとは、文字列を扱うために使用されているクラスです。文字列は、他の値(※1)とは違いオブジェクトと呼ばれます。オブジェクトの特徴は、データだけでなく文字列を操作するためのメソッド(機能)が含まれています。(※2)<br>
-		Stringクラスでは、具体的な値(文字列)を<font color="blue"> " " </font>(ダブルクォーテーション)で囲むことで、new演算子を使わなくてもオブジェクトを作ることができます。<br>
-		<br>
-		(※1) 基本データ型(boolean,byte,char,short,int,long,float,double)<br>
-		(※2)クラスやメソッドについては第9章で詳しく扱います。<br>
-		<br>
-<pre class="prettyprint linenums">
-String str;
-str = "文字列";
-</pre>
-		<br>
-		<b>例1:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "";</pre>
-		<br>
-		strには空文字(何もない文字列)が入る。<br>
-		<br>
-		<b>例2:</b>
-<pre class="prettyprint linenums">
-String str;
-str = "abc";</pre>
-		<br>
-		変数strには「abc」という文字列が入る。<br>
-		</p>	
-	</div>
-<br>
 	
-<h2 style="font-weight: 400;">文字列の処理</h2>	
-<!--1.文字列の処理-->
-<button type="button" class="collapsible">1.文字列の連結</button>
-<div class="collapse-content">	
-<p>
-<pre class="prettyprint linenums">
-String str;
-str = "abc";
-str = str + "def";(※1)</pre>
-(※1) 3行目は、str += "def"　と書いても同じ意味になる。<br>
-strには「abcdef」という文字列が入る。<br>
+
+	
+	
+	
+	
+<!--2.メソッド定義時に付与できる修飾子-->
+<button type="button" class="collapsible">2.メソッド定義時に付与できる修飾子</button>
+<div class="collapse-content">
+<p>※ 修飾子は上から定義する順に並んでいます。<br>
+	<table border="1" width="650">
+		<tr>
+			<th  align="center" width="120">修飾子</th>
+			<th  align="center">説明</th>
+		</tr>
+		<tr>
+			<td >アクセス修飾子</td>
+			<td >アクセス修飾子を指定することにより、メソッドを他のクラスから参照できないなどを指定できるようになります。</td>
+		</tr>
+		<tr>
+			<td >static</td>
+			<td >メソッドがインスタンスメソッドではなく、クラスメソッドであることを表します。</td>
+		</tr>
+		<tr>
+			<td >abstract</td>
+			<td >処理を実装しないメソッド（抽象メソッド）を生成したい時に使用します。</td>
+		</tr>
+		<tr>
+			<td >final</td>
+			<td >finalを使用した場合、そのメソッドはサブクラスでオーバーライドすることができません。</td>
+		</tr>
+		<tr>
+			<td >native</td>
+			<td >C言語など他の言語で記述されたプログラムをJavaプログラム内で使用したい時に使います。使用したいプログラムにnativeを付け定義します。</td>
+		</tr>
+		<tr>
+			<td >synchronized</td>
+			<td >スレッドを複数同時に走らせる際に同じデータに対し複数のメソッドが呼び出される場合があります。そのような場合、安全にメソッドが実行されるためにsynchronizedを使用します。</td>
+		</tr>
+	</table>
+</p>
+	</div>
+<br>	
+	
+	
+	
+	
+
+<!--3-1.アクセス修飾子の種類-->
+<h2 style="font-weight: 400;">アクセス修飾子</h2>
+<button type="button" class="collapsible">3-1.アクセス修飾子の種類</button>
+<div class="collapse-content">
+	<p>指定できるアクセス修飾子を以下に記載します。<br>
+クラス定義時に指定できるアクセス修飾子は「public」と「指定無し（デフォルト）」のみです。<br>
+<table border="1" width="650">
+	<tr align="center">
+		<th  align="center" width="120">アクセス修飾子</th>
+		<th  align="center" width="120">クラス</th>
+		<th  align="center" width="120">メンバ変数</th>
+		<th  align="center" width="120">メソッド</th>
+		<th  align="center" width="120">コンストラクタ</th>
+	</tr>
+	<tr>
+		<td >public</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+	</tr>
+	<tr>
+		<td >protected</td>
+		<td >×</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+	</tr>
+	<tr>
+		<td >指定無し（デフォルト）</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+	</tr>
+	<tr>
+		<td >private</td>
+		<td >×</td>
+		<td >○</td>
+		<td >○</td>
+		<td >○</td>
+	</tr>
+</table>
+	
+	
+	</p>
+	</div>
+	
+	
+	
+	
+<!--3-2.アクセス修飾子の使用方法-->
+<button type="button" class="collapsible">3-2.アクセス修飾子の使用方法</button>
+<div class="collapse-content">
+	<p></p><ul>
+		<li><b>public</b> と指定すると、どこからでも参照できます。</li>
+		<li><b>protected</b> と指定すると、そのクラスを継承したサブクラスからしか参照できません。</li>
+		<li><b>修飾子を省略する</b>と、同じパッケージのクラスからしか参照できません。</li>
+		<li><b> private</b>と指定すると、そのクラスの中からしか参照できません。</li>
+	</ul>
+	<table border="1" width="650">
+		<tr align="center">
+			<th  rowspan="2">アクセス修飾子</th>
+			<th  colspan="3">自パッケージ</th>
+			<th  colspan="2" >他パッケージ</th>
+		</tr>
+		<tr>
+			<td  >自クラス</td>
+			<td  >サブクラス</td>
+			<td  >他クラス</td>
+			<td >サブクラス</td>
+			<td  >他クラス</td>
+		</tr>
+		<tr>
+			<td >public</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+		</tr>
+		<tr>
+			<td >protected</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+			<td >×</td>
+		</tr>
+		<tr>
+			<td >指定無し（デフォルト）</td>
+			<td >○</td>
+			<td >○</td>
+			<td >○</td>
+			<td >×</td>
+			<td >×</td>
+		</tr>
+		<tr>
+			<td >private</td>
+			<td >○</td>
+			<td >×</td>
+			<td >×</td>
+			<td >×</td>
+			<td >×</td>
+		</tr>
+	</table>
 	<br>
-	<b>例</b>[JSample9_1.java]<br>
+	<b>例：1</b> [AccessTest.java]<br>
+<pre class="prettyprint linenums">
+package Jsample;
+public class AccessTest {
+	public void a(){
+		System.out.println("public");
+	}
+	protected void b(){
+		System.out.println("protected");
+	}
+	void c(){
+		System.out.println("修飾子なし");
+	}
+	private void d(){
+		System.out.println("private");
+	}
+
+	public static void main(String[] args){
+		AccessTest test = new AccessTest();
+
+		test.a();
+		test.b();
+		test.c();
+		test.d();
+	}
+}</pre>
+
+<b>実行結果</b><br>
+public<br>
+protected<br>
+修飾子なし<br>
+private<br>
+<br>
+ <hr style="height:0.5px;background-color:grey;">
+ <br>
+<b>例：2</b> [Television.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
+public class Television{
+	private int channelNo;
 
+		private void setChannel(int newChannelNo){
+			channelNo = newChannelNo;
+			System.out.println("新しいChannelNo=" + channelNo);
+			}
+}</pre>
+
+[JSample9_2.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
 public class JSample9_1{
-	public static void main(String[] args){
-		String str = "おはようございます。";
-		str +="田中さん。";
-		System.out.println(str);
+	public static void main(String args[]){
+		Television tv1 = new Television();
+		tv1.setChannel(1);
 	}
 }</pre>
-	<b>実行結果</b><br>
-	おはようございます。田中さん。<br>
-</p>	
-	</div>
+<b>実行結果</b> (コンパイルの段階でエラーとなります。)<br>
+ <img src="../assets/img/j09/j09.png" alt="pic here ">
 <br>
-	
-<!--2.Stringクラスのメソッド-->
-<h2 style="font-weight: 400;">文字列の操作</h2>	
-<button type="button" class="collapsible">2.Stringクラスのメソッド</button>
-<div class="collapse-content">
-<p>文字列が持つインスタンスメソッドは、Stringクラスで定義されています。<br>
-	Stringクラスにはたくさんのメソッドがありますが、基本的なインスタンスメソッドには次のようなものがあります。</p>
-</div>
+この例では、TelevisionクラスのprivateメソッドのためJSampleクラスからはアクセスできません。<br>
+そのためコンパイルエラーとなります。<Br>
 
-<!--2-1.equalsメソッド-->
-<button type="button" class="collapsible">2-1.equalsメソッド</button>
-<div class="collapse-content">
-<p>equalsメソッドは、「文字列が別の文字列strと等しい時trueを返す」メソッドです。<br>
-実際には次の25～29行目のように記述します。<br>
+
+
+</p>
+</div>
 <br>
-<b>例</b>[JSample9_2.java]<br>
+
+
+
+
+<!--4.static-->
+<button type="button" class="collapsible">4.static</button>
+<div class="collapse-content">
+	<p>メンバ変数、メソッドを定義する際、static修飾子が付与されたものを<b >クラス変数</b>、<b >クラスメソッド</b>、static修飾子が付与されていないものを<b >インスタンス変数</b>、<b >インスタンスメソッド</b>といいます。<br>
+	<b >mainメソッド</b>はインスタンスを生成する前に実行する必要があるため、static修飾子を付けて定義しています。<br>
+<br>
+		<b>static変数</b>とはクラスに1つだけ存在する変数です。<br>
+オブジェクトごとに存在するインスタンス変数とは異なり、オブジェクトを生成しなくてもアクセスできます。<br>
+static変数はクラス単位で管理したいときに便利な変数です。<br>
+<br>
+		<b>例：</b><br>
+クラス変数の参照方法を例示します。<br>
+[ExClass.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
-
-public class JSample9_2{
-	public static void main(String[] args){
-		String str1 = new String("abc");
-		String str2 = new String("abc");
-		
-		String str3 = "ab";
-		System.out.println("str1 = " + str1);
-		System.out.println("str2 = " + str2);
-		
-		if (str1 == str2) {
-			System.out.println("等しい");
-		}else{
-			 System.out.println("等しくない");
-		}
-		str3 = str3 + "c";
-		System.out.println("str1 = " + str1);
-		System.out.println("str3 = " + str3);
-		if (str1 == str3){
-			System.out.println("等しい");
-		}else{
-			System.out.println("等しくない");
-		}
-		System.out.println("equalsメソッドで比較");
-		if (str1.equals(str3)) {
-			System.out.println("等しい");
-		}else{
-			System.out.println("等しくない");
-		}
+class ExClass{
+	static int standardSize;
+	void setSize(int num) {
+		standardSize = num;
 	}
 }</pre>
-	<b>実行結果</b><br>
-	str1 = abc<br>
-str2 = abc<br>
-等しくない<br>
-str1 = abc<br>
-等しくない<br>
-equalsメソッドで比較<br>
-等しい<br>
 	<br>
-文字列と文字列を比較する場合、「==」演算子を使うと同じ文字列でも等しいと判定されたり、等しくないと判定されたりします。（8～15行目と17～23行目）<br>
-	どういった時にどう判定されるのかはJavaの実装にも依存しているので、ここでは<b><u>同じ文字列が格納さ えているかどうか調べる時には「==」演算子は使わない</u></b>と覚えておいてください。<br>
-</p>
-	</div>
-
-
-
-<!--2-2.指定の位置の文字を取得-->
-<button type="button" class="collapsible">2-2.指定の位置の文字を取得</button>
-<div class="collapse-content">
-<p>charAtメソッドは「先頭から（インデックス）番目の文字を返す」メソッドです。<br>
+	[JSample9_2.java]<br>
 <pre class="prettyprint linenums">
-String型変数.charAt(インデックス)</pre>
-	<br>
-<b>例</b>[JSample9_3.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_3{
-	public static void main(String[] args){
-		String str = "日本語";
-		char c1 = str.charAt(0);
-		char c2 = str.charAt(1);
-		char c3 = str.charAt(2);
-		System.out.println(c1);
-		System.out.println(c2);
-		System.out.println(c3);
-	}
-}</pre>
-	<b>実行結果</b><br>
-日<br>
-本<br>
-語<br>
-</p>
-</div>
-	
-
-<!--2-3.文字列の長さを取得-->
-<button type="button" class="collapsible">2-3.文字列の長さを取得</button>
-<div class="collapse-content">
-<p>lengthメソッドは「文字列の長さ（文字数）を返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-String型変数.length()</pre>
-	<br>
-	<b>例</b>[JSample9_4.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_4{
-	public static void main(String[] args){
-		String str = "日本語";
-		System.out.println("文字列："+str);
-		System.out.println("文字列の長さは" + str.length());
-		
-	}
-}</pre>
-<b>実行結果</b><br>
-文字列：日本語<br>
-文字列の長さは3<br>
-</p>
-</div>
-
-
-
-
-<!--2-4.文字列の一部を取得-->
-<button type="button" class="collapsible">2-4.文字列の一部を取得</button>
-<div class="collapse-content">
-<p><b>例</b>[JSample9_5.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_5{
-	public static void main(String[] args){
-		String str1 = new String("Hello World");
-		String new_str1 = str1.substring(2, 5);
-		System.out.println(str1 + "のsubstring(2,5)は" + new_str1 + "です");
-		String str2 = new String("こんにちは");
-		String new_str2 = str2.substring(2, 4);
-		System.out.println(str2 + "のsubstring(2,4)は" + new_str2 + "です");
-	}
-}</pre>
-<b>実行結果</b><br>
-	Hello Worldのsubstring(2,5)はlloです<br>
-こんにちはのsubstring(2,4)はにちです<br>
-</p>
-</div>
-	
-
-<!--2-5.大文字と小文字の変換-->
-<button type="button" class="collapsible">2-5.大文字と小文字の変換</button>
-<div class="collapse-content">
-<p>toUpperCaseメソッドは「英字を大文字にした文字列を返す」メソッドで、<br>
-toLowerCaseメソッドは「英字を小文字にした文字列を返す」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.toUpperCase()
-String型変数.toLowerCase()</pre>
-<br>
-<b>例</b>[JSample9_6.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_6 {
-	public static void main(String[] args){
-		String str1 = new String("Thank You");
-		String upper_str1 = str1.toUpperCase();
-		String lower_str1 = str1.toLowerCase();
-		System.out.println("元の文字列 : " + str1);
-		System.out.println("大文字へ変換 : " + upper_str1);
-		System.out.println("小文字へ変換 : " + lower_str1);
-	}
-}</pre>
-<b>実行結果</b><br>
-元の文字列 : Thank You<br>
-大文字へ変換 : THANK YOU<br>
-小文字へ変換 : thank you<br>
-</p>
-</div>
-
-
-
-
-<!--2-6.空白を削除する-->
-<button type="button" class="collapsible">2-6.空白を削除する</button>
-<div class="collapse-content">
-<p>trimメソッドは「先頭と末尾の空白を削除した文字列を返す」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.trim()</pre>
-<br>
-<b>例</b>[JSample9_7.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_7{
-	public static void main(String[] args){
-		String str1 = new String(" Japan　");
-		System.out.println("元の文字列「" + str1 + "」");
-		System.out.println("文字数は" + str1.length() + "です");
-		String new_str1 = str1.trim();
-		System.out.println("空白を取り除いた文字列「" + new_str1 + "」");
-		System.out.println("文字数は" + new_str1.length() + "です");
-	}
-
-}</pre>
-<b>実行結果</b><br>
-元の文字列「 Japan 」<br>
-文字数は7です<br>
-空白を取り除いた文字列「Japan」<br>
-文字数は5です<br>
-</p>
-</div>
-
-
-
-<!--2-7.文字列を分割する-->
-<button type="button" class="collapsible">2-7.文字列を分割する</button>
-<div class="collapse-content">
-<p>splitメソッドは、「指定した文字で、指定文字列を分割し、分断した結果を文字列として返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-配列 = String型変数.split(分割文字列)
-String str = "東京,大阪,京都,名古屋";
-String[] city = str.split(",");
-</pre>
-
-この例では「東京,大阪,京都,名古屋」という文字列が指定した文字列（ｓｔｒ）にあたり、<br>
-「,」（コンマ）ごとに分割しそれぞれを一つの文字列として返します。<br>
-<br>
-<b>例</b>[JSample9_8.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_8{
-	public static void main(String[] args){
-		String str = "東京,大阪,京都,名古屋";
-		String[]city = str.split(",");
-		
-		for (int i = 0; i &lt;city.length; i++){
-			System.out.println(i + "番目の要素 = :" + city[i]);
-		}
-	}
-}</pre>
-<b>実行結果</b><br>
-0番目の要素 = :東京<br>
-1番目の要素 = :大阪<br>
-2番目の要素 = :京都<br>
-3番目の要素 = :名古屋<br>
-</p>
-</div>
-
-
-
-<!--2-8.文字列を置換する-->
-<button type="button" class="collapsible">2-8.文字列を置換する</button>
-<div class="collapse-content">
-<p><b>最初に該当した文字列を置換する</b><br>
-replaceFirstメソッドは「文字列の中から、最初に該当した部分文字列を別の文字列に置換する」メソッドです<br>
-<pre class="prettyprint linenums">
-String型変数.replaceFirst(置換される文字列, 置換文字列)</pre>
-下の例では8行目がメソッドの仕様部分にあたります。<br>
-<br>
-<b>例</b>[JSample9_9.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_9{
+class JSample9_2 {
 	public static void main(String[] args) {
-		String str = "大阪出身の私は大阪の雰囲気が好きです。";
-		System.out.println("変換前:");
-		System.out.println(str);
-		str = str.replaceFirst("大阪", "東京");
-		System.out.println("変換後:");
-		System.out.println(str);
+		ExClass ins1 = new ExClass();
+		ins1.setSize(100);
+		
+		ExClass ins2 = new ExClass();
+		ins2.setSize(300);
+		
+		System.out.println(ins1.standardSize);
+		System.out.println(ins2.standardSize);
+		System.out.println(ExClass.standardSize);
 	}
 }</pre>
 <b>実行結果</b><br>
-変換前:<br>
-大阪出身の私は大阪の雰囲気が好きです。<br>
-変換後:<br>
-東京出身の私は大阪の雰囲気が好きです。<br>
+300<br>
+300<br>
+300<br>
 <br>
-ここでは、8行目でメソッドを使い、最初の「大阪」という部分文字列を「東京」という文字列に置換する指示を出しています。<br>
-5行目の文字列を見ると、文字列の中に「大阪」という言葉は2つ含まれています。<br>
-replaceFirstメソッドでは、最初に該当した「大阪」のみを「東京」に置換するため、実行結果の4行目のように出力されます。<br>
+クラス変数は、インスタンス間で値を共有するため、一番最後に設定された300が表示されます。<br>
 <br>
- <hr style="height:0.5px;background-color:#878c91;"><br>
-<b>該当する全ての文字列を置換する</b><br>
-replaceAllメソッドは「文字列の中から、該当した部分文字列を別の文字列に置換する」メソッドです。<br>
-<br>
-<pre class="prettyprint linenums">
-String型変数.replaceAll("置換される文字列", 置換文字列)</pre>
-下の例では8行目がメソッドの仕様部分にあたります。<br>
-<br>
-<b>例</b>[JSample9_10.java]<br>
+staticメンバーを利用する場合の注意点を、以下にまとめておきます。<br>
+（1）staticメソッドからthisにはアクセスできない。<br>
+staticメソッドでは、いわゆるインスタンスはありませんので、当然、インスタンスを示すthisにもアクセスできません。<br>
+（2）staticフィールドの利用は限定的。<br>
+staticフィールドは、インスタンスフィールドとは違い、内容を変更した場合にもすべてのインスタンスに影響します。<br>
+	<br>
+	<b>例：</b><br>
+クラス変数、クラスメソッドの参照方法を例示します。<br>
+	[JSample9_3.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
-
-public class JSample9_10{
-	public static void main(String[] args){
-		String str = "大阪出身の私は大阪の雰囲気が好きです。";
-		System.out.println("変換前:");
-		System.out.println(str);
-		str = str.replaceAll("大阪", "東京");
-		System.out.println("変換後:");
-		System.out.println(str);
-	}
-}</pre>
-<b>実行結果</b><br>
-変換前:<br>
-大阪出身の私は沖縄の雰囲気が好きです。<br>
-変換後:<br>
-東京出身の私は東京の雰囲気が好きです。<br>
-<br>
-この例ではJSample9_9とは異なり、5行目の文字列内の「大阪」と部分文字列をすべて「東京」という文字列に置換するため、実行結果の4行目のように出力されます。<br>
+class JSample9_3 {
+	static String classA = "クラス変数classA";
 	
-</p>
-</div>
-
-
-
-<!--2-9.文字列の大小を比較する-->
-<button type="button" class="collapsible">2-9.文字列の大小を比較する</button>
-<div class="collapse-content">
-<p>compareToメソッドは「辞書順にみて、引数の文字列sより前なら負の数、同じなら0、後なら正の数を返す」メソッドです。<br>
-<pre class="prettyprint linenums">
-String型変数1.compareTo(String型引数s) 
-String型変数1.compareToIgnoreCase(String型引き数s)</pre>
-	<br>
-compareToIgnoreCaseメソッドは、文字列の大文字と小文字を区別せずに比較する事ができます。<br>
-また、辞書順で引数より前のことを「値が小さい」、引数よりも後のことを「値が大きい」と表現することもあります。<br>
-	<br>
-	<b>例</b>[JSample9_11.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-
-public class JSample9_11 {
+	static void classB() {
+		System.out.println("クラスメソッドclassB");
+	}
+	
 	public static void main(String[] args) {
-		String str = "DEF";
-		System.out.println(str.compareTo("ABC"));   // 結果：12
-		System.out.println(str.compareTo("DEF"));   // 結果：0
-		System.out.println(str.compareTo("XYZ"));   // 結果：-11
-		System.out.println(str.compareToIgnoreCase("def")); // 結果：0
+		System.out.println(JSample9_3.classA);
+		JSample9_3.classBS();
 	}
 }</pre>
 	<b>実行結果</b><br>
-12<br>
-0<br>
--11<br>
-0<br>
-<br>
-この例では、メソッドのString型変数1の部分は5行目の「MNO」にあたります。<br>
-6～8行目でcompareToメソッドを使い、文字列の値を比較しています。<br>
-9行目では比較する引数が「mno」と小文字で指定されていますが、compareToIgnoreCaseメソッドを使っているため、大文字と小文字を区別せず比較することができています。<br>
-	
-</p>
+	クラス変数classA<br>
+	クラスメソッドclassB<br>
+	</p>
 </div>
 <br>
 
 
-<!--3.toStringメソッドとは-->
-<h2 style="font-weight: 400;">数値を文字列へ変換</h2>	
-<button type="button" class="collapsible">3.toStringメソッドとは</button>
-<div class="collapse-content">
-<p>toStringメソッドは、引数にString型の文字列に変換したい変数を指定します。戻り値として、String型の文字列を返します。<br>
-toString()メソッドとは、<br>
-java.lang.Objectクラスで定義されている文字列表現を返すメソッドです。全てのクラスはこのjava.lang.Objectクラスを継承しているため、必然的に<br>
-どのクラスでもtoString()メソッドが定義されていることになります。<br>
-<br>
-<b>例</b>[JSample9_12.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
 
-public class JSample9_12 {
-	public static void main(String[] args) {
-		int num1 = 111;
-		int num2 = 222;
-		System.out.println(num1 + num2);
-		String str1 = Integer.toString(num1);
-		String str2 = Integer.toString(num2);
-		System.out.println(str1 + str2);
-	}
-}</pre>
-	<b>実行結果</b><br>
-333<br>
-111222<br>
-<br>
-このプログラムでは、+演算子で数値を足した結果と、文字列を結合した結果をそれぞれ表示しています。Integerはint型のラッパークラスで、toString メソッドを呼び出すために使用しています。<br>
-</p>
-</div>
-<br>
-
-
-<!--練習-->
 <h2 style="font-weight: 400;">練習</h2>
-<button type="button" class="collapsible">問題１</button>
+
+
+<!--問題1-->
+<button type="button" class="collapsible">問題1</button>
 <div class="collapse-content">
-<p><b>問題</b>[JEx9_1.java]<br>
-String型で定義された文章中を以下の3つのメソッドをそれぞれ使い、カンマを取り除いた文章を表示するプログラムを作成せよ <br>
+<p><b>問題</b> [JEx9_1.java]<br>
 <pre class="prettyprint linenums">
-String sentence = "abc,123,あいう";
-charAtメソッド
-replaceAllメソッド
-splitメソッド</pre>
-</div>
+public class JEx9_1 {
+	public static void main(String[] args) {
+		Cat cat1 = new Cat(3);
+		Cat cat2 = new Cat(5);
+		System.out.println(cat1.age);
+	}
+}
 
-<button type="button" class="collapsible">問題２</button>
-<div class="collapse-content">
-<br>
-<b>問題</b>[JEx9_2.java]<br>
-文字列の中から1文字を検索するプログラムを作成せよ。<br>
-ヒットすればその文字のインデックスを、ヒットしなければ-1を出力すること。 <br>
-検索文字が複数ある場合は、最も小さいインデックスを出力すること。 <br>
-例) abcabcからcを検索すると2と出力される。<br>
+class Dog {
+	static int age;
 	
-</p>
+	public Cat(int age) {
+		this.age = age;
+	}
+}</pre>
+	<b>実行結果を選択してください</b><br>
+	<ol>
+		<li>「3」と表示</li>
+		<li>「5」と表示</li>
+		<li>何も表示されない</li>
+		<li>コンパイルエラー</li>
+		<li>実行時エラー</li>
+	</ol>
+	</p>
 </div>
 
-
-
-
-<!--article-container-->
+<!--問題2-->
+<button type="button" class="collapsible">問題2</button>
+	<div class="collapse-content">
+	<p><b>問題</b> [JEx9_2.java]<br>
+		問題１のプログラムを修正しなさい</p>
+	</div>
+	
+	
+	
+	
+	<!--article-container-->
 
     <!--back button-->
     <div class="text-center"><br>

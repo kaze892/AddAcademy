@@ -57,7 +57,7 @@ public class JEx4_1 {
     public static void main(String[] args) {
 	System.out.println("点数入力してください");
     	Scanner scan = new Scanner(System.in);
-	int score = scan.nextInt();
+	int score = 50;
 
 	if (score >= 60) {
 		System.out.println("点数は"+score+"合格です");

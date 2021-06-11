@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
     <title>第4章　条件分岐</title>
 </head>
@@ -14,7 +14,7 @@
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">第4章　条件分岐</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">この章では JAVA の条件分岐について説明します。</p>
@@ -146,15 +146,20 @@ public class JSample4_2{
 	 <h2 style="font-weight: 400;">練習</h2>
     <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
-	<p><b>問題</b>[JEx4_1.java]<br>
-		if文を使って、学生のポイントを入力し60以上かどうかを判断してください。<br>
-		｛<br>
-		"点数入力してください"を出力<br>
-		<br>
-		キーボードで入力　score<br>
-		score>=60の場合、"点数はscore合格です"を出力<br>
-		上記以外、"点数はscore不合格です"を出力<br>
-｝<br>
+	<p>if文を使って、学生のポイントを入力し60以上かどうかを判断してください。<br>
+<b>問題</b>[JEx4_1.java]<br>
+<pre class="prettyprint linenums">
+public class JEx4_1 {
+   public static void main(String[] args){
+   if｛
+   "点数入力してください"を出力
+   int score
+   score>=60の場合、"点数はscore合格です"を出力
+   上記以外、"点数はscore不合格です"を出力
+   ｝
+}
+</pre>
+<br>
 		<br>
 	</div>	
 	<button type="button" class="collapsible">問題２</button>

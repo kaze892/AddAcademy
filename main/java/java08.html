@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>型変換の基本ルール</title>
+    <title>第8章　メンバ変数とメンバメソッド</title>
 </head>
 <body>
 
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第8章　型変換の基本ルール</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">この章ではJavaの型変換の基本ルールについて説明します。 </p>
+      			<h1 class="head1 animated zoomInDown animation-delay-5">第8章　メンバ変数とメンバメソッド</h1>
+     			<p class="head2 animated fadeInUp animation-delay-7">メンバ変数とメンバメソッドに関する基本的な考え方について説明します。</p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java/java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
                          <input type="checkbox" onchange="toggleTheme()" id="slider">
@@ -32,350 +32,501 @@
 
 
 
-    <!--JAVA構文-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">型変換の基本ルール</h1>
-    <hr style="height:0.5px;background-color:#878c91;">
 
+     
+<!--メンバ変数とメンバメソッド-->
+<h1 class="article-container animated bounceInRight animation-delay-20">メンバ変数とメンバメソッド</h1>
+<hr style="height:0.5px;background-color:#878c91;">
 
-<!--開発ツールEclipse-->
-<button type="button" class="collapsible">型変換とは</button>
+<h2 style="font-weight: 400;">メンバ変数</h2>
+<!--1.メンバ変数とは-->
+<button type="button" class="collapsible">1.メンバ変数とは</button>
 <div class="collapse-content">
-    <p>Javaの型変換とは、データの型を別の型へ変換することである。例えばint型の値を持つ変数の型を、計算精度を上げるためにdouble型に変換して計算を行うということがある。int型のままで割り算を繰り返し行うと、小数点以下の値が失われていくこと起こる可能性があるからである。<br><br>
+	<p>クラスは「メンバ変数」と「メンバメソッド」の要素で構成されています。<br>
+		メンバ変数とは、クラス内に直接書かれる変数のことで、クラス内のメソッドから参照可能な変数で、フィールド変数またはフィールドと呼ばれます。<br>
+		<br><br>
 
-    精度を求められる計算をするためには、どのような場合に型変換するべきか、型変換がどのように数値に影響を与えるかをあらかじめ理解しておくことは重要である。<br><br>
+		以下の例では、2行目の「int channelNo;」がメンバ変数です。<br>
+		<br>
+	[Television.java]<br>
+<pre class="prettyprint linenums">
+class Television{
+	int channelNo;
+	
+	void setChannel(int newChannelNo){
+		channelNo = newChannelNo;
+	}
+	
+	void dispChannel(){
+		System.out.println("現在のチャンネルは " + channelNo + " です");
+	}
+}</pre>
+	</p>
+</div>	
+	
+	
+	
 
-    このような型変換には大きく分けて次のようは種類がある。<br>
-    <ul>
-        <li>サイズが小さい型から大きい型への変換 →ワイドニング変換 
-        <li>サイズが大きい型から小さい型への変換 →ナローイング変換
-    </ul>
-   
-
-    <table border="solid">
-        <thead>
-        <tr>
-        <th style="text-align: center">変換元の基本型</th>
-        <th style="text-align: center">型変換が可能な変更先の基本型</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td style="text-align: center">char</td>
-        <td style="text-align: center">int, long, float, double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">byte</td>
-        <td style="text-align: center">short, int, long, float, double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">short</td>
-        <td style="text-align: center">int, long, float, double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">int</td>
-        <td style="text-align: center">long, float, double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">long</td>
-        <td style="text-align: center">float, double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">float</td>
-        <td style="text-align: center">double</td>
-        </tr>
-        <tr>
-        <td style="text-align: center">double</td>
-        <td style="text-align: center">なし</td>
-        </tr>
-        </tbody>
-    </table>
-    </p><br>
-</div><br>
-
-
-    
-
-<!--1-1.サイズが小さい型から大きい型への変換-->
-<h2 style="font-weight: 400;">型変換</h2>
-<button type="button" class="collapsible">1-1.サイズが小さい型から大きい型への変換</button>
+	
+<!--1-1.メンバ変数の定義-->
+<button type="button" class="collapsible">1-1.メンバ変数の定義</button>
 <div class="collapse-content">
-    <p>bytet型からshort型、short型からint型、int型からlong型への変換などサイズが小さい型から大きい型への変換の場合、より大きな数値が格納できるところへ変換するわけですから特に意識することなく変換することができます。
+	<p>
+	メンバ変数の定義は以下のように宣言します。<br>
 <pre class="prettyprint linenums">
-byte a = 127;
-short b = a;
-System.out.println(b);//出力結果＝127
-</pre>
+[修飾子] データ型 変数名;</pre>
+	<br>
+	例：<br>
 <pre class="prettyprint linenums">
-short c = 32767;
-long d = c;
-System.out.println(d);//出力結果＝32767
-</pre>
-    </p><br>
+private int number;
+pribate Stirng name;
+private int price;
+private boolean stock;</pre>
+	メンバ変数は、int、doubleなどの基本型だけでなく、クラス型、配列型の変数も定義できます。<br>
+また、メンバ変数はオブジェクトの内部情報のため、[private]<font color="red">(※1)</font>をつけて非公開にします。<br>
+<br>
+<font color="red">(※1)</font>[private]は「宣言したクラスの中でだけしようできる」という意味の<b style="color:#e7bd42">アクセス修飾子</b>です。アクセス修飾子については次の第9章で学習します。<br>
+	</p>
+	</div>
+	
+	
+	
+	
+	
+	
+<!--1-2.メンバ変数に値を格納する-->
+<button type="button" class="collapsible">1-2.メンバ変数に値を格納する</button>
+<div class="collapse-content">
+<p>メンバ変数が定義されている同じクラスの中で値を格納する場合は普通の変数と同じように扱うことができます。<br>
+以下の例では4行目の「setChannel」メソッドでほかの変数の値を格納していますが、<br>
+channelNo = 1;<br>
+のように値を格納することができます。<br>
+<br>
+[Tv.java]<br>
+<pre class="prettyprint linenums">
+public class Tv{
+	int channelNo;
+	
+	void setChannel(int newChannelNo){
+		this.channelNo = newChannelNo;
+	}
+	
+	void dispChannel(){
+		System.out.println("現在のチャンネルは " + channelNo + " です");
+	}
+}</pre>
+	<br>
+	また5行目の部分の変数の記述は、メンバ変数が定義された同じクラス内の場合、「this」を省略して書くことが可能です。<br>
+<br>
+さらに、メンバ変数が定義されているクラスのオブジェクトを使って値を格納することも可能です。<br>
+<br>
+	[Channeltest.java]<br>
+<pre class="prettyprint linenums">
+public class Channeltest{
+	public static void main(String args[]){
+		Television tv1 = new Television();
+		tv1.channelNo = 1;
+		tv1.dispChannel();
+	}
+}</pre>
+<br>
+	この[Channeltest]クラスでは、3行目で[Television]クラスをもとに[tv1]というオブジェクトを作り、そのオブジェクトを使ってメンバ変数に値を格納しています。<br>
+4行目のように<b style="color:#e7bd42">「オブジェクト名.メンバ変数名 = 値;」</b>と記述して、値を格納します。<br>
+	</p>
 </div>
-
-
-<!--1-2.サイズが大きい型から小さい型への変換-->
-<button type="button" class="collapsible">1-2.サイズが大きい型から小さい型への変換</button>
+	
+	
+	
+	
+	
+<!--1-3.メンバ変数とローカル変数の違い-->
+<button type="button" class="collapsible">1-3.メンバ変数とローカル変数の違い</button>
 <div class="collapse-content">
-    <p>long型からint型、int型からshort型、short型からbyte型への変換などサイズが大きい型から小さい型への変換の場合、キャスト演算子を使って明示的に型が変更されることを示す必要があります。
+<p>ローカル変数とは、メソッド内で定義される変数のことです。<br>
+このローカル変数の<b>有効範囲(スコープ)</b>はメソッド内だけになるため、別のメソッドからアクセスすることはできません。<br>
+また、同じスコープ内で同じ名前のローカル変数を定義することはできません。<br>
+	<br>
+	[JSample.java]<br>
 <pre class="prettyprint linenums">
-long a = Long.MAX_VALUE;//longの最大値を代入しています
-System.out.println(a);//出力結果＝9223372036854775807
-short b = (short) a;//キャストで型変換しています
-System.out.println(b);//出力結果＝-1
-</pre><br>
-データ型が持つことのできるサイズを超えるとデータの切り捨て（データの溢れ）が生じ、想定された実行結果になりません。<br><br>
-    <b>例：</b>[JSample8_1.java]<br>
+public class JSample{
+	int memberVar = 10;
+	
+	void methodA() {
+		int localVarA = 20;
+		System.out.println("メンバ変数(memberVar)：" + this.memberVar);
+		System.out.println("ローカル変数(localVarA)：" + localVarA);
+	}
+	
+	void methodB(){
+		int localVarB = 30;
+	}
+}</pre>
+	<br>
+	メンバ変数は2行目で宣言されている[int memberVar]。<br>
+ローカル変数は、5行目で「methodA」メソッド内に宣言されている[localVarA]と<br>
+11行目で「methodB」メソッド内に宣言されている[localVarB]です。<br>
+5行目の[memberVar]の出力は、メンバ変数なのでmethodAから参照可能となります。<br>
+<br>
+もし仮に、6行目が以下のように書かれていた場合、[localVarB]は「methodA」内(4～8行目)に定義したローカル変数ではないのでmethodAから参照不可となります。<br>
+System.out.println("ローカル変数(localVarB)：" + localVarB);<br>
+	</p>
+</div>
+<br>
+
+
+
+
+
+<!--2.メンバメソッドとは-->
+<h2 style="font-weight: 400;">メンバメソッド</h2>
+<button type="button" class="collapsible">2.メンバメソッドとは</button>
+<div class="collapse-content">
+<p>メンバメソッドとは、クラスの中で定義されているメソッドのことで、そのクラスの中で何かの動作をするためのものです。<br>
+メソッドを呼び出すときに引数を指定したり、メソッドからの戻り値を設定することもできます。<br>
+</p>
+</div>
+	
+	
+	
+
+
+
+<!--2-1.メソッドの定義-->
+<button type="button" class="collapsible">2-1.メソッドの定義</button>
+<div class="collapse-content">
+	<p><pre class="prettyprint linenums">
+[修飾子] 戻り値のデータ型 メソッド名(引数1, 引数2, ....){
+}</pre>
+	<br>
+	何も値を返さない場合は、戻り値のデータ型にvoid型を指定するという決まりになっています。そのため戻り値を返さない場合は、戻り値のデータ型を「void」と記述して下さい。<br>
+<br>
+<b>例</b><br>
+[JSample8_1.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
-public class JSample8_1 {
-    public static void main(String[] args) {
-        System.out.println("サイズが小さい型から大きい型への変換");
-        int a = 3;
-        double b = a;
-        System.out.println("変換前：" + a);
-        System.out.println("変換後：" + b);
-        System.out.println("サイズが大きい型から小さい型への変換");
-        double c = 1.25;
-        int d = (int) c;
-        System.out.println("変換前：" + c);
-        System.out.println("変換後：" + d);
-    }
-}
-</pre><br>
-    <b>実行結果</b><br>
-    サイズが小さい型から大きい型への変換<br>
-    変前：3<br>
-    変換後：3.0<br>
-    サイズが大きい型から小さい型への変換<br>
-    変換前：1.25<br>
-    変換後：1<br>
-    </p><br>
-</div><br>
+public class JSample8_1{
+	public static void main(String[] args){
+		departure();
+		arrive();
+		annouce();
+	}
+	private static void departure() {
+		System.out.println("出発します。");
+	}
+	private static void arrive() {
+		System.out.println("到着します。");
+	}
+	private static void annouce() {
+		departure();
+		arrive();
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	出発します。<br>
+到着します。<br>
+出発します。<br>
+到着します。<br>
+	</p>
+</div>
+	
 
 
-<!--2.int ⇄ Stringの型変換-->
-<h2 style="font-weight: 400;">文字列への変換</h2>
-<button type="button" class="collapsible">2.int ⇄ Stringの型変換</button>
+
+
+<!--2-2.メソッドの呼び出し-->
+<button type="button" class="collapsible">2-2.メソッドの呼び出し</button>
 <div class="collapse-content">
-    <p><b>int→ String</b>
-<pre class="prettyprint linenums">
-String str = String.valueOf(数値)
-</pre>
-<b>String→int</b>
-<pre class="prettyprint linenums">
-int i = Integer.parseInt(文字列)
-</pre><br>
-    <b>例：</b>[JSample8_2.java]<br>
+<p>
+メンバメソッドの呼び出し方は、メンバ変数の場合と同様に、同じクラス内から呼び出す場合は「this.メンバメソッド名(引数)」と記述し、<br>
+メンバメソッドが定義されているクラスの外からオブジェクトを使って呼び出す場合には「オブジェクト名.メンバメソッド名(引数)」の形式で呼び出します。<br>
+<br>
+下記の例に、mainメソッドで、 myMethod()メソッドを呼び出します。<br>
+<br>
+<b>例</b><br>
+[JSample8_2.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
+
 public class JSample8_2 {
-    public static void main(String[] args) {
-        int a = 3;
-        String str = String.valueOf(a);
-        System.out.println("int型" + a);
-        System.out.println("String型" + str);
-        String b = "123";
-        int c = Integer.parseInt(b);
-        System.out.println("String型" + b);
-        System.out.println("int型" + c);
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-    int型3<br>
-    String型3<br>
-    String型123<br>
-    int型123<br>
-    </p><br>
-</div><br>
+	static void myMethod() {
+		System.out.println("Hello World");
+	}
+	
+	public static void main(String[] args) {
+		myMethod();
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	Hello World<br>
+</p>
+</div>
+<br>
 
 
-<h2 style="font-weight: 400;">日付に関するデータ型</h2>
-<!--3.日付⇄文字列の変換-->
-<button type="button" class="collapsible">3-1.日付⇄文字列の変換</button>
+
+
+<!--3-1.引数を使ってメソッドに値を渡す-->
+<h2 style="font-weight: 400;">引数とreturn文</h2>
+<button type="button" class="collapsible">3-1.引数を使ってメソッドに値を渡す</button>
 <div class="collapse-content">
-    <p><b>Date→String</b><br>
-    <ul>
-        <li><b>SimpleDateFormat</b>で出力したい日付のフォーマットを指定する
-        <li><b>format(Date date)</b>メソッドで文字列に変換
-    </ul>
-<b>例：</b>[JSample8_3.java]<br>
+	<p>メソッドを呼び出す時に呼び出し元から値をメソッドに渡すことができます。<br>
+		<br>
+		<b>例</b><br>
+		[JSample8_3.java]<br>
 <pre class="prettyprint linenums">
 package JSample;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 public class JSample8_3 {
-    public static void main(String[] args) {
-        Date date = new Date(); // 今日の日付
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String strDate = dateFormat.format(date);
-        System.out.println(date); 
-        System.out.println(strDate); 
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-    Fri Dec 31 12:33:44 JST 2021<br>
-    2021-12-31<br><br> 
-
-
-
-<hr style="height:0.5px;background-color:#878c91;"><br>
-    <ul>
-        <li><b>toString()</b>メソッドを使うと、そのまま文字列になる
-    </ul>
-<b>例：</b>[JSample8_4.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-import java.util.Date;
-public class JSample8_4 {
-    public static void main(String[] args) {
-        Date date = new Date(); // 今日の日付
-        String strDate = date.toString();
-        System.out.println(date);
-        System.out.println(strDate);
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-    Fri Dec 31 12:33:44 JST 2021<br>
-    Fri Dec 31 12:33:44 JST 2021<br><br>
-
-
-
-<hr style="height:0.5px;background-color:#878c91;"><br>
-<b>Date→String</b><br>
-    <ul>
-        <li><b>parse</b>メソッドを用いた変換あらかじめフォーマットを決める必要がある
-            <ul>
-                <li>あらかじめフォーマットを決める必要がある
-                <li><b>parse</b>メソッドを使うクラスで<b>ParseException</b>を宣言する必要がある
-            </ul>
-    </ul>
-<b>例：</b>[JSample8_4.java]<br>
-<pre class="prettyprint linenums">
-package JSample;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-public class JSample8_5 {
-    public static void main(String[] args) throws ParseException {
-        String strDate = "2021-12-31";
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = dateFormat.parse(strDate);
-        System.out.println(date); // => Fri Dec 31 12:33:44 JST 2021
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-    Mon Dec 31 12:33:34 JST 2021<br><br>
-
-
-
-<hr style="height:0.5px;background-color:#878c91;"><br>
-<ul>
-    <li><b>valueOf(String s)</b>メソッドを用いた変換
-        <ul>
-            <li>valueOfメソッドの戻り値はjava.sql.Dateオブジェクトになる
-        </ul>
-</ul>
-<b>例：</b>[JSample8_6.java]<br>
-<pre class="prettyprint linenums">
-    package JSample;
-    import java.text.ParseException;
-    import java.util.Date;
-    public class JSample8_6 {
-        public static void main(String[] args) throws ParseException {
-            String strDate = "2021-12-31";
-            Date sqlDate = java.sql.Date.valueOf(strDate);
-            System.out.println(sqlDate); // => 2021-12-31
-        }
-    }
-</pre>
-    <b>実行結果</b><br>
-    2021-12-31<br>    
-    </p><br>
+	public static void main(String[] args) {
+		int english = 58;
+		check ("英語", english);
+	}
+	
+	private static void check(String language, int score) {
+		System.out.print("この応募者の" + language + "能力は");
+		if (score > 70) {
+			 System.out.println("ビジネスレベルです。");
+		} else {
+			 System.out.println("日常会話レベルです。");
+		}
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	この応募者の英語能力は日常会話レベルです。<br>
+	<br>
+	この例では、6行目で「check」メソッドを呼び出しています。<br>
+「check」メソッドは9～16行目で、「string型」の「"英語"」という値を[String language]に、
+「int型」の「english」という値を[int score]にそれぞれ渡し、処理が行われます。<br>
+この場合、[score]に渡された[english]という変数には「58」という値が代入されていたため、if文関係式のfalseとなり、戻り値は「日常会話レベルです。」になります。<br>
+	</p>
 </div>
 
 
 
-<!--3-2.Date⇄Calendarの変換-->
-<button type="button" class="collapsible">3-2.Date⇄Calendarの変換</button>
+
+	
+<!--3-2.return文-->
+<button type="button" class="collapsible">3-2.return文</button>
 <div class="collapse-content">
-    <p><b>Date→Calendar</b>
-    <ul>
-        <li>Calendarクラスの新規インスタンスを作成
-        <li><b>setTime(Date date)</b>メソッドを使ってCalendarクラスのオブジェクトに変換
-    </ul>
-    
+<p>
+return文は、メソッドを終了するとともに、戻り値を指定する働きがあります。<br>
+下の例１では、10行目でreturn文が使用されています。ここで「multiply」メソッドを終了し、[n * 2]を戻り値として返しています。<br>
+<br>
+ソッドから呼び出し元に値を返す場合。<br>
+<b>例1</b><br>
+[JSample8_4.java]<br>
 <pre class="prettyprint linenums">
-Date date = new Date(); // 今日の日付
-Calendar calendar = Calendar.getInstance();
-calendar.setTime(date);
-System.out.println(calendar);
-// =>java.util.GregorianCalendar[time=1546228443561,areFieldsSet=true, ...]  
-</pre><br>
+package JSample;
+
+public class JSample8_4 {
+	public static void main(String[] args) {
+		int result;
+		result = multiply(5);
+		System.out.println(result);
+	}
+	private static int multiply(int n) {
+		return n * 2;
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	10<br>
+	<br>
+	この例では、6行目で[result]という変数に、「multiply」メソッドに「5」という値を渡した結果の戻り値を返すという指示を与えています。<br>
+<br>
+6行目で指定したint型の「5」という値は、multiplyメソッドの「int n」に代入されます。multiplyメソッドでは、そのnの値を2倍し(10行目)、その値を返し、6行目の[result]という変数に代入します。<br>
+
+<hr style="height: 0.5px;background-color: grey; ">
+return文がメソッドの中で実行されると、それ以降の処理を実行せずに呼び出し元へ処理を移すことができます。<br>
+<br>
+<b>例２</b><br>
+[JSample8_5.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+
+public class JSample8_5 {
+	public static void main(String[] args) {
+		int data[];
+		test(15, 4);
+		test(7, 0);
+	}
+	
+	private static void test(int n1, int n2) {
+		if (n2 == 0) {
+			System.out.println("0で割ることはできません");
+			return;
+		}
+		System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
+		return;
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	15 / 4 = 3<br>
+0で割ることはできません<br>
+<br>
+この例では「test」メソッドを、6行目の「(15, 4)」と7行目の「(7, 0)」の値で利用しています。<br>
+「(15, 4)」の値で「test」メソッドを実行した際、[n2]には[4]が入るため、10行目のif文の関係式には該当せず、if文のブロックの処理は行われず(10～13行目)、15行目の出力処理が行われます。
+そのため実行結果の1行目のように出力されます。<br>
+<br>
+次に「(7, 0)」の値で「test」メソッドが実行され、10行目のif文の関係式に該当するため、if文のブロックの処理が行われます(10～13行目)。<br>
+このとき13行目の[return]でメソッドを終了し値が返されるため、15行目以降の処理はされ、ません。
+したがって実行結果の2行目のように出力されます。<br>
+<br>
+</p>
+</div>
+<br>
 
 
-<hr style="height:0.5px;background-color:#878c91;"><br>
-    <b>Calendar→Date</b>
-    <ul>
-        <li><b> getTime()</b>メソッドでDateクラスのオブジェクトに変換
-    </ul>
+
+
+<!--4.コンストラクタ-->
+<h2 style="font-weight: 400;">コンストラクタ</h2>
+<button type="button" class="collapsible">4.コンストラクタとは</button>
+<div class="collapse-content">
+<p>
+コンストラクタとは、クラスのインスタンス生成時に実行されるメソッドで、主にそのクラスの<b>メンバ変数を初期化する</b>ときに使用し、インスタンス生成時、必ず最初に呼び出されます。<br>
+以下の例では3～5行目までがコンストラクタにあたります。<br>
 <pre class="prettyprint linenums">
-Calendar calendar = Calendar.getInstance();
-calendar.set(Calendar.YEAR, 2021); //年を設定
-calendar.set(Calendar.MONTH, 11); //月を設定(※MONTHは0始まり 0→Jan、1→Feb、...になる)
-calendar.set(Calendar.DAY_OF_MONTH, 31);//日を設定
-Date date = calendar.getTime();
-System.out.println(date); // => Fri Dec 31 12:33:44 JST 2021
-</pre>
-    </p><br>
+public class Calculate {
+	private double tax;
+	public Calculate (double x) {
+		this.tax = x;
+	}
+	----- その他の処理 -----
+}</pre>
+	</p>
 </div>
 
 
+
+
+
+<!--4-1.コンストラクタの定義-->
+<button type="button" class="collapsible">4-1.コンストラクタの定義</button>
+<div class="collapse-content">
+<p>コンストラクタの定義は下記のように宣言します。<br>
+コンストラクタ名はクラス名と同じにします。<br>
+<br>
+<pre class="prettyprint linenums">
+[アクセス修飾子]　コンストラクタ名　(引数型 引数名)</pre>
+	</p>
+</div>
+
+
+
+
+<!--4-2.複数のコンストラクタ-->
+<button type="button" class="collapsible">4-2.複数のコンストラクタ</button>
+<div class="collapse-content">
+<p>コンストラクタは、引数の型や引数の数を変更することで1つのクラス内に複数宣言することができます。<br>
+具体的には、コンストラクタ内でいくつかのメンバ変数を初期化する際、<br>
+指定する初期値がある場合は指定し<br>
+指定する初期値がない場合はデフォルト値を指定する<br>
+というように、初期化処理を使い分けたい場合にコンストラクタを複数宣言します。<br>
+どのコンストラクタが呼び出されるかは呼び出し元の引数の型、引数の数により決定されます。<br>
+<br>
+	<b>例</b><br>
+[SetNumber.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+
+public class SetAmount {
+	private int normalPrice;
+	private int inflatedPrice;
+	
+	public SetAmount(int amt) {
+		this.normalPrice = 100;
+		this.inflatedPrice = amt;
+	}
+	
+	public SetAmount() {
+		this.normalPrice = 100;
+		this.inflatedPrice = 200;
+	}
+	
+	public static void main(String[] args) {
+		SetAmount productA = new SetAmount();
+		System.out.println("productAのSetAmount()で基本金額は" + productA.normalPrice+"円です");
+		System.out.println("productAのSetAmount()で値上げ金額は" + productA. inflatedPrice+"円です");
+		
+		SetAmount productB = new SetAmount(1000);
+		System.out.println("productBのSetAmount(1000)で基本金額は" + productB. normalPrice +"円です");
+		System.out.println("productBのSetAmount(1000)で値上げ金額は" + productB. inflatedPrice +"円です");
+		
+	}
+}</pre>
+	<br>
+	<b>実行結果</b><br>
+	productAのSetAmount()で基本金額は100円です<br>
+productAのSetNumber()で値上げ金額は200円です<br>
+productBのSetNumber(100)で基本金額は100円です<br>
+productBのSetNumber(100)で値上げ金額は1000円です<br>
+<br>
+上記の例では、引数を持つコンストラクタ(7～10行目)と、引数を持たないコンストラクタ(12～15行目)の2つのコンストラクタが宣言されています。<Br>
+18行目は、引数を指定していないため、12～15行目の引数を持たないコンストラクタが呼び出され、実行結果の1～2行目のように初期値が設定されます。<br>
+22行目は、int型の引数を1つ指定しているため、7～10行目のコンストラクタが呼び出され、実行結果の3～4行目のように初期値が設定されます。<br>
+	</p>
+</div>
+<br>
+
+
+
+<!--練習-->
 <h2 style="font-weight: 400;">練習</h2>
-<!--プログラム作成-->
 <button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
-    <p><b>問題</b>[JEx8_1.java]<br>
-        以下の変数を作成してプログラムを完成してください。<br>
-        型：char　変数名：hiragana　初期値：'あ'<br>
-        型：int　変数名：code　初期値：hiraganaのデータをintへキャスト<br>
+<p>
+	<b>問題</b>[JEx8_1.java]<br>
+	Numberクラス(Number.java)を使用して、２つの整数を比較し最大値を取り出すプログラムを完成させなさい。<br>
+</p>
 <pre class="prettyprint linenums">
+package JSample;
+
+public class Num {
+
+	public int compare(int num1, int num2) {
+		//コード
+	}
+}</pre>
+<pre class="prettyprint linenums">
+package JSample;
+
+import java.util.Scanner;
+
 public class JEx8_1 {
-   public static void main(String[] args){
-      
-//xxxxを適切な変数名に変更してください
-      System.out.println("変数hiraganaには「" + xxxx + "」が保存されています。");
-      
-      //xxxxを適切な変数名に変更してください
-      System.out.println("「" + xxxx + "」の文字コードは" + xxxx);
-      
-      //codeにインクリメントおよびキャストを行ってください。（実行結果参照）
-      System.out.println("codeの文字コードをインクリメントすると「" + code + "」となります。");
-   }
-}
-</pre>
-    <b>実行結果</b><br>
-    変数hiraganaには「あ」が保存されています。<br>
-    「あ」の文字コードは12354<br>
-    codeの文字コードをインクリメントすると「ぃ」となります。
-    </p><br>
+	public static void main(String[] args) {
+	
+		Scanner scan = new Scanner(System.in);
+		System.out.println("キーボードから数値1を入力してください。");
+		int num1 = scan.nextInt();
+		
+		System.out.println("キーボードから数値2を入力してください。");
+		int num2 = scan.nextInt();
+		
+		Num num = new Num();
+		int result = number.compare(num1, num2);
+		System.out.println(num1 + "と" + num2 + " 比較的な最大値は：" + result);
+	}
+}</pre>
+
 </div>
+	
+	
+	
+	
+<!--article-container--> 
 
-
-    <!--article-container-->
-
-    <!--back button-->
-    <div class="text-center"><br>
-       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
-    </div><br>
-
-<script src="../assets/js/collapse.js"></script>  
-<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
+<!--back button-->
+<div class="text-center"><br>
+  <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a> </div>
+<br>
+<script src="../assets/js/collapse.js"></script> 
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>
 <script src="../assets/js/darkmode.js"></script>
-  
+
 </body>
 </html>

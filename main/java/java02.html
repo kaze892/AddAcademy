@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
     <title>第2章　プログラムの書き方とJava変数</title>
 </head>
@@ -14,7 +14,7 @@
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../java-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../java-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
                 <h1 class="head1 animated zoomInDown animation-delay-5">第2章　プログラムの書き方とJava変数</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">この章では、プログラムの書き方と、Javaの変数、宣言について説明します。</p>
@@ -74,7 +74,7 @@
 	ここでは４行目が命令文にあたり、「"Hello World"と出力しなさい」という指示を出しています。<br>
 	このように、クラスの中にメソッドを書き、その中に命令文を書くのがJavaの標準的な書き方です。<br>
     </p>
-</div>
+</div><br>
 
 
 <h2 style="font-weight: 400;">2.Javaの基本的なデータと変数</h2>
@@ -92,60 +92,60 @@
 <br>
 <table border="1" width="550">
 	<tr align="center">
-		<th scope="col"><span style="color:#e7bd42">種別</span></th>
-		<th scope="col"><span style="color:#e7bd42">型</span></th>
-		<th scope="col"><span style="color:#e7bd42">説明</span></th>
-		<th scope="col"><span style="color:#e7bd42">値の範囲</span></th>
+		<th scope="col">種別</th>
+		<th scope="col">型</th>
+		<th scope="col">説明</th>
+		<th scope="col">値の範囲</th>
 	</tr>
 	<tr>
-		<td rowspan="4"><span style="color:#e7bd42">整数型</span></td>
-		<td><span style="color:#e7bd42">byte</span></td>
-		<td><span style="color:#e7bd42">整数（1バイト）</span></td>
-		<td><span style="color:#e7bd42">-128~127</span></td>
+		<td rowspan="4">整数型</td>
+		<td>byte</td>
+		<td>整数（1バイト）</td>
+		<td>-128~127</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">short</span></td>
-		<td><span style="color:#e7bd42">整数（2バイト）</span></td>
-		<td><span style="color:#e7bd42">-32768~32767</span></td>
+		<td>short</td>
+		<td>整数（2バイト）</td>
+		<td>-32768~32767</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">int</span></td>
-		<td><span style="color:#e7bd42">整数（4バイト）</span></td>
-		<td><span style="color:#e7bd42">-2147483648~2147483647</span></td>
+		<td>int</td>
+		<td>整数（4バイト）</td>
+		<td>-2147483648~2147483647</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">long</span></td>
-		<td><span style="color:#e7bd42">整数（8バイト）</span></td>
-		<td><span style="color:#e7bd42">-9223372036854775808~<br>9223372036854775807</span></td>
+		<td>long</td>
+		<td>整数（8バイト）</td>
+		<td>-9223372036854775808~<br>9223372036854775807</td>
 	</tr>
 	<tr>
-		<td rowspan="2"><span style="color:#e7bd42">浮動小数点型</span></td>
-		<td><span style="color:#e7bd42">float</span></td>
-		<td><span style="color:#e7bd42">小数点のある数字<br>(4)バイト</span></td>
-		<td><span style="color:#e7bd42">1.4×10の-45乗<br>3.4028235×10の38乗</span></td>
+		<td rowspan="2">浮動小数点型</td>
+		<td>float</td>
+		<td>小数点のある数字<br>(4)バイト</td>
+		<td>1.4×10の-45乗<br>3.4028235×10の38乗</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">double</span></td>
-		<td><span style="color:#e7bd42">小数点のある数字<br>（8バイト）</span></td>
-		<td><span style="color:#e7bd42">4.9e-324（最小）<br>1.7976931348623157e308（最大）</span></td>
+		<td>double</td>
+		<td>小数点のある数字<br>（8バイト）</td>
+		<td>4.9e-324（最小）<br>1.7976931348623157e308（最大）</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">論理型</span></td>
-		<td><span style="color:#e7bd42">boolean</span></td>
-		<td><span style="color:#e7bd42">真、偽を表す</span></td>
-		<td><span style="color:#e7bd42">trueまたはfalse</span></td>
+		<td>論理型</td>
+		<td>boolean</td>
+		<td>真、偽を表す</td>
+		<td>trueまたはfalse</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">文字型</span></td>
-		<td><span style="color:#e7bd42">char</span></td>
-		<td><span style="color:#e7bd42">文字（2バイト）</span></td>
-		<td><span style="color:#e7bd42">1文字</span></td>
+		<td>文字型</td>
+		<td>char</td>
+		<td>文字（2バイト）</td>
+		<td>1文字</td>
 	</tr>
 	<tr>
-		<td><span style="color:#e7bd42">文字列型</span></td>
-		<td><span style="color:#e7bd42">String</span></td>
-		<td><span style="color:#e7bd42">文字列</span></td>
-		<td><span style="color:#e7bd42">扱えるデータの長さは整数型と同じ<br>（約21億）</span></td>
+		<td>文字列型</td>
+		<td>String</td>
+		<td>文字列</td>
+		<td>扱えるデータの長さは整数型と同じ<br>（約21億）</td>
 	</tr>
 </table>
 <br>
@@ -167,7 +167,8 @@
 			変数を行うためには、使う変数の「型」と［名前］を宣言します。<br>
 			<br>
 			• 宣言の方法は以下のようになります。<br>
-			<font color="#e7bd42">データ型　変数名；<br>→末尾にはセミコロンが必須。</font><br>
+			データ型　変数名；<br>
+			→末尾にはセミコロンが必須。<br>
 			<br>
 			<b>例：</b>
 			<pre class="prettyprint linenums">String myName;</pre>
@@ -196,7 +197,7 @@ myName = "yamada";</pre><br>
 				</li><br>
 				<li>
 					<b style="color:#e7bd42">float</b>　・・・浮動小数点数を、19.99や、-19.99などの少数で格納します。<br>
-					<b>例：</b>float myFloatNum = 12.34<b style="color:#e7bd42">f</b>;
+					<b>例：</b>float myFloatNum = 12.34<b style="color:#red">f</b>;
 				</li><br>
 				<li>
 					<b style="color:#e7bd42">char</b>　・・・「a」や「A」などの単一文字を格納します。Char値は一重引用符で囲まれています。<br>

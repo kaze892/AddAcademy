@@ -5,269 +5,368 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>多態性</title>
+    <title>型変換の基本ルール</title>
 </head>
 <body>
 
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第14章　多態性</h1>
-                <p class="head2 animated fadeInUp animation-delay-7">この章では多態性に関する基本的な考え方について説明します。</p>
-                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第14章　型変換の基本ルール</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章ではJavaの型変換の基本ルールについて説明します。 </p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java/java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
-                        <input type="checkbox" onchange="toggleTheme()" id="slider">
-                        <span class="slider round"></span>
-                    </label>  
+                         <input type="checkbox" onchange="toggleTheme()" id="slider">
+                            <span class="slider round"></span>
+                     </label>
             </div>
         </div>
     </div><br>
-                
+                    
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
+
     <!--JAVA構文-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">多態性</h1>
+    <h1 class="article-container animated bounceInRight animation-delay-20">型変換の基本ルール</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
-
-<!--多態性とは-->
-<button type="button" class="collapsible">多態性とは</button>
+<!--開発ツールEclipse-->
+<button type="button" class="collapsible">型変換とは</button>
 <div class="collapse-content">
-    <p>多態性とは「多形態」を意味し、継承によって互いに関連するクラスが多数ある場合に発生します。<br>
+    <p>Javaの型変換とは、データの型を別の型へ変換することである。例えばint型の値を持つ変数の型を、計算精度を上げるためにdouble型に変換して計算を行うということがある。int型のままで割り算を繰り返し行うと、小数点以下の値が失われていくこと起こる可能性があるからである。<br><br>
 
-たとえば、名前はAnimalというスーパークラスがanimalSound()があります。動物のサブクラスには、猫、犬、鳥などがあります。また、動物のサウンドを独自に実装することもできます（猫の鳴き声、犬の鳴き声など）。<br><br> 
-<b>例：</b>[JSample14_1.java]<br>         
-<pre class="prettyprint linenums">
-package JSample;
-class Animal {
-  public void animalSound() {
-    System.out.println("動物が鳴いた");
-  }
-}
-class Cat extends Animal {
-  public void animalSound() {
-    System.out.println("猫が鳴いた");
-  }
-}
-class Dog extends Animal {
-  public void animalSound() {
-    System.out.println("犬が鳴いた");
-  }
-}
-class JSample14_1 {
-  public static void main(String[] args) {
-    Animal myAnimal = new Animal();
-    Animal myCat = new Cat();
-    Animal myDog = new Dog();
-    myAnimal.animalSound();
-    myCat.animalSound();
-    myDog.animalSound();
-  }
-}
-</pre>
-    <b>実行結果</b><br>
-動物が鳴いた<br>
-猫が鳴いた<br>
-犬が鳴いた<br>
-    </p><br>
-</div>
+    精度を求められる計算をするためには、どのような場合に型変換するべきか、型変換がどのように数値に影響を与えるかをあらかじめ理解しておくことは重要である。<br><br>
 
+    このような型変換には大きく分けて次のようは種類がある。<br>
+    <ul>
+        <li>サイズが小さい型から大きい型への変換 →ワイドニング変換 
+        <li>サイズが大きい型から小さい型への変換 →ナローイング変換
+    </ul>
+   
 
-
-    
-
-<!--「継承」と「多態性」を使用する理由-->
-<button type="button" class="collapsible">「継承」と「多態性」を使用する理由</button>
-<div class="collapse-content">
-    <p>コードの再利用性に役立ちます。新しいクラスを作成するときに、既存のクラスの属性とメソッドを再利用します。<br><br> 
-<b>例：</b>[JSample14_1.java]<br>         
-<pre class="prettyprint linenums">
-package JSample;
-public class JSample14_1 {
-    public static void main(String[] args) {
-      show(new Cat());  
-      show(new Dog()); 
-      Animal doubutsu = new Cat();    
-      doubutsu.eat();              
-      Cat neko = (Cat)doubutsu;         
-      neko.work();       
-    }  
-    public static void show(Animal doubutsu)  {
-      doubutsu.eat();  
-      if (doubutsu instanceof Cat)  { 
-            Cat neko = (Cat)doubutsu;  
-            neko.work();  
-      } else if (doubutsu instanceof Dog) { 
-            Dog inu = (Dog)doubutsu;  
-            inu.work();  
-      }  
-    }  
-}
-abstract class Animal {  
-    abstract void eat();  
-}  
-class Cat extends Animal {  
-    public void eat() {  
-        System.out.println("Catが食べた");  
-    }  
-    public void work() {  
-        System.out.println("Catはネズミを捕まえた");  
-    }  
-}  
-class Dog extends Animal {  
-    public void eat() {  
-        System.out.println("Dogが食べた");  
-    }  
-    public void work() {  
-        System.out.println("Dogが留守番する");  
-    }  
-}
-</pre>
-    <b>実行結果</b><br>
-Catが食べた?<br>
-Catはネズミを捕まえた<br>
-Dogが食べた?<br>
-Dogが留守番する<br>
-Catが食べた?<br>
-Catはネズミを捕まえた<br>     
-
-    </p><br>
-</div>
-
-
-
-<!--多態性を実現する方法-->
-<button type="button" class="collapsible">多態性を実現する方法</button>
-<div class="collapse-content">
-    <p><ul>
-         <li>継承
-         <li>抽象クラス
-         <li>インターフェース
-       </ul>     
-<b>インターフェース</b>
-インターフェースとは、クラスに含まれるメソッドの具体的な処理内容を記述せず、変数とメソッドの型のみを定義したものです 以下のようにインターフェースを宣言および実装を行います。        
-<pre class="prettyprint linenums">
-//インターフェースを宣言
-interface インターフェース名{}
-</pre>
-<pre class="prettyprint linenums">
-//インターフェースを実装
-class クラス名 implements インターフェース名{}
-</pre>
-
-<b>例：</b>[JSample14_3.java]<br> 
-<pre class="prettyprint linenums">
-public class JSample14_3 {
-    public static void main(String[] args) {
-        ControlBikeIf myBike = new BikeGo();
-        myBike.start();
-        myBike.speedup();
-        myBike.speeddown();
-        myBike.stop();
-        myBike.start();
-    }
-}   
-</pre>
-[ControlBikeIf.java]<br> 
-<pre class="prettyprint linenums">
-public interface ControlBikeIf {
-    void start();
-    void stop();
-    void speedup();
-    void speeddown();
-}  
-</pre>
-[ControlBikeIf.java]<br> 
-<pre class="prettyprint linenums">
-public interface ControlBikeIf {
-    void start();
-    void stop();
-    void speedup();
-    void speeddown();
-}  
-</pre>
-[BikeGo.java]<br> 
-<pre class="prettyprint linenums">
-public class BikeGo implements ControlBikeIf {
-    public void start() {
-        System.out.println("エンジン起動");
-    }
-    public void stop() {
-        System.out.println("エンジン停止");
-    }
-    public void speedup() {
-        System.out.println("速度アップ");
-    }
-    public void speeddown() {
-        System.out.println("速度ダウン");
-    }
-}
-</pre>
-    <b>実行結果</b><br>
-エンジン起動<br>
-速度アップ<br>
-速度ダウン<br>
-エンジン停止<br>
-エンジン起動<br>
-
+    <table border="solid">
+        <thead>
+        <tr>
+        <th style="text-align: center">変換元の基本型</th>
+        <th style="text-align: center">型変換が可能な変更先の基本型</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td style="text-align: center">char</td>
+        <td style="text-align: center">int, long, float, double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">byte</td>
+        <td style="text-align: center">short, int, long, float, double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">short</td>
+        <td style="text-align: center">int, long, float, double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">int</td>
+        <td style="text-align: center">long, float, double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">long</td>
+        <td style="text-align: center">float, double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">float</td>
+        <td style="text-align: center">double</td>
+        </tr>
+        <tr>
+        <td style="text-align: center">double</td>
+        <td style="text-align: center">なし</td>
+        </tr>
+        </tbody>
+    </table>
     </p><br>
 </div><br>
 
 
-    <h2 style="font-weight: 400;">練習</h2>
-    <!--練習-->
-    <button type="button" class="collapsible">問題１</button>
-    <div class="collapse-content">
-        <p><b>問題</b>[JEx14_1]<br>
-        従業員の管理者を表すManagerクラスを、Employeeクラスを継承してプログラムを完成しなさい<br>
+    
 
-<pre class="prettyprint linenums">        
+<!--1-1.サイズが小さい型から大きい型への変換-->
+<h2 style="font-weight: 400;">型変換</h2>
+<button type="button" class="collapsible">1-1.サイズが小さい型から大きい型への変換</button>
+<div class="collapse-content">
+    <p>bytet型からshort型、short型からint型、int型からlong型への変換などサイズが小さい型から大きい型への変換の場合、より大きな数値が格納できるところへ変換するわけですから特に意識することなく変換することができます。
+<pre class="prettyprint linenums">
+byte a = 127;
+short b = a;
+System.out.println(b);//出力結果＝127
+</pre>
+<pre class="prettyprint linenums">
+short c = 32767;
+long d = c;
+System.out.println(d);//出力結果＝32767
+</pre>
+    </p><br>
+</div>
+
+
+<!--1-2.サイズが大きい型から小さい型への変換-->
+<button type="button" class="collapsible">1-2.サイズが大きい型から小さい型への変換</button>
+<div class="collapse-content">
+    <p>long型からint型、int型からshort型、short型からbyte型への変換などサイズが大きい型から小さい型への変換の場合、キャスト演算子を使って明示的に型が変更されることを示す必要があります。
+<pre class="prettyprint linenums">
+long a = Long.MAX_VALUE;//longの最大値を代入しています
+System.out.println(a);//出力結果＝9223372036854775807
+short b = (short) a;//キャストで型変換しています
+System.out.println(b);//出力結果＝-1
+</pre><br>
+データ型が持つことのできるサイズを超えるとデータの切り捨て（データの溢れ）が生じ、想定された実行結果になりません。<br><br>
+    <b>例：</b>[JSample14_1.java]<br>
+<pre class="prettyprint linenums">
 package JSample;
-class SuperClass {
-    public void superclass() {
-        System.out.println("This is SuperClass!");
-    }
-}
-class SubC1ass extends SuperC {
-    public void superclass() {
-        System.out.println("This is SubClass1!");
-    }
-}
-class SubClass2 extends SuperC {
-    public void superclass() {
-        System.out.println("This is SubClass2!");
-    }
-}
-public class Ex14_1 {
+public class JSample14_1 {
     public static void main(String[] args) {
-        SuperClass a;
-        
-        //処理
+        System.out.println("サイズが小さい型から大きい型への変換");
+        int a = 3;
+        double b = a;
+        System.out.println("変換前：" + a);
+        System.out.println("変換後：" + b);
+        System.out.println("サイズが大きい型から小さい型への変換");
+        double c = 1.25;
+        int d = (int) c;
+        System.out.println("変換前：" + c);
+        System.out.println("変換後：" + d);
+    }
+}
+</pre><br>
+    <b>実行結果</b><br>
+    サイズが小さい型から大きい型への変換<br>
+    変前：3<br>
+    変換後：3.0<br>
+    サイズが大きい型から小さい型への変換<br>
+    変換前：1.25<br>
+    変換後：1<br>
+    </p><br>
+</div><br>
 
-        a = b;
-        a.superclass();
-        a = c;
-        a.superclass();
+
+<!--2.int ⇄ Stringの型変換-->
+<h2 style="font-weight: 400;">文字列への変換</h2>
+<button type="button" class="collapsible">2.int ⇄ Stringの型変換</button>
+<div class="collapse-content">
+    <p><b>int→ String</b>
+<pre class="prettyprint linenums">
+String str = String.valueOf(数値)
+</pre>
+<b>String→int</b>
+<pre class="prettyprint linenums">
+int i = Integer.parseInt(文字列)
+</pre><br>
+    <b>例：</b>[JSample14_2.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+public class JSample14_2 {
+    public static void main(String[] args) {
+        int a = 3;
+        String str = String.valueOf(a);
+        System.out.println("int型" + a);
+        System.out.println("String型" + str);
+        String b = "123";
+        int c = Integer.parseInt(b);
+        System.out.println("String型" + b);
+        System.out.println("int型" + c);
     }
 }
 </pre>
     <b>実行結果</b><br>
-    This is SubClass1!<br>
-    This is SubClass2!<br>
-        </p><br>
-    </div>
+    int型3<br>
+    String型3<br>
+    String型123<br>
+    int型123<br>
+    </p><br>
+</div><br>
+
+
+<h2 style="font-weight: 400;">日付に関するデータ型</h2>
+<!--3.日付⇄文字列の変換-->
+<button type="button" class="collapsible">3-1.日付⇄文字列の変換</button>
+<div class="collapse-content">
+    <p><b>Date→String</b><br>
+    <ul>
+        <li><b>SimpleDateFormat</b>で出力したい日付のフォーマットを指定する
+        <li><b>format(Date date)</b>メソッドで文字列に変換
+    </ul>
+<b>例：</b>[JSample14_3.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class JSample14_3 {
+    public static void main(String[] args) {
+        Date date = new Date(); // 今日の日付
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String strDate = dateFormat.format(date);
+        System.out.println(date); 
+        System.out.println(strDate); 
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+    Fri Dec 31 12:33:44 JST 2021<br>
+    2021-12-31<br><br> 
 
 
 
-</div><!--article-container-->
-   
+<hr style="height:0.5px;background-color:#878c91;"><br>
+    <ul>
+        <li><b>toString()</b>メソッドを使うと、そのまま文字列になる
+    </ul>
+<b>例：</b>[JSample14_4.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+import java.util.Date;
+public class JSample14_4 {
+    public static void main(String[] args) {
+        Date date = new Date(); // 今日の日付
+        String strDate = date.toString();
+        System.out.println(date);
+        System.out.println(strDate);
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+    Fri Dec 31 12:33:44 JST 2021<br>
+    Fri Dec 31 12:33:44 JST 2021<br><br>
+
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+<b>Date→String</b><br>
+    <ul>
+        <li><b>parse</b>メソッドを用いた変換あらかじめフォーマットを決める必要がある
+            <ul>
+                <li>あらかじめフォーマットを決める必要がある
+                <li><b>parse</b>メソッドを使うクラスで<b>ParseException</b>を宣言する必要がある
+            </ul>
+    </ul>
+<b>例：</b>[JSample14_4.java]<br>
+<pre class="prettyprint linenums">
+package JSample;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+public class JSample14_5 {
+    public static void main(String[] args) throws ParseException {
+        String strDate = "2021-12-31";
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = dateFormat.parse(strDate);
+        System.out.println(date); // => Fri Dec 31 12:33:44 JST 2021
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+    Mon Dec 31 12:33:34 JST 2021<br><br>
+
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+<ul>
+    <li><b>valueOf(String s)</b>メソッドを用いた変換
+        <ul>
+            <li>valueOfメソッドの戻り値はjava.sql.Dateオブジェクトになる
+        </ul>
+</ul>
+<b>例：</b>[JSample14_6.java]<br>
+<pre class="prettyprint linenums">
+    package JSample;
+    import java.text.ParseException;
+    import java.util.Date;
+    public class JSample14_6 {
+        public static void main(String[] args) throws ParseException {
+            String strDate = "2021-12-31";
+            Date sqlDate = java.sql.Date.valueOf(strDate);
+            System.out.println(sqlDate); // => 2021-12-31
+        }
+    }
+</pre>
+    <b>実行結果</b><br>
+    2021-12-31<br>    
+    </p><br>
+</div>
+
+
+
+<!--3-2.Date⇄Calendarの変換-->
+<button type="button" class="collapsible">3-2.Date⇄Calendarの変換</button>
+<div class="collapse-content">
+    <p><b>Date→Calendar</b>
+    <ul>
+        <li>Calendarクラスの新規インスタンスを作成
+        <li><b>setTime(Date date)</b>メソッドを使ってCalendarクラスのオブジェクトに変換
+    </ul>
+    
+<pre class="prettyprint linenums">
+Date date = new Date(); // 今日の日付
+Calendar calendar = Calendar.getInstance();
+calendar.setTime(date);
+System.out.println(calendar);
+// =>java.util.GregorianCalendar[time=1546228443561,areFieldsSet=true, ...]  
+</pre><br>
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+    <b>Calendar→Date</b>
+    <ul>
+        <li><b> getTime()</b>メソッドでDateクラスのオブジェクトに変換
+    </ul>
+<pre class="prettyprint linenums">
+Calendar calendar = Calendar.getInstance();
+calendar.set(Calendar.YEAR, 2021); //年を設定
+calendar.set(Calendar.MONTH, 11); //月を設定(※MONTHは0始まり 0→Jan、1→Feb、...になる)
+calendar.set(Calendar.DAY_OF_MONTH, 31);//日を設定
+Date date = calendar.getTime();
+System.out.println(date); // => Fri Dec 31 12:33:44 JST 2021
+</pre>
+    </p><br>
+</div>
+
+
+<h2 style="font-weight: 400;">練習</h2>
+<!--プログラム作成-->
+<button type="button" class="collapsible">問題１</button>
+<div class="collapse-content">
+    <p><b>問題</b>[JEx14_1.java]<br>
+        以下の変数を作成してプログラムを完成してください。<br>
+        型：char　変数名：hiragana　初期値：'あ'<br>
+        型：int　変数名：code　初期値：hiraganaのデータをintへキャスト<br>
+<pre class="prettyprint linenums">
+public class JEx14_1 {
+   public static void main(String[] args){
+      
+//xxxxを適切な変数名に変更してください
+      System.out.println("変数hiraganaには「" + xxxx + "」が保存されています。");
+      
+      //xxxxを適切な変数名に変更してください
+      System.out.println("「" + xxxx + "」の文字コードは" + xxxx);
+      
+      //codeにインクリメントおよびキャストを行ってください。（実行結果参照）
+      System.out.println("codeの文字コードをインクリメントすると「" + code + "」となります。");
+   }
+}
+</pre>
+    <b>実行結果</b><br>
+    変数hiraganaには「あ」が保存されています。<br>
+    「あ」の文字コードは12354<br>
+    codeの文字コードをインクリメントすると「ぃ」となります。
+    </p><br>
+</div>
+
+
+    <!--article-container-->
 
     <!--back button-->
     <div class="text-center"><br>

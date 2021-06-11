@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
     <title>テキストファイルの読みこみ</title>
 </head>
@@ -14,9 +14,9 @@
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
-                <h1 class="head1 animated zoomInDown animation-delay-5">第17章　テキストファイルの入力</h1>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第17章　テキストファイルの入出力</h1>
                 <p class="head2 animated fadeInUp animation-delay-7">この章ではテキストファイルの読みこみについて説明します。 </p>
                 <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
@@ -32,7 +32,7 @@
 
 
     <!--例外処理-->
-    <h1 class="article-container animated bounceInRight animation-delay-20">テキストファイルの入力</h1>
+    <h1 class="article-container animated bounceInRight animation-delay-20">テキストファイルの入出力</h1>
     <hr style="height:0.5px;background-color:#878c91;">
 
 
@@ -48,7 +48,7 @@ File file = new File(file_name);
 FileReader　filereader = new FileReader(file);
 </pre>
 FileReaderクラスは、何らかの理由で読み書きに失敗した場合は <font style="color: red;">"FileNotFoundException"</font>という例外が発生する可能性があるため、例外の処理<font style="color: red;">"throws IOException"</font>をしておかなければいけません。<br>
-※例外の処理については19章に説明します。<br>
+※例外の処理については18章に説明します。<br>
 </p><br>
 </div>
 
@@ -59,7 +59,7 @@ FileReaderクラスは、何らかの理由で読み書きに失敗した場合�
 <!--1-2.テキストを読む-->
 <button type="button" class="collapsible">1-2.テキストを読む</button>
 <div class="collapse-content">
-    <p>read"メソッドでファイルから文字を1文字読み込めます。読み込んだ値はint型の値として取得できます。
+    <p>"read"メソッドでファイルから文字を1文字読み込めます。読み込んだ値はint型の値として取得できます。
 FileReaderクラスで用意されている"read"メソッドでファイルから文字を1文字ずつ読み込めます。
 
 <pre class="prettyprint linenums">
@@ -118,7 +118,6 @@ public class JSample17_2 {
 </pre>
 <b>実行結果</b>(ファイル内容によって、結果が違います。)<br>
 abcde<br>
-</pre>
 </p><br>
     </div>
 
@@ -222,7 +221,7 @@ FileReader filereader = new FileReader(file);
 BufferedReader br = new BufferedReader(filereader);
 </pre>
     </p><br>
-</div>
+</div><br>
 
 
 <!--3-1.テキストを1行単位で読む-->
@@ -262,6 +261,89 @@ public class JSample17_5 {
 
 
 
+
+<!--4.テキストの読み込み（FileReader偏）-->
+<h2 style="font-weight: 400;">4.テキストに書き込み（FileWriter偏）</h2>
+<button type="button" class="collapsible">4-1.テキストファイルの出力</button>
+<div class="collapse-content">
+    <p>ここからはテキストをファイルに書き込んでいく方法を見てみましょう。まずは基本となる"FileWriter"クラスを使います。 <br><br>
+
+    手順はファイルから読み込むときと似ています。テキストを書き込みたいファイルを対象にしてFileクラスのオブジェクトを作成します。そしてそのオブジェクトを引数としてFileWriterクラスのオブジェクトを作成します。 <br>  
+<pre class="prettyprint linenums">
+File file = new File(file_name);
+FileWriter　filewriter = new FileWriter(file);
+</pre>
+FileWriterクラスは、何らかの理由で読み書きに失敗した場合は <font style="color: red;">"FileNotFoundException"</font>という例外が発生する可能性があるため、例外の処理<font style="color: red;">"throws IOException"</font>をしておかなければいけません。<br>
+※例外の処理については19章に説明します。<br>
+</p><br>
+</div>
+
+    
+
+<!--4-2.ファイルへの書き込み-->
+<button type="button" class="collapsible">4-2.ファイルへの書き込み</button>
+<div class="collapse-content">
+    <p>"write"メソッドを使って新しいテキストファイルを作ったり、すでに存在するテキストファイルに追加で文字を書き込むことができます。
+    FileWriteクラスを使う場合にも、"close"メソッドを使って閉じる必要があります<br>    
+
+<pre class="prettyprint linenums">
+File file = new File(file_name);
+FileWriter　filewriter = new FileWriter(file);
+</pre>
+   
+<b>例：</b>[JSample17_6.java]<br>  
+<pre class="prettyprint linenums">
+package Jsample;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+public class JSample18_1 {
+    public static void main(String args[]) throws IOException {
+
+        File file = new File("C:\\test.txt");
+        FileWriter filewriter = new FileWriter(file);
+        filewriter.write("こんにちは");
+        filewriter.close();
+    }
+}
+</pre>
+
+test.txtが存在しない場合、test.txtは作成して"こんにちは"を書き込みます。<br>
+test.txtが存在した場合には上書き保存されて元のファイルが削除されます。<br>
+</p><br>
+</div>
+
+
+
+
+<!--4-3.既存のファイルに追加して書き込む方法-->
+<button type="button" class="collapsible">4-3.既存のファイルに追加して書き込む方法</button>
+<div class="collapse-content">
+    <p>既にファイルに書かれているテキストは消さずに、ファイルの最後に追加して書き込むためにはFileWriterクラスの2つ目の引数にtrueを追加します。<br><br>
+<pre class="prettyprint linenums">
+File file = new File(file_name);
+FileWriter　filewriter = new FileWriter(file, true);
+</pre>
+<b>例：</b>[JSample17_7.java]<br>
+<pre class="prettyprint linenums">
+package Jsample;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+public class JSample18_2 {
+    public static void main(String args[]) throws IOException {
+
+        File file = new File("C:\\test.txt");
+        FileWriter filewriter = new FileWriter(file, true);
+        filewriter.write("こんにちは");
+        filewriter.close();
+    }
+}
+</pre>
+追加で書き込む設定でファイルが存在しない場合には、新しくファイルが作成されます。<br>
+
+</p><br>
+    </div>
 </div><!--article-container-->
    
 

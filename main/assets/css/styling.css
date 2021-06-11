@@ -104,7 +104,7 @@ img {
   box-shadow:0 0 0 .15rem rgba(230, 220, 195)}
 
 /* return button */
-.return-btn{padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;text-decoration:none!important;}
+.return-btn{margin:0px 50px 0px 00px ;padding: 3px 20px 3px 20px;font-size:20px; height:40px;width:90px;border-radius: 6px;text-decoration:none!important;}
 .btn-info{color:black;background-color:#110d1080;border-color:#110d10;box-shadow:0 0 0 .15rem rgba(148, 154, 161)}
 .btn-info:hover{color:black;background-color:#3d4d4c80;outline: none;box-shadow:0 0 0 .15rem rgba(0,0,0)}
 .btn-info.disabled,.btn-info:disabled{color:#fff;background-color:#000000;border-color:#000000}

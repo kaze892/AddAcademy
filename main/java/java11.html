@@ -5,528 +5,548 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/styling.css">
     <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="shortcut icon" href="../assets/img/demo/home_icon.png">
+    <link rel="shortcut icon" href="../assets/img/logo.png">
     <link rel="stylesheet" href="../assets/css/plugins.min.css">
-    <title>第9章　クラスとインスタンス</title>
+    <title>クラスの継承</title>
 </head>
 <body>
 
 
     <div class="ms-hero-page ms-hero-img-headbg ms-hero-bg-primary mb-6">
         <div class="container">
-            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/demo/home_icon.png" alt=""></a>
+            <a class="home_icon" href="../main-index.html"><img style="height: 60px;"src="../assets/img/logo.png" alt=""></a>
             <div class="text-center">
-      			<h1 class="head1 animated zoomInDown animation-delay-5">第11章　メンバ変数とメンバメソッド</h1>
-     			<p class="head2 animated fadeInUp animation-delay-7">メンバ変数とメンバメソッドに関する基本的な考え方について説明します。</p>
-                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="../java/java-index.html" >HOMEPAGE</a>
+                <h1 class="head1 animated zoomInDown animation-delay-5">第11章　クラスの継承</h1>
+                <p class="head2 animated fadeInUp animation-delay-7">この章では継承に関する基本的な考え方について説明します 。</p>
+                <a class="home-btn btn-raised btn-warning animated zoomInDown animation-delay-20;"href="java-index.html" >HOMEPAGE</a>
                     <label id="switch" class="switch animated fadeInDownBig">
-                         <input type="checkbox" onchange="toggleTheme()" id="slider">
-                            <span class="slider round"></span>
-                     </label>
+                        <input type="checkbox" onchange="toggleTheme()" id="slider">
+                        <span class="slider round"></span>
+                    </label>  
             </div>
         </div>
     </div><br>
-                    
+                
 <!--article-container-->
 <div class="article-container animated fadeInLeft animation-delay-15" style="margin: 0 auto; max-width: 1024px;">
 
 
+    <!--クラスの継承-->
+    <h1 class="article-container animated bounceInRight animation-delay-20">クラスの継承</h1>
+    <hr style="height:0.5px;background-color:#878c91;">
 
 
-     
-<!--メンバ変数とメンバメソッド-->
-<h1 class="article-container animated bounceInRight animation-delay-20">メンバ変数とメンバメソッド</h1>
-<hr style="height:0.5px;background-color:#878c91;">
-
-<h2 style="font-weight: 400;">メンバ変数</h2>
-<!--1.メンバ変数とは-->
-<button type="button" class="collapsible">1.メンバ変数とは</button>
+<!--開発ツールEclipse-->
+<button type="button" class="collapsible">クラスの継承とは</button>
 <div class="collapse-content">
-	<p>クラスは「メンバ変数」と「メンバメソッド」の要素で構成されています。<br>
-		メンバ変数とは、クラス内に直接書かれる変数のことで、クラス内のメソッドから参照可能な変数で、フィールド変数またはフィールドと呼ばれます。<br>
-		<br><br>
+    <p>クラスの継承とは、クラスが保持しているメンバやメソッドの内容を他のクラスで継承することを指します。<br><br>
 
-		以下の例では、2行目の「int channelNo;」がメンバ変数です。<br>
-		<br>
-	[Television.java]<br>
+継承元のクラスのことを「スーパークラス」「親クラス」などと呼び、継承したクラスのことを「サブクラス」「子クラス」などと呼びます。親クラスを継承するためにはextendsを指定します。
 <pre class="prettyprint linenums">
-class Television{
-	int channelNo;
-	
-	void setChannel(int newChannelNo){
-		channelNo = newChannelNo;
-	}
-	
-	void dispChannel(){
-		System.out.println("現在のチャンネルは " + channelNo + " です");
-	}
-}</pre>
-	</p>
-</div>	
-	
-	
-	
+class 親クラス名 {
+    親クラスのメンバ変数;
+    親クラスのメソッド;
+}
+</pre>
+<pre class="prettyprint linenums">
+class 子クラス名 extends 親クラス名 {
+    super.親クラスのメンバ変数;
+    super.親クラスのメソッド;
+}
+</pre>
+<b>※「super.」</b>は省略可。
+但し、子クラスに親クラスと同じ名前のメンバ変数やメソッドがある場合は、明示的に「super.」を付加しないと自クラス（子クラス）のものが使用されます。
+    </p><br>
+</div><br>
 
-	
-<!--1-1.メンバ変数の定義-->
-<button type="button" class="collapsible">1-1.メンバ変数の定義</button>
+
+    
+
+<!--1.継承とコンポジション-->
+<h2 style="font-weight: 400;">継承クラスの種類</h2>
+<button type="button" class="collapsible">1.継承とコンポジション</button>
 <div class="collapse-content">
-	<p>
-	メンバ変数の定義は以下のように宣言します。<br>
-<pre class="prettyprint linenums">
-[修飾子] データ型 変数名;</pre>
-	<br>
-	例：<br>
-<pre class="prettyprint linenums">
-private int number;
-pribate Stirng name;
-private int price;
-private boolean stock;</pre>
-	メンバ変数は、int、doubleなどの基本型だけでなく、クラス型、配列型の変数も定義できます。<br>
-また、メンバ変数はオブジェクトの内部情報のため、[private]<font color="red">(※1)</font>をつけて非公開にします。<br>
-<br>
-<font color="red">(※1)</font>[private]は「宣言したクラスの中でだけしようできる」という意味の<b style="color:#e7bd42">アクセス修飾子</b>です。アクセス修飾子については次の第9章で学習します。<br>
-	</p>
-	</div>
-	
-	
-	
-	
-	
-	
-<!--1-2.メンバ変数に値を格納する-->
-<button type="button" class="collapsible">1-2.メンバ変数に値を格納する</button>
-<div class="collapse-content">
-<p>メンバ変数が定義されている同じクラスの中で値を格納する場合は普通の変数と同じように扱うことができます。<br>
-以下の例では4行目の「setChannel」メソッドでほかの変数の値を格納していますが、<br>
-channelNo = 1;<br>
-のように値を格納することができます。<br>
-<br>
-[Tv.java]<br>
-<pre class="prettyprint linenums">
-public class Tv{
-	int channelNo;
-	
-	void setChannel(int newChannelNo){
-		this.channelNo = newChannelNo;
-	}
-	
-	void dispChannel(){
-		System.out.println("現在のチャンネルは " + channelNo + " です");
-	}
-}</pre>
-	<br>
-	また5行目の部分の変数の記述は、メンバ変数が定義された同じクラス内の場合、「this」を省略して書くことが可能です。<br>
-<br>
-さらに、メンバ変数が定義されているクラスのオブジェクトを使って値を格納することも可能です。<br>
-<br>
-	[Channeltest.java]<br>
-<pre class="prettyprint linenums">
-public class Channeltest{
-	public static void main(String args[]){
-		Television tv1 = new Television();
-		tv1.channelNo = 1;
-		tv1.dispChannel();
-	}
-}</pre>
-<br>
-	この[Channeltest]クラスでは、3行目で[Television]クラスをもとに[tv1]というオブジェクトを作り、そのオブジェクトを使ってメンバ変数に値を格納しています。<br>
-4行目のように<b style="color:#e7bd42">「オブジェクト名.メンバ変数名 = 値;」</b>と記述して、値を格納します。<br>
-	</p>
-</div>
-	
-	
-	
-	
-	
-<!--1-3.メンバ変数とローカル変数の違い-->
-<button type="button" class="collapsible">1-3.メンバ変数とローカル変数の違い</button>
-<div class="collapse-content">
-<p>ローカル変数とは、メソッド内で定義される変数のことです。<br>
-このローカル変数の<b>有効範囲(スコープ)</b>はメソッド内だけになるため、別のメソッドからアクセスすることはできません。<br>
-また、同じスコープ内で同じ名前のローカル変数を定義することはできません。<br>
-	<br>
-	[JSample.java]<br>
-<pre class="prettyprint linenums">
-public class JSample{
-	int memberVar = 10;
-	
-	void methodA() {
-		int localVarA = 20;
-		System.out.println("メンバ変数(memberVar)：" + this.memberVar);
-		System.out.println("ローカル変数(localVarA)：" + localVarA);
-	}
-	
-	void methodB(){
-		int localVarB = 30;
-	}
-}</pre>
-	<br>
-	メンバ変数は2行目で宣言されている[int memberVar]。<br>
-ローカル変数は、5行目で「methodA」メソッド内に宣言されている[localVarA]と<br>
-11行目で「methodB」メソッド内に宣言されている[localVarB]です。<br>
-5行目の[memberVar]の出力は、メンバ変数なのでmethodAから参照可能となります。<br>
-<br>
-もし仮に、6行目が以下のように書かれていた場合、[localVarB]は「methodA」内(4～8行目)に定義したローカル変数ではないのでmethodAから参照不可となります。<br>
-System.out.println("ローカル変数(localVarB)：" + localVarB);<br>
-	</p>
-</div>
-<br>
+    <p>他のクラスの要素を利用できる方法として、「継承」の他に「コンポジション」（集約）があります。
+    <ul>
+        <li><b>継承</b>
+            <ul>
+                <li>「継承」は「A is a B」のとき、つまり「AはBである」といえる場合に使用します。
+                <li>「人間クラス」と「プログラマークラス」があった場合、「プログラマーは人間である」といえるので「継承」関係にすることが出来ます。これを「Is-a」関係と呼びます。  
+            </ul>
+    </ul> 
 
+    <ul>
+        <li><b>コンポジション</b>
+            <ul>
+                <li>「コンポジション」は「A has a B」のとき、つまり「AはBをもっている」といえる場合に使用します。
+                <li>「プログラマークラス」と「パソコンクラス」があった場合、「プログラマーはパソコンをもっている」といえるので「コンポジション」関係にすることが出来ます。これを「has-a」関係と呼びます。
+            </ul>
+    </ul> 
 
-
-
-
-<!--2.メンバメソッドとは-->
-<h2 style="font-weight: 400;">メンバメソッド</h2>
-<button type="button" class="collapsible">2.メンバメソッドとは</button>
-<div class="collapse-content">
-<p>メンバメソッドとは、クラスの中で定義されているメソッドのことで、そのクラスの中で何かの動作をするためのものです。<br>
-メソッドを呼び出すときに引数を指定したり、メソッドからの戻り値を設定することもできます。<br>
-</p>
-</div>
-	
-	
-	
-
-
-
-<!--2-1.メソッドの定義-->
-<button type="button" class="collapsible">2-1.メソッドの定義</button>
-<div class="collapse-content">
-	<p><pre class="prettyprint linenums">
-[修飾子] 戻り値のデータ型 メソッド名(引数1, 引数2, ....){
-}</pre>
-	<br>
-	何も値を返さない場合は、戻り値のデータ型にvoid型を指定するという決まりになっています。そのため戻り値を返さない場合は、戻り値のデータ型を「void」と記述して下さい。<br>
-<br>
-<b>例</b><br>
-[JSample11_1.java]<br>
+<b>例：</b>[JSample11_1.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-public class JSample11_1{
-	public static void main(String[] args){
-		departure();
-		arrive();
-		annouce();
-	}
-	private static void departure() {
-		System.out.println("出発します。");
-	}
-	private static void arrive() {
-		System.out.println("到着します。");
-	}
-	private static void annouce() {
-		departure();
-		arrive();
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	出発します。<br>
-到着します。<br>
-出発します。<br>
-到着します。<br>
-	</p>
+class Animal {
+      public void meow(){
+        System.out.println("ニャー");
+      }
+    }
+
+    class Name {
+      public void printName(){
+        System.out.println("タマネギ");
+      }
+    }
+
+    class Cat extends Animal {
+      public Name catName = new Name();
+    }
+
+    public class JSample11_1 {
+      public static void main(String[] args) {
+        Cat neko = new Cat();
+        neko.meow();
+        neko.catName.printName();
+      }
+    }
+</pre>
+    <b>実行結果</b><br>
+ニャー<br>
+タマネギ<br>
+    </p><br>
 </div>
-	
 
 
 
-
-<!--2-2.メソッドの呼び出し-->
-<button type="button" class="collapsible">2-2.メソッドの呼び出し</button>
+<!--2.コンストラクタ-->
+<button type="button" class="collapsible">2.コンストラクタ</button>
 <div class="collapse-content">
-<p>
-メンバメソッドの呼び出し方は、メンバ変数の場合と同様に、同じクラス内から呼び出す場合は「this.メンバメソッド名(引数)」と記述し、<br>
-メンバメソッドが定義されているクラスの外からオブジェクトを使って呼び出す場合には「オブジェクト名.メンバメソッド名(引数)」の形式で呼び出します。<br>
-<br>
-下記の例に、mainメソッドで、 myMethod()メソッドを呼び出します。<br>
-<br>
-<b>例</b><br>
-[JSample11_2.java]<br>
+    <p>「親クラス」と「子クラス」のコンストラクタは次の規則で呼び出されます。
+        <ul>
+            <li>「子クラス」のインスタンス生成時、まず「親クラス」のコンストラクタが呼ばれ、その後「子クラス」のコンストラクタが呼ばれる。
+            <li>「親クラス」の呼ばれるコンストラクタは、引数がない「コンストラクタ名()」が呼び出される
+            <li>もし、「親クラス」に引数があるコンストラクタしかない場合は、「親クラス」に引数なしのコンストラクタを作成して、そこから引数有りのコンストラクタを呼び出すようにするか、または「子クラス」から「super(引数リスト);」で明示的に呼び出す必要があります。   
+        </ul>
+<b>例：</b>[JSample11_2.java]<br>    
 <pre class="prettyprint linenums">
 package JSample;
-
+class Oya {
+    public String parentStr = "親クラスのメンバ変数が参照されました。";
+    public Oya() {
+        System.out.println("親クラスのコンストラクタ（引数なし）が呼ばれました。");
+    }
+    public void oyaMethod() {
+        System.out.println("親クラスのメソッドが呼ばれました。");
+    }
+}
+class Kodomo extends Oya { // 親クラスを継承。
+    public String childStr = "子クラスのメンバ変数が参照されました。";
+    public Kodomo() {
+        System.out.println("自クラスのコンストラクタ（引数なし）が呼ばれました。");
+    }
+    public void childMethod() {
+        System.out.println("子クラスのメソッドが呼ばれました。");
+    }
+}
 public class JSample11_2 {
-	static void myMethod() {
-		System.out.println("Hello World");
-	}
-	
-	public static void main(String[] args) {
-		myMethod();
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	Hello World<br>
-</p>
+    public static void main(String[] args) {
+        Kodomo child = new Kodomo(); // 子クラスのインスタンスを生成。
+        System.out.println(child.parentStr); // 親クラスのメンバ変数を参照。
+        System.out.println(child.childStr); // 子クラスのメンバ変数を参照。
+        child.oyaMethod(); // 親クラスのメソッドの呼び出し。
+        child.childMethod(); // 子クラスのメソッドの呼び出し。
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+親クラスのコンストラクタ（引数なし）が呼ばれました。<font color="color:red">← 子クラスのインスタンス生成時に親クラスのコンストラクタが先に呼ばれる。</font><br>
+自クラスのコンストラクタ（引数なし）が呼ばれました。<br>
+親クラスのメンバ変数が参照されました。<font color="color:red">← 子クラスから親クラスのメンバ変数を参照できている。</font><br>
+子クラスのメンバ変数が参照されました。<br>
+親クラスのメソッドが呼ばれました。<font color="color:red">← 子クラスから親クラスのメソッドを呼び出せている。</font><br>
+子クラスのメソッドが呼ばれました。<br>
+
+
+    </p><br>
 </div>
-<br>
 
 
 
-
-<!--3-1.引数を使ってメソッドに値を渡す-->
-<h2 style="font-weight: 400;">引数とreturn文</h2>
-<button type="button" class="collapsible">3-1.引数を使ってメソッドに値を渡す</button>
+<!--3.this-->
+<button type="button" class="collapsible">3.this</button>
 <div class="collapse-content">
-	<p>メソッドを呼び出す時に呼び出し元から値をメソッドに渡すことができます。<br>
-		<br>
-		<b>例</b><br>
-		[JSample11_3.java]<br>
+    <p>thisとは、呼び出されたコンストラクタやメソッドのオブジェクトを参照するために使われる予約語である。<br>
+    thisを使ってメソッドの引数になっているローカル変数と、メンバ変数を区別することができます。<br><br>
+<b>例：</b>[JSample11_3.java]<br>     
 <pre class="prettyprint linenums">
-package JSample;
+class Animal {
+    private String name = "タマネギ";
 
+    public void printName(String name){
+        System.out.println("ローカル変数 = " + name);
+        System.out.println("メンバ変数 = " + this.name); 
+    }
+}
+ 
 public class JSample11_3 {
-	public static void main(String[] args) {
-		int english = 58;
-		check ("英語", english);
-	}
-	
-	private static void check(String language, int score) {
-		System.out.print("この応募者の" + language + "能力は");
-		if (score > 70) {
-			 System.out.println("ビジネスレベルです。");
-		} else {
-			 System.out.println("日常会話レベルです。");
-		}
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	この応募者の英語能力は日常会話レベルです。<br>
-	<br><br>
-	この例では、6行目で「check」メソッドを呼び出しています。<br>
-「check」メソッドは9～16行目で、「string型」の「"英語"」という値を[String language]に、
-「int型」の「english」という値を[int score]にそれぞれ渡し、処理が行われます。<br>
-この場合、[score]に渡された[english]という変数には「58」という値が代入されていたため、if文関係式のfalseとなり、戻り値は「日常会話レベルです。」になります。<br>
-	</p>
+    public static void main(String[] args) {
+        String name = "ナス";
+        Animal neko = new Animal();
+        
+        neko.printName(name);
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+     ローカル変数 = ナス<br>
+     メンバ変数 = タマネギ<br>
+    </p><br>
 </div>
 
 
 
-
-	
-<!--3-2.return文-->
-<button type="button" class="collapsible">3-2.return文</button>
+<!--4.super-->
+<button type="button" class="collapsible">4.super</button>
 <div class="collapse-content">
-<p>
-return文は、メソッドを終了するとともに、戻り値を指定する働きがあります。<br>
-下の例１では、10行目でreturn文が使用されています。ここで「multiply」メソッドを終了し、[n * 2]を戻り値として返しています。<br>
-<br>
-ソッドから呼び出し元に値を返す場合。<br>
-<b>例1</b><br>
-[JSample11_4.java]<br>
+    <p>superとは、Javaにおけるサブクラスでオーバーライド（親クラスのメソッドを子クラスで継承）された変数やインスタンスを参照する場合に使用されます。<br><br>
+
+つまり、子クラスのインスタンス（new [クラス名()]で作られたクラスの実体のこと）から、親クラスのインスタンスのメンバにアクセスして、値を参照する必要があるときにsuperが使用されます。<br><br>
+<b>例：</b>[JSample11_4.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
+class SuperClass {
+    String str = "SuperClass";
+    public String getStr() {
+        return str;
+    }
+}
+class SubClass extends SuperClass {
+    String str = "SubClass";
+    public String getStr() {
+        return str;
+    }
+    public void print() {
+        System.out.println("str = " + str);
+        System.out.println("getStr() = " + getStr());
+        System.out.println("super.str = " + super.str);
+        System.out.println("super.getStr() = " + super.getStr());
 
+    }
+}
 public class JSample11_4 {
-	public static void main(String[] args) {
-		int result;
-		result = multiply(5);
-		System.out.println(result);
-	}
-	private static int multiply(int n) {
-		return n * 2;
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	10<br>
-	<br>
-	この例では、6行目で[result]という変数に、「multiply」メソッドに「5」という値を渡した結果の戻り値を返すという指示を与えています。<br>
-<br>
-6行目で指定したint型の「5」という値は、multiplyメソッドの「int n」に代入されます。multiplyメソッドでは、そのnの値を2倍し(10行目)、その値を返し、6行目の[result]という変数に代入します。<br>
+    public static void main(String[] args) {
+        SubClass sc = new SubClass();
+        sc.print();
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+str = SubClass<br>
+getStr() = SubClass<br>  
+super.str = SuperClass<br>
+super.getStr() = SuperClass<br>
+ 
+    </p><br>
+</div>
 
-<hr style="height: 0.5px;background-color: grey; ">
-return文がメソッドの中で実行されると、それ以降の処理を実行せずに呼び出し元へ処理を移すことができます。<br>
-<br>
-<b>例２</b><br>
-[JSample11_5.java]<br>
+
+
+<!--5.メソッドのオーバーライド-->
+<button type="button" class="collapsible">5.メソッドのオーバーライド</button>
+<div class="collapse-content">
+    <p>クラスを継承した時に元になっているスーパークラスで定義されているメソッドを継承したサブクラスにて同じメソッド名(と同じ引数)で書き換えることが出来ます。つまり上書きするということです。これをメソッドのオーバーライドと言います。<br> <br> 
+
+具体的な例で考えてみます。スーパークラスとしてクラスSuperClassを用意し、クラスSuperClassを継承したクラスSubClass1、クラスSubClass2があったとします。スーパークラスであるクラスAには「show」というメソッドが定義されています。ここでクラスB1で「show」というメソッドをオーバーライドしてみます。<br><br>
+<b>例：</b>[JSample11_5.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-
-public class JSample11_5 {
-	public static void main(String[] args) {
-		int data[];
-		test(15, 4);
-		test(7, 0);
-	}
-	
-	private static void test(int n1, int n2) {
-		if (n2 == 0) {
-			System.out.println("0で割ることはできません");
-			return;
-		}
-		System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
-		return;
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	15 / 4 = 3<br>
-0で割ることはできません<br>
-<br>
-この例では「test」メソッドを、6行目の「(15, 4)」と7行目の「(7, 0)」の値で利用しています。<br>
-「(15, 4)」の値で「test」メソッドを実行した際、[n2]には[4]が入るため、10行目のif文の関係式には該当せず、if文のブロックの処理は行われず(10～13行目)、15行目の出力処理が行われます。
-そのため実行結果の1行目のように出力されます。<br>
-<br>
-次に「(7, 0)」の値で「test」メソッドが実行され、10行目のif文の関係式に該当するため、if文のブロックの処理が行われます(10～13行目)。<br>
-このとき13行目の[return]でメソッドを終了し値が返されるため、15行目以降の処理はされ、ません。
-したがって実行結果の2行目のように出力されます。<br>
-<br>
-</p>
-</div>
-<br>
-
-
-
-
-<!--4.コンストラクタ-->
-<h2 style="font-weight: 400;">コンストラクタ</h2>
-<button type="button" class="collapsible">4.コンストラクタとは</button>
-<div class="collapse-content">
-<p>
-コンストラクタとは、クラスのインスタンス生成時に実行されるメソッドで、主にそのクラスの<b>メンバ変数を初期化する</b>ときに使用し、インスタンス生成時、必ず最初に呼び出されます。<br>
-以下の例では3～5行目までがコンストラクタにあたります。<br>
-<pre class="prettyprint linenums">
-public class Calculate {
-	private double tax;
-	public Calculate (double x) {
-		this.tax = x;
-	}
-	----- その他の処理 -----
-}</pre>
-	</p>
+class SuperClass {
+    public void show() {
+        System.out.println("SuperClassのprint メソッド!");
+    }
+}
+class SubClass1 extends SuperClass {
+    public void show() {
+        System.out.println("SubClassのprint メソッド!");
+    }
+}
+class SubClass2 extends SuperClass {
+}
+class JSample11_5 {
+    public static void main(String args[]) {
+        B1 subc1 = new SubClass1();
+        subc1.show();
+        B2 subc2 = new SubClass2();
+        subc1.show();
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+SubClassのprint メソッド!<br>
+SuperClassのprint メソッド!<br>   
+    </p><br>
 </div>
 
 
 
-
-
-<!--4-1.コンストラクタの定義-->
-<button type="button" class="collapsible">4-1.コンストラクタの定義</button>
+<!--6.メソッドのオーバーロード-->
+<button type="button" class="collapsible">6.メソッドのオーバーロード</button>
 <div class="collapse-content">
-<p>コンストラクタの定義は下記のように宣言します。<br>
-コンストラクタ名はクラス名と同じにします。<br>
-<br>
-<pre class="prettyprint linenums">
-[アクセス修飾子]　コンストラクタ名　(引数型 引数名)</pre>
-	</p>
-</div>
+    <p>メソッドを引数を付けて呼び出す時、引数に記述する値のデータ型はメソッドで決められたものしか指定できません。その為、同じような機能を持つメソッドであっても引数のデータ型が異なれば別々のメソッドを用意する必要があります。<br><br> 
 
-
-
-
-<!--4-2.複数のコンストラクタ-->
-<button type="button" class="collapsible">4-2.複数のコンストラクタ</button>
-<div class="collapse-content">
-<p>コンストラクタは、引数の型や引数の数を変更することで1つのクラス内に複数宣言することができます。<br>
-具体的には、コンストラクタ内でいくつかのメンバ変数を初期化する際、<br>
-指定する初期値がある場合は指定し<br>
-指定する初期値がない場合はデフォルト値を指定する<br>
-というように、初期化処理を使い分けたい場合にコンストラクタを複数宣言します。<br>
-どのコンストラクタが呼び出されるかは呼び出し元の引数の型、引数の数により決定されます。<br>
-<br>
-	<b>例</b><br>
-[SetNumber.java]<br>
+Javaでは引数のデータ型や引数の数が完全に一致していなければ異なるメソッドに同じメソッド名を付けることが出来ます。<br><br>
+<b>例：</b>[JSample11_6.java]<br> 
 <pre class="prettyprint linenums">
 package JSample;
-
-public class SetAmount {
-	private int normalPrice;
-	private int inflatedPrice;
-	
-	public SetAmount(int amt) {
-		this.normalPrice = 100;
-		this.inflatedPrice = amt;
-	}
-	
-	public SetAmount() {
-		this.normalPrice = 100;
-		this.inflatedPrice = 200;
-	}
-	
-	public static void main(String[] args) {
-		SetAmount productA = new SetAmount();
-		System.out.println("productAのSetAmount()で基本金額は" + productA.normalPrice+"円です");
-		System.out.println("productAのSetAmount()で値上げ金額は" + productA. inflatedPrice+"円です");
-		
-		SetAmount productB = new SetAmount(1000);
-		System.out.println("productBのSetAmount(1000)で基本金額は" + productB. normalPrice +"円です");
-		System.out.println("productBのSetAmount(1000)で値上げ金額は" + productB. inflatedPrice +"円です");
-		
-	}
-}</pre>
-	<br>
-	<b>実行結果</b><br>
-	productAのSetAmount()で基本金額は100円です<br>
-productAのSetNumber()で値上げ金額は200円です<br>
-productBのSetNumber(100)で基本金額は100円です<br>
-productBのSetNumber(100)で値上げ金額は1000円です<br>
-<br>
-上記の例では、引数を持つコンストラクタ(7～10行目)と、引数を持たないコンストラクタ(12～15行目)の2つのコンストラクタが宣言されています。<Br>
-18行目は、引数を指定していないため、12～15行目の引数を持たないコンストラクタが呼び出され、実行結果の1～2行目のように初期値が設定されます。<br>
-22行目は、int型の引数を1つ指定しているため、7～10行目のコンストラクタが呼び出され、実行結果の3～4行目のように初期値が設定されます。<br>
-	</p>
+class JSample11_6 {
+    public static void main(String args[]) {
+        System.out.println(plus(10, 7));
+        System.out.println(plus(3.2, 4));
+        System.out.println(plus(7, 1.223));
+        System.out.println(plus(5.08, 2.4));
+    }
+    private static int plus(int n1, int n2) {
+        System.out.println("int + int");
+        return n1 + n2;
+    }
+    private static double plus(int n1, double d1) {
+        System.out.println("int + double");
+        return n1 + d1;
+    }
+    private static double plus(double d1, int n1) {
+        System.out.println("double + int");
+        return n1 + d1;
+    }
+    private static double plus(double d1, double d2) {
+        System.out.println("double + double");
+        return d1 + d2;
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+int + int<br>
+17
+double + int<br>
+7.2<br>
+int + double<br>
+8.223<br>
+double + double<br>
+7.48<br>   
+    </p><br>
 </div>
-<br>
 
 
 
-<!--練習-->
+
+
+<!--7.final修飾子-->
+<button type="button" class="collapsible">7.final修飾子</button>
+<div class="collapse-content">
+    <p>final修飾子はクラス、メソッド、変数の不変性を示して、対象の予期せぬ変更を防ぐために用います。<br>
+    一度しか値を代入することができない変数を定数になったため、再代入が禁止になります。<br><br>
+        <ul>
+            <li><b>final変数</b>
+        </ul>
+<pre class="prettyprint linenums">
+class MyClass {
+  void myMethod() {
+    final int a = 0;
+    a = 1;
+  }
+}
+</pre>
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j11/j11-01.png" alt="pic here "><br><br>
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+    <ul>
+        <li><b>finalクラス</b>
+    </ul>
+    クラスにfinalを付ける宣言することができる。そうすると、クラスを継承することができなくなる。<br>
+
+    extendsに続く部分にfinalクラスが書いてあると、コンパイルエラーになる。
+<pre class="prettyprint linenums">
+final class MyClass {
+}
+
+class MySubClass extends MyClass {
+}
+</pre> 
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j11/j11-02.png" alt="pic here "><br><br>
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+    <ul>
+        <li><b>finalメソッド</b>
+    </ul>
+    メソッドにfinalを付けて宣言することができますが、メソッドにfinalを付けると、サブクラスでメソッドをオーバーライドできなくなります。
+<pre class="prettyprint linenums">
+class MyClass {
+  final public void myMethod() {
+  }
+}
+
+class MySubClass extends MyClass {
+  public void myMethod() {
+  }
+}
+</pre> 
+エラーメッセージ：
+<img style="height: 25px"; src="../assets/img/j11/j11-03.png" alt="pic here "><br><br>
+
+
+
+<hr style="height:0.5px;background-color:#878c91;"><br>
+
+
+
+円周率は既に「Math.PI」として定義されているが，finalのサンプルとしてあえて定義を独自に行っています。<br>
+円周率や面積を求めるメソッドは，定理に従ったものなのでこれ以上の追加はないものとしてfinalを付けます。<br>
+
+<b>例：</b>[JSample11_7.java]<br> 
+<pre class="prettyprint linenums">
+package JSample;
+class Circle {
+    final double PI = 3.14159;//final変数PIの宣言、初期化
+    final double getAreaOfCircle(double radius) {//finalメソッド宣言
+        return PI * radius * radius;//円の面積
+    }
+}
+public class JSample11_7 {
+    public static void main(String[] args) {
+        Circle circle = new Circle();//Circleクラスのオブジェクト作成
+        double area = circle.getAreaOfCircle(2.0);//半径2.0の面積
+        System.out.println("area = " + area);
+    }
+}
+</pre>
+     <b>実行結果</b><br>
+area = 12.56636<br>
+</div><br>
+
+
+
+
+
+
 <h2 style="font-weight: 400;">練習</h2>
+<!--練習-->
 <button type="button" class="collapsible">問題１</button>
 <div class="collapse-content">
-<p>
-	<b>問題</b>[JEx11_1.java]<br>
-	Numberクラス(Number.java)を使用して、２つの整数を比較し最大値を取り出すプログラムを完成させなさい。<br>
-</p>
+    <p><b>問題</b>[JEx11_1]<br>
+    従業員の管理者を表すManagerクラスを、Employeeクラスを継承してプログラムを完成しなさい<br>
+
+[Employee.java]
 <pre class="prettyprint linenums">
-package JSample;
+public class Employee {
+    //処理
+}
+</pre>
 
-public class Num {
 
-	public int compare(int num1, int num2) {
-		//コード
-	}
-}</pre>
+[Manager.java]
 <pre class="prettyprint linenums">
-package JSample;
+public class Manager {
+    //処理
+}
+</pre>
 
-import java.util.Scanner;
 
+[JEx11_1.java]
+<pre class="prettyprint linenums">
 public class JEx11_1 {
-	public static void main(String[] args) {
-	
-		Scanner scan = new Scanner(System.in);
-		System.out.println("キーボードから数値1を入力してください。");
-		int num1 = scan.nextInt();
-		
-		System.out.println("キーボードから数値2を入力してください。");
-		int num2 = scan.nextInt();
-		
-		Num num = new Num();
-		int result = number.compare(num1, num2);
-		System.out.println(num1 + "と" + num2 + " 比較的な最大値は：" + result);
-	}
-}</pre>
+    public static void main(String[] args) {
+        Employee taro = new Employee();
+        sato.name = "佐藤";
+        suzuki.name = "鈴木";
 
+        Manager yamada = new Manager();
+        yamada.name = "山田";
+
+        //satoの持つoperationメソッドを呼び出します。
+        //suzukiの持つoperationメソッドを呼び出します。
+        //yamadaの持つoperationメソッドを呼び出します。
+        //yamadaの持つmanagementメソッドを呼び出します。
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+佐藤は通常業務を行ないます。<br>
+鈴木は通常業務を行ないます。<br>
+山田は通常業務を行ないます。<br>
+山田は管理業務を行ないます。<br>
+    </p><br>
 </div>
-	
-	
-	
-	
-<!--article-container--> 
 
-<!--back button-->
-<div class="text-center"><br>
-  <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a> </div>
-<br>
-<script src="../assets/js/collapse.js"></script> 
-<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>
+
+
+<button type="button" class="collapsible">問題２</button>
+<div class="collapse-content">
+    <p><b>問題</b>[JEx11_2]<br>
+    RPGに登場する魔法戦士を表すMagicFighterクラスを、Fighterクラスを継承して作成してプログラムを完成しなさい<br>
+[Fighter.java]
+<pre class="prettyprint linenums">
+public class Fighter {
+    //処理
+
+    public Fighter() {
+        //処理
+    }
+
+    public void attack() {
+        //処理
+    }
+}
+</pre>
+
+
+[MagicFighter.java]
+<pre class="prettyprint linenums">
+public class MagicFighter extends Fighter {
+    //処理
+
+    public MagicFighter() {
+        //処理
+    }
+
+    public void attack() {
+        //処理
+    }
+}
+</pre>
+
+[JEx11_2.java]
+<pre class="prettyprint linenums">
+public class JEx11_2 {
+    public static void main(String[] args) {
+        Fighter fighter = new Fighter();
+        fighter.attack();
+
+        MagicFighter magicFighter = new MagicFighter();
+        magicFighter.attack();
+    }
+}
+</pre>
+    <b>実行結果</b><br>
+戦士の攻撃!<br>
+敵に10のダメージ!!<br>
+魔法戦士の魔法攻撃!<br>
+敵に30のダメージ!<br>
+    </p><br>
+</div>
+
+
+    <!--article-container-->
+
+    <!--back button-->
+    <div class="text-center"><br>
+       <a href="#" onClick="javascript:history.back(-1);" class="return-btn btn-raised btn-info animated fadeIn animation-delay-30">戻る</a>
+    </div><br>
+
+<script src="../assets/js/collapse.js"></script>  
+<script src="../../cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"/></script>  
 <script src="../assets/js/darkmode.js"></script>
-
+  
 </body>
 </html>
