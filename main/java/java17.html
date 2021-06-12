@@ -152,7 +152,7 @@ a<br>
 
 
 <!--2.読み込みの事前確認-->
-<h2 style="font-weight: 400;">読み込みの事前確認</h2>
+<h2 style="font-weight: 400;">2.読み込みの事前確認</h2>
 <button type="button" class="collapsible">2.canReadメソッド</button>
 <div class="collapse-content">
     <p>Fileクラスのfile.existsメソッドを使用することでファイルの存在を確認することができます。<br>
@@ -209,8 +209,8 @@ public class JSample17_4 {
 
 
 
-<!--2.テキストの読み込み（BufferedReader偏）-->
-<h2 style="font-weight: 400;">2-テキストの読み込み（BufferedReader偏）</h2>
+<!--3.テキストの読み込み（BufferedReader偏）-->
+<h2 style="font-weight: 400;">3-テキストの読み込み（BufferedReader偏）</h2>
 <button type="button" class="collapsible">3-1.テキストファイルの入力</button>
 <div class="collapse-content">
     <p>FileReaderを使ってファイルを読み込む場合には、1文字読み込んでは1文字処理して、と言うのを繰り返すため、非常に効率が悪いです。その為、ある程度まとめて読み込んでから、まとめて処理するためのはBufferedReaderクラスです。 
@@ -221,7 +221,7 @@ FileReader filereader = new FileReader(file);
 BufferedReader br = new BufferedReader(filereader);
 </pre>
     </p><br>
-</div><br>
+</div>
 
 
 <!--3-1.テキストを1行単位で読む-->
@@ -257,7 +257,7 @@ public class JSample17_5 {
     <b>実行結果</b>(ファイル内容によって、結果が違います。)<br>
     abcde<br>
     </p><br>
-</div>
+</div><br>
 
 
 
@@ -343,7 +343,45 @@ public class JSample18_2 {
 追加で書き込む設定でファイルが存在しない場合には、新しくファイルが作成されます。<br>
 
 </p><br>
-    </div>
+    </div><br>
+
+
+
+    <h2 style="font-weight: 400;">練習</h2>
+    <!--練習-->
+    <button type="button" class="collapsible">問題１</button>
+    <div class="collapse-content">
+        <p><b>問題</b>[JEx17_1]<br>
+    writeメソッドを使用してCドライブのルートディレクトリに下記の文章を作成して、英単語の出現数をカウントしてください。<br><br>
+[brownfox.txt]<br>    
+<pre class="prettyprint linenums">
+Java is a high-level, class-based, object-oriented programming language
+that is designed to have as few implementation dependencies as possible.
+</pre>
+    <b>実行結果</b><br>
+Java 1<br>
+is 2<br>
+a 1<br>
+high-level, 1<br>
+class-based, 1<br>
+object-oriented 1<br>
+programming 1<br>
+language 1<br>
+that 1<br>
+designed 1<br>
+to 1<br>
+have 1<br>
+as 2<br>
+few 1<br>
+implementation 1<br>
+dependencies 1<br>
+possible. 1<br>
+</p>
+</div><br>
+
+
+
+
 </div><!--article-container-->
    
 

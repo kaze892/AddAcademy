@@ -51,15 +51,15 @@
 	[Television.java]<br>
 <pre class="prettyprint linenums">
 class Television{
-	int channelNo;
+   int channelNo;
 	
-	void setChannel(int newChannelNo){
-		channelNo = newChannelNo;
-	}
-	
-	void dispChannel(){
-		System.out.println("現在のチャンネルは " + channelNo + " です");
-	}
+   void setChannel(int newChannelNo){
+      channelNo = newChannelNo;
+   }
+
+   void dispChannel(){
+      System.out.println("現在のチャンネルは " + channelNo + " です");
+   }
 }</pre>
 	</p>
 </div>	
@@ -105,15 +105,15 @@ channelNo = 1;<br>
 [Tv.java]<br>
 <pre class="prettyprint linenums">
 public class Tv{
-	int channelNo;
+   int channelNo;
 	
-	void setChannel(int newChannelNo){
-		this.channelNo = newChannelNo;
-	}
+   void setChannel(int newChannelNo){
+      this.channelNo = newChannelNo;
+   }
 	
-	void dispChannel(){
-		System.out.println("現在のチャンネルは " + channelNo + " です");
-	}
+   void dispChannel(){
+      System.out.println("現在のチャンネルは " + channelNo + " です");
+   }
 }</pre>
 	<br>
 	また5行目の部分の変数の記述は、メンバ変数が定義された同じクラス内の場合、「this」を省略して書くことが可能です。<br>
@@ -123,11 +123,11 @@ public class Tv{
 	[Channeltest.java]<br>
 <pre class="prettyprint linenums">
 public class Channeltest{
-	public static void main(String args[]){
-		Television tv1 = new Television();
-		tv1.channelNo = 1;
-		tv1.dispChannel();
-	}
+   public static void main(String args[]){
+      Television tv1 = new Television();
+      tv1.channelNo = 1;
+      tv1.dispChannel();
+      }
 }</pre>
 <br>
 	この[Channeltest]クラスでは、3行目で[Television]クラスをもとに[tv1]というオブジェクトを作り、そのオブジェクトを使ってメンバ変数に値を格納しています。<br>
@@ -149,17 +149,17 @@ public class Channeltest{
 	[JSample.java]<br>
 <pre class="prettyprint linenums">
 public class JSample{
-	int memberVar = 10;
+   int memberVar = 10;
 	
-	void methodA() {
-		int localVarA = 20;
-		System.out.println("メンバ変数(memberVar)：" + this.memberVar);
-		System.out.println("ローカル変数(localVarA)：" + localVarA);
-	}
+   void methodA() {
+      int localVarA = 20;
+      System.out.println("メンバ変数(memberVar)：" + this.memberVar);
+      System.out.println("ローカル変数(localVarA)：" + localVarA);
+   }
 	
-	void methodB(){
-		int localVarB = 30;
-	}
+   void methodB(){
+      int localVarB = 30;
+   }
 }</pre>
 	<br>
 	メンバ変数は2行目で宣言されている[int memberVar]。<br>
@@ -205,21 +205,21 @@ System.out.println("ローカル変数(localVarB)：" + localVarB);<br>
 <pre class="prettyprint linenums">
 package JSample;
 public class JSample8_1{
-	public static void main(String[] args){
-		departure();
-		arrive();
-		annouce();
-	}
-	private static void departure() {
-		System.out.println("出発します。");
-	}
-	private static void arrive() {
-		System.out.println("到着します。");
-	}
-	private static void annouce() {
-		departure();
-		arrive();
-	}
+   public static void main(String[] args){
+      departure();
+      arrive();
+      annouce();
+   }
+   private static void departure() {
+      System.out.println("出発します。");
+   }
+   private static void arrive() {
+      System.out.println("到着します。");
+   }
+   private static void annouce() {
+      departure();
+      arrive();
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -249,13 +249,13 @@ public class JSample8_1{
 package JSample;
 
 public class JSample8_2 {
-	static void myMethod() {
-		System.out.println("Hello World");
-	}
+   static void myMethod() {
+   System.out.println("Hello World");
+   }
 	
-	public static void main(String[] args) {
-		myMethod();
-	}
+   public static void main(String[] args) {
+      myMethod();
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -279,19 +279,19 @@ public class JSample8_2 {
 package JSample;
 
 public class JSample8_3 {
-	public static void main(String[] args) {
-		int english = 58;
-		check ("英語", english);
-	}
+   public static void main(String[] args) {
+      int english = 58;
+      check ("英語", english);
+   }
 	
-	private static void check(String language, int score) {
-		System.out.print("この応募者の" + language + "能力は");
-		if (score > 70) {
-			 System.out.println("ビジネスレベルです。");
-		} else {
-			 System.out.println("日常会話レベルです。");
-		}
-	}
+   private static void check(String language, int score) {
+   System.out.print("この応募者の" + language + "能力は");
+      if (score > 70) {
+         System.out.println("ビジネスレベルです。");
+      } else {
+         System.out.println("日常会話レベルです。");
+      }
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -322,14 +322,14 @@ return文は、メソッドを終了するとともに、戻り値を指定す�
 package JSample;
 
 public class JSample8_4 {
-	public static void main(String[] args) {
-		int result;
-		result = multiply(5);
-		System.out.println(result);
-	}
-	private static int multiply(int n) {
-		return n * 2;
-	}
+   public static void main(String[] args) {
+      int result;
+      result = multiply(5);
+      System.out.println(result);
+   }
+   private static int multiply(int n) {
+      return n * 2;
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -348,20 +348,20 @@ return文がメソッドの中で実行されると、それ以降の処理を�
 package JSample;
 
 public class JSample8_5 {
-	public static void main(String[] args) {
-		int data[];
-		test(15, 4);
-		test(7, 0);
-	}
+   public static void main(String[] args) {
+      int data[];
+      test(15, 4);
+      test(7, 0);
+      }
 	
-	private static void test(int n1, int n2) {
-		if (n2 == 0) {
-			System.out.println("0で割ることはできません");
-			return;
-		}
-		System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
-		return;
-	}
+   private static void test(int n1, int n2) {
+      if (n2 == 0) {
+         System.out.println("0で割ることはできません");
+         return;
+      }
+      System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
+      return;
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -435,29 +435,29 @@ public class Calculate {
 package JSample;
 
 public class SetAmount {
-	private int normalPrice;
-	private int inflatedPrice;
+   private int normalPrice;
+   private int inflatedPrice;
 	
-	public SetAmount(int amt) {
-		this.normalPrice = 100;
-		this.inflatedPrice = amt;
-	}
+   public SetAmount(int amt) {
+      this.normalPrice = 100;
+      this.inflatedPrice = amt;
+   }
 	
-	public SetAmount() {
-		this.normalPrice = 100;
-		this.inflatedPrice = 200;
-	}
+   public SetAmount() {
+      this.normalPrice = 100;
+      this.inflatedPrice = 200;
+   }
 	
-	public static void main(String[] args) {
-		SetAmount productA = new SetAmount();
-		System.out.println("productAのSetAmount()で基本金額は" + productA.normalPrice+"円です");
-		System.out.println("productAのSetAmount()で値上げ金額は" + productA. inflatedPrice+"円です");
+   public static void main(String[] args) {
+      SetAmount productA = new SetAmount();
+      System.out.println("productAのSetAmount()で基本金額は" + productA.normalPrice+"円です");
+      System.out.println("productAのSetAmount()で値上げ金額は" + productA. inflatedPrice+"円です");
 		
-		SetAmount productB = new SetAmount(1000);
-		System.out.println("productBのSetAmount(1000)で基本金額は" + productB. normalPrice +"円です");
-		System.out.println("productBのSetAmount(1000)で値上げ金額は" + productB. inflatedPrice +"円です");
+      SetAmount productB = new SetAmount(1000);
+      System.out.println("productBのSetAmount(1000)で基本金額は" + productB. normalPrice +"円です");
+      System.out.println("productBのSetAmount(1000)で値上げ金額は" + productB. inflatedPrice +"円です");
 		
-	}
+   }
 }</pre>
 	<br>
 	<b>実行結果</b><br>
@@ -488,9 +488,9 @@ package JSample;
 
 public class Num {
 
-	public int compare(int num1, int num2) {
-		//コード
-	}
+   public int compare(int num1, int num2) {
+      //コード
+   }
 }</pre>
 <pre class="prettyprint linenums">
 package JSample;
