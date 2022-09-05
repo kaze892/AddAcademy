@@ -226,7 +226,7 @@ public class BikeGo implements ControlBikeIf {
     <button type="button" class="collapsible">問題１</button>
     <div class="collapse-content">
         <p><b>問題</b>[JEx12_1]<br>
-        従業員の管理者を表すManagerクラスを、Employeeクラスを継承してプログラムを完成しなさい<br>
+        SubClassをプリントするプログラムを2行で完成しなさい<br>
 
 <pre class="prettyprint linenums">        
 package JSample;
@@ -235,12 +235,12 @@ class SuperClass {
         System.out.println("This is SuperClass!");
     }
 }
-class SubC1ass extends SuperC {
+class SubClass1 extends SuperClass {
     public void superclass() {
         System.out.println("This is SubClass1!");
     }
 }
-class SubClass2 extends SuperC {
+class SubClass2 extends SuperClass {
     public void superclass() {
         System.out.println("This is SubClass2!");
     }
@@ -250,7 +250,8 @@ public class Ex12_1 {
         SuperClass a;
         
         //処理
-
+        ______①__________
+        ______②__________
         a = b;
         a.superclass();
         a = c;
